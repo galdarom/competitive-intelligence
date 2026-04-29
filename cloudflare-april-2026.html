@@ -327,6 +327,37 @@
         }
 
         /* CSS Bar Chart */
+        /* KPI cards */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, #fff5eb, #ffecd6);
+            border: 1px solid #f5c99a;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--cf-orange); }
+        .kpi-card .kpi-label { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
+        .kpi-card .kpi-delta { font-size: 0.72rem; margin-top: 0.3rem; }
+        .kpi-card .kpi-delta.up { color: var(--accent-green); }
+        .kpi-card .kpi-delta.down { color: var(--accent-red); }
+        .kpi-card .kpi-delta.flat { color: var(--accent-amber); }
+
+        .segment-bar { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 0.5rem 0; }
+        .segment-bar .seg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: white;
+        }
+
         .bar-chart { display: flex; flex-direction: column; gap: 0.6rem; }
         .bar-row { display: flex; align-items: center; gap: 0.6rem; }
         .bar-label {
@@ -465,6 +496,7 @@
             .hero h2 { font-size: 1.5rem; }
             .chart-row { grid-template-columns: 1fr; }
             .takeaway-grid { grid-template-columns: 1fr; }
+            .kpi-row { grid-template-columns: repeat(2, 1fr); }
             .section { padding: 1.2rem; }
             .site-header h1 { font-size: 1rem; }
             .toc a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
@@ -514,6 +546,7 @@
 <nav class="toc">
     <div class="container">
         <div class="toc-inner">
+            <a href="#snapshot">Snapshot</a>
             <a href="#news">1. News Table</a>
             <a href="#delta">2. Delta Analysis</a>
             <a href="#competitive">3. Competitive Comparison</a>
@@ -526,6 +559,79 @@
 
 <main>
 <div class="container">
+
+<!-- Cloudflare at a Glance -->
+<article class="section" id="snapshot">
+    <div class="section-header">
+        <div class="section-number" style="background:var(--cf-orange);">C</div>
+        <h2>Cloudflare at a Glance &mdash; FY2025</h2>
+    </div>
+
+    <div class="kpi-row">
+        <div class="kpi-card">
+            <div class="kpi-value">$2.17B</div>
+            <div class="kpi-label">FY2025 Revenue</div>
+            <div class="kpi-delta up">+29.8% YoY (33.6% Q4)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$196B</div>
+            <div class="kpi-label">Addressable Market (TAM)</div>
+            <div class="kpi-delta up">From $32B in 2018</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">500 Tbps</div>
+            <div class="kpi-label">Network Capacity</div>
+            <div class="kpi-delta up">Largest Anycast globally</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">~$74B</div>
+            <div class="kpi-label">Market Cap</div>
+            <div class="kpi-delta up">5x Akamai on half the revenue</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">330+</div>
+            <div class="kpi-label">Cities (PoPs)</div>
+            <div class="kpi-delta up">Gen 13 servers rolling out</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">~28.5%</div>
+            <div class="kpi-label">Channel Revenue</div>
+            <div class="kpi-delta up">Growing toward partner-led</div>
+        </div>
+    </div>
+
+    <h3>Strategic Revenue Profile</h3>
+    <div class="segment-bar">
+        <div class="seg" style="width:40%; background:var(--cf-orange);">Security (WAF, DDoS, ZT)</div>
+        <div class="seg" style="width:30%; background:#e06a10;">Developer Platform (Workers, R2, D1)</div>
+        <div class="seg" style="width:15%; background:#c05000;">Network Services (CDN, DNS)</div>
+        <div class="seg" style="width:15%; background:#888;">AI &amp; Emerging (Workers AI, Mesh)</div>
+    </div>
+    <p style="font-size:0.8rem; color:#666;">Cloudflare does not break out segment revenue publicly. Approximate mix based on analyst estimates and product announcements. The platform strategy means security is increasingly &ldquo;bundled&rdquo; with developer and networking products rather than sold standalone &mdash; a key competitive dynamic for Radware to monitor.</p>
+
+    <div class="kpi-row" style="margin-top:1.5rem;">
+        <div class="kpi-card" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9); border-color:#a5d6a7;">
+            <div class="kpi-value" style="color:#2e7d32; font-size:1.2rem;">31.4 Tbps</div>
+            <div class="kpi-label">Largest DDoS Attack Mitigated</div>
+            <div class="kpi-delta up">Aisuru-Kimwolf botnet (Q1 2026)</div>
+        </div>
+        <div class="kpi-card" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb); border-color:#90caf9;">
+            <div class="kpi-value" style="color:var(--dark-blue); font-size:1.2rem;">10+</div>
+            <div class="kpi-label">Products Launched (Agents Week)</div>
+            <div class="kpi-delta up">Mesh, Agent Cloud, Flagship, Memory</div>
+        </div>
+        <div class="kpi-card" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2); border-color:#ffcc80;">
+            <div class="kpi-value" style="color:#e65100; font-size:1.2rem;">4</div>
+            <div class="kpi-label">Service Incidents (Mar&ndash;Apr)</div>
+            <div class="kpi-delta down">Reliability under scrutiny</div>
+        </div>
+        <div class="kpi-card" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7); border-color:#ce93d8;">
+            <div class="kpi-value" style="color:#6a1b9a; font-size:1.2rem;">47.1M</div>
+            <div class="kpi-label">DDoS Attacks Blocked (2025)</div>
+            <div class="kpi-delta up">Doubled YoY</div>
+        </div>
+    </div>
+</article>
 
 <!-- Section 1: News Table -->
 <article class="section" id="news">
