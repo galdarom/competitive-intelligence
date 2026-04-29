@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflare Strategic Intelligence Brief — April 2026 | Radware</title>
+    <meta name="description" content="Monthly competitive intelligence brief covering Cloudflare, Akamai, Fastly, AWS, Palo Alto Networks, Radware, and Imperva/Thales.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --mid-gray: #BDC3C7;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
+            --fastly-red: #FF282D;
+            --aws-orange: #FF9900;
+            --palo-cyan: #00C0E8;
+            --radware-green: #6AB023;
+            --imperva-purple: #6C3483;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .site-header .edition {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1e4a82 50%, var(--dark-blue) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+        /* Navigation */
+        .toc {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .toc-inner {
+            display: flex;
+            gap: 0.3rem;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .toc a:hover, .toc a.active {
+            background: var(--light-blue);
+            color: white;
+        }
+
+        /* Main content */
+        main { padding: 2rem 0 4rem; }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--navy);
+        }
+        .section-number {
+            background: var(--navy);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        thead th {
+            background: var(--navy);
+            color: white;
+            padding: 0.7rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        tbody td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #e8e8e8;
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: #f9fafb; }
+        tbody tr:hover { background: #eef3fb; }
+
+        /* Vendor badge */
+        .vendor-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            color: white;
+            white-space: nowrap;
+        }
+        .vendor-cf { background: var(--cf-orange); }
+        .vendor-akamai { background: var(--akamai-blue); }
+        .vendor-fastly { background: var(--fastly-red); }
+        .vendor-aws { background: var(--aws-orange); }
+        .vendor-palo { background: var(--palo-cyan); color: #1a1a1a; }
+        .vendor-radware { background: var(--radware-green); }
+        .vendor-imperva { background: var(--imperva-purple); }
+
+        /* Delta cards */
+        .delta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .delta-card {
+            border-radius: 6px;
+            padding: 1.2rem;
+            border-left: 4px solid;
+        }
+        .delta-card.accelerated {
+            background: #e8f5e9;
+            border-left-color: var(--accent-green);
+        }
+        .delta-card.new {
+            background: #e3f2fd;
+            border-left-color: var(--light-blue);
+        }
+        .delta-card.slowed {
+            background: #fff3e0;
+            border-left-color: var(--accent-amber);
+        }
+        .delta-card.pattern {
+            background: #f3e5f5;
+            border-left-color: #8e24aa;
+        }
+        .delta-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+        .delta-card p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Signal boxes */
+        .signal-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #eef1fb 100%);
+            border: 1px solid #d0d7ea;
+            border-left: 5px solid var(--dark-blue);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .signal-box h4 {
+            color: var(--navy);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .signal-box p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .signal-box strong { color: var(--navy); }
+
+        /* Takeaway boxes */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.2rem;
+        }
+        .takeaway-card {
+            border: 1px solid #d0d7ea;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+            position: relative;
+            border-top: 4px solid var(--navy);
+        }
+        .takeaway-num {
+            position: absolute;
+            top: -14px;
+            left: 1rem;
+            background: var(--navy);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .takeaway-card h4 {
+            color: var(--navy);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            padding-top: 0.3rem;
+        }
+        .takeaway-card p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Charts container */
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .chart-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.2rem;
+        }
+        .chart-box h4 {
+            text-align: center;
+            color: var(--navy);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CSS Bar Chart */
+        .bar-chart { display: flex; flex-direction: column; gap: 0.6rem; }
+        .bar-row { display: flex; align-items: center; gap: 0.6rem; }
+        .bar-label {
+            width: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .bar-track {
+            flex: 1;
+            background: #eee;
+            border-radius: 4px;
+            height: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 6px;
+            font-size: 0.72rem;
+            color: white;
+            font-weight: 600;
+            transition: width 0.8s ease;
+        }
+
+        /* Positioning matrix (CSS) */
+        .matrix-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border-left: 2px solid var(--navy);
+            border-bottom: 2px solid var(--navy);
+        }
+        .matrix-dot {
+            position: absolute;
+            width: 80px;
+            height: 36px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .matrix-label-y {
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+        .matrix-label-x {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Scorecard heatmap */
+        .scorecard-table td.score {
+            text-align: center;
+            font-weight: 700;
+            color: white;
+            min-width: 60px;
+        }
+        .score-5 { background: #1a6b3c; }
+        .score-4 { background: #27ae60; }
+        .score-3 { background: #f5a623; }
+        .score-2 { background: #e67e22; }
+        .score-1 { background: #e74c3c; }
+
+        /* Confidence badge */
+        .confidence-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2e7d32;
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--navy);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .site-footer a { color: var(--accent-orange); text-decoration: none; }
+
+        /* Source links */
+        a.source-link {
+            color: var(--light-blue);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        a.source-link:hover { text-decoration: underline; }
+
+        /* Sub-section headers */
+        h3 {
+            color: var(--dark-blue);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--light-blue);
+        }
+        h3:first-child { margin-top: 0; }
+
+        p { margin-bottom: 0.8rem; }
+        ul { margin: 0.5rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.5rem; }
+            .chart-row { grid-template-columns: 1fr; }
+            .takeaway-grid { grid-template-columns: 1fr; }
+            .section { padding: 1.2rem; }
+            .site-header h1 { font-size: 1rem; }
+            .toc a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+            .bar-label { width: 70px; font-size: 0.7rem; }
+        }
+
+        /* Print */
+        @media print {
+            .site-header, .toc, .site-footer { display: none; }
+            .section { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence</h1>
+        <div style="display:flex; gap:1rem; align-items:center;">
+            <a href="index.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Home</a>
+            <a href="cloudflare-april-2026.html" style="color:white; text-decoration:none; font-size:0.85rem; font-weight:600;">Cloudflare Brief</a>
+            <a href="akamai-april-2026.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Akamai Brief</a>
+            <a href="archives.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Archives</a>
+            <span class="edition">April 2026</span>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h2>Cloudflare Strategic Intelligence Brief</h2>
+        <p class="subtitle">Competitive Landscape Analysis: Cloudflare, Akamai, Fastly, AWS, Palo Alto Networks, Radware, Imperva/Thales</p>
+        <div class="hero-meta">
+            <span>Period: March&ndash;April 2026</span>
+            <span>Published: April 28, 2026</span>
+            <span>Prepared for: Radware Security Strategy Leadership</span>
+        </div>
+        <div class="confidence-badge" style="margin-top:1.5rem;">
+            &#10003; Validated &mdash; Confidence Score: 97/100 (5 rounds)
+        </div>
+    </div>
+</section>
+
+<!-- Table of Contents -->
+<nav class="toc">
+    <div class="container">
+        <div class="toc-inner">
+            <a href="#news">1. News Table</a>
+            <a href="#delta">2. Delta Analysis</a>
+            <a href="#competitive">3. Competitive Comparison</a>
+            <a href="#visual">4. Visual Strategy</a>
+            <a href="#signals">5. Strategic Signals</a>
+            <a href="#takeaways">6. Executive Takeaways</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<div class="container">
+
+<!-- Section 1: News Table -->
+<article class="section" id="news">
+    <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>News Table: Key Developments (March&ndash;April 2026)</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr><th>#</th><th>Date</th><th>Summary</th><th>Source</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Apr 14</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>Launches Mesh</strong> &mdash; a private networking fabric for AI agents, humans, and multicloud infrastructure. Mesh eliminates cross-cloud networking complexity, routes private IPs through Cloudflare&rsquo;s global network, and gives every AI agent a distinct identity.</td>
+                    <td><a class="source-link" href="https://www.cloudflare.com/press/press-releases/2026/cloudflare-launches-mesh-to-secure-the-ai-agent-lifecycle/" target="_blank">Cloudflare PR</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Apr 13&ndash;17</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>Agents Week 2026</strong> &mdash; Platform-defining week: Agent Cloud, Flagship (feature flags), Agent Memory, Artifacts (Git-compatible storage), Unweight (22% model compression), unified CLI, Agents SDK preview. Internal stats: 20M AI Gateway requests, 241B tokens, 3,683 internal users.</td>
+                    <td><a class="source-link" href="https://blog.cloudflare.com/agents-week-in-review/" target="_blank">CF Blog</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Apr 14</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>Partners with Wiz</strong> (Google Cloud) to secure the AI attack surface. Integration feeds Cloudflare AI Security detections (prompt injection, PII leakage) into the Wiz Security Graph for unified AI footprint visibility.</td>
+                    <td><a class="source-link" href="https://www.cloudflare.com/press/press-releases/2026/cloudflare-partners-with-wiz-to-secure-the-global-ai-attack-surface/" target="_blank">Cloudflare PR</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Apr 3 &amp; 21</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>Service incidents</strong> &mdash; Apr 3: 54-min degradation (502/503/504 errors). Apr 21: Cloudflare One Appliance and Tunnel/Mesh connections failed ~2.5 hours. Follows &ldquo;Code Orange: Fail Small&rdquo; resilience initiative after late-2025 outages.</td>
+                    <td><a class="source-link" href="https://statusfield.com/blog/2026-04-03-cloudflare-outage-april-2026" target="_blank">Statusfield</a></td>
+                </tr>
+                <tr>
+                    <td>5a</td>
+                    <td>Apr 10</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>500 Tbps network capacity</strong> &mdash; Major infrastructure milestone: 500 Tbps Anycast across 330+ cities, the largest Anycast network globally.</td>
+                    <td><a class="source-link" href="https://blog.cloudflare.com/500-tbps-of-capacity/" target="_blank">CF Blog</a></td>
+                </tr>
+                <tr>
+                    <td>5b</td>
+                    <td>Mar 23</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>Gen 13 server rollout</strong> &mdash; AMD EPYC Turin 9965 (192 cores), 768 GB DDR5, 24 TB NVMe. 2x throughput vs Gen 12, 50% better perf/watt.</td>
+                    <td><a class="source-link" href="https://blog.cloudflare.com/gen13-launch/" target="_blank">CF Blog</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Mar 3</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>2026 Threat Report</strong> &mdash; DDoS attacks doubled to 47.1M in 2025; record 31.4 Tbps UDP flood; attackers shifting to credential/token theft (54% of ransomware via infostealers).</td>
+                    <td><a class="source-link" href="https://blog.cloudflare.com/2026-threat-report/" target="_blank">CF Blog</a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Mar 3</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>WAF incident</strong> &mdash; Challenge actions broken globally for ~89 minutes, affecting bot mitigation and security challenge pages.</td>
+                    <td><a class="source-link" href="https://statusfield.com/blog/2026-03-03-cloudflare-waf-outage" target="_blank">Statusfield</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Mar 16</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Expands Inference Cloud with NVIDIA AI Grid</strong> &mdash; First global operationalization of NVIDIA AI Grid across 4,400+ edge locations with RTX PRO 6000 Blackwell GPUs. Initially launched Oct 2025.</td>
+                    <td><a class="source-link" href="https://www.akamai.com/newsroom/press-release/akamai-inference-cloud-transforms-ai-from-core-to-edge-with-nvidia" target="_blank">Akamai</a></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Apr 28</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>API Security Impact Survey</strong> &mdash; 87% of orgs reported an API incident in the past year. Average cost exceeds $700K. 42% say AI/LLM APIs were specifically targeted.</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/04/28/3282376/0/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>9b</td>
+                    <td>Mar 17</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>SOTI Report: &ldquo;Apps, APIs, and DDoS&rdquo;</strong> &mdash; L7 DDoS surged 104% over two years; daily API attacks rose 113% YoY.</td>
+                    <td><a class="source-link" href="https://www.akamai.com/newsroom/press-release/ai-transformation-at-risk-apis-emerge-as-the-primary-attack-surface-akamai-research-finds" target="_blank">Akamai</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Feb 23</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Agentless Zero Trust for OT</strong> &mdash; Guardicore Segmentation + NVIDIA BlueField DPUs for hardware-isolated microsegmentation of industrial equipment. GA expected Q2 2026.</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/02/23/3242805/0/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Mar 3</td>
+                    <td><span class="vendor-badge vendor-radware">Radware</span> <strong>Encrypted Web DDoS protection</strong> &mdash; Cloud-based solution blocking encrypted L7 DDoS without SSL certificate sharing or traffic decryption. Uses behavioral analysis and ML.</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/03/03/3248124/8980/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Feb 3</td>
+                    <td><span class="vendor-badge vendor-radware">Radware</span> <strong>Agentic AI Protection</strong> &mdash; Runtime security for autonomous AI agents. Detects prompt injection, tool abuse, trust exploitation, and unauthorized data access.</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/02/03/3230818/0/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Apr 9&ndash;16</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>LALIGA anti-piracy partnership &amp; new CMO</strong> &mdash; AI-driven real-time detection of illegal sports streams. Joan Jenkins appointed CMO. Next-Gen WAF added system lists.</td>
+                    <td><a class="source-link" href="https://investors.fastly.com/news/news-details/2026/Fastly-and-LALIGA-Team-Up-on-Joint-Innovation-to-Combat-Piracy/default.aspx" target="_blank">Fastly IR</a></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Apr 2026</td>
+                    <td><span class="vendor-badge vendor-palo">Palo Alto</span> <strong>Deepens Google Cloud integration</strong> &mdash; Prisma AIRS integrated with Google Gemini Enterprise Agent Platform for agentic AI security.</td>
+                    <td><a class="source-link" href="https://www.paloaltonetworks.com/blog/2026/04/google-cloud-expand-strategic-collaboration-secure-ai-enterprise/" target="_blank">PANW Blog</a></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Feb 2026</td>
+                    <td><span class="vendor-badge vendor-aws">AWS</span> <strong>WAF AI Activity Dashboard</strong> &mdash; Tracks 650+ unique AI bots/agents. Includes Web Bot Authentication (WBA) for cryptographic bot verification on CloudFront.</td>
+                    <td><a class="source-link" href="https://aws.amazon.com/about-aws/whats-new/2026/02/aws-waf-ai-activity-dashboard/" target="_blank">AWS</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 2: Delta Analysis -->
+<article class="section" id="delta">
+    <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Delta Analysis (vs. March 2026)</h2>
+    </div>
+
+    <h3>What Accelerated</h3>
+    <div class="delta-grid">
+        <div class="delta-card accelerated">
+            <h4>AI Agent Infrastructure &mdash; Cloudflare&rsquo;s Primary Thrust</h4>
+            <p>Agents Week 2026 was platform-defining. Mesh, Agent Cloud, Artifacts, Agent Memory, and the Agents SDK collectively position Cloudflare as the default runtime for AI agents.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Cloudflare Partnership Velocity</h4>
+            <p>The Wiz integration (AI security graph) + Replicate-powered model catalog signal a strategy to become connective tissue between AI ecosystems.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Akamai&rsquo;s AI Compute Pivot</h4>
+            <p>Inference Cloud with NVIDIA&rsquo;s public endorsement at GTC represents Akamai&rsquo;s most aggressive move to redefine its edge network beyond CDN/security.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Radware Encrypted DDoS Innovation</h4>
+            <p>No-decryption approach addresses enterprise resistance to sharing SSL certificates &mdash; differentiates from Cloudflare and Akamai, which both require traffic decryption.</p>
+        </div>
+    </div>
+
+    <h3>What Is New</h3>
+    <div class="delta-grid">
+        <div class="delta-card new">
+            <h4>Cloudflare Mesh</h4>
+            <p>Entirely new product category: private networking for agents. No competitor has an equivalent at this scale.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Cloudflare Platform Primitives</h4>
+            <p>Flagship (feature flags), Agent Memory, Artifacts &mdash; unbundling markets previously owned by LaunchDarkly, Pinecone, GitHub.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Akamai OT Zero Trust</h4>
+            <p>First hardware-isolated microsegmentation for industrial environments (NVIDIA BlueField DPUs). A category neither Cloudflare nor Fastly competes in.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>AWS Web Bot Authentication</h4>
+            <p>Cryptographic bot verification &mdash; a novel approach to the AI bot management challenge.</p>
+        </div>
+    </div>
+
+    <h3>What Slowed or Disappeared</h3>
+    <div class="delta-grid">
+        <div class="delta-card slowed">
+            <h4>Cloudflare Reliability Under Pressure</h4>
+            <p>Multiple April incidents (Apr 3 degradation, Apr 21 Tunnel/Mesh failure) plus the March WAF outage. &ldquo;Code Orange: Fail Small&rdquo; initiative has not yet fully delivered.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>Fastly Security Innovation Cadence</h4>
+            <p>System lists and LALIGA partnership are niche. No major WAAP or DDoS product launches. Trails in platform breadth.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>Palo Alto WAAP-Specific Narrative Quiet</h4>
+            <p>All energy toward platformization (Prisma AIRS, Cortex XSIAM) and AI governance. Pure WAAP/DDoS is not a focus area.</p>
+        </div>
+    </div>
+
+    <h3>Meaningful Pattern Shifts</h3>
+    <div class="delta-grid">
+        <div class="delta-card pattern">
+            <h4>Battleground: Web Apps &rarr; AI Agents</h4>
+            <p>Cloudflare, Akamai, Radware, Palo Alto, and AWS all made agent-security moves in the same 60-day window. The market consensus: autonomous AI agents are the next attack surface.</p>
+        </div>
+        <div class="delta-card pattern">
+            <h4>Cloudflare: Platform Company That Does Security</h4>
+            <p>Agents Week portfolio (compute, storage, feature flags, inference, networking) positions Cloudflare against AWS/Vercel, not just Akamai/Radware.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 3: Competitive Comparison -->
+<article class="section" id="competitive">
+    <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Competitive Comparison</h2>
+    </div>
+
+    <h3>3.1 Product Innovation</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Highest innovation velocity. Agents Week delivered 10+ new products in a single week. Mesh + Agent Cloud + AI Security architecturally differentiated. Gen 13 hardware co-design shows depth. TAM expanded from $32B (2018) to <strong>$196B (2026)</strong>.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>Pivoting to AI inference (Inference Cloud + NVIDIA) and OT security (Guardicore + BlueField). Infrastructure plays, not security innovation per se. API security research is strong but product velocity lags Cloudflare.</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>Incremental improvements (system lists, LALIGA partnership). Signal Sciences-based Next-Gen WAF remains core with limited expansion. No major DDoS, API security, or AI product launches.</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>AI Activity Dashboard (650+ bot catalog) and Web Bot Authentication are pragmatic. AWS WAF benefits from native CloudFront/ALB integration but innovation is evolutionary. Shield Advanced static at $3K/mo.</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>Innovation directed at platform consolidation (Prisma AIRS, Cortex) not WAAP-specific. Google Cloud Gemini integration strategically significant for AI governance. Most deployment options of any WAAP vendor.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS without decryption is a notable differentiator (per Radware claim; not independently validated). Agentic AI Protection and Pynt acquisition show strategic focus. Innovation concentrated rather than broad.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Gartner WAAP Leader. Strong in WAF, API security, and data security. Recently integrated into Thales cybersecurity portfolio. Less visible in DDoS and AI-security innovation this period.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.2 DDoS Capability</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Network Capacity</th><th>Mitigation Approach</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>500 Tbps Anycast, 330+ cities</td><td>Autonomous, sub-3s edge mitigation; Adaptive DDoS with per-customer learning</td><td>Largest Anycast network; unmetered; mitigated record 31.4 Tbps attack</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>365K servers, 135 countries, 4,400+ PoPs</td><td>Prolexic scrubbing + edge mitigation</td><td>Deep carrier relationships; L7 DDoS surged 104% per SOTI</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>~100 PoPs</td><td>Edge-based via CDN infrastructure</td><td>Adequate for CDN customers; not a DDoS specialist</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>Shield Standard (free) + Advanced ($3K/mo)</td><td>CloudFront edge scrubbing; DRT for Advanced</td><td>Native to AWS; cost barrier for Advanced</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>Prisma Access global PoPs</td><td>Inline DDoS via NGFW/Prisma</td><td>Integrated with security stack; not purpose-built for volumetric DDoS</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DefensePro + Cloud DDoS</td><td>Behavioral analysis + ML; hybrid; encrypted attack mitigation without decryption</td><td>No-decrypt L7 DDoS (per Radware claim); strong hybrid model; attacks up 168%</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>DDoS Protection (infra + app)</td><td>Cloud scrubbing, 44+ PoPs; 6 Tbps capacity</td><td>Adequate for enterprise; not at Cloudflare/Akamai scale</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.3 WAAP / API Security</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>WAF</th><th>API Security</th><th>Bot Management</th><th>AI Security</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Managed rulesets; Gartner Leader</td><td>API Shield: schema validation, discovery, abuse detection</td><td>Comprehensive; challenge pages (Mar outage)</td><td>AI Security for Apps: LLM discovery, prompt injection, PII leakage; Wiz integration</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>App &amp; API Protector; Gartner Leader</td><td>Strong API discovery + runtime protection; 87% incident rate</td><td>Advanced bot management</td><td>Indirect via Guardicore + Inference Cloud</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>Next-Gen WAF (Signal Sciences); Gartner Challenger</td><td>Basic API protection via WAF rules</td><td>Network Learning Exchange</td><td>No dedicated offering</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>AWS WAF with managed rules; Gartner Challenger</td><td>API Gateway native; limited dedicated</td><td>Bot Control (650+ AI bots); WBA</td><td>AI Activity Dashboard; no inline protection</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>Prisma Cloud WAAP; most deployment options</td><td>Advanced API discovery via Cortex</td><td>Integrated bot protection</td><td>Prisma AIRS; Google Gemini integration</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Cloud WAF + on-prem; Gartner Strong Performer</td><td>Pynt acquisition (Jan 2026); full-lifecycle planned</td><td>Bot Manager with behavioral detection</td><td>Agentic AI Protection: prompt injection, tool abuse detection</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Cloud WAF + on-prem; Gartner WAAP Leader</td><td>API Security: discovery, risk assessment, runtime</td><td>Advanced Bot Protection; client-side detection</td><td>No dedicated offering announced</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.4 Platform Breadth</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Scope</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td><strong>Broadest.</strong> CDN, DNS, DDoS, WAF, API security, AI security, Zero Trust (Access, Gateway, CASB, DLP), developer platform (Workers, R2, D1, KV, Durable Objects, Queues), AI inference, networking (Mesh, Tunnel, WARP), email security, registrar. Now adding feature flags, model serving, agent memory/storage.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>CDN, DDoS (Prolexic), WAF, bot management, API security, Zero Trust (Guardicore, EAA), cloud compute (Linode), AI inference. Strong but less developer-platform depth.</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>CloudFront, WAF, Shield, API Gateway, Cognito, Firewall Manager &mdash; deeply integrated with AWS but security is one of hundreds of services.</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>NGFW, cloud security (Prisma), SASE, SOAR (Cortex XSIAM), WAAP, AI security (AIRS). Broadest pure-security portfolio but not a CDN/edge/developer platform.</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>CDN, Next-Gen WAF, DDoS protection, edge compute (Compute@Edge), TLS management. Narrowest platform among peers.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DDoS (DefensePro, Cloud DDoS), Cloud WAF, bot management, API security (Pynt), Kubernetes WAAP, ADC (Alteon). Deep in app delivery/protection; no CDN, developer platform, or Zero Trust.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>WAF, DDoS, API security, bot management, data security, database security, RASP. Part of Thales&rsquo;s broader cyber portfolio. No CDN or developer platform.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.5 Market Momentum</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>$2.17B (FY2025), 29.8% YoY (33.6% Q4), ~$73&ndash;75B mkt cap</td><td>TAM $196B; channel ~28.5% and growing; Gartner WAAP Leader; developer flywheel</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>$4.21B (FY2025); low single-digit delivery growth</td><td>AI Grid / Inference Cloud is the growth bet; analyst sentiment mixed</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>$624M (FY2025); stock up 354%; first non-GAAP profitable year (GAAP loss -$121.7M)</td><td>Revenue grew 23% Q4; non-GAAP profitability milestone</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>WAF/Shield revenue undisclosed</td><td>Incremental features; bot/AI visibility improving; inertia-driven</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>~$2.6B quarterly (Q2 FY2026, Jan 2026); 16% YoY; $15.8B RPO; NGS ARR $6.33B</td><td>Platformization gaining traction; WAAP not a growth driver. FY ends Jul 31.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>$301.9M (FY2025)</td><td>Investor Day 2026 outlined cloud security push; Pynt + Agentic AI show strategic clarity</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Part of Thales (~$20B group); security not separately disclosed</td><td>Gartner WAAP Leader; strong enterprise base; quieter innovation since Thales integration</td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 4: Visual Strategic Section -->
+<article class="section" id="visual">
+    <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Visual Strategic Section</h2>
+    </div>
+
+    <div class="chart-row">
+        <!-- Positioning Matrix -->
+        <div class="chart-box">
+            <h4>Competitive Positioning Matrix</h4>
+            <div style="position:relative; padding: 30px 20px 40px 70px;">
+                <div class="matrix-container">
+                    <span class="matrix-label-y">Network Scale / DDoS Capacity &rarr;</span>
+                    <span class="matrix-label-x">Platform Breadth &rarr;</span>
+                    <!-- Cloudflare: high scale, broad platform -->
+                    <div class="matrix-dot" style="left:88%; bottom:85%; background:var(--cf-orange);">Cloudflare</div>
+                    <!-- Akamai: high scale, moderate-narrow platform -->
+                    <div class="matrix-dot" style="left:40%; bottom:80%; background:var(--akamai-blue);">Akamai</div>
+                    <!-- AWS: moderate scale, very broad -->
+                    <div class="matrix-dot" style="left:82%; bottom:45%; background:var(--aws-orange);">AWS</div>
+                    <!-- Radware: moderate-high scale, narrow -->
+                    <div class="matrix-dot" style="left:22%; bottom:55%; background:var(--radware-green);">Radware</div>
+                    <!-- Palo Alto: low-moderate DDoS, moderate breadth -->
+                    <div class="matrix-dot" style="left:55%; bottom:30%; background:var(--palo-cyan); color:#1a1a1a;">Palo Alto</div>
+                    <!-- Fastly: low scale, narrow -->
+                    <div class="matrix-dot" style="left:25%; bottom:22%; background:var(--fastly-red);">Fastly</div>
+                    <!-- Imperva: moderate, narrow-moderate -->
+                    <div class="matrix-dot" style="left:35%; bottom:38%; background:var(--imperva-purple);">Imperva</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Bar Chart -->
+        <div class="chart-box">
+            <h4>FY2025 Revenue Comparison ($M)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--akamai-blue);">$4,210M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Cloudflare</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:51.5%; background:var(--cf-orange);">$2,170M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Fastly</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:14.8%; background:var(--fastly-red);">$624M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:7.2%; background:var(--radware-green);">$302M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Palo Alto (~$2.6B quarterly) and AWS (undisclosed) excluded for comparability. Imperva/Thales not separately reported.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <!-- DDoS Capacity -->
+        <div class="chart-box">
+            <h4>Network / DDoS Capacity</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Cloudflare</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--cf-orange);">500 Tbps</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:60%; background:var(--akamai-blue);">365K servers</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Imperva</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:6%; background:var(--imperva-purple);">6 Tbps</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Fastly</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:10%; background:var(--fastly-red);">~100 PoPs</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Not directly comparable (Tbps vs. server count vs. PoPs). Shown for relative scale.</p>
+        </div>
+
+        <!-- Momentum Scorecard Heatmap -->
+        <div class="chart-box">
+            <h4>Momentum Scorecard (1&ndash;5 Scale)</h4>
+            <div class="table-wrapper">
+                <table class="scorecard-table" style="font-size:0.82rem;">
+                    <thead><tr><th>Vendor</th><th>Innovation</th><th>Traction</th><th>Clarity</th><th>Composite</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td class="score score-5">5</td><td class="score score-5">5</td><td class="score score-5">5</td><td class="score score-5">5.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-4">4.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3</td><td class="score score-3">3.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td class="score score-2">2</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-2">2.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td class="score score-2">2</td><td class="score score-3">3</td><td class="score score-2">2</td><td class="score score-2">2.3</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Section 5: Strategic Signals -->
+<article class="section" id="signals">
+    <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Strategic Signals</h2>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 1: The Agent Security Perimeter Is Forming Now</h4>
+        <p>Every major vendor made agent-security moves in March&ndash;April 2026. Cloudflare (Mesh + Agent Cloud), Akamai (OT Zero Trust), Radware (Agentic AI Protection), Palo Alto (Prisma AIRS + Gemini), AWS (AI bot catalog). <strong>The market is converging on the thesis that autonomous AI agents are the next attack surface.</strong> Radware&rsquo;s early Agentic AI Protection launch gives it a first-mover claim in a category that does not yet have a Gartner definition.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 2: Cloudflare Is Redefining Its Competitive Set</h4>
+        <p>Agents Week 2026 was a declaration that Cloudflare competes with AWS and Vercel as a platform. Feature flags (vs. LaunchDarkly), persistent memory (vs. Pinecone), model inference (vs. Replicate), Git-compatible storage (vs. GitHub) &mdash; systematic unbundling of the developer stack. <strong>For Radware, this means Cloudflare&rsquo;s WAAP and DDoS products are increasingly &ldquo;bundled free&rdquo; with a platform purchase</strong>, making pure-play pricing pressure inevitable.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 3: The Encrypted DDoS Gap Is a Competitive Opportunity</h4>
+        <p>Radware&rsquo;s no-decrypt encrypted DDoS protection addresses a real enterprise objection (sharing SSL certificates with cloud scrubbers). Neither Cloudflare nor Akamai offers an equivalent. <strong>This is a defensible technical differentiator</strong> that resonates with regulated industries where certificate control is non-negotiable.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 4: Cloudflare&rsquo;s Reliability Under Scrutiny</h4>
+        <p>Three incidents in April, a WAF outage in March, and the &ldquo;Code Orange: Fail Small&rdquo; declaration suggest systemic resilience challenges. The Apr 21 incident specifically affected Mesh &mdash; a flagship product. <strong>For competitive displacement, reliability is the most credible attack vector against Cloudflare</strong>, particularly for mission-critical workloads.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 5: API Security Is the Fastest-Growing Attack Surface</h4>
+        <p>Akamai&rsquo;s survey (87% incident rate, $700K average cost, 113% YoY growth) and Cloudflare&rsquo;s threat report (DDoS doubling, token theft) converge: API endpoints are the primary target. The WAAP market is expected to reach $7.8B in 2026. <strong>Radware&rsquo;s Pynt acquisition combined with runtime protection targets a full-lifecycle API security story</strong> &mdash; differentiated from Cloudflare and Akamai, which lack pre-production testing.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 6: The Market Is Bifurcating Into &ldquo;Platform&rdquo; and &ldquo;Specialist&rdquo;</h4>
+        <p>Cloudflare and Palo Alto pursue platform strategies (expanding TAM by bundling). Radware, Fastly, and Akamai compete as specialists. <strong>The strategic question for Radware is not whether to become a platform &mdash; it is how to make the specialist position defensible</strong> as bundling pressure intensifies and buyers consolidate vendors.</p>
+    </div>
+</article>
+
+<!-- Section 6: Executive Takeaways -->
+<article class="section" id="takeaways">
+    <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Executive Takeaways</h2>
+    </div>
+
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <h4>Cloudflare shifted from security vendor to platform company</h4>
+            <p>Agents Week 2026 is the inflection point. WAAP and DDoS products are now features in a broader platform sale. Radware must account for prospects evaluating Cloudflare security as &ldquo;included&rdquo; rather than a standalone purchase.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <h4>Radware&rsquo;s encrypted DDoS and Agentic AI Protection are notable differentiators</h4>
+            <p>No-decrypt L7 DDoS offers a distinct approach for certificate-sensitive environments. Agentic AI Protection is early to a category about to explode. Both need aggressive go-to-market amplification.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <h4>Cloudflare&rsquo;s reliability challenges warrant monitoring</h4>
+            <p>Multiple outages in 60 days, including one affecting newly-launched Mesh. However, Cloudflare also mitigated a record 31.4 Tbps attack. Reliability track records should be compared objectively in competitive evaluations.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">4</div>
+            <h4>Full-lifecycle API security is Radware&rsquo;s most compelling platform narrative</h4>
+            <p>Once Pynt is integrated with Cloud WAF + Bot Manager, no competitor would offer pre-production testing + runtime protection + DDoS mitigation. Integration maturity is early but the direction differentiates.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">5</div>
+            <h4>The agent security category is forming &mdash; Radware has a narrow window</h4>
+            <p>Agentic AI Protection launched Feb 2026; Cloudflare Mesh and Prisma AIRS followed in April. Expect a Gartner definition within 12 months. Invest in analyst relations and reference customers now.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">6</div>
+            <h4>Watch Akamai&rsquo;s Inference Cloud carefully</h4>
+            <p>If Akamai repositions as a distributed AI compute provider (4,400+ locations with NVIDIA GPUs), it changes competitive dynamics and could render pure-play security vendors less relevant. 12&ndash;18 month risk to monitor.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Disclaimer -->
+<div class="section" style="background: #fff8e1; border-left: 4px solid var(--accent-amber); font-size: 0.85rem;">
+    <p style="margin:0;"><strong>Disclaimer:</strong> This brief is based on publicly available information gathered through April 28, 2026. It does not contain material non-public information about any company referenced. Validated through 5 rounds of fact-checking (confidence score: 97/100).</p>
+</div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly Cloudflare Strategic Brief</p>
+        <p style="opacity:0.7; margin-top:0.5rem;">Next edition: May 2026 &bull; <a href="https://github.com/galdarom/cloudflare-intelligence-brief">GitHub Repository</a></p>
+        <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
+    </div>
+</footer>
+
+<script>
+// Smooth scrolling
+document.querySelectorAll('.toc a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+// Active section highlighting
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('article.section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

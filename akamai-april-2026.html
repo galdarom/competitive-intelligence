@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akamai Strategic Intelligence Brief — April 2026 | Radware</title>
+    <meta name="description" content="Monthly competitive intelligence brief on Akamai Technologies covering security, cloud compute, AI inference, and competitive positioning.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --mid-gray: #BDC3C7;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
+            --fastly-red: #FF282D;
+            --aws-orange: #FF9900;
+            --palo-cyan: #00C0E8;
+            --radware-green: #6AB023;
+            --imperva-purple: #6C3483;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .site-header .nav-links a:hover { color: white; }
+        .site-header .edition { font-size: 0.9rem; opacity: 0.85; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Hero - Akamai branded */
+        .hero {
+            background: linear-gradient(135deg, #003366 0%, #0077b6 50%, #0096D6 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+        /* Navigation */
+        .toc {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .toc-inner {
+            display: flex;
+            gap: 0.3rem;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .toc a:hover, .toc a.active { background: var(--akamai-blue); color: white; }
+
+        main { padding: 2rem 0 4rem; }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--akamai-blue);
+        }
+        .section-number {
+            background: var(--akamai-blue);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .section-header h2 { font-size: 1.5rem; color: var(--navy); font-weight: 700; }
+
+        /* Tables */
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        thead th {
+            background: #0077b6;
+            color: white;
+            padding: 0.7rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        tbody td { padding: 0.7rem 0.8rem; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+        tbody tr:nth-child(even) { background: #f9fafb; }
+        tbody tr:hover { background: #eef3fb; }
+
+        .vendor-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            color: white;
+            white-space: nowrap;
+        }
+        .vendor-cf { background: var(--cf-orange); }
+        .vendor-akamai { background: var(--akamai-blue); }
+        .vendor-fastly { background: var(--fastly-red); }
+        .vendor-aws { background: var(--aws-orange); }
+        .vendor-palo { background: var(--palo-cyan); color: #1a1a1a; }
+        .vendor-radware { background: var(--radware-green); }
+        .vendor-imperva { background: var(--imperva-purple); }
+
+        .delta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .delta-card {
+            border-radius: 6px;
+            padding: 1.2rem;
+            border-left: 4px solid;
+        }
+        .delta-card.accelerated { background: #e8f5e9; border-left-color: var(--accent-green); }
+        .delta-card.new { background: #e3f2fd; border-left-color: var(--light-blue); }
+        .delta-card.slowed { background: #fff3e0; border-left-color: var(--accent-amber); }
+        .delta-card.pattern { background: #f3e5f5; border-left-color: #8e24aa; }
+        .delta-card.risk { background: #ffebee; border-left-color: var(--accent-red); }
+        .delta-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
+        .delta-card p { font-size: 0.85rem; line-height: 1.5; }
+
+        .signal-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3eff9 100%);
+            border: 1px solid #b3d4f0;
+            border-left: 5px solid var(--akamai-blue);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .signal-box h4 { color: var(--navy); font-size: 1rem; margin-bottom: 0.5rem; }
+        .signal-box p { font-size: 0.9rem; line-height: 1.6; }
+        .signal-box strong { color: var(--navy); }
+
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.2rem;
+        }
+        .takeaway-card {
+            border: 1px solid #b3d4f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+            position: relative;
+            border-top: 4px solid var(--akamai-blue);
+        }
+        .takeaway-num {
+            position: absolute;
+            top: -14px;
+            left: 1rem;
+            background: var(--akamai-blue);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .takeaway-card h4 { color: var(--navy); font-size: 0.95rem; margin-bottom: 0.5rem; padding-top: 0.3rem; }
+        .takeaway-card p { font-size: 0.85rem; line-height: 1.5; }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .chart-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.2rem;
+        }
+        .chart-box h4 { text-align: center; color: var(--navy); font-size: 0.95rem; margin-bottom: 1rem; }
+
+        .bar-chart { display: flex; flex-direction: column; gap: 0.6rem; }
+        .bar-row { display: flex; align-items: center; gap: 0.6rem; }
+        .bar-label { width: 100px; font-size: 0.78rem; font-weight: 600; text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: #eee; border-radius: 4px; height: 24px; position: relative; overflow: hidden; }
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 6px;
+            font-size: 0.72rem;
+            color: white;
+            font-weight: 600;
+            transition: width 0.8s ease;
+        }
+
+        /* Segment donut approximation with stacked bars */
+        .segment-bar { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 0.5rem 0; }
+        .segment-bar .seg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .scorecard-table td.score { text-align: center; font-weight: 700; color: white; min-width: 60px; }
+        .score-5 { background: #1a6b3c; }
+        .score-4 { background: #27ae60; }
+        .score-3 { background: #f5a623; }
+        .score-2 { background: #e67e22; }
+        .score-1 { background: #e74c3c; }
+
+        /* KPI cards */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, #f0f7ff, #e8f2fc);
+            border: 1px solid #c5ddf5;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--akamai-blue); }
+        .kpi-card .kpi-label { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
+        .kpi-card .kpi-delta { font-size: 0.72rem; margin-top: 0.3rem; }
+        .kpi-card .kpi-delta.up { color: var(--accent-green); }
+        .kpi-card .kpi-delta.down { color: var(--accent-red); }
+        .kpi-card .kpi-delta.flat { color: var(--accent-amber); }
+
+        .matrix-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border-left: 2px solid var(--navy);
+            border-bottom: 2px solid var(--navy);
+        }
+        .matrix-dot {
+            position: absolute;
+            width: 80px;
+            height: 36px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .matrix-label-y {
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+        .matrix-label-x {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        a.source-link { color: var(--light-blue); text-decoration: none; font-size: 0.8rem; }
+        a.source-link:hover { text-decoration: underline; }
+
+        h3 {
+            color: var(--dark-blue);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--akamai-blue);
+        }
+        h3:first-child { margin-top: 0; }
+        p { margin-bottom: 0.8rem; }
+        ul { margin: 0.5rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+
+        .site-footer {
+            background: var(--navy);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .site-footer a { color: var(--accent-orange); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.5rem; }
+            .chart-row { grid-template-columns: 1fr; }
+            .takeaway-grid { grid-template-columns: 1fr; }
+            .kpi-row { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 1.2rem; }
+            .site-header h1 { font-size: 1rem; }
+            .toc a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+            .bar-label { width: 70px; font-size: 0.7rem; }
+            .site-header .nav-links { display: none; }
+        }
+        @media print {
+            .site-header, .toc, .site-footer { display: none; }
+            .section { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence</h1>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cloudflare-april-2026.html">Cloudflare Brief</a>
+            <a href="akamai-april-2026.html" style="color:white; font-weight:600;">Akamai Brief</a>
+            <a href="archives.html">Archives</a>
+        </div>
+        <span class="edition">April 2026 Edition</span>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h2>Akamai Strategic Intelligence Brief</h2>
+        <p class="subtitle">Competitive Landscape Analysis: Akamai, Cloudflare, Fastly, AWS, Palo Alto Networks, Radware, Imperva/Thales</p>
+        <div class="hero-meta">
+            <span>Period: March&ndash;April 2026</span>
+            <span>Published: April 29, 2026</span>
+            <span>Prepared for: Radware Security Strategy Leadership</span>
+        </div>
+    </div>
+</section>
+
+<!-- TOC -->
+<nav class="toc">
+    <div class="container">
+        <div class="toc-inner">
+            <a href="#snapshot">Snapshot</a>
+            <a href="#news">1. News Table</a>
+            <a href="#delta">2. Delta Analysis</a>
+            <a href="#competitive">3. Competitive Comparison</a>
+            <a href="#visual">4. Visual Strategy</a>
+            <a href="#signals">5. Strategic Signals</a>
+            <a href="#takeaways">6. Executive Takeaways</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<div class="container">
+
+<!-- Akamai at a Glance -->
+<article class="section" id="snapshot">
+    <div class="section-header">
+        <div class="section-number" style="background:var(--akamai-blue);">A</div>
+        <h2>Akamai at a Glance &mdash; FY2025</h2>
+    </div>
+
+    <div class="kpi-row">
+        <div class="kpi-card">
+            <div class="kpi-value">$4.21B</div>
+            <div class="kpi-label">FY2025 Revenue</div>
+            <div class="kpi-delta up">+5% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$2.24B</div>
+            <div class="kpi-label">Security Revenue (53%)</div>
+            <div class="kpi-delta up">+10% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$94M</div>
+            <div class="kpi-label">Cloud Infra Q4 Rev</div>
+            <div class="kpi-delta up">+45% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$13.9B</div>
+            <div class="kpi-label">Market Cap</div>
+            <div class="kpi-delta flat">Moderate Buy consensus</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">4,400+</div>
+            <div class="kpi-label">Edge Locations</div>
+            <div class="kpi-delta up">Now GPU-enabled</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$7.12</div>
+            <div class="kpi-label">Non-GAAP EPS (FY)</div>
+            <div class="kpi-delta up">+11% Q4 YoY</div>
+        </div>
+    </div>
+
+    <h3>Revenue Segment Mix (Q4 2025)</h3>
+    <div class="segment-bar">
+        <div class="seg" style="width:54.1%; background:#0077b6;">Security $592M (54%)</div>
+        <div class="seg" style="width:28.4%; background:#f5a623;">Delivery $311M (28%)</div>
+        <div class="seg" style="width:8.6%; background:#27ae60;">Cloud $94M (9%)</div>
+        <div class="seg" style="width:8.9%; background:#888;">Other $98M (9%)</div>
+    </div>
+    <p style="font-size:0.8rem; color:#666;">Security is the cash engine. Cloud Infrastructure Services (CIS) is the fastest-growing segment at +45% YoY. Delivery continues its structural decline (-2% YoY). 2026 guidance: 5&ndash;8% total revenue growth; 45&ndash;50% CIS growth.</p>
+</article>
+
+<!-- Section 1: News Table -->
+<article class="section" id="news">
+    <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>News Table: Key Developments (Dec 2025&ndash;April 2026)</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th>#</th><th>Date</th><th>Summary</th><th>Source</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mar 16</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Launches AI Grid Intelligent Orchestration</strong> &mdash; First global-scale implementation of NVIDIA AI Grid reference design. Routes AI inference workloads across 4,400+ edge locations with NVIDIA RTX PRO 6000 Blackwell GPUs. Multi-thousand GPU clusters at core; low-latency inference at edge. Claims 2.5x lower latency and 86% cost savings vs. hyperscaler inference. Featured in Jensen Huang&rsquo;s GTC 2026 keynote.</td>
+                    <td><a class="source-link" href="https://www.akamai.com/newsroom/press-release/akamai-launches-ai-grid-intelligent-orchestration-for-distributed-inference-across-4400-edge-locations" target="_blank">Akamai PR</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mar 24</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Guardicore Segmentation AI enhancements</strong> &mdash; New AI-powered capabilities: continuous discovery, AI-driven application understanding, proof-driven enforcement, continuous risk containment, and delegated app-owner workflows. Accelerates Zero Trust adoption for hybrid, cloud, Kubernetes, and AI workloads.</td>
+                    <td><a class="source-link" href="https://www.stocktitan.net/news/AKAM/akamai-guardicore-segmentation-transforms-zero-trust-with-new-ai-h5fit2rpb4rb.html" target="_blank">StockTitan</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Feb 23</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Agentless Zero Trust for OT with NVIDIA BlueField</strong> &mdash; Guardicore Segmentation + NVIDIA BlueField DPUs for hardware-isolated microsegmentation of &ldquo;un-agentable&rdquo; industrial equipment. First solution of its kind. GA expected Q2 2026.</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/02/23/3242805/0/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Feb 19</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Q4/FY2025 Earnings</strong> &mdash; Q4 revenue $1.095B (+7% YoY). Security $592M (+11%). CIS $94M (+45%). Guardicore + API Security $90M (+36%). API Security >100% YoY growth, run rate >$100M. Non-GAAP EPS $1.84 (+11%). 2026 guidance: 5&ndash;8% growth. $800M buyback in 2025.</td>
+                    <td><a class="source-link" href="https://www.ir.akamai.com/news-releases/news-release-details/akamai-reports-fourth-quarter-2025-and-full-year-2025-financial" target="_blank">Akamai IR</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Apr 28</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>API Security Impact Survey</strong> &mdash; 87% of organizations reported an API incident (up from 76% in 2022). Average cost >$700K per incident. 42% say AI/LLM-powered APIs specifically targeted. 258 API attacks per enterprise per day (vs. 121 in 2024).</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/04/28/3282376/0/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Mar 17</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>SOTI Report: &ldquo;Apps, APIs, and DDoS&rdquo;</strong> &mdash; L7 DDoS surged 104% over two years. Daily API attacks up 113% YoY. Attackers industrializing campaigns: blending API abuse, web app attacks, and L7 DDoS into scalable operations. Aisuru/Kimwolf botnets infecting IoT and Android devices at scale.</td>
+                    <td><a class="source-link" href="https://www.akamai.com/blog/security/apps-apis-ddos-2026-industrialization-cyberattack-campaigns" target="_blank">Akamai Blog</a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Dec 2025</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Visa partnership for agentic commerce</strong> &mdash; Integrating Visa&rsquo;s Trusted Agent Protocol with Akamai&rsquo;s edge-based behavioral intelligence. Enables 175M Visa merchant locations to securely welcome AI shopping agents. AI bot traffic surged 300% per Akamai&rsquo;s Digital Fraud Report.</td>
+                    <td><a class="source-link" href="https://www.akamai.com/newsroom/press-release/akamai-and-visa-join-forces-to-secure-the-next-era-of-agentic-commerce" target="_blank">Akamai PR</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Dec 1, 2025</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Fermyon acquisition</strong> &mdash; Acquired serverless WebAssembly (Wasm) FaaS company. Enables edge-native apps with improved performance and lower cost. Team joins Akamai Cloud Technology Group. Continues Spin and SpinKube CNCF open-source projects.</td>
+                    <td><a class="source-link" href="https://www.ir.akamai.com/news-releases/news-release-details/akamai-technologies-announces-acquisition-function-service" target="_blank">Akamai IR</a></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Jan 2026</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>APAC 2026 Cloud &amp; Security Outlook</strong> &mdash; Predicts AI-powered attacks will compress breach timelines from weeks to hours. APIs will overtake web-based attacks as primary vector. 80% of APAC CIOs to rely on edge services for AI by 2027 (IDC). Ransomware fully commoditized via RaaS and &ldquo;vibe-hacking.&rdquo;</td>
+                    <td><a class="source-link" href="https://www.akamai.com/newsroom/press-release/akamai-unveils-2026-cloud-and-security-outlook-for-apac-as-ai-reshapes-risk-and-cloud-transformation" target="_blank">Akamai PR</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Apr 1</td>
+                    <td><span class="vendor-badge vendor-akamai">Akamai</span> <strong>Montana state contract &amp; ISV Catalyst</strong> &mdash; Won State of Montana data communications contract for state, local, and education procurement. Launched ISV Catalyst partner program (Dec 2025) to accelerate cloud growth for independent software vendors.</td>
+                    <td><a class="source-link" href="https://www.stocktitan.net/news/AKAM/akamai-streamlines-public-sector-technology-acquisition-with-new-mhdpn3zdre1d.html" target="_blank">StockTitan</a></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Apr 13&ndash;17</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>Agents Week 2026</strong> &mdash; 10+ product launches: Mesh (private networking for agents), Agent Cloud, Flagship (feature flags), Agent Memory, Artifacts, Unweight (model compression), unified CLI. Positions Cloudflare as default AI agent runtime.</td>
+                    <td><a class="source-link" href="https://blog.cloudflare.com/agents-week-in-review/" target="_blank">CF Blog</a></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Apr 10</td>
+                    <td><span class="vendor-badge vendor-cf">Cloudflare</span> <strong>500 Tbps network capacity</strong> &mdash; Anycast across 330+ cities. Mitigated record 31.4 Tbps DDoS attack. Gen 13 servers with AMD EPYC Turin (192 cores).</td>
+                    <td><a class="source-link" href="https://blog.cloudflare.com/500-tbps-of-capacity/" target="_blank">CF Blog</a></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Mar 3</td>
+                    <td><span class="vendor-badge vendor-radware">Radware</span> <strong>Encrypted Web DDoS protection</strong> &mdash; No-decrypt L7 DDoS mitigation without SSL certificate sharing. Uses behavioral ML analysis. Available cloud, on-prem, hybrid, Kubernetes.</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/03/03/3248124/8980/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Feb 3</td>
+                    <td><span class="vendor-badge vendor-radware">Radware</span> <strong>Agentic AI Protection</strong> &mdash; Runtime security for AI agents: detects prompt injection, tool abuse, trust exploitation, unauthorized data access.</td>
+                    <td><a class="source-link" href="https://www.globenewswire.com/news-release/2026/02/03/3230818/0/en/" target="_blank">GlobeNewsWire</a></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Apr 2026</td>
+                    <td><span class="vendor-badge vendor-palo">Palo Alto</span> <strong>Google Cloud integration</strong> &mdash; Prisma AIRS integrated with Gemini Enterprise Agent Platform for agentic AI security. Expanded NWN public sector partnership.</td>
+                    <td><a class="source-link" href="https://www.paloaltonetworks.com/blog/2026/04/google-cloud-expand-strategic-collaboration-secure-ai-enterprise/" target="_blank">PANW Blog</a></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Feb 2026</td>
+                    <td><span class="vendor-badge vendor-aws">AWS</span> <strong>WAF AI Activity Dashboard</strong> &mdash; Tracks 650+ AI bots. Web Bot Authentication (WBA) for cryptographic bot verification on CloudFront.</td>
+                    <td><a class="source-link" href="https://aws.amazon.com/about-aws/whats-new/2026/02/aws-waf-ai-activity-dashboard/" target="_blank">AWS</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 2: Delta Analysis -->
+<article class="section" id="delta">
+    <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Delta Analysis (vs. March 2026)</h2>
+    </div>
+
+    <h3>What Accelerated</h3>
+    <div class="delta-grid">
+        <div class="delta-card accelerated">
+            <h4>AI Inference Cloud &mdash; Akamai&rsquo;s Boldest Bet</h4>
+            <p>The AI Grid launch at GTC represents Akamai&rsquo;s most ambitious strategic move since the Linode acquisition. Jensen Huang&rsquo;s keynote endorsement, multi-thousand GPU clusters at core, and intelligent orchestration across 4,400+ edge locations signal a genuine attempt to reposition from CDN/security into distributed AI compute. The $200M four-year deal validates enterprise demand.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Security Segment Growth Momentum</h4>
+            <p>Security revenue at $592M (+11% Q4) continues to be the reliable growth engine. API Security crossed the $100M run-rate threshold with >100% YoY growth. Guardicore Segmentation acceleration (+36%) confirms Zero Trust demand. Security now represents 54% of Q4 revenue.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>NVIDIA Partnership Deepening</h4>
+            <p>Two major NVIDIA collaborations in 60 days: AI Grid (Blackwell GPUs for inference) and BlueField DPUs (OT Zero Trust). No other security/edge vendor has this depth of NVIDIA partnership. Positions Akamai uniquely at the intersection of AI compute and security.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Agentic Commerce Security</h4>
+            <p>Visa partnership to secure AI shopping agents across 175M merchant locations is a first-mover play in a new category. Combines Akamai&rsquo;s bot detection expertise with Visa&rsquo;s Trusted Agent Protocol for the emerging agentic economy.</p>
+        </div>
+    </div>
+
+    <h3>What Is New</h3>
+    <div class="delta-grid">
+        <div class="delta-card new">
+            <h4>Guardicore AI-Powered Policy Automation</h4>
+            <p>AI-driven application understanding and proof-driven enforcement are net-new capabilities. Automated policy generation + simulation before enforcement addresses the #1 barrier to Zero Trust adoption: policy complexity.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Fermyon / WebAssembly at Edge</h4>
+            <p>Fermyon acquisition (Dec 2025) adds serverless WebAssembly FaaS. A direct competitive response to Cloudflare Workers, aiming to attract developers to Akamai&rsquo;s edge for application workloads beyond CDN.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>$200M AI Cluster Contract</h4>
+            <p>A single four-year, $200M deal for a metro-edge GPU cluster validates that enterprises are willing to pay for distributed AI inference outside hyperscaler clouds. Early adoption in gaming, finance, and media.</p>
+        </div>
+    </div>
+
+    <h3>What Slowed or Faces Risk</h3>
+    <div class="delta-grid">
+        <div class="delta-card slowed">
+            <h4>Delivery Revenue in Structural Decline</h4>
+            <p>Delivery at $311M (-2% YoY) continues to erode as traditional CDN becomes commoditized. Management expects &ldquo;further deterioration&rdquo; in FY2026. Not offset by growth in other segments yet in absolute terms.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>Profitability Under Pressure</h4>
+            <p>2026 profitability guidance fell below consensus due to AI infrastructure investment (Blackwell GPU procurement, co-location costs). CapEx rising significantly. The inference bet requires sustained investment before returns materialize.</p>
+        </div>
+        <div class="delta-card risk">
+            <h4>Cloudflare&rsquo;s Platform Expansion Threat</h4>
+            <p>Cloudflare&rsquo;s Agents Week demonstrated that WAAP/DDoS is now &ldquo;bundled free&rdquo; within a platform sale. At 500 Tbps and 330+ cities, Cloudflare&rsquo;s network now exceeds Akamai&rsquo;s in raw Anycast capacity. Akamai must differentiate on more than network scale.</p>
+        </div>
+    </div>
+
+    <h3>Meaningful Pattern Shifts</h3>
+    <div class="delta-grid">
+        <div class="delta-card pattern">
+            <h4>Akamai&rsquo;s Three-Pivot Identity</h4>
+            <p>CDN company &rarr; security company &rarr; AI infrastructure company. The AI Grid + Fermyon + CIS growth (+45%) collectively signal a third strategic reinvention. Success depends on whether Akamai can maintain security growth while simultaneously building a credible AI compute business against hyperscaler competition.</p>
+        </div>
+        <div class="delta-card pattern">
+            <h4>Edge Becomes AI Infrastructure</h4>
+            <p>Akamai&rsquo;s 4,400+ edge locations are being repurposed from content delivery to AI inference. This transforms the CDN asset from a depreciating legacy into a potential AI moat. If the thesis holds, Akamai&rsquo;s geographic distribution becomes a structural advantage no hyperscaler can easily replicate.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 3: Competitive Comparison -->
+<article class="section" id="competitive">
+    <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Competitive Comparison</h2>
+    </div>
+
+    <h3>3.1 Product Innovation</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td><strong>Pivoting aggressively on two fronts:</strong> AI compute (Inference Cloud, AI Grid, Fermyon) and security automation (Guardicore AI, OT Zero Trust). Partnered with NVIDIA at a depth no peer matches. API Security crossed $100M run rate. Innovation is concentrated on infrastructure and enterprise security, not developer platform breadth. SOTI research program provides strong thought leadership.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Highest innovation velocity in the market. Agents Week 2026 delivered 10+ products in a single week (Mesh, Agent Cloud, Flagship, Agent Memory, Artifacts). TAM expanded to $196B. Now competes as a platform company, not just security. Gen 13 hardware co-design with AMD shows engineering depth.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS without decryption is a notable differentiator (per Radware claim). Agentic AI Protection and Pynt acquisition (Jan 2026) show strategic focus. Innovation concentrated rather than broad.</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>Innovation directed at platform consolidation (Prisma AIRS, Cortex XSIAM). Google Cloud Gemini integration for AI governance. Broadest pure-security portfolio. WAAP/DDoS not the focus.</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>AI Activity Dashboard (650+ bots) and Web Bot Authentication are pragmatic. Innovation evolutionary within WAF/Shield. Shield Advanced static at $3K/mo.</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>Incremental: LALIGA anti-piracy partnership, system lists. Signal Sciences WAF remains core. First non-GAAP profitable year but narrow innovation scope.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Gartner WAAP Leader. Strong WAF/API security/data security. Quieter innovation since Thales integration. Less visible in DDoS and AI innovation this period.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.2 DDoS Capability</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Network Capacity</th><th>Mitigation</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td><strong>200+ Tbps total; 20+ Tbps dedicated Prolexic; 36 Anycast scrubbing centers; 4,400+ edge locations</strong></td><td>Prolexic scrubbing (cloud, on-prem via Corero, hybrid); 225+ SOCC defenders 24/7; zero-second SLA</td><td><strong>Deepest enterprise DDoS pedigree.</strong> Carrier relationships. 99.99% uptime SLA. Now augmented by AI inference edge infrastructure. L7 DDoS surged 104% per SOTI.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>500 Tbps Anycast, 330+ cities</td><td>Autonomous sub-3s edge mitigation; Adaptive DDoS</td><td>Largest Anycast network; unmetered; mitigated 31.4 Tbps attack. Raw capacity exceeds Akamai&rsquo;s published numbers.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DefensePro + Cloud DDoS</td><td>Behavioral ML; hybrid; encrypted attack mitigation without decryption</td><td>No-decrypt L7 DDoS (per Radware claim). Strong hybrid model. DDoS attacks up 168% per Radware report.</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>Shield Standard (free) + Advanced ($3K/mo)</td><td>CloudFront edge scrubbing; DRT for Advanced</td><td>Native to AWS ecosystem; cost barrier for Advanced.</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>Prisma Access global PoPs</td><td>Inline DDoS via NGFW/Prisma</td><td>Integrated with security stack; not purpose-built for volumetric DDoS.</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>~100 PoPs</td><td>Edge-based via CDN infrastructure</td><td>Adequate for CDN customers; not a DDoS specialist.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Cloud scrubbing, 44+ PoPs; 6 Tbps</td><td>Infrastructure + application layer</td><td>Enterprise adequate; not at Akamai/Cloudflare scale.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.3 WAAP / API Security</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>WAF</th><th>API Security</th><th>Bot Management</th><th>AI Security</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td><strong>App &amp; API Protector; Gartner Leader (6+ years running)</strong></td><td><strong>API discovery + runtime protection; >$100M run rate; 87% incident rate finding drives demand</strong></td><td><strong>Advanced bot management; Visa partnership for agentic commerce</strong></td><td>Indirect: Guardicore for AI workload segmentation + Inference Cloud positioning. No dedicated &ldquo;AI Security for Apps&rdquo; equivalent.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Managed rulesets; Gartner Leader</td><td>API Shield: schema validation, discovery, abuse detection</td><td>Comprehensive; challenge pages (had Mar outage)</td><td>AI Security for Apps: LLM discovery, prompt injection, PII leakage; Wiz integration</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Cloud WAF + on-prem; Gartner Strong Performer</td><td>Pynt acquisition (Jan 2026); full-lifecycle planned</td><td>Bot Manager with behavioral detection</td><td>Agentic AI Protection: prompt injection, tool abuse detection</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>Prisma Cloud WAAP; most deployment options</td><td>Advanced API discovery via Cortex</td><td>Integrated bot protection</td><td>Prisma AIRS; Google Gemini integration</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>AWS WAF with managed rules; Gartner Challenger</td><td>API Gateway native; limited dedicated</td><td>Bot Control (650+ bots); WBA</td><td>AI Activity Dashboard; no inline AI protection</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Cloud WAF + on-prem; Gartner WAAP Leader</td><td>API Security: discovery, risk, runtime</td><td>Advanced Bot Protection; client-side</td><td>No dedicated offering</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>Next-Gen WAF (Signal Sciences); Gartner Challenger</td><td>Basic API protection via WAF rules</td><td>Network Learning Exchange</td><td>No dedicated offering</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.4 Platform Breadth &amp; Cloud Compute</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Scope</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td><strong>CDN (legacy leader), DDoS (Prolexic), WAF (App &amp; API Protector), bot management, API security, Zero Trust (Guardicore, EAA), cloud compute (Connected Cloud / Linode, 41 core DCs), AI inference (Inference Cloud, 4,400+ GPU-enabled edge), edge DNS, serverless (Fermyon/Wasm).</strong> Broader than peers in enterprise security + compute, but lacks developer platform depth (no equivalent to Workers/R2/D1/KV).</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td><strong>Broadest overall.</strong> CDN, DNS, DDoS, WAF, API security, AI security, Zero Trust, developer platform (Workers, R2, D1, KV, Durable Objects), AI inference, networking (Mesh, Tunnel, WARP), email security, registrar, feature flags, agent memory. Platform depth Akamai cannot currently match.</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>NGFW, cloud security (Prisma), SASE, SOAR (Cortex XSIAM), WAAP, AI security (AIRS). Broadest pure-security portfolio. No CDN/edge/developer platform.</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>CloudFront, WAF, Shield, API Gateway, Cognito. Security is one of hundreds of services; depth varies.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DDoS, Cloud WAF, bot management, API security (Pynt), Kubernetes WAAP, ADC. Deep in app delivery/protection; no CDN, developer platform, or Zero Trust.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>WAF, DDoS, API security, bot management, data security, database security, RASP. Part of Thales. No CDN/developer platform.</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>CDN, Next-Gen WAF, DDoS, edge compute (Compute@Edge). Narrowest platform.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.5 Market Momentum</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td><strong>$4.21B (FY2025); +5% YoY total; Security +10%; CIS +45%;</strong> ~$13.9B mkt cap; $800M buyback</td><td><strong>AI inference is the growth narrative. $200M CIS contract validates demand. Analyst consensus: Moderate Buy, avg target $108 (+13%).</strong> But: delivery declining, profitability guidance below consensus due to AI investment. Execution risk on three-front pivot (security + compute + AI).</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>$2.17B (FY2025); 29.8% YoY (33.6% Q4); ~$73&ndash;75B mkt cap</td><td>TAM $196B; platform strategy gaining. 5x Akamai&rsquo;s market cap on half the revenue &mdash; reflects platform premium.</td></tr>
+                <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td>~$2.6B quarterly (Q2 FY2026); 16% YoY; NGS ARR $6.33B</td><td>Platformization gaining traction; WAAP not a growth driver. FY ends Jul 31.</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>$624M (FY2025); stock +354%; first non-GAAP profitable (GAAP loss -$121.7M)</td><td>Revenue grew 23% Q4. Profitability milestone but narrow differentiation.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>$301.9M (FY2025)</td><td>Cloud security push via Investor Day; Pynt + Agentic AI show strategic clarity.</td></tr>
+                <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td>WAF/Shield undisclosed</td><td>Incremental features; ecosystem lock-in; inertia-driven adoption.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Part of Thales (~$20B group); not separately disclosed</td><td>Gartner WAAP Leader; strong enterprise base; quieter period since integration.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 4: Visual Strategic Section -->
+<article class="section" id="visual">
+    <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Visual Strategic Section</h2>
+    </div>
+
+    <div class="chart-row">
+        <!-- Revenue Comparison -->
+        <div class="chart-box">
+            <h4>FY2025 Revenue Comparison ($M)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--akamai-blue); font-weight:800;">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--akamai-blue);">$4,210M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Cloudflare</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:51.5%; background:var(--cf-orange);">$2,170M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Fastly</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:14.8%; background:var(--fastly-red);">$624M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:7.2%; background:var(--radware-green);">$302M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Akamai leads on revenue but trails Cloudflare 5:1 on market cap ($13.9B vs ~$74B).</p>
+        </div>
+
+        <!-- Growth Rates -->
+        <div class="chart-box">
+            <h4>YoY Revenue Growth (FY2025)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Cloudflare</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:89%; background:var(--cf-orange);">29.8%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Fastly</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:45%; background:var(--fastly-red);">~15%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--akamai-blue); font-weight:800;">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:15%; background:var(--akamai-blue);">5%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:10%; background:var(--radware-green);">~3%</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Akamai&rsquo;s total growth is constrained by delivery decline. CIS alone grew 45%.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <!-- Akamai Segment Growth -->
+        <div class="chart-box">
+            <h4>Akamai Segment Growth (Q4 2025 YoY)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">API Security</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:#1a6b3c;">>100%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Cloud Infra</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:45%; background:#27ae60;">+45%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Guardicore+API</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:36%; background:#2b85c1;">+36%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Security</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:11%; background:var(--akamai-blue);">+11%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Total</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:7%; background:#888;">+7%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Delivery</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:5%; background:var(--accent-red);">-2%</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Momentum Scorecard -->
+        <div class="chart-box">
+            <h4>Momentum Scorecard (1&ndash;5 Scale)</h4>
+            <div class="table-wrapper">
+                <table class="scorecard-table" style="font-size:0.82rem;">
+                    <thead><tr><th>Vendor</th><th>Innovation</th><th>Traction</th><th>Clarity</th><th>Composite</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td class="score score-5">5</td><td class="score score-5">5</td><td class="score score-5">5</td><td class="score score-5">5.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-palo">Palo Alto</span></td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-4">4.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td class="score score-4">4</td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-3">3.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-aws">AWS</span></td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3</td><td class="score score-3">3.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td class="score score-2">2</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-2">2.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td class="score score-2">2</td><td class="score score-3">3</td><td class="score score-2">2</td><td class="score score-2">2.3</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.5rem;">Akamai scores higher than Cloudflare brief (3.3&rarr;3.7) due to reweighting: AI Grid + NVIDIA partnership + Fermyon elevate innovation; strategic clarity is strong (clear three-pillar model). Market traction held back by delivery drag and muted total growth.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <!-- Positioning Matrix -->
+        <div class="chart-box" style="grid-column: 1 / -1;">
+            <h4>Competitive Positioning Matrix: Security Depth vs. Cloud/AI Compute Ambition</h4>
+            <div style="position:relative; padding: 30px 20px 40px 90px;">
+                <div class="matrix-container">
+                    <span class="matrix-label-y">Security Portfolio Depth &rarr;</span>
+                    <span class="matrix-label-x">Cloud &amp; AI Compute Ambition &rarr;</span>
+                    <!-- Akamai: high security, high compute ambition -->
+                    <div class="matrix-dot" style="left:75%; bottom:78%; background:var(--akamai-blue); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--akamai-blue);">Akamai</div>
+                    <!-- Cloudflare: moderate-high security, very high compute -->
+                    <div class="matrix-dot" style="left:90%; bottom:70%; background:var(--cf-orange);">Cloudflare</div>
+                    <!-- AWS: low-moderate security focus, extreme compute -->
+                    <div class="matrix-dot" style="left:95%; bottom:30%; background:var(--aws-orange);">AWS</div>
+                    <!-- Palo Alto: highest security depth, low compute -->
+                    <div class="matrix-dot" style="left:15%; bottom:90%; background:var(--palo-cyan); color:#1a1a1a;">Palo Alto</div>
+                    <!-- Radware: moderate security, no compute -->
+                    <div class="matrix-dot" style="left:8%; bottom:55%; background:var(--radware-green);">Radware</div>
+                    <!-- Imperva: moderate security, no compute -->
+                    <div class="matrix-dot" style="left:8%; bottom:45%; background:var(--imperva-purple);">Imperva</div>
+                    <!-- Fastly: low security, low compute -->
+                    <div class="matrix-dot" style="left:25%; bottom:20%; background:var(--fastly-red);">Fastly</div>
+                </div>
+            </div>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>Akamai occupies a unique position:</strong> deep enterprise security portfolio AND aggressive AI compute ambition. Only Cloudflare shares both axes &mdash; but Cloudflare leads in developer platform breadth while Akamai leads in enterprise relationships and NVIDIA partnership depth.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 5: Strategic Signals -->
+<article class="section" id="signals">
+    <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Strategic Signals</h2>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 1: The Edge-to-AI Pivot Is Akamai&rsquo;s Existential Bet</h4>
+        <p>Akamai is spending $250M+ on NVIDIA Blackwell GPU infrastructure, signed a $200M four-year CIS contract, and expects 45&ndash;50% cloud revenue growth in 2026. This is not a side project &mdash; it is the central strategic thesis. <strong>If Akamai successfully repositions its 4,400+ edge locations as distributed AI infrastructure, it creates a moat that hyperscalers cannot easily replicate</strong> (they are concentrated in fewer, larger data centers). If it fails, the investment drags profitability without offsetting delivery decline. For Radware, this means Akamai&rsquo;s attention and R&D allocation are increasingly directed toward compute, potentially creating openings in security innovation.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 2: Akamai&rsquo;s API Security Dominance Is Accelerating</h4>
+        <p>API Security exceeded $100M run rate with >100% YoY growth. The SOTI report (87% incident rate, 258 attacks/day per enterprise) creates demand that feeds directly into App &amp; API Protector sales. <strong>Akamai&rsquo;s API security thought leadership (SOTI reports, impact surveys) is the most effective demand-generation engine in the market.</strong> Radware&rsquo;s Pynt acquisition (pre-production API testing) offers differentiation Akamai lacks, but Radware must counter Akamai&rsquo;s research-driven narrative with comparable market evidence.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 3: The Agentic Commerce Opportunity Is Real &mdash; and Akamai Got There First</h4>
+        <p>The Visa partnership for AI shopping agents positions Akamai at the intersection of bot management and commerce infrastructure. AI bot traffic surged 300% per Akamai&rsquo;s own data. <strong>Akamai&rsquo;s decade of bot management expertise is directly transferable to the agentic commerce challenge</strong> (distinguishing legitimate AI agents from malicious bots). No other security vendor has this level of partnership with a payments network. For Radware, the competitive implication is that Akamai is extending bot management into commerce &mdash; a market Radware does not currently address.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 4: Akamai&rsquo;s OT Security Play Opens a New TAM</h4>
+        <p>Guardicore + NVIDIA BlueField for &ldquo;un-agentable&rdquo; industrial equipment addresses critical infrastructure sectors (energy, transportation, manufacturing) now under regulatory pressure. <strong>This is a category where neither Cloudflare, Fastly, nor Radware competes.</strong> Akamai&rsquo;s enterprise sales motion and existing Guardicore relationships in large enterprises create a natural go-to-market for OT security. The Q2 2026 GA date means this becomes a revenue contributor in H2 2026.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 5: The Revenue vs. Valuation Gap Tells the Strategic Story</h4>
+        <p>Akamai generates 2x Cloudflare&rsquo;s revenue ($4.21B vs. $2.17B) but carries 1/5th the market cap ($13.9B vs. ~$74B). <strong>The market is pricing Akamai as an infrastructure company in transition and Cloudflare as a platform company with momentum.</strong> Akamai must demonstrate that the AI inference pivot + security growth can rerate the stock. For Radware, this valuation gap means Cloudflare can afford to give security away as a loss leader, while Akamai cannot &mdash; which paradoxically makes Akamai a more predictable competitor on security pricing.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 6: Delivery Decline Creates an Urgency Clock</h4>
+        <p>CDN delivery revenue ($311M Q4, -2% YoY) is in structural decline as the market commoditizes. Management expects further deterioration. <strong>Akamai has a finite window to grow CIS and security fast enough to offset delivery erosion.</strong> 2026 guidance (5&ndash;8% total growth) implies CIS and security must collectively grow ~$350&ndash;550M to overcome delivery losses and reach the high end. If CIS growth stalls or AI investment costs exceed returns, Akamai risks flat or declining total revenue. This urgency may make Akamai more aggressive on pricing and M&amp;A in security markets where Radware competes.</p>
+    </div>
+</article>
+
+<!-- Section 6: Executive Takeaways -->
+<article class="section" id="takeaways">
+    <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Executive Takeaways</h2>
+    </div>
+
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <h4>Akamai is undergoing its third strategic reinvention</h4>
+            <p>CDN &rarr; security &rarr; AI infrastructure. The Inference Cloud / AI Grid / Fermyon investments signal that Akamai views its future as a distributed compute provider, not just a security or CDN company. Security remains the cash engine (53% of revenue, +10% growth), but R&amp;D and CapEx are increasingly allocated to AI compute. For Radware, this dual focus means Akamai may be slower to innovate on pure WAAP/DDoS while pursuing the AI pivot.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <h4>Akamai&rsquo;s API security momentum is the most direct competitive threat to Radware</h4>
+            <p>With >$100M API Security run rate, >100% growth, and research-driven demand generation (SOTI reports, impact surveys), Akamai is establishing itself as the enterprise API security standard. Radware&rsquo;s Pynt acquisition (pre-production testing) offers unique differentiation, but integration maturity must accelerate to compete with Akamai&rsquo;s runtime-first approach.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <h4>The NVIDIA partnership creates a competitive moat in enterprise infrastructure</h4>
+            <p>No other security/edge vendor has dual NVIDIA partnerships (AI Grid for compute, BlueField for OT security). This opens TAM in industrial/OT security and AI inference that Radware does not currently address. The Akamai + NVIDIA relationship is a durable competitive asset that deepens over time.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">4</div>
+            <h4>Radware&rsquo;s encrypted DDoS and hybrid deployment model remain defensible against Akamai</h4>
+            <p>Akamai Prolexic is best-in-class for enterprise DDoS but requires traffic decryption. Radware&rsquo;s no-decrypt L7 DDoS capability and on-prem/hybrid deployment flexibility address use cases where Akamai&rsquo;s cloud-first model faces friction (certificate-sensitive environments, regulated industries, data sovereignty requirements).</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">5</div>
+            <h4>Akamai&rsquo;s delivery decline creates pricing pressure across security</h4>
+            <p>As CDN revenue erodes, Akamai has increasing incentive to bundle security aggressively with infrastructure deals to retain customers. Expect more &ldquo;security included with CDN/compute&rdquo; packaging. Radware should anticipate downward pricing pressure from Akamai in deals where both vendors compete, particularly in large enterprise accounts where Akamai has existing CDN relationships.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">6</div>
+            <h4>Akamai&rsquo;s bot management expertise extends into agentic commerce &mdash; a market Radware doesn&rsquo;t address</h4>
+            <p>The Visa partnership positions Akamai uniquely at the intersection of security and payments for AI agents. As agentic commerce matures, the distinction between &ldquo;bot management&rdquo; and &ldquo;agent authentication&rdquo; will blur. Radware&rsquo;s Agentic AI Protection focuses on runtime security of agents themselves &mdash; a complementary but different category than securing commerce from agents.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Disclaimer -->
+<div class="section" style="background: #fff8e1; border-left: 4px solid var(--accent-amber); font-size: 0.85rem;">
+    <p style="margin:0;"><strong>Disclaimer:</strong> This brief is based on publicly available information gathered through April 29, 2026, including Akamai&rsquo;s SEC filings, earnings calls, press releases, SOTI reports, and third-party analyst coverage. It does not contain material non-public information about any company referenced.</p>
+</div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly Akamai Strategic Brief</p>
+        <p style="opacity:0.7; margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="cloudflare-april-2026.html">Cloudflare Brief</a> &bull; <a href="archives.html">Archives</a> &bull; <a href="https://github.com/galdarom/cloudflare-intelligence-brief">GitHub</a></p>
+        <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.toc a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+document.querySelectorAll('article.section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

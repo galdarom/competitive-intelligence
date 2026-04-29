@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archives — Cloudflare Strategic Intelligence Brief</title>
+    <title>Archives — Radware Competitive Intelligence</title>
     <style>
         :root {
             --navy: #1A3C6E;
@@ -11,6 +11,8 @@
             --light-blue: #4A90D9;
             --light-gray: #F5F6FA;
             --dark-gray: #333333;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -27,12 +29,29 @@
         }
         .header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
         .header p { opacity: 0.85; font-size: 1rem; }
+        .header .nav-links { margin-top: 1rem; }
+        .header .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin: 0 0.5rem;
+        }
+        .header .nav-links a:hover { color: white; }
         .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        .month-group h2 {
+            color: var(--navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-blue);
+        }
+
         .archive-card {
             background: white;
             border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 0.8rem;
             box-shadow: 0 1px 4px rgba(0,0,0,0.06);
             display: flex;
             justify-content: space-between;
@@ -40,20 +59,23 @@
             transition: box-shadow 0.2s;
         }
         .archive-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
-        .archive-card h3 { color: var(--navy); font-size: 1.1rem; }
-        .archive-card .meta { font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+        .archive-card h3 { font-size: 1rem; }
+        .archive-card .meta { font-size: 0.82rem; color: #666; margin-top: 0.2rem; }
         .archive-card .badge {
-            background: var(--navy);
-            color: white;
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             text-decoration: none;
+            color: white;
             white-space: nowrap;
         }
-        .archive-card .badge:hover { background: var(--light-blue); }
-        .archive-card .badge.latest { background: #27AE60; }
+        .badge-cf { background: var(--cf-orange); }
+        .badge-cf:hover { background: #d97010; }
+        .badge-akamai { background: var(--akamai-blue); }
+        .badge-akamai:hover { background: #0080b8; }
+        .badge-latest::after { content: ' (Latest)'; font-weight: 400; }
+
         .footer {
             text-align: center;
             padding: 2rem;
@@ -66,30 +88,36 @@
 <body>
     <div class="header">
         <h1>Intelligence Brief Archives</h1>
-        <p>Monthly Cloudflare Competitive Intelligence Reports</p>
+        <p>Monthly Competitive Intelligence Reports</p>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cloudflare-april-2026.html">Cloudflare Brief</a>
+            <a href="akamai-april-2026.html">Akamai Brief</a>
+        </div>
     </div>
     <div class="container">
-        <div class="archive-card">
-            <div>
-                <h3>April 2026</h3>
-                <div class="meta">Published Apr 28, 2026 &bull; Confidence: 97/100 &bull; 7 vendors analyzed</div>
-                <div class="meta">Highlights: Agents Week, Cloudflare Mesh, Encrypted DDoS, Akamai Inference Cloud</div>
+        <div class="month-group">
+            <h2>April 2026</h2>
+            <div class="archive-card">
+                <div>
+                    <h3 style="color:var(--cf-orange);">Cloudflare Strategic Intelligence Brief</h3>
+                    <div class="meta">Published Apr 28, 2026 &bull; Confidence: 97/100 &bull; 7 vendors</div>
+                    <div class="meta">Agents Week, Mesh, 500 Tbps, Wiz partnership, reliability incidents</div>
+                </div>
+                <a href="cloudflare-april-2026.html" class="badge badge-cf badge-latest">Read &rarr;</a>
             </div>
-            <a href="index.html" class="badge latest">Latest &rarr;</a>
-        </div>
-        <!-- Future months will be added here -->
-        <!--
-        <div class="archive-card">
-            <div>
-                <h3>May 2026</h3>
-                <div class="meta">Coming June 1, 2026</div>
+            <div class="archive-card">
+                <div>
+                    <h3 style="color:var(--akamai-blue);">Akamai Strategic Intelligence Brief</h3>
+                    <div class="meta">Published Apr 29, 2026 &bull; 7 vendors</div>
+                    <div class="meta">AI Grid + NVIDIA, API Security >$100M, Visa agentic commerce, Fermyon acquisition</div>
+                </div>
+                <a href="akamai-april-2026.html" class="badge badge-akamai badge-latest">Read &rarr;</a>
             </div>
-            <span class="badge" style="background:#ccc;cursor:default;">Upcoming</span>
         </div>
-        -->
     </div>
     <div class="footer">
-        <p><a href="index.html">&larr; Back to latest report</a> &bull; <a href="https://github.com/galdarom/cloudflare-intelligence-brief">GitHub</a></p>
+        <p><a href="index.html">&larr; Back to Home</a> &bull; <a href="https://github.com/galdarom/cloudflare-intelligence-brief">GitHub</a></p>
         <p style="margin-top:0.5rem;">&copy; 2026 Radware Ltd.</p>
     </div>
 </body>
