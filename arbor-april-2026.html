@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETSCOUT Arbor Strategic Intelligence Brief — April 2026 | Radware</title>
+    <meta name="description" content="Monthly competitive intelligence brief on NETSCOUT Arbor covering DDoS protection, threat intelligence, AI/ML innovation, and competitive positioning.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --mid-gray: #BDC3C7;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
+            --fastly-red: #FF282D;
+            --radware-green: #6AB023;
+            --imperva-purple: #6C3483;
+            --arbor-teal: #005F73;
+            --f5-red: #E4002B;
+            --a10-blue: #0071CE;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .site-header .nav-links a:hover { color: white; }
+        .site-header .edition { font-size: 0.9rem; opacity: 0.85; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Hero - NETSCOUT Arbor branded */
+        .hero {
+            background: linear-gradient(135deg, #002E3D 0%, #004D5F 50%, #005F73 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+        /* Navigation */
+        .toc {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .toc-inner {
+            display: flex;
+            gap: 0.3rem;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .toc a:hover, .toc a.active { background: var(--arbor-teal); color: white; }
+
+        main { padding: 2rem 0 4rem; }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--arbor-teal);
+        }
+        .section-number {
+            background: var(--arbor-teal);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .section-header h2 { font-size: 1.5rem; color: var(--navy); font-weight: 700; }
+
+        /* Tables */
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        thead th {
+            background: #004D5F;
+            color: white;
+            padding: 0.7rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        tbody td { padding: 0.7rem 0.8rem; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+        tbody tr:nth-child(even) { background: #f9fafb; }
+        tbody tr:hover { background: #eef3fb; }
+
+        .vendor-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            color: white;
+            white-space: nowrap;
+        }
+        .vendor-arbor { background: var(--arbor-teal); }
+        .vendor-f5 { background: var(--f5-red); }
+        .vendor-a10 { background: var(--a10-blue); }
+        .vendor-radware { background: var(--radware-green); }
+
+        .delta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .delta-card {
+            border-radius: 6px;
+            padding: 1.2rem;
+            border-left: 4px solid;
+        }
+        .delta-card.accelerated { background: #e8f5e9; border-left-color: var(--accent-green); }
+        .delta-card.new { background: #e3f2fd; border-left-color: var(--light-blue); }
+        .delta-card.slowed { background: #fff3e0; border-left-color: var(--accent-amber); }
+        .delta-card.pattern { background: #f3e5f5; border-left-color: #8e24aa; }
+        .delta-card.risk { background: #ffebee; border-left-color: var(--accent-red); }
+        .delta-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
+        .delta-card p { font-size: 0.85rem; line-height: 1.5; }
+
+        .signal-box {
+            background: linear-gradient(135deg, #f0f7f5 0%, #e3efed 100%);
+            border: 1px solid #a3c9c1;
+            border-left: 5px solid var(--arbor-teal);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .signal-box h4 { color: var(--navy); font-size: 1rem; margin-bottom: 0.5rem; }
+        .signal-box p { font-size: 0.9rem; line-height: 1.6; }
+        .signal-box strong { color: var(--navy); }
+
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.2rem;
+        }
+        .takeaway-card {
+            border: 1px solid #a3c9c1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+            position: relative;
+            border-top: 4px solid var(--arbor-teal);
+        }
+        .takeaway-num {
+            position: absolute;
+            top: -14px;
+            left: 1rem;
+            background: var(--arbor-teal);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .takeaway-card h4 { color: var(--navy); font-size: 0.95rem; margin-bottom: 0.5rem; padding-top: 0.3rem; }
+        .takeaway-card p { font-size: 0.85rem; line-height: 1.5; }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .chart-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.2rem;
+        }
+        .chart-box h4 { text-align: center; color: var(--navy); font-size: 0.95rem; margin-bottom: 1rem; }
+
+        .bar-chart { display: flex; flex-direction: column; gap: 0.6rem; }
+        .bar-row { display: flex; align-items: center; gap: 0.6rem; }
+        .bar-label { width: 100px; font-size: 0.78rem; font-weight: 600; text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: #eee; border-radius: 4px; height: 24px; position: relative; overflow: hidden; }
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 6px;
+            font-size: 0.72rem;
+            color: white;
+            font-weight: 600;
+            transition: width 0.8s ease;
+        }
+
+        /* Segment donut approximation with stacked bars */
+        .segment-bar { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 0.5rem 0; }
+        .segment-bar .seg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .scorecard-table td.score { text-align: center; font-weight: 700; color: white; min-width: 60px; }
+        .score-5 { background: #1a6b3c; }
+        .score-4 { background: #27ae60; }
+        .score-3 { background: #f5a623; }
+        .score-2 { background: #e67e22; }
+        .score-1 { background: #e74c3c; }
+
+        /* KPI cards */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, #f0f7f5, #e5f0ed);
+            border: 1px solid #b5d6cf;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--arbor-teal); }
+        .kpi-card .kpi-label { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
+        .kpi-card .kpi-delta { font-size: 0.72rem; margin-top: 0.3rem; }
+        .kpi-card .kpi-delta.up { color: var(--accent-green); }
+        .kpi-card .kpi-delta.down { color: var(--accent-red); }
+        .kpi-card .kpi-delta.flat { color: var(--accent-amber); }
+
+        .matrix-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border-left: 2px solid var(--navy);
+            border-bottom: 2px solid var(--navy);
+        }
+        .matrix-dot {
+            position: absolute;
+            width: 80px;
+            height: 36px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .matrix-label-y {
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+        .matrix-label-x {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        a.source-link { color: var(--arbor-teal); text-decoration: none; font-size: 0.8rem; }
+        a.source-link:hover { text-decoration: underline; }
+
+        h3 {
+            color: var(--dark-blue);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--arbor-teal);
+        }
+        h3:first-child { margin-top: 0; }
+        p { margin-bottom: 0.8rem; }
+        ul { margin: 0.5rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+
+        .site-footer {
+            background: var(--navy);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .site-footer a { color: var(--accent-orange); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.5rem; }
+            .chart-row { grid-template-columns: 1fr; }
+            .takeaway-grid { grid-template-columns: 1fr; }
+            .kpi-row { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 1.2rem; }
+            .site-header h1 { font-size: 1rem; }
+            .toc a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+            .bar-label { width: 70px; font-size: 0.7rem; }
+            .site-header .nav-links { display: none; }
+        }
+        @media print {
+            .site-header, .toc, .site-footer { display: none; }
+            .section { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence</h1>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cloudflare-april-2026.html">Cloudflare</a>
+            <a href="akamai-april-2026.html">Akamai</a>
+            <a href="arbor-april-2026.html" style="color:white; font-weight:600;">Arbor</a>
+            <a href="f5-april-2026.html">F5</a>
+            <a href="a10-april-2026.html">A10</a>
+            <a href="archives.html">Archives</a>
+        </div>
+        <span class="edition">April 2026 Edition</span>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h2>NETSCOUT Arbor Strategic Intelligence Brief</h2>
+        <p class="subtitle">Cloud DDoS Services Market: F5, NETSCOUT Arbor, A10 Networks, Radware</p>
+        <div class="hero-meta">
+            <span>Period: December 2025&ndash;April 2026</span>
+            <span>Published: April 29, 2026</span>
+            <span>Prepared for: Radware Security Strategy Leadership</span>
+        </div>
+    </div>
+</section>
+
+<!-- TOC -->
+<nav class="toc">
+    <div class="container">
+        <div class="toc-inner">
+            <a href="#snapshot">Snapshot</a>
+            <a href="#news">1. News Table</a>
+            <a href="#delta">2. Delta Analysis</a>
+            <a href="#competitive">3. Competitive Comparison</a>
+            <a href="#visual">4. Visual Strategy</a>
+            <a href="#signals">5. Strategic Signals</a>
+            <a href="#takeaways">6. Executive Takeaways</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<div class="container">
+
+<!-- NETSCOUT at a Glance -->
+<article class="section" id="snapshot">
+    <div class="section-header">
+        <div class="section-number" style="background:var(--arbor-teal);">N</div>
+        <h2>NETSCOUT Arbor at a Glance &mdash; FY2026 (YTD through Q3)</h2>
+    </div>
+
+    <div class="kpi-row">
+        <div class="kpi-card">
+            <div class="kpi-value">$823M</div>
+            <div class="kpi-label">FY2025 Revenue</div>
+            <div class="kpi-delta flat">-0.8% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$657M</div>
+            <div class="kpi-label">FY2026 Rev (9-mo)</div>
+            <div class="kpi-delta up">Guidance: $835&ndash;870M</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">15+ Tbps</div>
+            <div class="kpi-label">Arbor Cloud Capacity</div>
+            <div class="kpi-delta up">16 global scrubbing centers</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$2.46B</div>
+            <div class="kpi-label">Market Cap</div>
+            <div class="kpi-delta up">1-year high (Mar 2026)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">400+ Tbps</div>
+            <div class="kpi-label">ATLAS Visibility</div>
+            <div class="kpi-delta up">214 countries monitored</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$2.37&ndash;2.45</div>
+            <div class="kpi-label">Non-GAAP EPS Guidance</div>
+            <div class="kpi-delta up">Raised after Q3 beat</div>
+        </div>
+    </div>
+
+    <h3>Revenue Segment Mix (Q1 FY2026)</h3>
+    <div class="segment-bar">
+        <div class="seg" style="width:63%; background:#005F73;">Service Assurance $118.3M (63%)</div>
+        <div class="seg" style="width:37%; background:#0096D6;">Cybersecurity $68.4M (37%)</div>
+    </div>
+    <p style="font-size:0.8rem; color:#666;">NETSCOUT&rsquo;s fiscal year ends March 31. Cybersecurity segment grew +18.3% YoY in Q1 FY2026, significantly outpacing Service Assurance (+1.4%). The cybersecurity segment (Arbor DDoS, nGenius security analytics) is the growth driver. FY2026 guidance raised to $835&ndash;870M after Q3 beat ($250.7M, EPS $1.00 vs $0.86 est). Q4/FY2026 results due May 7, 2026.</p>
+</article>
+
+<!-- Section 1: News Table -->
+<article class="section" id="news">
+    <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>News Table: Key Developments (Dec 2025&ndash;April 2026)</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th>#</th><th>Date</th><th>Summary</th><th>Source</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mar 4</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>DDoS Threat Intelligence Report: Qualitative Shifts in Attack Sophistication</strong> &mdash; H2 2025 data: 8M+ DDoS attacks worldwide. Largest attack reached 30 Tbps. 42% of attacks used 2&ndash;5 vectors. 219% increase in malicious AI tool mentions on dark web. Eleven11/RapperBot botnet drove 3,600+ high-volume events. DDoS-for-hire services now leverage conversational AI.</td>
+                    <td><a class="source-link" href="https://www.businesswire.com/news/home/20260304014007/en/" target="_blank">BusinessWire</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Feb 25</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>AI/ML enhancements to Arbor DDoS Protection</strong> &mdash; Enhanced ATLAS Intelligence Feed with Geo-IP location mapping. Now tracks 65+ active DDoS threat actors (including NoName057, RipperSec) for automatic campaign blocking. Adaptive DDoS Protection for AED automates fine-tuning without over-blocking legitimate traffic.</td>
+                    <td><a class="source-link" href="https://www.businesswire.com/news/home/20250225929876/en/" target="_blank">BusinessWire</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Feb 6</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>Q3 FY2026 Earnings: Beat Estimates, Guidance Raised</strong> &mdash; Revenue $250.7M (flat YoY). Non-GAAP EPS $1.00, beating $0.86 consensus. GAAP net income $55.1M ($0.75/share), up from $48.8M YoY. Service revenue rose to 51% of total ($129M). FY2026 guidance raised to $835&ndash;870M revenue, $2.37&ndash;2.45 non-GAAP EPS.</td>
+                    <td><a class="source-link" href="https://ir.netscout.com/investors/financial-information/quarterly-results/default.aspx" target="_blank">NETSCOUT IR</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Q2 FY2026</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>Q2 FY2026 Beat: Cybersecurity Drives Revenue Up 7%</strong> &mdash; Revenue $219.0M vs $204.3M estimate. Non-GAAP EPS $0.62 vs $0.45 estimate. Cybersecurity segment grew 18.3% YoY to $68.4M (Q1), accounting for 37% of revenue. Margins nearly doubled. FY2026 guidance raised.</td>
+                    <td><a class="source-link" href="https://www.stocktitan.net/news/NTCT/netscout-reports-first-quarter-fiscal-year-2026-financial-5tg8upfxxyoj.html" target="_blank">StockTitan</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Mar 10</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>NTCT Stock Reaches 1-Year High</strong> &mdash; Stock hit new 52-week high of ~$33.36 as investors respond to consecutive earnings beats and raised guidance. Market cap reached $2.46B. Analyst sentiment shifts on cybersecurity growth trajectory.</td>
+                    <td><a class="source-link" href="https://www.thecerbatgem.com/2026/03/10/netscout-systems-nasdaqntct-reaches-new-1-year-high-heres-what-happened.html" target="_blank">CerbatGem</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Apr 8</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>Arelion Expands Arbor DDoS Partnership</strong> &mdash; Global Tier-1 ISP Arelion (formerly Telia Carrier) deepened 16-year relationship with NETSCOUT. Enhanced monitoring density across Arelion&rsquo;s #1-ranked global backbone. Improved carpet-bombing detection, faster anomaly response, and broader enterprise DDoS mitigation coverage.</td>
+                    <td><a class="source-link" href="https://www.csoonline.com/article/4155947/arelion-employs-netscout-arbor-ddos-protection-products.html" target="_blank">CSO Online</a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Jan 2026</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>G2 Winter 2026: Six Leader Badges for DDoS Protection</strong> &mdash; Arbor TMS earned 5 Leader badges and Arbor Sightline earned 1 Leader badge on G2, based on verified customer reviews. Validates market perception as DDoS specialist leader.</td>
+                    <td><a class="source-link" href="https://www.netscout.com/blog/six-winter-2026-g2-leader-badges-prove-ddos-protection-stands" target="_blank">NETSCOUT Blog</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Jul 2025</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>Frost &amp; Sullivan 2025 MENA Technology Innovation Leadership</strong> &mdash; Recognized for AI-enabled threat detection, real-time network visibility, and integrated performance management. Award specifically cited Arbor&rsquo;s role in protecting Middle East critical infrastructure.</td>
+                    <td><a class="source-link" href="https://www.frost.com/news/press-releases/netscout-earns-frost-sullivans-2025-mena-technology-innovation-leadership-recognition-for-excellence-in-cybersecurity-solutions/" target="_blank">Frost &amp; Sullivan</a></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Jun 2025</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>Executive Succession: New COO &amp; CFO</strong> &mdash; Planned leadership transition: Sanjay Munshi became COO and Anthony Piazza became CFO (effective June 1, 2025) as Michael Szabados (COO) and Jean Bua (CFO) retired into advisory roles through June 2026. CEO Anil Singhal (founder, since 1984) continues to lead.</td>
+                    <td><a class="source-link" href="https://ir.netscout.com/investors/press-releases/press-release-details/2025/NETSCOUT-Reports-Fourth-Quarter-and-Full-Fiscal-Year-2025-Financial-Results-and-Announces-Executive-Transitions/default.aspx" target="_blank">NETSCOUT IR</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>2026</td>
+                    <td><span class="vendor-badge vendor-arbor">NETSCOUT</span> <strong>Sightline 9.12 + TMS Enhancements</strong> &mdash; New Adaptive DDoS, enhanced Geo-IP mapping via AIF, Insight traffic reporting. TMS updated with deeper botnet visibility, smarter detection, and automated carpet-bombing mitigation. Sightline detects carpet bombing in as little as 1 second with enhanced fast flood detection.</td>
+                    <td><a class="source-link" href="https://www.netscout.com/product/arbor-sightline" target="_blank">NETSCOUT</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 2: Delta Analysis -->
+<article class="section" id="delta">
+    <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Delta Analysis (vs. Prior Period)</h2>
+    </div>
+
+    <h3>What Accelerated</h3>
+    <div class="delta-grid">
+        <div class="delta-card accelerated">
+            <h4>Cybersecurity Segment Growth Outperforms</h4>
+            <p>Cybersecurity revenue grew 18.3% YoY in Q1 FY2026, dramatically outpacing Service Assurance (+1.4%). This signals that NETSCOUT&rsquo;s Arbor product line is the primary growth driver. Consecutive earnings beats (Q1, Q2, Q3) and raised guidance reflect improving execution in the security business.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>AI/ML Integration Into Arbor Portfolio</h4>
+            <p>Feb 2026 release added AI-powered Adaptive DDoS Protection for AED, ML-driven ATLAS Intelligence Feed enhancements, and automated threat actor tracking (65+ groups). NETSCOUT is embedding AI into detection and mitigation workflows, not just marketing. The Sightline 9.12 release with 1-second carpet bombing detection is a meaningful technical advance.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Threat Intelligence Leadership Deepens</h4>
+            <p>The H2 2025 DDoS Threat Intelligence Report is the most detailed in the industry: 8M+ attacks catalogued, 30 Tbps peak, 42% multi-vector, 219% AI tool growth. ATLAS visibility into 400+ Tbps of traffic across 214 countries provides unmatched telemetry. This research-driven demand generation mirrors Akamai&rsquo;s SOTI playbook.</p>
+        </div>
+    </div>
+
+    <h3>What Is New</h3>
+    <div class="delta-grid">
+        <div class="delta-card new">
+            <h4>Automated DDoS Campaign Tracking</h4>
+            <p>ATLAS Intelligence Feed now automatically tracks active campaigns from 65+ known DDoS threat actors and pushes blocking rules to Arbor Edge Defense without operator intervention. This is a step-change in automation that reduces mean-time-to-mitigate for known actor campaigns.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Enhanced Carrier Partnerships</h4>
+            <p>Arelion partnership expansion demonstrates that Tier-1 ISPs continue to choose NETSCOUT Arbor for backbone-level DDoS protection. A 16-year relationship deepened with enhanced carpet-bombing detection. This ISP entrenchment is difficult for competitors to replicate.</p>
+        </div>
+    </div>
+
+    <h3>What Slowed or Faces Risk</h3>
+    <div class="delta-grid">
+        <div class="delta-card slowed">
+            <h4>Total Revenue Growth Remains Muted</h4>
+            <p>Despite cybersecurity momentum, total revenue was flat in Q3 FY2026 (-0.5% YoY) due to Service Assurance drag. FY2025 was -0.8%. The company remains dependent on a non-growing legacy business for 63% of revenue. NETSCOUT cannot rerate until cybersecurity growth fully offsets service assurance stagnation.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>No WAAP / API Security Offering</h4>
+            <p>NETSCOUT has no WAF, WAAP, bot management, or API security product. As DDoS converges with application security (Cloudflare, Akamai, Radware all offer unified WAAP + DDoS), NETSCOUT&rsquo;s pure DDoS positioning limits its addressable market and deal sizes in enterprise security consolidation cycles.</p>
+        </div>
+        <div class="delta-card risk">
+            <h4>Cloud-Native DDoS Competition Intensifies</h4>
+            <p>Cloudflare&rsquo;s 500 Tbps unmetered DDoS (free with platform), Akamai Prolexic at 20+ Tbps dedicated, and Radware&rsquo;s hybrid model all pressure NETSCOUT&rsquo;s traditional ISP/enterprise deployment model. Cloud-native buyers increasingly choose platform-integrated DDoS over best-of-breed appliance/cloud scrubbing approaches.</p>
+        </div>
+    </div>
+
+    <h3>Meaningful Pattern Shifts</h3>
+    <div class="delta-grid">
+        <div class="delta-card pattern">
+            <h4>From Network Monitoring Company to DDoS Security Company</h4>
+            <p>NETSCOUT&rsquo;s identity is shifting. Cybersecurity grew 18.3% vs Service Assurance at 1.4%. The investor narrative, product investment, and market recognition (G2, Frost &amp; Sullivan) all center on Arbor DDoS. The company&rsquo;s future depends on accelerating this transition. If cybersecurity reaches ~50% of revenue in FY2027, NETSCOUT could earn a security-company valuation multiple.</p>
+        </div>
+        <div class="delta-card pattern">
+            <h4>DDoS Attacks Become AI-Augmented</h4>
+            <p>NETSCOUT&rsquo;s threat report documents a 219% increase in malicious AI tools and DDoS-for-hire services using conversational AI. Attacks are multi-vector (42%), AI-orchestrated, and reaching 30 Tbps scale. This complexity increase favors dedicated DDoS specialists like NETSCOUT over vendors offering DDoS as an ancillary feature.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 3: Competitive Comparison -->
+<article class="section" id="competitive">
+    <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Competitive Comparison &mdash; Cloud DDoS Services</h2>
+    </div>
+
+    <h3>3.1 Product Innovation</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td><strong>Deepest DDoS-specific innovation in the market.</strong> AI/ML Adaptive DDoS Protection, automated threat actor campaign tracking (65+ groups), 1-second carpet bombing detection, enhanced ATLAS Intelligence Feed with Geo-IP. G2 Winter 2026 Leader (6 badges). Frost &amp; Sullivan MENA Innovation Leader. Innovation is narrow but unmatched in DDoS depth &mdash; no WAAP or application-layer security.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>Broadest application delivery portfolio with DDoS as integrated component. ADSP Partner Program with MazeBolt (proactive DDoS testing). Distributed Cloud DDoS at 12+ Tbps / 24 Regional Edges. BIG-IP Hybrid Defender for on-prem. AI bookings $50M (+200%). Innovation is broad (multicloud, AI, WAAP) rather than DDoS-deep. CISA ED 26-01 raises trust concerns.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>A10 Defend suite: Thunder TPS (300 Gbps/440 Mpps per appliance &mdash; market-leading), Defend Threat Control SaaS, AI-enhanced zero-day detection. ThreatX acquisition (Feb 2025) adds API/web app protection. Won Microsoft AI infrastructure contract. Innovation spans DDoS + ADC.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS mitigation without decryption (per Radware claim). DefensePro behavioral ML. Pynt acquisition (Jan 2026) for API security. Agentic AI Protection for prompt injection/tool abuse. DDoS attacks up 168% per Radware Global Threat Report.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.2 Cloud DDoS Scrubbing Services</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Cloud Capacity</th><th>Service Model</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td><strong>15+ Tbps dedicated; 16 global scrubbing centers; ATLAS monitors 400+ Tbps</strong></td><td>Managed or self-service. Cloud Signaling for automatic hybrid failover from AED to Arbor Cloud</td><td><strong>Largest dedicated DDoS scrubbing network.</strong> ISP-grade heritage. ATLAS telemetry (400+ Tbps visibility, 214 countries, 13,000+ ASNs). 65+ threat actor automated blocking. 16-year Arelion partnership.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>12+ Tbps combined scrubbing; 24 Regional Edges</td><td>Always-On or Always-Available subscriptions. Managed service with SOC. L3/L4/L7 protection</td><td>Integrated into ADSP platform &mdash; DDoS + WAF + bot + API in single cloud. MazeBolt proactive testing. But: CISA ED 26-01 trust concerns.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>Cloud scrubbing via A10 Defend; capacity not publicly disclosed</td><td>On-demand or always-on with BGP-based redirection. A10 DSIRT 24/7 incident response</td><td>ML-driven automation for traffic redirection and policy escalation. Zero-atrophy threat intelligence. Strongest in carrier/telco (9 of top 10).</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Cloud DDoS Protection service; hybrid model</td><td>Always-on or on-demand. Hybrid with DefensePro on-prem + cloud scrubbing. 24/7 ERT</td><td>Encrypted attack mitigation without decryption (per Radware claim). Behavioral ML detection. Strong in certificate-sensitive environments.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.3 On-Premises / Hybrid DDoS</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>On-Prem Product</th><th>Hybrid Integration</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td><strong>Arbor Edge Defense (AED): inline, up to 40 Gbps; Arbor TMS: ISP-grade mitigation; Arbor Sightline: flow-based detection</strong></td><td>Cloud Signaling auto-failover to Arbor Cloud. Sightline for detection + TMS for mitigation at ISP level</td><td><strong>Deepest on-prem DDoS stack.</strong> AED + TMS + Sightline covers enterprise and ISP. 1-second carpet bombing detection. Only vendor with ISP-grade + enterprise-grade + cloud scrubbing stack.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>BIG-IP DDoS Hybrid Defender: multi-layer L3/L4/L7, SSL decryption, anti-bot</td><td>BIG-IP on-prem + Distributed Cloud for volumetric overflow. ADSP unifies management</td><td>Only vendor with full ADC + DDoS in single appliance. SSL decryption at line rate. But: CISA ED 26-01 and CVE-2025-53521 raise trust concerns for on-prem BIG-IP.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>Thunder TPS (A10 Defend Mitigator): 300 Gbps / 440 Mpps per appliance. Scales to 2.4 Tbps in cluster</td><td>On-prem Thunder TPS + cloud scrubbing via BGP redirection</td><td>Highest per-appliance throughput (300 Gbps). 11x performance over legacy solutions. NimbusDDOS certified. Strong in carrier environments.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DefensePro: on-prem behavioral ML DDoS protection</td><td>DefensePro on-prem + Cloud DDoS for hybrid. Automated failover</td><td>Encrypted L7 DDoS without decryption (per Radware claim). Behavioral detection. Flexible deployment models.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.4 AI/ML &amp; Threat Intelligence</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>AI/ML in DDoS</th><th>Threat Intelligence</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td><strong>Adaptive DDoS Protection (AI/ML). Automated campaign detection for 65+ threat actors. 1-sec carpet bombing detection</strong></td><td><strong>ATLAS: 400+ Tbps visibility, 214 countries, 13,000+ ASNs. Semi-annual DDoS Threat Intelligence Report (8M+ attacks, 30 Tbps peak)</strong></td><td><strong>Unmatched DDoS telemetry. ATLAS is the industry&rsquo;s most comprehensive DDoS intelligence platform.</strong> No competitor has comparable scale. 219% increase in AI-tool mentions tracked.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>ML-based anomaly detection in Distributed Cloud. BIG-IP behavioral analysis. AI bookings $50M</td><td>F5 Labs threat research. MazeBolt proactive DDoS testing via ADSP partnership</td><td>Proactive DDoS testing (MazeBolt) is unique in market. AI investment is broad (multicloud, not DDoS-specific).</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>AI-enhanced zero-day filter generation. ML-driven automation for traffic redirection and policy escalation</td><td>Defend Threat Control SaaS: real-time DDoS attack map, reflector/botnet intelligence, zero-atrophy data</td><td>SaaS-based DDoS intelligence without dedicated equipment. Strong for organizations wanting visibility without full deployment.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Behavioral ML in DefensePro. Agentic AI Protection for prompt injection/tool abuse</td><td>Global Threat Report (annual). DDoS attacks up 168% finding. Emergency Response Team (ERT) intelligence</td><td>Behavioral ML focus. Agentic AI Protection addresses emerging AI agent threats. ERT provides human-in-the-loop intelligence.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.5 Market Momentum</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td><strong>$823M (FY2025, -0.8%); FY2026 guide $835&ndash;870M; Cybersecurity +18.3%; ~$2.46B mkt cap</strong></td><td><strong>Cybersecurity growth is the rerate thesis.</strong> 3 consecutive earnings beats + raised guidance. Stock at 1-year high. Total revenue flat due to Service Assurance drag. G2 Leader. Valued at 3x revenue vs F5 at 5.5x and A10 at 6.8x.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>$3.1B (FY2025, +10%); Q2 FY2026 $812M (+11%); product +22%; ~$17.2B mkt cap</td><td>Strongest financial position in comparison set. 7 consecutive quarters double-digit product growth. Guidance raised. But: CISA ED 26-01 is a trust liability.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>$290.6M (FY2025, +11%); Q1 2026 $75M (+13.4%); ~$1.99B mkt cap; $369.8M cash</td><td>Record revenue year. Stock +84% in 12 months. Microsoft AI infrastructure win. ThreatX acquisition expands TAM. 90%+ renewal rates.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>$301.9M (FY2025)</td><td>Cloud security push via Investor Day. Pynt + Agentic AI Protection show strategic clarity. Hybrid deployment flexibility differentiator.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 4: Visual Strategic Section -->
+<article class="section" id="visual">
+    <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Visual Strategic Section</h2>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>Revenue Comparison &mdash; Cloud DDoS Vendors ($M)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--f5-red);">$3,100M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--arbor-teal); font-weight:800;">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:26.5%; background:var(--arbor-teal);">$823M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.7%; background:var(--radware-green);">$302M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.4%; background:var(--a10-blue);">$291M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">F5&rsquo;s $3.1B is total company revenue (ADC, WAF, DDoS, bot, API). NETSCOUT&rsquo;s $823M includes service assurance (~63%); cybersecurity is ~37% ($305M annualized). DDoS-specific revenue is not separately disclosed for any vendor.</p>
+        </div>
+
+        <div class="chart-box">
+            <h4>Cloud DDoS Scrubbing Capacity (Tbps)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--arbor-teal); font-weight:800;">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--arbor-teal);">15+ Tbps (dedicated)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:80%; background:var(--f5-red);">12+ Tbps</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--a10-blue);">Not disclosed</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--radware-green);">Not disclosed</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">NETSCOUT leads in disclosed dedicated scrubbing capacity (15+ Tbps across 16 centers). F5 at 12+ Tbps across 24 Regional Edges. A10 and Radware do not publicly disclose cloud scrubbing Tbps.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>NETSCOUT Revenue Trajectory (FY2026 Quarterly)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Q3 (Dec 2025)</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--arbor-teal);">$250.7M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Q2 (Sep 2025)</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:87.3%; background:#007A8C;">$219.0M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Q1 (Jun 2025)</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:74.5%; background:#009FAF;">$186.8M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Accelerating quarterly trajectory: Q1&rarr;Q2 +17.2%, Q2&rarr;Q3 +14.5%. Q4 results due May 7, 2026.</p>
+        </div>
+
+        <div class="chart-box">
+            <h4>Momentum Scorecard (1&ndash;5 Scale)</h4>
+            <div class="table-wrapper">
+                <table class="scorecard-table" style="font-size:0.82rem;">
+                    <thead><tr><th>Vendor</th><th>Innovation</th><th>Traction</th><th>Clarity</th><th>Composite</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td class="score score-4">4</td><td class="score score-5">5</td><td class="score score-4">4</td><td class="score score-4">4.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-3">3.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3.0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.5rem;">F5 leads on traction ($3.1B, 7 consecutive quarters double-digit product growth). A10 is the fastest-growing by percentage (+11% FY, +13.4% Q1). NETSCOUT scores 3.0: deep DDoS innovation but muted total revenue growth. Radware high on innovation (encrypted DDoS, Agentic AI) but lower traction.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box" style="grid-column: 1 / -1;">
+            <h4>Competitive Positioning: Cloud DDoS Scale vs. On-Prem DDoS Depth</h4>
+            <div style="position:relative; padding: 30px 20px 40px 90px;">
+                <div class="matrix-container">
+                    <span class="matrix-label-y">On-Premises DDoS Depth &rarr;</span>
+                    <span class="matrix-label-x">Cloud DDoS Scale &rarr;</span>
+                    <div class="matrix-dot" style="left:80%; bottom:85%; background:var(--arbor-teal); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--arbor-teal);">NETSCOUT</div>
+                    <div class="matrix-dot" style="left:65%; bottom:70%; background:var(--f5-red);">F5</div>
+                    <div class="matrix-dot" style="left:35%; bottom:75%; background:var(--a10-blue);">A10</div>
+                    <div class="matrix-dot" style="left:45%; bottom:60%; background:var(--radware-green);">Radware</div>
+                </div>
+            </div>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>NETSCOUT leads in both cloud scale (15+ Tbps dedicated) and on-prem depth (AED + TMS + Sightline).</strong> F5 has strong cloud scale (12+ Tbps) with BIG-IP hybrid depth but faces CISA trust concerns. A10 excels in on-prem per-appliance performance (300 Gbps) with undisclosed cloud capacity. Radware balances both with hybrid flexibility and encrypted DDoS differentiation.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 5: Strategic Signals -->
+<article class="section" id="signals">
+    <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Strategic Signals</h2>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 1: NETSCOUT&rsquo;s Cybersecurity Growth Is Real &mdash; But Trapped Inside a Flat-Revenue Company</h4>
+        <p>Cybersecurity grew 18.3% in Q1 FY2026 while the company overall was flat (-0.8% FY2025). Three consecutive earnings beats and raised guidance suggest the Arbor business is genuinely accelerating. <strong>The strategic risk for Radware is underestimating NETSCOUT because of its muted total revenue &mdash; the security-specific business is growing at competitive rates.</strong> If NETSCOUT successfully spins off or separates the cybersecurity segment, the standalone Arbor business (~$305M annualized, growing 18%+) would be a focused, well-resourced DDoS competitor.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 2: ATLAS Threat Intelligence Is NETSCOUT&rsquo;s Strategic Moat</h4>
+        <p>Monitoring 400+ Tbps of internet traffic across 214 countries gives NETSCOUT unmatched DDoS telemetry. The H2 2025 threat report (8M+ attacks catalogued, 30 Tbps peak, 65+ threat actors tracked) is the industry&rsquo;s most comprehensive DDoS dataset. <strong>This telemetry advantage feeds directly into product differentiation &mdash; Adaptive DDoS Protection and automated campaign blocking rely on data no competitor can replicate.</strong> For Radware, this means competing on DDoS intelligence requires either building comparable telemetry or partnering for it.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 3: The &ldquo;Pure DDoS&rdquo; Market Is Shrinking as Platforms Bundle Protection</h4>
+        <p>Cloudflare offers unmetered DDoS included with every plan. Akamai bundles Prolexic with CDN and security contracts. Even Radware and Imperva offer DDoS within WAAP platforms. <strong>NETSCOUT&rsquo;s pure-play DDoS positioning faces structural headwinds as enterprise security consolidation favors platform vendors over point solutions.</strong> NETSCOUT&rsquo;s ISP/carrier channel (Arelion, Tier-1 ISPs) is more defensible than enterprise direct sales where platform consolidation hits hardest.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 4: AI-Augmented DDoS Attacks Favor Dedicated Defenders</h4>
+        <p>NETSCOUT&rsquo;s threat report documents a 219% increase in malicious AI tool mentions and DDoS-for-hire with conversational AI. Attacks reach 30 Tbps with 42% using multi-vector approaches. <strong>Rising attack complexity could reverse the platform-bundling trend &mdash; when DDoS becomes sophisticated enough, organizations may need a DDoS specialist alongside their platform vendor.</strong> This is NETSCOUT&rsquo;s best strategic argument and Radware&rsquo;s too: as attacks get harder, generalist DDoS mitigation isn&rsquo;t enough.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 5: NETSCOUT&rsquo;s ISP/Carrier Channel Is Its Most Defensible Asset</h4>
+        <p>The Arelion partnership (16 years, expanded 2024&ndash;2026) illustrates NETSCOUT&rsquo;s deep ISP entrenchment. Arbor Sightline + TMS is the de facto standard for Tier-1 ISP backbone DDoS management. <strong>No competitor &mdash; including Radware &mdash; has comparable ISP-level deployment depth.</strong> This channel is insulated from enterprise platform-bundling trends because ISPs buy DDoS detection at the network layer, not the application layer. Radware&rsquo;s hybrid on-prem + cloud model competes in enterprise, not ISP backbone.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 6: NETSCOUT&rsquo;s Lack of WAAP Limits Deal Size but Simplifies Competitive Positioning</h4>
+        <p>NETSCOUT doesn&rsquo;t compete with Radware on WAF, bot management, or API security. It competes exclusively on DDoS. <strong>In enterprise deals where DDoS is purchased separately from WAAP, NETSCOUT is a direct Radware competitor. In consolidated WAAP + DDoS deals, NETSCOUT is not a factor.</strong> The competitive implication: Radware&rsquo;s unified DDoS + WAAP + API security positioning is stronger than NETSCOUT&rsquo;s in consolidation cycles, but NETSCOUT&rsquo;s DDoS depth is stronger in DDoS-specific evaluations.</p>
+    </div>
+</article>
+
+<!-- Section 6: Executive Takeaways -->
+<article class="section" id="takeaways">
+    <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Executive Takeaways</h2>
+    </div>
+
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <h4>NETSCOUT Arbor is an underestimated DDoS competitor with accelerating cybersecurity growth</h4>
+            <p>While total revenue is flat (~$823M), cybersecurity grew 18.3% and the company beat estimates three consecutive quarters. The Arbor DDoS business is growing at rates comparable to or exceeding Radware&rsquo;s. Radware should not dismiss NETSCOUT based on muted headline revenue &mdash; the security-specific trajectory warrants close monitoring.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <h4>NETSCOUT&rsquo;s ATLAS telemetry is the deepest DDoS intelligence asset in the market</h4>
+            <p>400+ Tbps visibility, 214 countries, 65+ threat actor tracking, 8M+ attacks catalogued. No competitor has comparable DDoS-specific telemetry. This feeds Adaptive DDoS Protection and automated campaign blocking. Radware&rsquo;s competing intelligence advantage is its Global Threat Report and 168% DDoS increase data, but ATLAS scale exceeds Radware&rsquo;s telemetry footprint.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <h4>Radware&rsquo;s unified WAAP + DDoS positioning is stronger than NETSCOUT&rsquo;s in platform consolidation deals</h4>
+            <p>NETSCOUT has no WAF, bot management, or API security. In enterprise security consolidation cycles, Radware offers DDoS + WAAP + API security under one platform. NETSCOUT can only compete on the DDoS component. This structural advantage grows as enterprises reduce point-solution vendors.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">4</div>
+            <h4>In DDoS-specific evaluations, NETSCOUT is Radware&rsquo;s most technically capable competitor</h4>
+            <p>When DDoS is evaluated independently (carrier/ISP, critical infrastructure, government), NETSCOUT&rsquo;s ISP-grade heritage, ATLAS telemetry, and multi-layer stack (AED + Cloud + Sightline + TMS) represent the deepest pure-play alternative. Radware&rsquo;s differentiation in these evaluations relies on encrypted DDoS mitigation (per Radware claim) and hybrid deployment flexibility.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">5</div>
+            <h4>NETSCOUT&rsquo;s ISP channel is not addressable by Radware and should not be a competitive focus</h4>
+            <p>NETSCOUT&rsquo;s Arbor Sightline + TMS is embedded in Tier-1 ISP backbones (Arelion, 16+ year relationships). This is a different market from Radware&rsquo;s enterprise and service provider focus. Radware should not invest in competing for ISP backbone DDoS monitoring &mdash; the switching costs and integration depth make this a non-addressable segment.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">6</div>
+            <h4>Rising DDoS attack complexity benefits both NETSCOUT and Radware at the expense of platform vendors</h4>
+            <p>NETSCOUT&rsquo;s threat report documents 30 Tbps attacks, 42% multi-vector, 219% AI tool growth, and campaign coordination among 65+ threat actors. As DDoS attacks become more sophisticated and AI-augmented, enterprise buyers may reconsider whether bundled DDoS from Cloudflare/Akamai is sufficient vs. dedicated DDoS from NETSCOUT or Radware. Both NETSCOUT and Radware benefit from this complexity trend.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Disclaimer -->
+<div class="section" style="background: #fff8e1; border-left: 4px solid var(--accent-amber); font-size: 0.85rem;">
+    <p style="margin:0;"><strong>Disclaimer:</strong> This brief is based on publicly available information gathered through April 29, 2026, including NETSCOUT&rsquo;s SEC filings, earnings calls, press releases, DDoS Threat Intelligence Reports, and third-party coverage. NETSCOUT&rsquo;s fiscal year ends March 31; FY2026 = April 2025&ndash;March 2026. It does not contain material non-public information about any company referenced.</p>
+</div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly NETSCOUT Arbor Strategic Brief</p>
+        <p style="opacity:0.7; margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="f5-april-2026.html">F5 Brief</a> &bull; <a href="a10-april-2026.html">A10 Brief</a> &bull; <a href="archives.html">Archives</a> &bull; <a href="https://github.com/galdarom/competitive-intelligence">GitHub</a></p>
+        <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.toc a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+document.querySelectorAll('article.section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

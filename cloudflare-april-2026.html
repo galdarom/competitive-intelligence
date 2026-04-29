@@ -25,6 +25,7 @@
             --palo-cyan: #00C0E8;
             --radware-green: #6AB023;
             --imperva-purple: #6C3483;
+            --arbor-teal: #005F73;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -207,6 +208,7 @@
         .vendor-palo { background: var(--palo-cyan); color: #1a1a1a; }
         .vendor-radware { background: var(--radware-green); }
         .vendor-imperva { background: var(--imperva-purple); }
+        .vendor-arbor { background: var(--arbor-teal); }
 
         /* Delta cards */
         .delta-grid {
@@ -518,8 +520,11 @@
         <h1>Radware Competitive Intelligence</h1>
         <div style="display:flex; gap:1rem; align-items:center;">
             <a href="index.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Home</a>
-            <a href="cloudflare-april-2026.html" style="color:white; text-decoration:none; font-size:0.85rem; font-weight:600;">Cloudflare Brief</a>
-            <a href="akamai-april-2026.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Akamai Brief</a>
+            <a href="cloudflare-april-2026.html" style="color:white; text-decoration:none; font-size:0.85rem; font-weight:600;">Cloudflare</a>
+            <a href="akamai-april-2026.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Akamai</a>
+            <a href="arbor-april-2026.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Arbor</a>
+            <a href="f5-april-2026.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">F5</a>
+            <a href="a10-april-2026.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">A10</a>
             <a href="archives.html" style="color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.85rem;">Archives</a>
             <span class="edition">April 2026</span>
         </div>
@@ -530,7 +535,7 @@
 <section class="hero">
     <div class="container">
         <h2>Cloudflare Strategic Intelligence Brief</h2>
-        <p class="subtitle">Competitive Landscape Analysis: Cloudflare, Akamai, Fastly, Radware, Imperva/Thales</p>
+        <p class="subtitle">Competitive Landscape Analysis: Cloudflare, Akamai, NETSCOUT Arbor, Fastly, Radware, Imperva/Thales</p>
         <div class="hero-meta">
             <span>Period: March&ndash;April 2026</span>
             <span>Published: April 28, 2026</span>
@@ -783,6 +788,7 @@
                 <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>Incremental improvements (system lists, LALIGA partnership). Signal Sciences-based Next-Gen WAF remains core with limited expansion. No major DDoS, API security, or AI product launches.</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS without decryption is a notable differentiator (per Radware claim; not independently validated). Agentic AI Protection and Pynt acquisition show strategic focus. Innovation concentrated rather than broad.</td></tr>
                 <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Gartner WAAP Leader. Strong in WAF, API security, and data security. Recently integrated into Thales cybersecurity portfolio. Less visible in DDoS and AI-security innovation this period.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT Arbor</span></td><td>DDoS specialist with AI/ML-powered Adaptive DDoS Protection, automated threat actor campaign tracking (65+ groups), 1-second carpet bombing detection. G2 Winter 2026 Leader (6 badges). Innovation is deep but narrow &mdash; DDoS and network visibility only. No WAAP, API security, or platform breadth.</td></tr>
             </tbody>
         </table>
     </div>
@@ -797,6 +803,7 @@
                 <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>~100 PoPs</td><td>Edge-based via CDN infrastructure</td><td>Adequate for CDN customers; not a DDoS specialist</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DefensePro + Cloud DDoS</td><td>Behavioral analysis + ML; hybrid; encrypted attack mitigation without decryption</td><td>No-decrypt L7 DDoS (per Radware claim); strong hybrid model; attacks up 168%</td></tr>
                 <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>DDoS Protection (infra + app)</td><td>Cloud scrubbing, 44+ PoPs; 6 Tbps capacity</td><td>Adequate for enterprise; not at Cloudflare/Akamai scale</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT Arbor</span></td><td>15+ Tbps dedicated Arbor Cloud; 16 scrubbing centers; ATLAS monitors 400+ Tbps</td><td>AED (inline), Arbor Cloud (volumetric), Sightline + TMS (ISP/carrier), Cloud Signaling (hybrid)</td><td>Deepest DDoS specialization. ISP-grade heritage. 1-sec carpet bombing detection. 65+ threat actor automated tracking.</td></tr>
             </tbody>
         </table>
     </div>
@@ -811,6 +818,7 @@
                 <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>Next-Gen WAF (Signal Sciences); Gartner Challenger</td><td>Basic API protection via WAF rules</td><td>Network Learning Exchange</td><td>No dedicated offering</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Cloud WAF + on-prem; Gartner Strong Performer</td><td>Pynt acquisition (Jan 2026); full-lifecycle planned</td><td>Bot Manager with behavioral detection</td><td>Agentic AI Protection: prompt injection, tool abuse detection</td></tr>
                 <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Cloud WAF + on-prem; Gartner WAAP Leader</td><td>API Security: discovery, risk assessment, runtime</td><td>Advanced Bot Protection; client-side detection</td><td>No dedicated offering announced</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT Arbor</span></td><td>None &mdash; DDoS-only</td><td>None</td><td>None</td><td>AI/ML within Arbor DDoS detection only</td></tr>
             </tbody>
         </table>
     </div>
@@ -825,6 +833,7 @@
                 <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>CDN, Next-Gen WAF, DDoS protection, edge compute (Compute@Edge), TLS management. Narrowest platform among peers.</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DDoS (DefensePro, Cloud DDoS), Cloud WAF, bot management, API security (Pynt), Kubernetes WAAP, ADC (Alteon). Deep in app delivery/protection; no CDN, developer platform, or Zero Trust.</td></tr>
                 <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>WAF, DDoS, API security, bot management, data security, database security, RASP. Part of Thales&rsquo;s broader cyber portfolio. No CDN or developer platform.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT Arbor</span></td><td>DDoS only: AED (inline), Arbor Cloud (scrubbing), Sightline (detection), TMS (mitigation), ATLAS Intelligence Feed. Plus nGenius for service assurance. Narrowest security scope &mdash; no WAF, WAAP, bot mgmt, API security, CDN, or developer platform.</td></tr>
             </tbody>
         </table>
     </div>
@@ -839,6 +848,7 @@
                 <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>$624M (FY2025); stock up 354%; first non-GAAP profitable year (GAAP loss -$121.7M)</td><td>Revenue grew 23% Q4; non-GAAP profitability milestone</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>$301.9M (FY2025)</td><td>Investor Day 2026 outlined cloud security push; Pynt + Agentic AI show strategic clarity</td></tr>
                 <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Part of Thales (~$20B group); security not separately disclosed</td><td>Gartner WAAP Leader; strong enterprise base; quieter innovation since Thales integration</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT Arbor</span></td><td>$823M (FY2025, -0.8%); FY2026 guidance $835&ndash;870M; Cybersecurity +18.3%; ~$2.46B mkt cap</td><td>DDoS specialist with accelerating cybersecurity segment. 3 consecutive earnings beats. Stock at 1-year high. Limited by flat total revenue and service assurance drag.</td></tr>
             </tbody>
         </table>
     </div>
@@ -869,6 +879,8 @@
                     <div class="matrix-dot" style="left:25%; bottom:22%; background:var(--fastly-red);">Fastly</div>
                     <!-- Imperva: moderate, narrow-moderate -->
                     <div class="matrix-dot" style="left:35%; bottom:38%; background:var(--imperva-purple);">Imperva</div>
+                    <!-- NETSCOUT: high DDoS depth, narrowest platform -->
+                    <div class="matrix-dot" style="left:8%; bottom:75%; background:var(--arbor-teal);">NETSCOUT</div>
                 </div>
             </div>
         </div>
@@ -934,6 +946,7 @@
                         <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
                         <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
                         <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td class="score score-2">2</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-2">2.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT Arbor</span></td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3.0</td></tr>
                         <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td class="score score-2">2</td><td class="score score-3">3</td><td class="score score-2">2</td><td class="score score-2">2.3</td></tr>
                     </tbody>
                 </table>
@@ -1032,7 +1045,7 @@
 <footer class="site-footer">
     <div class="container">
         <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly Cloudflare Strategic Brief</p>
-        <p style="opacity:0.7; margin-top:0.5rem;">Next edition: May 2026 &bull; <a href="https://github.com/galdarom/competitive-intelligence">GitHub Repository</a></p>
+        <p style="opacity:0.7; margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="akamai-april-2026.html">Akamai</a> &bull; <a href="arbor-april-2026.html">Arbor</a> &bull; <a href="f5-april-2026.html">F5</a> &bull; <a href="a10-april-2026.html">A10</a> &bull; <a href="archives.html">Archives</a> &bull; <a href="https://github.com/galdarom/competitive-intelligence">GitHub</a></p>
         <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
     </div>
 </footer>

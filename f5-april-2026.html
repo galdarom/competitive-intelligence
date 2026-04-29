@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F5 Strategic Intelligence Brief — April 2026 | Radware</title>
+    <meta name="description" content="Monthly competitive intelligence brief on F5 Networks covering DDoS protection, hybrid multicloud, AI inference, and Cloud DDoS Services market positioning.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --f5-red: #E4002B;
+            --arbor-teal: #005F73;
+            --a10-blue: #0071CE;
+            --radware-green: #6AB023;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; color: var(--dark-gray); background: var(--light-gray); line-height: 1.6; }
+        .site-header { background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%); color: white; padding: 2rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .site-header h1 { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .site-header .nav-links a:hover { color: white; }
+        .site-header .edition { font-size: 0.9rem; opacity: 0.85; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .hero { background: linear-gradient(135deg, #8B0000 0%, #C1001F 50%, #E4002B 100%); color: white; padding: 3rem 0; text-align: center; }
+        .hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .hero-meta { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem; opacity: 0.8; }
+        .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+        .toc { background: white; border-bottom: 1px solid #e0e0e0; padding: 0.8rem 0; position: sticky; top: 60px; z-index: 99; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .toc-inner { display: flex; gap: 0.3rem; overflow-x: auto; scrollbar-width: thin; }
+        .toc a { text-decoration: none; color: var(--dark-blue); font-size: 0.8rem; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 4px; white-space: nowrap; transition: background 0.2s; }
+        .toc a:hover, .toc a.active { background: var(--f5-red); color: white; }
+        main { padding: 2rem 0 4rem; }
+        .section { background: white; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .section-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 3px solid var(--f5-red); }
+        .section-number { background: var(--f5-red); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+        .section-header h2 { font-size: 1.5rem; color: var(--navy); font-weight: 700; }
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        thead th { background: #B00020; color: white; padding: 0.7rem 0.8rem; text-align: left; font-weight: 600; position: sticky; top: 0; }
+        tbody td { padding: 0.7rem 0.8rem; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+        tbody tr:nth-child(even) { background: #f9fafb; }
+        tbody tr:hover { background: #fef2f2; }
+        .vendor-badge { display: inline-block; font-weight: 700; font-size: 0.82rem; padding: 0.15rem 0.5rem; border-radius: 3px; color: white; white-space: nowrap; }
+        .vendor-f5 { background: var(--f5-red); }
+        .vendor-arbor { background: var(--arbor-teal); }
+        .vendor-a10 { background: var(--a10-blue); }
+        .vendor-radware { background: var(--radware-green); }
+        .delta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+        .delta-card { border-radius: 6px; padding: 1.2rem; border-left: 4px solid; }
+        .delta-card.accelerated { background: #e8f5e9; border-left-color: var(--accent-green); }
+        .delta-card.new { background: #e3f2fd; border-left-color: var(--light-blue); }
+        .delta-card.slowed { background: #fff3e0; border-left-color: var(--accent-amber); }
+        .delta-card.pattern { background: #f3e5f5; border-left-color: #8e24aa; }
+        .delta-card.risk { background: #ffebee; border-left-color: var(--accent-red); }
+        .delta-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
+        .delta-card p { font-size: 0.85rem; line-height: 1.5; }
+        .signal-box { background: linear-gradient(135deg, #fff5f5 0%, #fee2e2 100%); border: 1px solid #fca5a5; border-left: 5px solid var(--f5-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.2rem; }
+        .signal-box h4 { color: var(--navy); font-size: 1rem; margin-bottom: 0.5rem; }
+        .signal-box p { font-size: 0.9rem; line-height: 1.6; }
+        .signal-box strong { color: var(--navy); }
+        .takeaway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.2rem; }
+        .takeaway-card { border: 1px solid #fca5a5; border-radius: 8px; padding: 1.5rem; background: white; position: relative; border-top: 4px solid var(--f5-red); }
+        .takeaway-num { position: absolute; top: -14px; left: 1rem; background: var(--f5-red); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+        .takeaway-card h4 { color: var(--navy); font-size: 0.95rem; margin-bottom: 0.5rem; padding-top: 0.3rem; }
+        .takeaway-card p { font-size: 0.85rem; line-height: 1.5; }
+        .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+        .chart-box { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.2rem; }
+        .chart-box h4 { text-align: center; color: var(--navy); font-size: 0.95rem; margin-bottom: 1rem; }
+        .bar-chart { display: flex; flex-direction: column; gap: 0.6rem; }
+        .bar-row { display: flex; align-items: center; gap: 0.6rem; }
+        .bar-label { width: 100px; font-size: 0.78rem; font-weight: 600; text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: #eee; border-radius: 4px; height: 24px; position: relative; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 6px; font-size: 0.72rem; color: white; font-weight: 600; transition: width 0.8s ease; }
+        .segment-bar { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 0.5rem 0; }
+        .segment-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 600; color: white; }
+        .scorecard-table td.score { text-align: center; font-weight: 700; color: white; min-width: 60px; }
+        .score-5 { background: #1a6b3c; } .score-4 { background: #27ae60; } .score-3 { background: #f5a623; } .score-2 { background: #e67e22; } .score-1 { background: #e74c3c; }
+        .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .kpi-card { background: linear-gradient(135deg, #fff5f5, #fee2e2); border: 1px solid #fca5a5; border-radius: 8px; padding: 1rem; text-align: center; }
+        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--f5-red); }
+        .kpi-card .kpi-label { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
+        .kpi-card .kpi-delta { font-size: 0.72rem; margin-top: 0.3rem; }
+        .kpi-card .kpi-delta.up { color: var(--accent-green); }
+        .kpi-card .kpi-delta.down { color: var(--accent-red); }
+        .kpi-card .kpi-delta.flat { color: var(--accent-amber); }
+        .matrix-container { position: relative; width: 100%; max-width: 600px; height: 400px; margin: 0 auto; border-left: 2px solid var(--navy); border-bottom: 2px solid var(--navy); }
+        .matrix-dot { position: absolute; width: 80px; height: 36px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: white; transform: translate(-50%, -50%); box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        .matrix-label-y { position: absolute; left: -60px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 0.75rem; font-weight: 600; color: var(--navy); white-space: nowrap; }
+        .matrix-label-x { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; color: var(--navy); }
+        a.source-link { color: var(--f5-red); text-decoration: none; font-size: 0.8rem; }
+        a.source-link:hover { text-decoration: underline; }
+        h3 { color: var(--dark-blue); font-size: 1.15rem; margin: 1.5rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--f5-red); }
+        h3:first-child { margin-top: 0; }
+        p { margin-bottom: 0.8rem; }
+        ul { margin: 0.5rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .site-footer { background: var(--navy); color: white; padding: 2rem 0; text-align: center; font-size: 0.85rem; }
+        .site-footer a { color: var(--accent-orange); text-decoration: none; }
+        @media (max-width: 768px) { .hero h2 { font-size: 1.5rem; } .chart-row { grid-template-columns: 1fr; } .takeaway-grid { grid-template-columns: 1fr; } .kpi-row { grid-template-columns: repeat(2, 1fr); } .section { padding: 1.2rem; } .site-header h1 { font-size: 1rem; } .toc a { font-size: 0.72rem; padding: 0.3rem 0.5rem; } .bar-label { width: 70px; font-size: 0.7rem; } .site-header .nav-links { display: none; } }
+        @media print { .site-header, .toc, .site-footer { display: none; } .section { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; } }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence</h1>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cloudflare-april-2026.html">Cloudflare</a>
+            <a href="akamai-april-2026.html">Akamai</a>
+            <a href="arbor-april-2026.html">Arbor</a>
+            <a href="f5-april-2026.html" style="color:white; font-weight:600;">F5</a>
+            <a href="a10-april-2026.html">A10</a>
+            <a href="archives.html">Archives</a>
+        </div>
+        <span class="edition">April 2026 Edition</span>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>F5 Strategic Intelligence Brief</h2>
+        <p class="subtitle">Cloud DDoS Services Market: F5, NETSCOUT Arbor, A10 Networks, Radware</p>
+        <div class="hero-meta">
+            <span>Period: December 2025&ndash;April 2026</span>
+            <span>Published: April 29, 2026</span>
+            <span>Prepared for: Radware Security Strategy Leadership</span>
+        </div>
+    </div>
+</section>
+
+<nav class="toc">
+    <div class="container">
+        <div class="toc-inner">
+            <a href="#snapshot">Snapshot</a>
+            <a href="#news">1. News Table</a>
+            <a href="#delta">2. Delta Analysis</a>
+            <a href="#competitive">3. Competitive Comparison</a>
+            <a href="#visual">4. Visual Strategy</a>
+            <a href="#signals">5. Strategic Signals</a>
+            <a href="#takeaways">6. Executive Takeaways</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<div class="container">
+
+<!-- Snapshot -->
+<article class="section" id="snapshot">
+    <div class="section-header">
+        <div class="section-number" style="background:var(--f5-red);">F</div>
+        <h2>F5 at a Glance &mdash; FY2026 (through Q2)</h2>
+    </div>
+    <div class="kpi-row">
+        <div class="kpi-card">
+            <div class="kpi-value">$3.1B</div>
+            <div class="kpi-label">FY2025 Revenue</div>
+            <div class="kpi-delta up">+10% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$812M</div>
+            <div class="kpi-label">Q2 FY2026 Revenue</div>
+            <div class="kpi-delta up">+11% YoY; Product +22%</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">12+ Tbps</div>
+            <div class="kpi-label">Cloud DDoS Scrubbing</div>
+            <div class="kpi-delta up">24 Regional Edges</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$17.2B</div>
+            <div class="kpi-label">Market Cap</div>
+            <div class="kpi-delta up">FFIV ~$303</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$50M</div>
+            <div class="kpi-label">AI Bookings (H1)</div>
+            <div class="kpi-delta up">+200% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">7&ndash;8%</div>
+            <div class="kpi-label">FY2026 Rev Growth Guide</div>
+            <div class="kpi-delta up">Raised from 5&ndash;6%</div>
+        </div>
+    </div>
+    <h3>Strategic Revenue Mix</h3>
+    <div class="segment-bar">
+        <div class="seg" style="width:48%; background:#E4002B;">Software &amp; SaaS (~48%)</div>
+        <div class="seg" style="width:30%; background:#8B0000;">Systems / Hardware (~30%)</div>
+        <div class="seg" style="width:22%; background:#555;">Global Services (~22%)</div>
+    </div>
+    <p style="font-size:0.8rem; color:#666;">F5&rsquo;s fiscal year ends September 30. Product revenue grew 22% in Q2 FY2026 &mdash; 7th consecutive quarter of double-digit product growth. AI bookings hit $50M in H1 FY2026 (+200% YoY). Guidance raised to 7&ndash;8% revenue growth and $16.25&ndash;$16.55 non-GAAP EPS. François Locoh-Donou became Chairman in addition to CEO (Mar 2026).</p>
+</article>
+
+<!-- Section 1: News Table -->
+<article class="section" id="news">
+    <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>News Table: Key Developments (Dec 2025&ndash;April 2026)</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th>#</th><th>Date</th><th>Summary</th><th>Source</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>Apr 28</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>Q2 FY2026 Earnings: 11% Revenue Growth, Guidance Raised</strong> &mdash; Revenue $812M (+11% YoY). Product revenue +22%, 7th straight quarter of double-digit product growth. Non-GAAP EPS $3.90. FY2026 guidance raised to 7&ndash;8% growth (from 5&ndash;6%), EPS $16.25&ndash;$16.55. AI bookings $50M H1 (+200% YoY).</td><td><a class="source-link" href="https://www.f5.com/company/news/press-releases/earnings-q2-fy26" target="_blank">F5 PR</a></td></tr>
+                <tr><td>2</td><td>Jan 27</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>Q1 FY2026 Earnings Beat</strong> &mdash; Revenue $822M (+7% YoY), product revenue +11%. Non-GAAP EPS $4.45. Strong demand for BIG-IP, NGINX, and Distributed Cloud. Sovereign-cloud demand accelerating in international markets.</td><td><a class="source-link" href="https://www.f5.com/company/news/press-releases/earnings-q1-fy26" target="_blank">F5 PR</a></td></tr>
+                <tr><td>3</td><td>Mar 2026</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>François Locoh-Donou Named Chairman &amp; CEO</strong> &mdash; Locoh-Donou added Chairman role while continuing as President and CEO. Signals board confidence in transformation strategy from hardware to software/SaaS-first hybrid multicloud leader.</td><td><a class="source-link" href="https://www.f5.com/company/leadership/francois-locoh-donou" target="_blank">F5</a></td></tr>
+                <tr><td>4</td><td>Nov 2025</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>ADSP Partner Program Launch</strong> &mdash; Application Delivery and Security Platform Partner Program launched. MazeBolt integration enables proactive, AI-enhanced DDoS testing via RADAR platform. Ecosystem designed to extend multicloud operations, enhance security, and accelerate app delivery.</td><td><a class="source-link" href="https://finance.yahoo.com/news/f5-launches-adsp-partner-program-140000158.html" target="_blank">Yahoo Finance</a></td></tr>
+                <tr><td>5</td><td>Oct 2025</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>CISA Emergency Directive ED 26-01</strong> &mdash; CISA issued emergency directive after nation-state threat actor gained persistent access to F5&rsquo;s BIG-IP development environment and engineering knowledge management platforms. Federal agencies ordered to inventory, isolate, and patch all F5 devices.</td><td><a class="source-link" href="https://www.cisa.gov/news-events/directives/ed-26-01-mitigate-vulnerabilities-f5-devices" target="_blank">CISA</a></td></tr>
+                <tr><td>6</td><td>Mar 27</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>CVE-2025-53521: Critical BIG-IP RCE Actively Exploited</strong> &mdash; Critical RCE vulnerability (CVSS 9.8) added to CISA KEV list. Affects BIG-IP virtual and physical devices. Active exploitation in the wild. Underscores risk concentration when DDoS infrastructure itself becomes an attack vector.</td><td><a class="source-link" href="https://www.runzero.com/blog/f5-bigip-instances/" target="_blank">runZero</a></td></tr>
+                <tr><td>7</td><td>2026</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>Distributed Cloud DDoS Enhancements</strong> &mdash; L7 DDoS protection updated: configurable RPS threshold, automated engagement when threshold exceeded and origin health degradation detected. Always-On and Always-Available subscription models. 24 Regional Edges with 12+ Tbps combined scrubbing.</td><td><a class="source-link" href="https://community.f5.com/kb/technicalarticles/f5-distributed-cloud-l7-dos-attack-mitigation-roundup/344929" target="_blank">F5 DevCentral</a></td></tr>
+                <tr><td>8</td><td>Feb 2026</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>Scality Partnership for AI Data Infrastructure</strong> &mdash; F5 + Scality RING CORE5 for cyber-resiliency: WAF, DDoS protection, and policy-driven access controls integrated into data infrastructure. Targets AI workload data security in hybrid environments.</td><td><a class="source-link" href="https://www.storagenewsletter.com/2026/02/26/f5-and-scality-expand-partnership-to-deliver-secure-high-performance-data-infrastructure-for-ai-workloads/" target="_blank">StorageNewsletter</a></td></tr>
+                <tr><td>9</td><td>2026</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>AI Bookings Hit $50M in H1 FY2026</strong> &mdash; AI-related bookings up 200% YoY. Driven by demand for application delivery and security in AI inference environments. 90%+ enterprises now operate across avg 19 locations spanning on-prem, private cloud, and multiple public clouds.</td><td><a class="source-link" href="https://ca.investing.com/news/company-news/f5-q2-2026-slides-ai-demand-drives-22-product-growth-outlook-raised-93CH-4593285" target="_blank">Investing.com</a></td></tr>
+                <tr><td>10</td><td>Oct 2025</td><td><span class="vendor-badge vendor-f5">F5</span> <strong>FY2025 Results: $3.1B Revenue, $1B+ Operating Profit</strong> &mdash; Full-year revenue exceeded $3B for first time. 10% annual growth. Non-GAAP operating profit surpassed $1B. Transformation from hardware to software/SaaS model accelerating. Q4 revenue $770M (+8%).</td><td><a class="source-link" href="https://www.f5.com/company/news/press-releases/earnings-fy25-q4" target="_blank">F5 PR</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 2: Delta Analysis -->
+<article class="section" id="delta">
+    <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Delta Analysis (vs. Prior Period)</h2>
+    </div>
+
+    <h3>What Accelerated</h3>
+    <div class="delta-grid">
+        <div class="delta-card accelerated">
+            <h4>Product Revenue Momentum Is Exceptional</h4>
+            <p>22% product revenue growth in Q2 FY2026 marks the 7th consecutive quarter of double-digit product growth. This isn&rsquo;t a one-quarter blip &mdash; it reflects sustained enterprise demand for BIG-IP, NGINX, and Distributed Cloud. Guidance raised to 7&ndash;8% total growth (from 5&ndash;6%), signaling confidence in the pipeline.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>AI Demand Is Driving Real Revenue</h4>
+            <p>AI bookings hit $50M in H1 FY2026, up 200% YoY. AI inference workloads require application delivery and security at the network edge &mdash; F5&rsquo;s core competency. The convergence of AI traffic patterns with multicloud networking creates a natural growth vector for F5&rsquo;s platform.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Software/SaaS Transformation Continues</h4>
+            <p>F5&rsquo;s shift from hardware to software/SaaS is maturing. The ADSP Partner Program and Distributed Cloud Services expansion signal that the platform-first strategy is taking hold. Annual revenue surpassed $3B and operating profit exceeded $1B for the first time in FY2025.</p>
+        </div>
+    </div>
+
+    <h3>What Is New</h3>
+    <div class="delta-grid">
+        <div class="delta-card new">
+            <h4>ADSP Ecosystem with Proactive DDoS Testing</h4>
+            <p>The MazeBolt integration within the ADSP Partner Program is notable: it enables proactive, automated DDoS vulnerability assessment before attacks occur. This shifts the DDoS value proposition from reactive mitigation to continuous validation &mdash; a capability neither NETSCOUT nor A10 currently offers through partnerships.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Chairman + CEO Consolidation</h4>
+            <p>Locoh-Donou adding Chairman role signals board alignment behind the multicloud transformation. This governance consolidation typically precedes major strategic moves (M&amp;A, platform shifts, market expansion).</p>
+        </div>
+    </div>
+
+    <h3>What Slowed or Faces Risk</h3>
+    <div class="delta-grid">
+        <div class="delta-card risk">
+            <h4>CISA Emergency Directive: Nation-State Breach of F5 Infrastructure</h4>
+            <p>ED 26-01 revealed that a nation-state actor had persistent access to F5&rsquo;s BIG-IP development environment. CVE-2025-53521 (CVSS 9.8) is actively exploited. This is a severe trust event &mdash; the DDoS protection infrastructure itself was compromised. Federal agencies ordered to inventory and patch all F5 devices. For competitors including Radware, this creates a selling opportunity in federal and regulated enterprise accounts.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>DDoS Is Not F5&rsquo;s Core Identity</h4>
+            <p>F5&rsquo;s $3.1B revenue spans application delivery, WAF, bot management, API security, load balancing, and DDoS. DDoS is one product line among many. Distributed Cloud DDoS Mitigation at 12+ Tbps is adequate but not market-leading vs. Cloudflare (500 Tbps), Akamai Prolexic (20+ Tbps), or NETSCOUT Arbor (15+ Tbps dedicated). F5 competes on breadth, not DDoS depth.</p>
+        </div>
+    </div>
+
+    <h3>Meaningful Pattern Shifts</h3>
+    <div class="delta-grid">
+        <div class="delta-card pattern">
+            <h4>DDoS Becomes Table Stakes in the Multicloud Platform Sale</h4>
+            <p>F5&rsquo;s strategy positions DDoS as one component of a broader Application Delivery and Security Platform (ADSP). This mirrors Cloudflare&rsquo;s approach &mdash; DDoS bundled into a platform sale, not sold as a standalone service. For DDoS specialists like NETSCOUT, A10, and Radware, this platformization trend compresses the standalone DDoS market.</p>
+        </div>
+        <div class="delta-card pattern">
+            <h4>Security Infrastructure Itself Is Now a Target</h4>
+            <p>The F5 BIG-IP breach + CISA directive demonstrates that DDoS/security appliances are high-value nation-state targets. Organizations must now secure their security infrastructure &mdash; a recursive problem that favors cloud-native architectures (no on-prem appliance to breach) and vendors with strong supply-chain security postures.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 3: Competitive Comparison -->
+<article class="section" id="competitive">
+    <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Competitive Comparison &mdash; Cloud DDoS Services</h2>
+    </div>
+
+    <h3>3.1 Product Innovation</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td><strong>Broadest application delivery portfolio with DDoS as integrated component.</strong> ADSP Partner Program with MazeBolt (proactive DDoS testing). Distributed Cloud DDoS L7 enhancements (configurable RPS, origin health monitoring). BIG-IP Hybrid Defender for on-prem. AI bookings $50M (+200%). Innovation is broad (multicloud, AI, WAAP, DDoS) rather than DDoS-deep.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Deepest DDoS-specific innovation. AI/ML Adaptive DDoS Protection, automated 65+ threat actor tracking, 1-second carpet bombing detection. ATLAS Intelligence Feed with Geo-IP. Innovation is narrow but unmatched in DDoS depth. G2 Winter 2026 Leader (6 badges).</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10 Networks</span></td><td>A10 Defend suite: Thunder TPS (300 Gbps/440 Mpps per appliance), Defend Threat Control SaaS platform, AI-enhanced zero-day detection. ThreatX acquisition (Feb 2025) adds API/web app protection. Won major AI infrastructure contract. Innovation spans DDoS + ADC.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS mitigation without decryption (per Radware claim). DefensePro behavioral ML. Pynt acquisition (Jan 2026) for API security. Agentic AI Protection for prompt injection/tool abuse. DDoS attacks up 168% per Radware Global Threat Report.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.2 Cloud DDoS Scrubbing Services</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Cloud Capacity</th><th>Service Model</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td><strong>12+ Tbps combined scrubbing; 24 Regional Edges; multi-terabit private backbone</strong></td><td>Always-On or Always-Available subscriptions. Managed service with SOC. L3/L4/L7 protection. 0s mitigation for 60% of attacks; 6 min for 95%; 12 min for 100%</td><td><strong>Integrated into ADSP platform</strong> &mdash; DDoS + WAF + bot + API in single cloud. MazeBolt proactive testing. Strong in hybrid multicloud deployments. Not a DDoS pure-play.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>15+ Tbps dedicated; 16 global scrubbing centers</td><td>Managed or self-service. Cloud Signaling for automatic hybrid failover from AED to Arbor Cloud</td><td>Largest dedicated DDoS scrubbing network. ISP-grade heritage. ATLAS telemetry (400+ Tbps visibility). 65+ threat actor automated blocking.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10 Networks</span></td><td>Cloud scrubbing via A10 Defend; capacity not publicly disclosed</td><td>On-demand or always-on with BGP-based redirection. A10 DSIRT 24/7 incident response. Defend Threat Control SaaS for intelligence</td><td>ML-driven automation for traffic redirection and policy escalation. Zero-atrophy threat intelligence. Strong carrier/telco channel (9 of top 10).</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Cloud DDoS Protection service; hybrid model</td><td>Always-on or on-demand. Hybrid with DefensePro on-prem + cloud scrubbing. 24/7 ERT (Emergency Response Team)</td><td>Encrypted attack mitigation without decryption (per Radware claim). Behavioral ML detection. Strong in certificate-sensitive and regulated environments.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.3 On-Premises / Hybrid DDoS</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>On-Prem Product</th><th>Hybrid Integration</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td><strong>BIG-IP DDoS Hybrid Defender:</strong> multi-layer L3/L4/L7, SSL decryption, anti-bot, advanced detection</td><td>BIG-IP on-prem + Distributed Cloud for volumetric overflow. ADSP unifies management</td><td><strong>Only vendor with full ADC + DDoS in single appliance.</strong> SSL decryption at line rate. But: CISA ED 26-01 and CVE-2025-53521 raise trust concerns for on-prem BIG-IP deployments.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Arbor Edge Defense (AED): inline, up to 40 Gbps; Arbor TMS: ISP-grade mitigation</td><td>Cloud Signaling auto-failover to Arbor Cloud. Sightline for detection + TMS for mitigation at ISP level</td><td>Deepest on-prem DDoS stack. AED + TMS + Sightline covers enterprise and ISP. 1-second carpet bombing detection.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10 Networks</span></td><td>Thunder TPS (A10 Defend Mitigator): 300 Gbps / 440 Mpps per appliance</td><td>On-prem Thunder TPS + cloud scrubbing via BGP redirection</td><td>Highest per-appliance throughput (300 Gbps). 11x performance over legacy solutions. Strong in carrier environments.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DefensePro: on-prem behavioral ML DDoS protection</td><td>DefensePro on-prem + Cloud DDoS for hybrid. Automated failover</td><td>Encrypted L7 DDoS without decryption (per Radware claim). Behavioral detection. Flexible deployment models.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.4 AI/ML &amp; Threat Intelligence</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>AI/ML in DDoS</th><th>Threat Intelligence</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>ML-based anomaly detection in Distributed Cloud. BIG-IP behavioral analysis. AI bookings $50M (broader than DDoS)</td><td>F5 Labs threat research. MazeBolt proactive DDoS testing via ADSP partnership</td><td><strong>Proactive DDoS testing (MazeBolt) is unique in market.</strong> AI investment is broad (multicloud, not DDoS-specific). Threat research covers apps/APIs more than DDoS.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Adaptive DDoS Protection (AI/ML). Automated campaign detection for 65+ threat actors. 1-sec carpet bombing detection</td><td><strong>ATLAS: 400+ Tbps visibility, 214 countries, 13,000+ ASNs. Semi-annual DDoS Threat Intelligence Report (8M+ attacks catalogued)</strong></td><td>Unmatched DDoS telemetry. ATLAS is the industry&rsquo;s most comprehensive DDoS intelligence platform. No competitor has comparable scale.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10 Networks</span></td><td>AI-enhanced zero-day filter generation. ML-driven automation for traffic redirection and policy escalation</td><td>Defend Threat Control SaaS: real-time DDoS attack map, reflector/botnet intelligence, zero-atrophy data gathering</td><td>SaaS-based DDoS intelligence without dedicated equipment. Strong for organizations wanting visibility without full deployment.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Behavioral ML in DefensePro. Agentic AI Protection for prompt injection/tool abuse</td><td>Global Threat Report (annual). DDoS attacks up 168% finding. Emergency Response Team (ERT) intelligence</td><td>Behavioral ML focus. Agentic AI Protection addresses emerging AI agent threats. ERT provides human-in-the-loop intelligence.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.5 Market Momentum</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td><strong>$3.1B (FY2025, +10%); Q2 FY2026 $812M (+11%); product +22%;</strong> ~$17.2B mkt cap; AI bookings $50M</td><td><strong>Strongest financial position in the DDoS comparison set.</strong> 7 consecutive quarters of double-digit product growth. Guidance raised. But: CISA ED 26-01 is a trust liability. DDoS is a small fraction of F5&rsquo;s business.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>$823M (FY2025, -0.8%); FY2026 guide $835&ndash;870M; Cybersecurity +18.3%; ~$2.46B mkt cap</td><td>Cybersecurity segment accelerating. 3 consecutive earnings beats. Stock at 1-year high. Total revenue flat due to service assurance drag.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10 Networks</span></td><td>$290.6M (FY2025, +11%); Q1 2026 $75M (+13.4%); ~$1.94B mkt cap</td><td>Record revenue year. 3 of last 4 quarters double-digit growth. 2026 guide: 10&ndash;12% growth. Stock +56% in 12 months. Won major AI infrastructure deal. 90%+ renewal rates.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>$301.9M (FY2025)</td><td>Cloud security push via Investor Day. Pynt + Agentic AI Protection show strategic clarity. Hybrid deployment flexibility is a differentiator in regulated markets.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 4: Visual Strategic Section -->
+<article class="section" id="visual">
+    <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Visual Strategic Section</h2>
+    </div>
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>Revenue Comparison &mdash; Cloud DDoS Vendors ($M)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--f5-red); font-weight:800;">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--f5-red);">$3,100M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:26.5%; background:var(--arbor-teal);">$823M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.7%; background:var(--radware-green);">$302M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.4%; background:var(--a10-blue);">$291M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">F5&rsquo;s $3.1B is total company revenue spanning ADC, WAF, DDoS, bot, API. DDoS-specific revenue is not separately disclosed but is a fraction of total.</p>
+        </div>
+        <div class="chart-box">
+            <h4>Cloud DDoS Scrubbing Capacity (Tbps)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--arbor-teal);">15+ Tbps (dedicated)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--f5-red); font-weight:800;">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:80%; background:var(--f5-red);">12+ Tbps</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--a10-blue);">Not disclosed</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--radware-green);">Not disclosed</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">NETSCOUT leads in disclosed dedicated scrubbing capacity. F5 at 12+ Tbps across 24 Regional Edges. A10 and Radware do not publicly disclose cloud scrubbing Tbps.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>YoY Revenue Growth</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:73%; background:var(--a10-blue);">+11%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--f5-red); font-weight:800;">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:67%; background:var(--f5-red);">+10%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--radware-green);">~3%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:7%; background:var(--arbor-teal);">-0.8%</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Momentum Scorecard (1&ndash;5 Scale)</h4>
+            <div class="table-wrapper">
+                <table class="scorecard-table" style="font-size:0.82rem;">
+                    <thead><tr><th>Vendor</th><th>Innovation</th><th>Traction</th><th>Clarity</th><th>Composite</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td class="score score-4">4</td><td class="score score-5">5</td><td class="score score-4">4</td><td class="score score-4">4.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-3">3.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.5rem;">F5 leads on traction (7 consecutive quarters double-digit product growth, $17.2B mkt cap). CISA vulnerability issue lowers innovation slightly. Radware scores high on innovation (encrypted DDoS, Agentic AI) but lower on traction (smaller scale).</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box" style="grid-column: 1 / -1;">
+            <h4>Competitive Positioning: Cloud DDoS Scale vs. On-Prem DDoS Depth</h4>
+            <div style="position:relative; padding: 30px 20px 40px 90px;">
+                <div class="matrix-container">
+                    <span class="matrix-label-y">On-Premises DDoS Depth &rarr;</span>
+                    <span class="matrix-label-x">Cloud DDoS Scale &rarr;</span>
+                    <div class="matrix-dot" style="left:65%; bottom:70%; background:var(--f5-red); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--f5-red);">F5</div>
+                    <div class="matrix-dot" style="left:80%; bottom:85%; background:var(--arbor-teal);">NETSCOUT</div>
+                    <div class="matrix-dot" style="left:35%; bottom:75%; background:var(--a10-blue);">A10</div>
+                    <div class="matrix-dot" style="left:45%; bottom:60%; background:var(--radware-green);">Radware</div>
+                </div>
+            </div>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>NETSCOUT leads in both cloud scale (15+ Tbps dedicated) and on-prem depth (AED + TMS + Sightline).</strong> F5 has strong cloud scale (12+ Tbps) with BIG-IP hybrid depth but faces trust concerns post-CISA directive. A10 excels in on-prem per-appliance performance (300 Gbps) with emerging cloud services. Radware balances both with hybrid flexibility and encrypted DDoS differentiation.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 5: Strategic Signals -->
+<article class="section" id="signals">
+    <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Strategic Signals</h2>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 1: F5&rsquo;s CISA Breach Creates a Window of Vulnerability in Federal and Regulated Markets</h4>
+        <p>The nation-state breach of F5&rsquo;s BIG-IP development environment (ED 26-01) and the critical CVE-2025-53521 RCE vulnerability (CVSS 9.8, actively exploited) represent the most significant security incident among DDoS vendors in this period. <strong>Federal agencies and regulated enterprises must now reassess the security of their F5 infrastructure itself &mdash; creating a displacement opportunity for Radware, NETSCOUT, and A10 in accounts where F5 trust has been damaged.</strong> This is particularly relevant for on-prem BIG-IP DDoS Hybrid Defender deployments where the compromised appliance is the last line of defense.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 2: F5 Is Platformizing DDoS &mdash; Which Compresses the Standalone DDoS Market</h4>
+        <p>F5&rsquo;s ADSP strategy bundles DDoS with WAF, bot management, API security, and application delivery in a single platform. At $3.1B revenue and $17.2B market cap, F5 can afford to undervalue DDoS as a standalone line item. <strong>For Radware, NETSCOUT, and A10, F5&rsquo;s platformization mirrors the Cloudflare/Akamai threat in the WAAP market: DDoS becomes &ldquo;included&rdquo; rather than &ldquo;purchased.&rdquo;</strong> The strategic response for DDoS specialists is to compete on depth, intelligence, and specialization that platforms cannot match.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 3: AI Infrastructure Demand Benefits All DDoS Vendors &mdash; But Differently</h4>
+        <p>F5&rsquo;s $50M AI bookings, A10&rsquo;s AI infrastructure contract win, and the broader trend of AI inference at the edge all increase the attack surface for DDoS. <strong>AI workloads are latency-sensitive and high-value &mdash; making them premium DDoS targets.</strong> F5 and A10 are positioning to protect AI infrastructure directly. NETSCOUT&rsquo;s ATLAS telemetry detects AI-augmented attack patterns. Radware&rsquo;s Agentic AI Protection addresses the AI-agent-specific threat. Each vendor captures a different slice of the AI-DDoS opportunity.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 4: Proactive DDoS Testing Is an Emerging Differentiator</h4>
+        <p>F5&rsquo;s MazeBolt integration within ADSP enables automated DDoS vulnerability assessment before attacks occur. <strong>This shifts the value proposition from &ldquo;we mitigate when attacked&rdquo; to &ldquo;we prevent successful attacks proactively.&rdquo;</strong> No other DDoS vendor in this comparison offers an equivalent proactive testing capability as an integrated platform feature. Radware should evaluate whether a similar proactive DDoS testing partnership or feature would strengthen its competitive positioning.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 5: F5&rsquo;s Revenue Scale Creates Pricing Power That Specialists Cannot Match</h4>
+        <p>At $3.1B total revenue, F5 can price DDoS aggressively as a loss leader within platform deals. <strong>When F5 competes against Radware in an enterprise account, DDoS pricing may be artificially low because F5 recovers margin on ADC, WAF, and other services.</strong> Radware&rsquo;s counter-positioning must emphasize DDoS depth, encrypted attack handling, and hybrid flexibility that justify standalone pricing against bundled platform offerings.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 6: The Hybrid Multicloud Trend Favors Vendors with Both On-Prem and Cloud</h4>
+        <p>90%+ enterprises operate across an average of 19 locations (per F5). This hybrid reality means DDoS protection must span on-prem, private cloud, and public cloud. <strong>All four vendors in this comparison offer hybrid DDoS &mdash; but F5 and Radware are best positioned because both have strong on-prem appliances AND cloud services.</strong> NETSCOUT leads in ISP/carrier but is less present in public cloud. A10 excels in telco but is building enterprise cloud presence.</p>
+    </div>
+</article>
+
+<!-- Section 6: Executive Takeaways -->
+<article class="section" id="takeaways">
+    <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Executive Takeaways</h2>
+    </div>
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <h4>F5 is the largest and best-funded competitor in the Cloud DDoS market &mdash; but DDoS is not its primary focus</h4>
+            <p>At $3.1B revenue and $17.2B market cap, F5 has more resources than NETSCOUT, A10, and Radware combined. But F5&rsquo;s strategic attention is on multicloud application delivery, AI inference, and platform breadth. DDoS is one feature among many. This means F5 invests less in DDoS-specific innovation than dedicated players, but can bundle DDoS at prices specialists cannot match.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <h4>The CISA BIG-IP breach is Radware&rsquo;s strongest competitive lever against F5 in 2026</h4>
+            <p>ED 26-01 and CVE-2025-53521 expose F5&rsquo;s on-prem infrastructure as a nation-state target. In federal, government, and regulated enterprise accounts, Radware should directly address this trust gap. Radware&rsquo;s DefensePro has not faced a comparable supply-chain security incident.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <h4>F5&rsquo;s platformization of DDoS mirrors the Cloudflare/Akamai dynamic in WAAP</h4>
+            <p>ADSP bundles DDoS with WAF, bot, API security, and ADC. This makes standalone DDoS harder to sell against F5 in accounts that want platform consolidation. Radware&rsquo;s unified WAAP + DDoS + API security positioning competes better than NETSCOUT (DDoS-only) or A10 (DDoS + ADC) against F5&rsquo;s bundled approach.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">4</div>
+            <h4>In cloud DDoS scrubbing, F5 (12+ Tbps) is comparable to NETSCOUT (15+ Tbps) but lags on threat intelligence</h4>
+            <p>F5&rsquo;s Distributed Cloud offers 12+ Tbps across 24 Regional Edges &mdash; adequate but not market-leading. F5 lacks the equivalent of NETSCOUT&rsquo;s ATLAS (400+ Tbps visibility, 65+ threat actor tracking). Radware should position its threat intelligence and ERT capabilities as the differentiator when both F5 and Radware are in the same deal.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">5</div>
+            <h4>F5&rsquo;s AI bookings ($50M, +200%) signal that AI infrastructure protection will be a growth battleground</h4>
+            <p>AI workloads are DDoS targets. F5 is capturing this demand through its multicloud platform. Radware should articulate its AI-specific DDoS protection story (Agentic AI Protection + DefensePro behavioral ML for AI inference traffic) to compete for AI infrastructure security budgets.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">6</div>
+            <h4>Radware&rsquo;s encrypted DDoS capability is its strongest differentiator against all three competitors</h4>
+            <p>Neither F5, NETSCOUT, nor A10 offers encrypted L7 DDoS mitigation without decryption (per Radware claim). In environments where TLS certificate sharing is unacceptable (financial services, healthcare, government), Radware&rsquo;s DefensePro addresses a use case that no competitor can. This is the single most defensible technical differentiator across the Cloud DDoS Services market.</p>
+        </div>
+    </div>
+</article>
+
+<div class="section" style="background: #fff8e1; border-left: 4px solid var(--accent-amber); font-size: 0.85rem;">
+    <p style="margin:0;"><strong>Disclaimer:</strong> This brief is based on publicly available information gathered through April 29, 2026, including F5&rsquo;s SEC filings, earnings calls, press releases, CISA directives, and third-party coverage. F5&rsquo;s fiscal year ends September 30; FY2026 = October 2025&ndash;September 2026. It does not contain material non-public information about any company referenced.</p>
+</div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly F5 Strategic Brief</p>
+        <p style="opacity:0.7; margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="arbor-april-2026.html">Arbor Brief</a> &bull; <a href="a10-april-2026.html">A10 Brief</a> &bull; <a href="archives.html">Archives</a> &bull; <a href="https://github.com/galdarom/competitive-intelligence">GitHub</a></p>
+        <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.toc a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+document.querySelectorAll('article.section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

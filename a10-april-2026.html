@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A10 Networks Strategic Intelligence Brief — April 2026 | Radware</title>
+    <meta name="description" content="Monthly competitive intelligence brief on A10 Networks covering DDoS protection, Thunder TPS, A10 Defend, and Cloud DDoS Services market positioning.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --f5-red: #E4002B;
+            --arbor-teal: #005F73;
+            --a10-blue: #0071CE;
+            --radware-green: #6AB023;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; color: var(--dark-gray); background: var(--light-gray); line-height: 1.6; }
+        .site-header { background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%); color: white; padding: 2rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .site-header h1 { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .site-header .nav-links a:hover { color: white; }
+        .site-header .edition { font-size: 0.9rem; opacity: 0.85; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .hero { background: linear-gradient(135deg, #003366 0%, #005299 50%, #0071CE 100%); color: white; padding: 3rem 0; text-align: center; }
+        .hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .hero-meta { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem; opacity: 0.8; }
+        .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+        .toc { background: white; border-bottom: 1px solid #e0e0e0; padding: 0.8rem 0; position: sticky; top: 60px; z-index: 99; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .toc-inner { display: flex; gap: 0.3rem; overflow-x: auto; scrollbar-width: thin; }
+        .toc a { text-decoration: none; color: var(--dark-blue); font-size: 0.8rem; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 4px; white-space: nowrap; transition: background 0.2s; }
+        .toc a:hover, .toc a.active { background: var(--a10-blue); color: white; }
+        main { padding: 2rem 0 4rem; }
+        .section { background: white; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .section-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 3px solid var(--a10-blue); }
+        .section-number { background: var(--a10-blue); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+        .section-header h2 { font-size: 1.5rem; color: var(--navy); font-weight: 700; }
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        thead th { background: #004A8C; color: white; padding: 0.7rem 0.8rem; text-align: left; font-weight: 600; position: sticky; top: 0; }
+        tbody td { padding: 0.7rem 0.8rem; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+        tbody tr:nth-child(even) { background: #f9fafb; }
+        tbody tr:hover { background: #e8f4fd; }
+        .vendor-badge { display: inline-block; font-weight: 700; font-size: 0.82rem; padding: 0.15rem 0.5rem; border-radius: 3px; color: white; white-space: nowrap; }
+        .vendor-f5 { background: var(--f5-red); }
+        .vendor-arbor { background: var(--arbor-teal); }
+        .vendor-a10 { background: var(--a10-blue); }
+        .vendor-radware { background: var(--radware-green); }
+        .delta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+        .delta-card { border-radius: 6px; padding: 1.2rem; border-left: 4px solid; }
+        .delta-card.accelerated { background: #e8f5e9; border-left-color: var(--accent-green); }
+        .delta-card.new { background: #e3f2fd; border-left-color: var(--light-blue); }
+        .delta-card.slowed { background: #fff3e0; border-left-color: var(--accent-amber); }
+        .delta-card.pattern { background: #f3e5f5; border-left-color: #8e24aa; }
+        .delta-card.risk { background: #ffebee; border-left-color: var(--accent-red); }
+        .delta-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
+        .delta-card p { font-size: 0.85rem; line-height: 1.5; }
+        .signal-box { background: linear-gradient(135deg, #e8f4fd 0%, #d0e8fa 100%); border: 1px solid #90c8f0; border-left: 5px solid var(--a10-blue); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.2rem; }
+        .signal-box h4 { color: var(--navy); font-size: 1rem; margin-bottom: 0.5rem; }
+        .signal-box p { font-size: 0.9rem; line-height: 1.6; }
+        .signal-box strong { color: var(--navy); }
+        .takeaway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.2rem; }
+        .takeaway-card { border: 1px solid #90c8f0; border-radius: 8px; padding: 1.5rem; background: white; position: relative; border-top: 4px solid var(--a10-blue); }
+        .takeaway-num { position: absolute; top: -14px; left: 1rem; background: var(--a10-blue); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+        .takeaway-card h4 { color: var(--navy); font-size: 0.95rem; margin-bottom: 0.5rem; padding-top: 0.3rem; }
+        .takeaway-card p { font-size: 0.85rem; line-height: 1.5; }
+        .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+        .chart-box { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.2rem; }
+        .chart-box h4 { text-align: center; color: var(--navy); font-size: 0.95rem; margin-bottom: 1rem; }
+        .bar-chart { display: flex; flex-direction: column; gap: 0.6rem; }
+        .bar-row { display: flex; align-items: center; gap: 0.6rem; }
+        .bar-label { width: 100px; font-size: 0.78rem; font-weight: 600; text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: #eee; border-radius: 4px; height: 24px; position: relative; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 6px; font-size: 0.72rem; color: white; font-weight: 600; transition: width 0.8s ease; }
+        .segment-bar { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 0.5rem 0; }
+        .segment-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 600; color: white; }
+        .scorecard-table td.score { text-align: center; font-weight: 700; color: white; min-width: 60px; }
+        .score-5 { background: #1a6b3c; } .score-4 { background: #27ae60; } .score-3 { background: #f5a623; } .score-2 { background: #e67e22; } .score-1 { background: #e74c3c; }
+        .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .kpi-card { background: linear-gradient(135deg, #e8f4fd, #d0e8fa); border: 1px solid #90c8f0; border-radius: 8px; padding: 1rem; text-align: center; }
+        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--a10-blue); }
+        .kpi-card .kpi-label { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
+        .kpi-card .kpi-delta { font-size: 0.72rem; margin-top: 0.3rem; }
+        .kpi-card .kpi-delta.up { color: var(--accent-green); }
+        .kpi-card .kpi-delta.down { color: var(--accent-red); }
+        .kpi-card .kpi-delta.flat { color: var(--accent-amber); }
+        .matrix-container { position: relative; width: 100%; max-width: 600px; height: 400px; margin: 0 auto; border-left: 2px solid var(--navy); border-bottom: 2px solid var(--navy); }
+        .matrix-dot { position: absolute; width: 80px; height: 36px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: white; transform: translate(-50%, -50%); box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        .matrix-label-y { position: absolute; left: -60px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 0.75rem; font-weight: 600; color: var(--navy); white-space: nowrap; }
+        .matrix-label-x { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; color: var(--navy); }
+        a.source-link { color: var(--a10-blue); text-decoration: none; font-size: 0.8rem; }
+        a.source-link:hover { text-decoration: underline; }
+        h3 { color: var(--dark-blue); font-size: 1.15rem; margin: 1.5rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--a10-blue); }
+        h3:first-child { margin-top: 0; }
+        p { margin-bottom: 0.8rem; }
+        ul { margin: 0.5rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .site-footer { background: var(--navy); color: white; padding: 2rem 0; text-align: center; font-size: 0.85rem; }
+        .site-footer a { color: var(--accent-orange); text-decoration: none; }
+        @media (max-width: 768px) { .hero h2 { font-size: 1.5rem; } .chart-row { grid-template-columns: 1fr; } .takeaway-grid { grid-template-columns: 1fr; } .kpi-row { grid-template-columns: repeat(2, 1fr); } .section { padding: 1.2rem; } .site-header h1 { font-size: 1rem; } .toc a { font-size: 0.72rem; padding: 0.3rem 0.5rem; } .bar-label { width: 70px; font-size: 0.7rem; } .site-header .nav-links { display: none; } }
+        @media print { .site-header, .toc, .site-footer { display: none; } .section { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; } }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence</h1>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cloudflare-april-2026.html">Cloudflare</a>
+            <a href="akamai-april-2026.html">Akamai</a>
+            <a href="arbor-april-2026.html">Arbor</a>
+            <a href="f5-april-2026.html">F5</a>
+            <a href="a10-april-2026.html" style="color:white; font-weight:600;">A10</a>
+            <a href="archives.html">Archives</a>
+        </div>
+        <span class="edition">April 2026 Edition</span>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>A10 Networks Strategic Intelligence Brief</h2>
+        <p class="subtitle">Cloud DDoS Services Market: F5, NETSCOUT Arbor, A10 Networks, Radware</p>
+        <div class="hero-meta">
+            <span>Period: December 2025&ndash;April 2026</span>
+            <span>Published: April 29, 2026</span>
+            <span>Prepared for: Radware Security Strategy Leadership</span>
+        </div>
+    </div>
+</section>
+
+<nav class="toc">
+    <div class="container">
+        <div class="toc-inner">
+            <a href="#snapshot">Snapshot</a>
+            <a href="#news">1. News Table</a>
+            <a href="#delta">2. Delta Analysis</a>
+            <a href="#competitive">3. Competitive Comparison</a>
+            <a href="#visual">4. Visual Strategy</a>
+            <a href="#signals">5. Strategic Signals</a>
+            <a href="#takeaways">6. Executive Takeaways</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<div class="container">
+
+<!-- Snapshot -->
+<article class="section" id="snapshot">
+    <div class="section-header">
+        <div class="section-number" style="background:var(--a10-blue);">A</div>
+        <h2>A10 Networks at a Glance &mdash; FY2025 &amp; Q1 2026</h2>
+    </div>
+    <div class="kpi-row">
+        <div class="kpi-card">
+            <div class="kpi-value">$290.6M</div>
+            <div class="kpi-label">FY2025 Revenue (Record)</div>
+            <div class="kpi-delta up">+11.0% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$75.0M</div>
+            <div class="kpi-label">Q1 2026 Revenue</div>
+            <div class="kpi-delta up">+13.4% YoY; beat est $72.6M</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">300 Gbps</div>
+            <div class="kpi-label">Thunder TPS Per-Appliance</div>
+            <div class="kpi-delta up">440 Mpps &bull; Highest in market</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$1.99B</div>
+            <div class="kpi-label">Market Cap</div>
+            <div class="kpi-delta up">ATEN ~$27.80 (+84% 52-wk)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$369.8M</div>
+            <div class="kpi-label">Cash &amp; Investments</div>
+            <div class="kpi-delta up">Zero debt, strong balance sheet</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">10&ndash;12%</div>
+            <div class="kpi-label">2026 Rev Growth Guide</div>
+            <div class="kpi-delta up">EBITDA margins 28&ndash;30%</div>
+        </div>
+    </div>
+    <h3>Strategic Revenue Mix</h3>
+    <div class="segment-bar">
+        <div class="seg" style="width:52%; background:#0071CE;">Product Revenue (~52%)</div>
+        <div class="seg" style="width:48%; background:#004A8C;">Services &amp; Support (~48%)</div>
+    </div>
+    <p style="font-size:0.8rem; color:#666;">A10 Networks&rsquo; fiscal year is calendar-year (ends Dec 31). FY2025 was a record year: $290.6M revenue, $86M adjusted EBITDA (29.6% margin), $42.1M GAAP net income. Q1 2026 continued the momentum with $75.0M (+13.4%) and 30.0% EBITDA margin. Cash position is $369.8M with zero debt. 7,000+ customers including 9 of the top 10 telcos and 8 of the top 10 cloud providers. CEO Dhrupad Trivedi. Renewal rates exceed 90%.</p>
+</article>
+
+<!-- Section 1: News Table -->
+<article class="section" id="news">
+    <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>News Table: Key Developments (Dec 2025&ndash;April 2026)</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th>#</th><th>Date</th><th>Summary</th><th>Source</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>Apr 28</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>Q1 2026 Earnings Beat: $75.0M Revenue (+13.4%), Guidance Reiterated</strong> &mdash; Revenue $75.0M vs. $72.6M consensus. Non-GAAP EPS $0.24 beat $0.23 est. GAAP net income $12.0M. Adjusted EBITDA $22.5M (30.0% margin). Non-GAAP gross margin 80.6%. Cash $369.8M. 2026 guide reiterated: 10&ndash;12% revenue growth, 28&ndash;30% EBITDA margin, 12&ndash;14% EPS growth.</td><td><a class="source-link" href="https://www.businesswire.com/news/home/20260428121210/en/A10-Networks-Reports-Financial-Results-for-the-First-Quarter-of-2026" target="_blank">BusinessWire</a></td></tr>
+                <tr><td>2</td><td>Feb 4</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>FY2025 &amp; Q4 Results: Record Revenue Year</strong> &mdash; Full-year $290.6M (+11.0%), Q4 $80.4M (record quarterly). Record adjusted EBITDA of $86M (29.6% of revenue). Non-GAAP net income $66.3M. Three of last four quarters with double-digit revenue growth. Record bookings and pipeline entering 2026.</td><td><a class="source-link" href="https://www.nasdaq.com/press-release/a10-networks-reports-financial-results-fourth-quarter-and-full-year-2025-2026-02-04" target="_blank">Nasdaq</a></td></tr>
+                <tr><td>3</td><td>Feb 12</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>ThreatX Protect Acquisition Completed</strong> &mdash; A10 acquired assets and key personnel of ThreatX Protect, adding WAAP capabilities: API protection, bot management, and next-gen WAF. Delivered as SaaS. Expands A10 Defend portfolio beyond DDoS into application and API security. Modestly accretive to EPS.</td><td><a class="source-link" href="https://www.a10networks.com/news/press-releases/a10-networks-expands-its-cybersecurity-portfolio-with-acquisition-of-threatx-protect/" target="_blank">A10 PR</a></td></tr>
+                <tr><td>4</td><td>Q1 2026</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>Selected by Microsoft for AI Infrastructure Protection</strong> &mdash; Won contract to protect mission-critical AI infrastructure for a &ldquo;global cloud leader&rdquo; (confirmed as Microsoft). Validates A10&rsquo;s positioning at the intersection of AI workload security and network infrastructure. CEO Trivedi: A10 is &ldquo;well positioned at the intersection of today&rsquo;s most urgent priorities.&rdquo;</td><td><a class="source-link" href="https://finance.yahoo.com/markets/stocks/articles/a10-networks-q1-earnings-call-214006343.html" target="_blank">Yahoo Finance</a></td></tr>
+                <tr><td>5</td><td>2026</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>Turkcell Partnership Expansion</strong> &mdash; Expanded strategic collaboration with Turkcell for network virtualization and security infrastructure. Deploying Thunder software solutions for carrier-grade NAT and integrated security. Strengthens A10&rsquo;s leading position in tier-1 telco accounts.</td><td><a class="source-link" href="https://www.stocktitan.net/news/ATEN/" target="_blank">StockTitan</a></td></tr>
+                <tr><td>6</td><td>2026</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>Thunder TPS 14045: Highest-Performance DDoS Appliance</strong> &mdash; Thunder 14045 delivers 300 Gbps / 440 Mpps in a single appliance &mdash; fastest on the market. Scales to 2.4 Tbps in cluster configuration. 11x performance vs. legacy solutions. NimbusDDOS DDoS Defense Effectiveness Certification awarded.</td><td><a class="source-link" href="https://www.a10networks.com/products/thunder-tps/" target="_blank">A10 Networks</a></td></tr>
+                <tr><td>7</td><td>2026</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>A10 Defend Portfolio Expansion</strong> &mdash; A10 Defend now encompasses: Thunder TPS (on-prem DDoS), Defend Threat Control (SaaS intelligence), cloud DDoS scrubbing, and ThreatX Protect (WAAP). End-to-end DDoS + application security in a single platform. Targets hybrid enterprise and carrier markets.</td><td><a class="source-link" href="https://www.a10networks.com/news/press-releases/a10-networks-expands-its-cybersecurity-portfolio-with-acquisition-of-threatx-protect/" target="_blank">A10 PR</a></td></tr>
+                <tr><td>8</td><td>Q4 2025</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>Record Bookings and Pipeline Entering 2026</strong> &mdash; CEO Trivedi stated record bookings in Q4 2025 and the strongest pipeline entering a new year. Enterprise demand driven by AI infrastructure buildouts, 5G rollouts, and security modernization. International growth accelerating.</td><td><a class="source-link" href="https://www.themarketsdaily.com/2026/02/05/a10-networks-nyseaten-issues-earnings-results-hits-expectations.html" target="_blank">Markets Daily</a></td></tr>
+                <tr><td>9</td><td>2026</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>DSIRT 24/7 DDoS Incident Response</strong> &mdash; A10 DDoS Security Incident Response Team (DSIRT) provides 24x7x365 expert support for DDoS mitigation. Includes proactive threat monitoring, real-time intelligence feeds, and incident management. Parallels Radware&rsquo;s ERT and NETSCOUT&rsquo;s managed services.</td><td><a class="source-link" href="https://www.a10networks.com/products/thunder-tps/" target="_blank">A10 Networks</a></td></tr>
+                <tr><td>10</td><td>Apr 2026</td><td><span class="vendor-badge vendor-a10">A10</span> <strong>Stock at 52-Week High, +84% in 12 Months</strong> &mdash; ATEN reached $28.59, up from $15.12 low. Market cap ~$1.99B. Driven by 3 consecutive earnings beats, AI infrastructure wins, ThreatX acquisition, and 10&ndash;12% growth guidance. Analyst consensus: Buy. GF Score 85/100.</td><td><a class="source-link" href="https://finance.yahoo.com/quote/ATEN/" target="_blank">Yahoo Finance</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 2: Delta Analysis -->
+<article class="section" id="delta">
+    <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Delta Analysis (vs. Prior Period)</h2>
+    </div>
+
+    <h3>What Accelerated</h3>
+    <div class="delta-grid">
+        <div class="delta-card accelerated">
+            <h4>Revenue Growth Is Accelerating &mdash; Record After Record</h4>
+            <p>FY2025 was A10&rsquo;s record year ($290.6M, +11%), followed by a record Q4 ($80.4M). Q1 2026 continued the trend at $75.0M (+13.4%), beating estimates. Three of the last four quarters showed double-digit growth. The 2026 guide of 10&ndash;12% growth with 28&ndash;30% EBITDA margins signals sustainable, profitable acceleration &mdash; not one-time wins.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>AI Infrastructure Is Becoming a Core Growth Driver</h4>
+            <p>The Microsoft AI infrastructure win validates A10&rsquo;s positioning. AI workloads require high-performance DDoS protection at network ingress &mdash; exactly where Thunder TPS operates. CEO Trivedi explicitly linked demand to AI buildouts and 5G rollouts. A10 is converting &ldquo;AI hype&rdquo; into signed contracts with tier-1 cloud providers.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Stock Performance Reflects Market Confidence</h4>
+            <p>ATEN is up 84% in 12 months, reaching its 52-week high near $28.59. Market cap approaching $2B. This outperforms the broader cybersecurity sector and reflects investor confidence in A10&rsquo;s growth trajectory, cash generation ($369.8M cash, zero debt), and consistent earnings beats.</p>
+        </div>
+    </div>
+
+    <h3>What Is New</h3>
+    <div class="delta-grid">
+        <div class="delta-card new">
+            <h4>ThreatX Acquisition Extends A10 Beyond DDoS into WAAP</h4>
+            <p>The ThreatX Protect acquisition (Feb 2025) adds API protection, bot management, and next-gen WAF to A10 Defend. This is a strategic pivot: A10 is no longer a DDoS/ADC specialist but a hybrid security platform covering DDoS + application security. This directly overlaps with Radware&rsquo;s WAAP + DDoS positioning and Radware&rsquo;s own Pynt acquisition for API security.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Turkcell Partnership Expands Carrier Footprint</h4>
+            <p>The Turkcell collaboration for network virtualization and carrier-grade NAT infrastructure reinforces A10&rsquo;s telco dominance (9 of top 10 telcos). As 5G deployments accelerate, carrier-grade security becomes a growth vector. A10&rsquo;s carrier relationships are deeper than any competitor in the DDoS comparison set.</p>
+        </div>
+    </div>
+
+    <h3>What Slowed or Faces Risk</h3>
+    <div class="delta-grid">
+        <div class="delta-card risk">
+            <h4>Cloud DDoS Scrubbing Capacity Remains Undisclosed</h4>
+            <p>A10 does not publicly disclose its cloud DDoS scrubbing capacity in Tbps. NETSCOUT publishes 15+ Tbps, F5 publishes 12+ Tbps. This lack of transparency is a competitive liability in RFP processes where buyers compare cloud mitigation scale. A10&rsquo;s on-prem strength (300 Gbps per appliance) doesn&rsquo;t compensate for cloud ambiguity.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>Scale Remains a Constraint vs. F5 and Platform Players</h4>
+            <p>At $290.6M revenue, A10 is ~10.6x smaller than F5 ($3.1B) and ~2.8x smaller than NETSCOUT ($823M). While A10 grows faster, its absolute scale limits R&amp;D investment, go-to-market reach, and pricing power against larger competitors who can bundle DDoS as a platform feature. Radware ($301.9M) is the most directly comparable competitor by revenue scale.</p>
+        </div>
+    </div>
+
+    <h3>Meaningful Pattern Shifts</h3>
+    <div class="delta-grid">
+        <div class="delta-card pattern">
+            <h4>DDoS Specialists Are Becoming Security Platforms</h4>
+            <p>A10&rsquo;s ThreatX acquisition mirrors Radware&rsquo;s Pynt acquisition: both DDoS specialists are expanding into WAAP/API security. Meanwhile, platform players (F5, Cloudflare, Akamai) are absorbing DDoS into broader offerings. The standalone DDoS market is compressing from both directions &mdash; specialists expanding up and platforms absorbing down. The winners will be those who combine DDoS depth with platform breadth credibly.</p>
+        </div>
+        <div class="delta-card pattern">
+            <h4>Carrier/Telco Channel Is A10&rsquo;s Moat</h4>
+            <p>With 9 of the top 10 telcos and 8 of the top 10 cloud providers as customers, A10&rsquo;s carrier channel is its deepest competitive moat. The Turkcell expansion and 5G infrastructure demand create a renewal-driven, high-retention revenue base (90%+ renewal rates). Neither Radware nor F5 has comparable carrier penetration. NETSCOUT competes in this channel via ISP-grade Sightline/TMS but with a different deployment model.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 3: Competitive Comparison -->
+<article class="section" id="competitive">
+    <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Competitive Comparison &mdash; Cloud DDoS Services</h2>
+    </div>
+
+    <h3>3.1 Product Innovation</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td><strong>Fastest on-prem DDoS appliance + expanding into WAAP via ThreatX.</strong> Thunder TPS 14045: 300 Gbps / 440 Mpps (market-leading per-appliance performance). A10 Defend suite: DDoS + Threat Control SaaS + ThreatX WAAP. AI-enhanced zero-day filter generation. NimbusDDOS certified. Won Microsoft AI infrastructure deal. Innovation spans on-prem DDoS depth and carrier-grade networking.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>Broadest application delivery portfolio with DDoS as integrated component. ADSP Partner Program with MazeBolt (proactive DDoS testing). Distributed Cloud DDoS at 12+ Tbps / 24 Regional Edges. BIG-IP Hybrid Defender for on-prem. AI bookings $50M (+200%). Innovation is broad (multicloud, AI, WAAP) rather than DDoS-deep. CISA ED 26-01 raises trust concerns.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Deepest DDoS-specific innovation. AI/ML Adaptive DDoS Protection, automated 65+ threat actor tracking, 1-second carpet bombing detection. ATLAS Intelligence Feed with Geo-IP. Innovation is narrow but unmatched in DDoS depth. G2 Winter 2026 Leader (6 badges).</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS mitigation without decryption (per Radware claim). DefensePro behavioral ML. Pynt acquisition (Jan 2026) for API security. Agentic AI Protection for prompt injection/tool abuse. DDoS attacks up 168% per Radware Global Threat Report.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.2 Cloud DDoS Scrubbing Services</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Cloud Capacity</th><th>Service Model</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td><strong>Cloud scrubbing via A10 Defend; capacity not publicly disclosed</strong></td><td>On-demand or always-on with BGP-based redirection. A10 DSIRT 24/7 incident response. Defend Threat Control SaaS for real-time intelligence</td><td><strong>ML-driven automation for traffic redirection and policy escalation.</strong> Zero-atrophy threat intelligence. Strongest in carrier/telco environments (9 of top 10). Cloud capacity gap vs. NETSCOUT and F5 in disclosed Tbps.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>12+ Tbps combined scrubbing; 24 Regional Edges</td><td>Always-On or Always-Available subscriptions. Managed service with SOC. L3/L4/L7 protection</td><td>Integrated into ADSP platform &mdash; DDoS + WAF + bot + API in single cloud. MazeBolt proactive testing. But: CISA ED 26-01 trust concerns for F5 infrastructure.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>15+ Tbps dedicated; 16 global scrubbing centers</td><td>Managed or self-service. Cloud Signaling for automatic hybrid failover from AED to Arbor Cloud</td><td>Largest dedicated DDoS scrubbing network. ISP-grade heritage. ATLAS telemetry (400+ Tbps visibility). 65+ threat actor automated blocking.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Cloud DDoS Protection service; hybrid model</td><td>Always-on or on-demand. Hybrid with DefensePro on-prem + cloud scrubbing. 24/7 ERT</td><td>Encrypted attack mitigation without decryption (per Radware claim). Behavioral ML detection. Strong in certificate-sensitive and regulated environments.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.3 On-Premises / Hybrid DDoS</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>On-Prem Product</th><th>Hybrid Integration</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td><strong>Thunder TPS 14045: 300 Gbps / 440 Mpps per appliance.</strong> Scales to 2.4 Tbps in cluster. NimbusDDOS certified. A10 Defend Mitigator</td><td>On-prem Thunder TPS + cloud scrubbing via BGP redirection. Unified A10 Defend management</td><td><strong>Highest per-appliance throughput on the market (300 Gbps). 11x legacy performance.</strong> NimbusDDOS certified effectiveness. Strong in carrier and high-throughput environments where per-rack density matters.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>BIG-IP DDoS Hybrid Defender: multi-layer L3/L4/L7, SSL decryption, anti-bot</td><td>BIG-IP on-prem + Distributed Cloud for volumetric overflow. ADSP unifies management</td><td>Only vendor with full ADC + DDoS in single appliance. SSL decryption at line rate. But: CISA ED 26-01 and CVE-2025-53521 raise trust concerns for on-prem BIG-IP.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Arbor Edge Defense (AED): inline, up to 40 Gbps; Arbor TMS: ISP-grade mitigation</td><td>Cloud Signaling auto-failover to Arbor Cloud. Sightline for detection + TMS for mitigation at ISP level</td><td>Deepest on-prem DDoS stack. AED + TMS + Sightline covers enterprise and ISP. 1-second carpet bombing detection.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DefensePro: on-prem behavioral ML DDoS protection</td><td>DefensePro on-prem + Cloud DDoS for hybrid. Automated failover</td><td>Encrypted L7 DDoS without decryption (per Radware claim). Behavioral detection. Flexible deployment models.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.4 AI/ML &amp; Threat Intelligence</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>AI/ML in DDoS</th><th>Threat Intelligence</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td><strong>AI-enhanced zero-day filter generation. ML-driven automation for traffic redirection and policy escalation.</strong> Won Microsoft AI infrastructure contract</td><td>Defend Threat Control SaaS: real-time DDoS attack map, reflector/botnet intelligence, zero-atrophy data gathering</td><td><strong>SaaS-based DDoS intelligence without dedicated on-prem equipment.</strong> Zero-atrophy intelligence maintains freshness. Strong for organizations wanting DDoS visibility without full deployment. AI infrastructure expertise validated by Microsoft win.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>ML-based anomaly detection in Distributed Cloud. BIG-IP behavioral analysis. AI bookings $50M</td><td>F5 Labs threat research. MazeBolt proactive DDoS testing via ADSP partnership</td><td>Proactive DDoS testing (MazeBolt) is unique in market. AI investment is broad (multicloud, not DDoS-specific).</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Adaptive DDoS Protection (AI/ML). Automated campaign detection for 65+ threat actors. 1-sec carpet bombing detection</td><td><strong>ATLAS: 400+ Tbps visibility, 214 countries, 13,000+ ASNs. Semi-annual DDoS Threat Intelligence Report (8M+ attacks)</strong></td><td>Unmatched DDoS telemetry. ATLAS is the industry&rsquo;s most comprehensive DDoS intelligence platform. No competitor has comparable scale.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Behavioral ML in DefensePro. Agentic AI Protection for prompt injection/tool abuse</td><td>Global Threat Report (annual). DDoS attacks up 168% finding. Emergency Response Team (ERT) intelligence</td><td>Behavioral ML focus. Agentic AI Protection addresses emerging AI agent threats. ERT provides human-in-the-loop intelligence.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.5 Market Momentum</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td><strong>$290.6M (FY2025, +11%); Q1 2026 $75.0M (+13.4%); ~$1.99B mkt cap; $369.8M cash; zero debt</strong></td><td><strong>Record revenue year. 3 of last 4 quarters double-digit growth. Stock +84% in 12 months.</strong> Microsoft AI infrastructure win. ThreatX acquisition expands TAM. 2026 guide 10&ndash;12% growth, 28&ndash;30% EBITDA. 90%+ renewal rates. Analyst consensus: Buy.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>$3.1B (FY2025, +10%); Q2 FY2026 $812M (+11%); product +22%; ~$17.2B mkt cap</td><td>Strongest financial position in comparison set. 7 consecutive quarters double-digit product growth. Guidance raised. But: CISA ED 26-01 is a trust liability.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>$823M (FY2025, -0.8%); FY2026 guide $835&ndash;870M; Cybersecurity +18.3%; ~$2.46B mkt cap</td><td>Cybersecurity segment accelerating. 3 consecutive earnings beats. Stock at 1-year high. Total revenue flat due to service assurance drag.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>$301.9M (FY2025)</td><td>Cloud security push via Investor Day. Pynt + Agentic AI Protection show strategic clarity. Hybrid deployment flexibility is a differentiator in regulated markets.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 4: Visual Strategic Section -->
+<article class="section" id="visual">
+    <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Visual Strategic Section</h2>
+    </div>
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>Revenue Comparison &mdash; Cloud DDoS Vendors ($M)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--f5-red);">$3,100M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:26.5%; background:var(--arbor-teal);">$823M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.7%; background:var(--radware-green);">$302M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--a10-blue); font-weight:800;">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.4%; background:var(--a10-blue);">$291M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">F5&rsquo;s $3.1B is total company revenue spanning ADC, WAF, DDoS, bot, API. A10&rsquo;s $291M includes DDoS + ADC + security. DDoS-specific revenue is not separately disclosed for any vendor.</p>
+        </div>
+        <div class="chart-box">
+            <h4>Cloud DDoS Scrubbing Capacity (Tbps)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--arbor-teal);">15+ Tbps (dedicated)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:80%; background:var(--f5-red);">12+ Tbps</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--a10-blue); font-weight:800;">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--a10-blue);">Not disclosed</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--radware-green);">Not disclosed</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">NETSCOUT leads in disclosed dedicated scrubbing capacity. A10 and Radware do not publicly disclose cloud scrubbing Tbps. A10&rsquo;s on-prem Thunder TPS (300 Gbps/appliance) is the highest per-box throughput.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>YoY Revenue Growth</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--a10-blue); font-weight:800;">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:73%; background:var(--a10-blue);">+11%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:67%; background:var(--f5-red);">+10%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--radware-green);">~3%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:7%; background:var(--arbor-teal);">-0.8%</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Momentum Scorecard (1&ndash;5 Scale)</h4>
+            <div class="table-wrapper">
+                <table class="scorecard-table" style="font-size:0.82rem;">
+                    <thead><tr><th>Vendor</th><th>Innovation</th><th>Traction</th><th>Clarity</th><th>Composite</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-4">3.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td class="score score-4">4</td><td class="score score-5">5</td><td class="score score-4">4</td><td class="score score-4">4.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.5rem;">A10 scores highest on traction among peers at similar scale (record revenue, 3 consecutive beats, stock +84%). F5 leads overall on financial scale but CISA vulnerability lowers trust. Radware scores high on innovation (encrypted DDoS, Agentic AI) but lower on traction.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box" style="grid-column: 1 / -1;">
+            <h4>Competitive Positioning: Cloud DDoS Scale vs. On-Prem DDoS Depth</h4>
+            <div style="position:relative; padding: 30px 20px 40px 90px;">
+                <div class="matrix-container">
+                    <span class="matrix-label-y">On-Premises DDoS Depth &rarr;</span>
+                    <span class="matrix-label-x">Cloud DDoS Scale &rarr;</span>
+                    <div class="matrix-dot" style="left:35%; bottom:75%; background:var(--a10-blue); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--a10-blue);">A10</div>
+                    <div class="matrix-dot" style="left:65%; bottom:70%; background:var(--f5-red);">F5</div>
+                    <div class="matrix-dot" style="left:80%; bottom:85%; background:var(--arbor-teal);">NETSCOUT</div>
+                    <div class="matrix-dot" style="left:45%; bottom:60%; background:var(--radware-green);">Radware</div>
+                </div>
+            </div>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>A10 leads in on-prem per-appliance throughput (300 Gbps Thunder TPS) but lags in cloud scale disclosure.</strong> NETSCOUT leads in both cloud scale (15+ Tbps dedicated) and on-prem depth (AED + TMS). F5 has strong cloud scale (12+ Tbps) with BIG-IP hybrid depth. Radware balances both with hybrid flexibility and encrypted DDoS differentiation. A10&rsquo;s positioning strength is carrier/telco dominance and raw on-prem performance.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 5: Strategic Signals -->
+<article class="section" id="signals">
+    <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Strategic Signals</h2>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 1: A10 Is Radware&rsquo;s Most Direct Competitor &mdash; Similar Scale, Overlapping Strategy</h4>
+        <p>At $290.6M vs. Radware&rsquo;s $301.9M, A10 is the closest revenue peer in the DDoS market. Both companies are pursuing the same strategic pivot: expanding from DDoS into WAAP/API security (A10 via ThreatX, Radware via Pynt). Both target hybrid enterprise and carrier environments. Both have behavioral/ML DDoS detection. <strong>A10 is the competitor most likely to appear in the same deals as Radware &mdash; every feature comparison, pricing benchmark, and win/loss should track A10 as the primary peer threat.</strong></p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 2: A10&rsquo;s Carrier/Telco Moat Is Deep and Expanding</h4>
+        <p>9 of the top 10 telcos and 8 of the top 10 cloud providers. The Turkcell expansion, 5G infrastructure demand, and carrier-grade NAT deployments create a customer base that is sticky and high-value. <strong>Radware competes for telco DDoS deals, but A10&rsquo;s carrier penetration is deeper. In tier-1 telco accounts, A10 is the incumbent to displace &mdash; Radware should focus on mid-tier carriers and enterprise accounts where A10&rsquo;s carrier brand is less dominant.</strong></p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 3: The Microsoft AI Win Signals A10&rsquo;s Credibility in Hyperscale Environments</h4>
+        <p>Being selected by Microsoft for AI infrastructure protection is a significant reference win. It validates that Thunder TPS&rsquo;s 300 Gbps per-appliance performance meets hyperscale requirements. <strong>If A10 can replicate this across other hyperscalers, it establishes a beachhead in AI infrastructure security that Radware currently lacks.</strong> Radware should develop and publicize its own AI infrastructure protection reference architectures before A10 builds a case study portfolio.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 4: A10&rsquo;s ThreatX Acquisition Creates Direct WAAP Overlap with Radware</h4>
+        <p>ThreatX Protect adds API protection, bot management, and next-gen WAF to A10 Defend. This mirrors Radware&rsquo;s Pynt acquisition for API security. <strong>A10 and Radware are converging on the same &ldquo;DDoS + WAAP&rdquo; hybrid security platform positioning.</strong> In competitive evaluations, A10 can now claim both DDoS and application security &mdash; a capability that was previously a Radware differentiator against A10. Radware&rsquo;s encrypted DDoS mitigation and Agentic AI Protection remain unique differentiators.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 5: A10&rsquo;s Financial Health Creates Acquisition or Sustained Growth Optionality</h4>
+        <p>$369.8M cash, zero debt, 30% EBITDA margins, and record bookings give A10 strategic flexibility. <strong>A10 could use its cash for additional acquisitions (expanding the Defend portfolio), aggressive pricing to win deals, or share buybacks to boost stock price.</strong> Radware should monitor A10&rsquo;s M&amp;A activity closely &mdash; the next acquisition will signal whether A10 is building a platform (threat to Radware) or staying focused on DDoS/ADC (less direct overlap).</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 6: A10&rsquo;s Undisclosed Cloud Capacity Is Its Biggest Competitive Vulnerability</h4>
+        <p>In an era where NETSCOUT publishes 15+ Tbps and F5 publishes 12+ Tbps, A10&rsquo;s refusal to disclose cloud DDoS capacity creates uncertainty. <strong>In RFPs where cloud mitigation scale is a qualifying criterion, A10&rsquo;s ambiguity is an exploitable weakness for Radware.</strong> Radware sales teams should explicitly ask prospects whether A10 has disclosed cloud scrubbing capacity &mdash; the answer will consistently be &ldquo;no,&rdquo; which raises questions about A10&rsquo;s cloud readiness in volumetric attack scenarios.</p>
+    </div>
+</article>
+
+<!-- Section 6: Executive Takeaways -->
+<article class="section" id="takeaways">
+    <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Executive Takeaways</h2>
+    </div>
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <h4>A10 is Radware&rsquo;s closest peer competitor &mdash; same scale, converging strategy, overlapping accounts</h4>
+            <p>At $290.6M vs. $301.9M, A10 and Radware are within 4% of each other on revenue. Both are pivoting from DDoS to hybrid DDoS + WAAP platforms (ThreatX vs. Pynt). Both target enterprise and carrier markets. A10 should be treated as Radware&rsquo;s primary head-to-head competitor, ahead of F5 (too large/broad) and NETSCOUT (different deployment model).</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <h4>A10&rsquo;s on-prem DDoS performance is market-leading and a direct threat in high-throughput accounts</h4>
+            <p>Thunder TPS at 300 Gbps / 440 Mpps per appliance is the highest performance in the market, with NimbusDDOS certification. In telco, data center, and AI infrastructure accounts where per-rack throughput is the buying criterion, A10 has a hardware performance advantage over Radware&rsquo;s DefensePro. Radware must compete on detection intelligence, encrypted DDoS, and hybrid flexibility rather than raw throughput.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <h4>A10&rsquo;s carrier/telco dominance (9/10 top telcos) is a moat Radware cannot easily breach</h4>
+            <p>A10&rsquo;s tier-1 carrier relationships are entrenched through ADC, DDoS, and CGNAT deployments. The Turkcell expansion and 5G demand reinforce this. Radware should focus competitive efforts on enterprise, mid-tier carriers, and regulated verticals where A10&rsquo;s carrier brand carries less weight.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">4</div>
+            <h4>A10&rsquo;s undisclosed cloud DDoS capacity is Radware&rsquo;s most exploitable competitive lever</h4>
+            <p>While NETSCOUT publishes 15+ Tbps and F5 publishes 12+ Tbps, A10 does not disclose its cloud scrubbing capacity. In cloud-first or hybrid DDoS evaluations, this is a qualifying weakness. Radware should ensure RFP responses explicitly ask for cloud capacity disclosure and position this gap prominently in competitive battlecards.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">5</div>
+            <h4>Radware&rsquo;s encrypted DDoS mitigation remains the strongest technical differentiator against A10</h4>
+            <p>A10&rsquo;s Thunder TPS requires SSL decryption for L7 DDoS inspection. Radware&rsquo;s DefensePro mitigates encrypted L7 DDoS without decryption (per Radware claim). In environments where TLS certificate sharing is unacceptable (financial services, healthcare, government), this is a decisive capability gap in Radware&rsquo;s favor.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">6</div>
+            <h4>Monitor A10&rsquo;s next acquisition closely &mdash; it will signal the competitive trajectory</h4>
+            <p>With $369.8M cash and zero debt, A10 has significant M&amp;A firepower. ThreatX was the first move into WAAP. If A10 acquires a cloud DDoS scrubbing provider or a threat intelligence company, it would close its two biggest competitive gaps. Radware should prepare competitive positioning for an &ldquo;A10 with cloud scale&rdquo; scenario &mdash; because A10 can afford to buy what it doesn&rsquo;t have.</p>
+        </div>
+    </div>
+</article>
+
+<div class="section" style="background: #fff8e1; border-left: 4px solid var(--accent-amber); font-size: 0.85rem;">
+    <p style="margin:0;"><strong>Disclaimer:</strong> This brief is based on publicly available information gathered through April 29, 2026, including A10 Networks&rsquo; SEC filings, earnings calls, press releases, and third-party coverage. A10&rsquo;s fiscal year is calendar-year (ends December 31). Radware claims are qualified with &ldquo;per Radware.&rdquo; It does not contain material non-public information about any company referenced.</p>
+</div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly A10 Networks Strategic Brief</p>
+        <p style="opacity:0.7; margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="f5-april-2026.html">F5 Brief</a> &bull; <a href="arbor-april-2026.html">Arbor Brief</a> &bull; <a href="archives.html">Archives</a> &bull; <a href="https://github.com/galdarom/competitive-intelligence">GitHub</a></p>
+        <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.toc a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+document.querySelectorAll('article.section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
