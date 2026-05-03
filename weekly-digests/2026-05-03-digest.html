@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Digest — May 3, 2026 | Radware Competitive Intelligence</title>
+    <meta name="description" content="Weekly competitive intelligence digest for April 27 – May 3, 2026. Material events from 9 tracked vendors.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --mid-gray: #BDC3C7;
+            --dark-gray: #333333;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
+            --fastly-red: #FF282D;
+            --radware-green: #6AB023;
+            --imperva-purple: #6C3483;
+            --arbor-teal: #005F73;
+            --f5-red: #E4002B;
+            --a10-blue: #0071CE;
+            --corero-green: #2D6A4F;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .site-header h1 { font-size: 1.2rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.85rem; }
+        .site-header .nav-links a:hover { color: white; }
+
+        .hero {
+            background: linear-gradient(135deg, #2c5282 0%, var(--accent-orange) 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+        .hero h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .hero .subtitle { font-size: 1rem; opacity: 0.95; margin-bottom: 1rem; }
+        .hero .stat-row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; font-size: 0.95rem; }
+        .hero .stat-row span { background: rgba(255,255,255,0.18); padding: 0.3rem 0.9rem; border-radius: 18px; font-weight: 600; }
+
+        .ai-disclaimer {
+            background: #fff8e1;
+            border-left: 4px solid #F39C12;
+            padding: 0.85rem 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .ai-disclaimer strong { color: #B7651A; }
+
+        main { padding: 1.5rem 0 3rem; }
+
+        .highlight-callout {
+            background: linear-gradient(135deg, #fff3e0, #ffe5cc);
+            border-left: 5px solid var(--accent-orange);
+            padding: 1.4rem 1.6rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .highlight-callout h3 { color: var(--navy); font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .highlight-callout p { font-size: 0.95rem; line-height: 1.55; }
+
+        .track-section { margin: 2rem 0 1rem; }
+        .track-header {
+            display: flex; align-items: center; gap: 0.7rem;
+            margin-bottom: 1.2rem; padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--navy);
+        }
+        .track-header h2 { font-size: 1.3rem; color: var(--navy); }
+        .track-label {
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            padding: 0.2rem 0.6rem; border-radius: 3px; color: white;
+        }
+        .track-label.t1 { background: var(--dark-blue); }
+        .track-label.t2 { background: var(--arbor-teal); }
+        .track-label.benchmark { background: var(--radware-green); }
+
+        .vendor-block {
+            background: white; border-radius: 8px;
+            padding: 1.4rem 1.6rem; margin-bottom: 1.2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--mid-gray);
+        }
+        .vendor-block.cf { border-left-color: var(--cf-orange); }
+        .vendor-block.akamai { border-left-color: var(--akamai-blue); }
+        .vendor-block.fastly { border-left-color: var(--fastly-red); }
+        .vendor-block.imperva { border-left-color: var(--imperva-purple); }
+        .vendor-block.f5 { border-left-color: var(--f5-red); }
+        .vendor-block.arbor { border-left-color: var(--arbor-teal); }
+        .vendor-block.a10 { border-left-color: var(--a10-blue); }
+        .vendor-block.corero { border-left-color: var(--corero-green); }
+        .vendor-block.radware { border-left-color: var(--radware-green); }
+
+        .vendor-name { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+        .vendor-name .count {
+            font-size: 0.78rem; font-weight: 600;
+            background: var(--light-gray);
+            padding: 0.15rem 0.55rem; border-radius: 12px;
+            color: #666; margin-left: 0.5rem;
+        }
+        .no-events { font-size: 0.88rem; color: #888; font-style: italic; }
+
+        .event {
+            margin-top: 0.9rem; padding-top: 0.9rem;
+            border-top: 1px solid #eef0f4;
+        }
+        .event:first-of-type { border-top: none; padding-top: 0; }
+        .event-meta {
+            display: flex; gap: 0.5rem; align-items: center;
+            font-size: 0.75rem; color: #777; margin-bottom: 0.3rem;
+        }
+        .event-date { font-weight: 600; color: var(--dark-blue); }
+        .category-badge {
+            font-size: 0.68rem; font-weight: 700;
+            padding: 0.12rem 0.55rem; border-radius: 3px;
+            color: white; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .cat-financial { background: #16a085; }
+        .cat-product { background: #2980b9; }
+        .cat-ma { background: #8e44ad; }
+        .cat-exec { background: #d35400; }
+        .cat-security { background: #c0392b; }
+        .cat-threat { background: #2c3e50; }
+        .cat-analyst { background: #f39c12; }
+        .cat-customer { background: #27ae60; }
+
+        .event-headline { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.3rem; }
+        .event-detail { font-size: 0.88rem; color: #444; margin-bottom: 0.4rem; }
+        .event-implication {
+            font-size: 0.82rem; color: #555; font-style: italic;
+            background: #f8f9fa; padding: 0.45rem 0.7rem; border-radius: 4px;
+            border-left: 3px solid var(--accent-orange);
+        }
+        .event-implication strong { color: var(--navy); font-style: normal; }
+        .event-source { font-size: 0.78rem; margin-top: 0.4rem; }
+        .event-source a { color: var(--light-blue); text-decoration: none; }
+        .event-source a:hover { text-decoration: underline; }
+
+        .watchlist {
+            background: #f0f7fa;
+            border-left: 4px solid var(--light-blue);
+            padding: 1.2rem 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0 1rem;
+        }
+        .watchlist h3 { color: var(--navy); margin-bottom: 0.6rem; font-size: 1.05rem; }
+        .watchlist ul { margin-left: 1.3rem; }
+        .watchlist li { font-size: 0.9rem; margin-bottom: 0.3rem; }
+
+        .footer {
+            background: var(--navy); color: white;
+            padding: 1.5rem 0; text-align: center;
+            font-size: 0.82rem; margin-top: 2rem;
+        }
+        .footer a { color: var(--accent-orange); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.4rem; }
+            .hero .stat-row { gap: 0.8rem; font-size: 0.85rem; }
+            .site-header .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence — Weekly Digest</h1>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../archives.html">Archives</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>Weekly Digest — May 3, 2026</h2>
+        <p class="subtitle">Period: April 27 – May 3, 2026</p>
+        <div class="stat-row">
+            <span>9 material events</span>
+            <span>7 of 9 vendors active</span>
+            <span>Generated May 3, 2026</span>
+        </div>
+    </div>
+</section>
+
+<main>
+<div class="container">
+
+<div class="ai-disclaimer">
+    <strong>AI-generated analysis.</strong> This weekly digest is generated with the assistance of AI based on publicly available information. While carefully validated, it may contain errors or omissions and should not be the sole basis for strategic decisions. No material non-public information is used.
+</div>
+
+<!-- Highlight of the week -->
+<div class="highlight-callout">
+    <h3>🔥 Highlight of the Week</h3>
+    <p><strong>Imperva for Google Cloud entered Controlled Availability on April 30, 2026</strong> — Thales is now embedding Imperva's WAAP directly into Google Cloud Load Balancing via Private Service Connect, making it available as a native Google Cloud security primitive. This decisively contradicts the prior "quieter innovation since Thales integration" framing: Imperva is now actively expanding distribution into a hyperscaler. <strong>Radware impact:</strong> Imperva becomes a more credible competitor in Google Cloud-anchored deals and any RFP where "native cloud platform integration" is a buying criterion.</p>
+</div>
+
+<!-- Track 1: Cloud Services -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label t1">Track 1</span>
+        <h2>Cloud Services</h2>
+    </div>
+
+    <!-- Cloudflare -->
+    <div class="vendor-block cf">
+        <div class="vendor-name">Cloudflare <span class="count">1 event</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-07</span>
+                <span class="category-badge cat-financial">Financial — upcoming</span>
+            </div>
+            <div class="event-headline">Q1 2026 earnings call scheduled for May 7</div>
+            <div class="event-detail">Cloudflare confirmed Q1 2026 earnings release for May 7, 2026, after market close. Forecasts call for ~43.75% YoY EPS increase. Watch for Agents Week monetization signals (Mesh, Agent Cloud, Workers AI) and Replicate / Human Native acquisition integration commentary.</div>
+            <div class="event-implication"><strong>Radware impact:</strong> Cloudflare's revenue trajectory and AI-platform monetization will set baseline expectations for the broader Cloud Services Track.</div>
+            <div class="event-source">Source: <a href="https://www.cloudflare.com/press/press-releases/" target="_blank">Cloudflare IR</a> · Forecast via <a href="https://www.tipranks.com/stocks/net/earnings" target="_blank">TipRanks</a></div>
+        </div>
+        <p style="font-size:0.78rem; color:#888; margin-top:0.7rem;">Operational status items (X-Forwarded-For header bug Apr 28; routine CVE detections for Fortinet/SmarterMail) filtered out as not material to the brief.</p>
+    </div>
+
+    <!-- Akamai -->
+    <div class="vendor-block akamai">
+        <div class="vendor-name">Akamai <span class="count">1 event</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-07</span>
+                <span class="category-badge cat-financial">Financial — upcoming</span>
+            </div>
+            <div class="event-headline">Q1 2026 earnings call scheduled for May 7 — guidance reaffirmed</div>
+            <div class="event-detail">Q1 2026 earnings May 7 at 4:30 PM ET. Q1 guidance: $1.06–1.085B revenue (+4–7% YoY); non-GAAP operating margin 26–27%; non-GAAP EPS $1.50–$1.67. Management expects combined CIS + OCA growth ≥20% YoY for 2026; $200M Inference Cloud anchor deal initial GPU deployments in ~20 cities sold out in beta with order-of-magnitude capacity expansion planned.</div>
+            <div class="event-implication"><strong>Radware impact:</strong> Akamai's CIS/Inference Cloud trajectory is a 12–18 month risk to Track 1 dynamics; specific CIS revenue + AI Grid customer count will indicate execution speed.</div>
+            <div class="event-source">Source: <a href="https://www.ir.akamai.com/" target="_blank">Akamai IR</a> · Earnings preview via <a href="https://finance.yahoo.com/markets/stocks/articles/earnings-preview-expect-akamai-technologies-122902254.html" target="_blank">Yahoo Finance</a></div>
+        </div>
+    </div>
+
+    <!-- Fastly -->
+    <div class="vendor-block fastly">
+        <div class="vendor-name">Fastly <span class="count">2 events</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-01</span>
+                <span class="category-badge cat-financial">Financial</span>
+            </div>
+            <div class="event-headline">Stock surged 11.15% on May 1 ahead of Q1 earnings</div>
+            <div class="event-detail">Fastly closed at $28.07 on May 1 (up from $25.72 Apr 28) on $0.24B turnover, becoming the day's most actively traded stock. Investor optimism driven by anticipation of May 6 Q1 results and the LaLiga AI piracy partnership announced late April.</div>
+            <div class="event-implication"><strong>Radware impact:</strong> Fastly's narrative is shifting from "perpetually unprofitable challenger" to "AI-driven edge platform" — increases competitive threat in Track 1 cloud services for high-traffic media / streaming customers.</div>
+            <div class="event-source">Source: <a href="https://www.quiverquant.com/news/Fastly+jumps+5.6%25+as+investors+position+ahead+of+upcoming+earnings,+extending+2026+momentum" target="_blank">QuiverQuant</a></div>
+        </div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-06</span>
+                <span class="category-badge cat-financial">Financial — upcoming</span>
+            </div>
+            <div class="event-headline">Q1 2026 earnings scheduled for May 6 — guidance $168–174M (+18%)</div>
+            <div class="event-detail">Q1 2026 guidance: revenue $168–174M (~18% YoY at midpoint), gross margin ~64%, non-GAAP operating profit $14–18M, non-GAAP EPS $0.07–0.10. Recently issued 7.75% Convertible Senior Notes due 2028. 2026 annual meeting June 3 (virtual).</div>
+            <div class="event-implication"><strong>Radware impact:</strong> If Fastly delivers ≥18% growth, the Track 1 narrative of "Fastly as narrowly differentiated" weakens further; if it misses, the prior thesis holds.</div>
+            <div class="event-source">Source: <a href="https://www.stocktitan.net/news/FSLY/fastly-to-announce-first-quarter-2026-financial-822qaklw2xsh.html" target="_blank">StockTitan</a></div>
+        </div>
+    </div>
+
+    <!-- Imperva/Thales -->
+    <div class="vendor-block imperva">
+        <div class="vendor-name">Imperva / Thales <span class="count">1 event — HIGHLIGHT</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-04-30</span>
+                <span class="category-badge cat-product">Product</span>
+            </div>
+            <div class="event-headline">Imperva for Google Cloud entered Controlled Availability</div>
+            <div class="event-detail">Thales launched "Imperva for Google Cloud" in Controlled Availability on Apr 30, 2026, integrating directly with Google Cloud Load Balancing via Private Service Connect. Traffic stays within Google Cloud's network while being inspected and protected. Features: API-driven deployment with Terraform support; resilient architecture with no single point of failure; immediate protection with minimal tuning. Showcased at Google Cloud Next 2026 (Apr 22–24, Las Vegas). Thales also won 2026 Google Cloud Partner of the Year — Sovereign Cloud Infrastructure Modernization category.</div>
+            <div class="event-implication"><strong>Radware impact:</strong> Major distribution expansion. Imperva is now a native Google Cloud security primitive — competitive in any Google Cloud-anchored deal where customers prefer hyperscaler-integrated solutions. Contradicts the prior "quieter innovation since Thales integration" framing in Radware's monthly briefs.</div>
+            <div class="event-source">Source: <a href="https://cpl.thalesgroup.com/about-us/newsroom/thales-introduces-imperva-for-google-cloud" target="_blank">Thales Newsroom</a> · <a href="https://www.businesswire.com/news/home/20260422746638/en/Thales-Introduces-Imperva-for-Google-Cloud-Bringing-Its-Enterprise-Grade-Application-Security-Capabilities-Directly-into-Google-Cloud" target="_blank">BusinessWire</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- Track 2: DDoS Appliance Vendors -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label t2">Track 2</span>
+        <h2>DDoS Appliance Vendors</h2>
+    </div>
+
+    <!-- F5 -->
+    <div class="vendor-block f5">
+        <div class="vendor-name">F5 <span class="count">1 event</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-04-28</span>
+                <span class="category-badge cat-financial">Financial</span>
+            </div>
+            <div class="event-headline">Q2 FY2026 earnings released — $812M revenue (+11%), guidance raised</div>
+            <div class="event-detail">F5 reported Q2 FY2026 (ending Mar 2026): revenue $812M (+11% YoY), beating $795M est; non-GAAP EPS $3.90 vs $3.51 est. Product revenue +22% (7th straight quarter of double-digit product growth). FY2026 guidance raised to 7–8% growth (from 5–6%); EPS guide $16.25–16.55 (from $15.65–16.05). Stock initially dipped on the print (already-priced-in beat). Q2-specific data not previously available in monthly brief — actuals confirm the preliminary numbers.</div>
+            <div class="event-implication"><strong>Radware impact:</strong> F5's product-revenue acceleration validates the platformization thesis. Expect F5 to use the May 28 Analyst Day to articulate longer-term targets — relevant for Radware's Track 2 positioning.</div>
+            <div class="event-source">Source: <a href="https://www.f5.com/company/news/press-releases/earnings-q2-fy26" target="_blank">F5 PR</a> · <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-f5-networks-beats-q2-2026-forecasts-shares-dip-93CH-4643237" target="_blank">Investing.com transcript</a></div>
+        </div>
+    </div>
+
+    <!-- NETSCOUT Arbor -->
+    <div class="vendor-block arbor">
+        <div class="vendor-name">NETSCOUT Arbor <span class="count">1 event</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-07</span>
+                <span class="category-badge cat-financial">Financial — upcoming</span>
+            </div>
+            <div class="event-headline">Q4 + FY2026 earnings scheduled for May 7</div>
+            <div class="event-detail">NETSCOUT will report Q4 and full fiscal year 2026 (period ending Mar 31, 2026) on Thursday, May 7, 2026, at ~7:30 a.m. ET. Conference call 8:30 a.m. ET (ID NTCTQ426). FY2026 guide standing at $835–870M revenue, non-GAAP EPS $2.37–2.45 (raised after Q3 beat). Watch for cybersecurity segment growth rate — must continue ≥18% to support the rerate thesis.</div>
+            <div class="event-implication"><strong>Radware impact:</strong> If NETSCOUT cybersecurity growth holds ≥18%, the standalone Arbor business approaches Radware revenue scale — increases competitive pressure in pure-DDoS deals.</div>
+            <div class="event-source">Source: <a href="https://ir.netscout.com/news/news-details/2026/NETSCOUT-to-Report-Q4-and-Full-Fiscal-Year-2026-Financial-Results-on-May-7th/default.aspx" target="_blank">NETSCOUT IR</a> · <a href="https://www.businesswire.com/news/home/20260422791375/en/NETSCOUT-to-Report-Q4-and-Full-Fiscal-Year-2026-Financial-Results-on-May-7th" target="_blank">BusinessWire</a></div>
+        </div>
+    </div>
+
+    <!-- A10 Networks -->
+    <div class="vendor-block a10">
+        <div class="vendor-name">A10 Networks <span class="count">1 event</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-04-28</span>
+                <span class="category-badge cat-financial">Financial</span>
+            </div>
+            <div class="event-headline">Q1 2026 earnings beat — $75M revenue (+13.4%), guidance reiterated, dividend approved</div>
+            <div class="event-detail">A10 reported Q1 2026 revenue $75M (+13.4% YoY), beating $72.6M est; product revenue $44M (+22.3%, 59% of total); GAAP NI $17.7M ($0.25 basic / $0.24 diluted); non-GAAP gross margin 80.6%; adjusted EBITDA $22.5M (30% margin). FY2026 outlook reiterated: 10–12% revenue growth, 28–30% EBITDA margin. $6.8M returned via dividends + buybacks; $0.06/share dividend approved for June 1 payout. Headwinds noted in EMEA (regional conflicts) and APJ (cautious capex).</div>
+            <div class="event-implication"><strong>Radware impact:</strong> A10 maintaining 13% growth + 22% product growth at higher gross margin than Radware — sustained pressure in DDoS appliance segment. Strong execution narrative continues.</div>
+            <div class="event-source">Source: <a href="https://www.businesswire.com/news/home/20260428121210/en/A10-Networks-Reports-Financial-Results-for-the-First-Quarter-of-2026" target="_blank">BusinessWire</a> · <a href="https://www.fool.com/earnings/call-transcripts/2026/04/28/a10-networks-aten-q1-2026-earnings-transcript/" target="_blank">Motley Fool transcript</a></div>
+        </div>
+    </div>
+
+    <!-- Corero -->
+    <div class="vendor-block corero">
+        <div class="vendor-name">Corero Network Security <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. Corero's most recent material disclosures (2026 Threat Intelligence Report, Apr 2; FY2025 audited results, Mar 24; MarketsandMarkets "Star" rating, Mar 5) are outside this week's window and already reflected in the monthly brief.</div>
+    </div>
+</div>
+
+<!-- Radware (benchmark) -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label benchmark">Benchmark</span>
+        <h2>Radware</h2>
+    </div>
+
+    <div class="vendor-block radware">
+        <div class="vendor-name">Radware <span class="count">2 events</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-04-30</span>
+                <span class="category-badge cat-financial">Financial</span>
+            </div>
+            <div class="event-headline">Investor conference participation announced (Needham, Jefferies, others)</div>
+            <div class="event-detail">Radware management will participate in three investor conferences in May: 21st Annual Needham Technology, Media & Consumer Virtual Conference (May 14); 2026 Jefferies Software, Internet, and AI Conference (May 28); plus a third unnamed event. Signals continued IR investment in cloud-security narrative ahead of Q2 outlook.</div>
+            <div class="event-implication"><strong>Radware impact (self):</strong> Continued analyst-relations investment supports the rerate thesis; expect Q1 commentary to emphasize Cloud ARR growth + Agentic AI Protection traction.</div>
+            <div class="event-source">Source: <a href="https://www.globenewswire.com/news-release/2026/04/30/3284588/8980/en/Radware-to-Participate-in-Upcoming-Investor-Conferences.html" target="_blank">GlobeNewswire</a></div>
+        </div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-07</span>
+                <span class="category-badge cat-financial">Financial — upcoming</span>
+            </div>
+            <div class="event-headline">Q1 2026 earnings call scheduled for May 7</div>
+            <div class="event-detail">Radware will announce Q1 2026 financial results on Thursday, May 7, 2026, with conference call at 8:30 a.m. EST. Q1 guidance: revenue $78–79M; non-GAAP EPS $0.28–0.29. Management to discuss Q2 outlook. 2026 Annual General Meeting follows May 25.</div>
+            <div class="event-implication"><strong>Radware impact (self):</strong> Q1 figures will validate or challenge the +10% YoY FY2025 trajectory and the Cloud ARR +23% momentum. Watch for any LLM Firewall / Agentic AI Protection traction commentary.</div>
+            <div class="event-source">Source: <a href="https://www.globenewswire.com/news-release/2026/04/06/3268303/8980/en/Radware-Schedules-Conference-Call-for-Its-First-Quarter-2026-Earnings.html" target="_blank">GlobeNewswire</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- Watchlist -->
+<div class="watchlist">
+    <h3>📅 Watchlist for next week (May 4 – May 10, 2026)</h3>
+    <ul>
+        <li><strong>May 6 (Tue):</strong> Fastly Q1 2026 earnings — watch revenue vs $168–174M guide and any AI/edge growth signals</li>
+        <li><strong>May 7 (Thu): Heavy earnings day —</strong>
+            <ul style="margin-top:0.3rem;">
+                <li>Cloudflare Q1 2026 (likely large reaction; AI platform monetization key)</li>
+                <li>Akamai Q1 2026 (CIS / Inference Cloud trajectory)</li>
+                <li>NETSCOUT Q4 + FY2026 (cybersecurity segment growth rate)</li>
+                <li>Radware Q1 2026 (Cloud ARR + AI security traction)</li>
+            </ul>
+        </li>
+        <li><strong>Imperva for Google Cloud:</strong> watch for general availability date announcement (currently Controlled Availability since Apr 30)</li>
+        <li><strong>Akamai $200M Inference Cloud anchor customer:</strong> earnings call may reveal counterparty identity (currently undisclosed)</li>
+    </ul>
+</div>
+
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence Hub</strong> — Weekly Digest May 3, 2026</p>
+        <p style="opacity:0.7; margin-top:0.4rem;">Pairs with the April 2026 monthly edition. Next monthly edition: May 2026 (planned end of month).</p>
+        <p style="opacity:0.5; margin-top:0.4rem; font-size:0.72rem;">&copy; 2026 Radware Ltd. For authorized recipients only. Sourced exclusively from publicly available information.</p>
+    </div>
+</footer>
+
+</body>
+</html>

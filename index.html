@@ -86,6 +86,21 @@
         .reports-grid.three-col {
             grid-template-columns: repeat(3, 1fr);
         }
+        .reports-grid.four-col {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .ai-disclaimer {
+            background: #fff8e1;
+            border-left: 4px solid #F39C12;
+            padding: 0.9rem 1.2rem;
+            margin: 1.5rem 0 2rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        .ai-disclaimer strong { color: #B7651A; }
 
         .report-card {
             background: white;
@@ -189,8 +204,11 @@
         .footer a { color: #F5A623; text-decoration: none; }
 
         @media (max-width: 768px) {
-            .reports-grid.two-col, .reports-grid.three-col { grid-template-columns: 1fr; }
+            .reports-grid.two-col, .reports-grid.three-col, .reports-grid.four-col { grid-template-columns: 1fr; }
             .hero h1 { font-size: 1.8rem; }
+        }
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .reports-grid.four-col { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -199,20 +217,27 @@
 <section class="hero">
     <div class="container">
         <h1>Radware Competitive Intelligence</h1>
-        <p>Monthly strategic intelligence covering the Application Security / WAAP market and Cloud DDoS Services market</p>
-        <div class="badge">April 2026 Edition &bull; 5 Vendor Briefs &bull; 2 Market Tracks</div>
+        <p>Monthly strategic intelligence covering Cloud Services and DDoS Appliance Vendors &mdash; built for the Radware executive team</p>
+        <div class="badge">April 2026 Edition &bull; 6 Vendor Briefs &bull; 2 Market Tracks</div>
+        <p style="color:white; opacity:0.85; font-size:0.85rem; margin-top:0.8rem;">
+            Last refreshed: <a href="weekly-digests/2026-05-03-digest.html" style="color:#F5A623; text-decoration:none;">Weekly Digest — May 3, 2026</a>
+        </p>
     </div>
 </section>
 
 <div class="container" style="margin-top: -2rem; position: relative; z-index: 10;">
 
-    <!-- Track 1: Application Security / WAAP -->
+    <div class="ai-disclaimer">
+        <strong>AI-generated analysis.</strong> These briefs are generated with the assistance of AI based on publicly available information. While carefully validated, they may contain errors or omissions and should not be the sole basis for strategic decisions. No material non-public information is used.
+    </div>
+
+    <!-- Track 1: Cloud Services -->
     <div class="track-section">
         <div class="track-header">
             <span class="track-label waap">Track 1</span>
-            <h2>Application Security / WAAP Market</h2>
+            <h2>Cloud Services</h2>
         </div>
-        <p class="track-desc">WAF, API security, bot management, DDoS, and platform breadth. Comparison vendors: Fastly, Radware, Imperva/Thales.</p>
+        <p class="track-desc">Cloud-delivered WAAP, CDN, security platforms. Primary briefs: Cloudflare, Akamai. Comparison vendors: Fastly, Imperva/Thales. Benchmark: Radware.</p>
         <div class="reports-grid two-col">
             <a href="cloudflare-april-2026.html" class="report-card">
                 <div class="card-header cf">
@@ -258,14 +283,14 @@
         </div>
     </div>
 
-    <!-- Track 2: Cloud DDoS Services -->
+    <!-- Track 2: DDoS Appliance Vendors -->
     <div class="track-section">
         <div class="track-header">
             <span class="track-label ddos">Track 2</span>
-            <h2>Cloud DDoS Services Platforms</h2>
+            <h2>DDoS Appliance Vendors</h2>
         </div>
-        <p class="track-desc">Cloud DDoS scrubbing, on-premises/hybrid DDoS, AI/ML threat intelligence, and carrier-grade protection. Comparison vendor: Radware.</p>
-        <div class="reports-grid three-col">
+        <p class="track-desc">Hardware-first / hybrid DDoS specialists. On-premises and hybrid DDoS, AI/ML threat intelligence, carrier-grade protection. Primary briefs: F5, NETSCOUT Arbor, A10 Networks, Corero. Benchmark: Radware DefensePro + Cloud DDoS.</p>
+        <div class="reports-grid four-col">
             <a href="f5-april-2026.html" class="report-card">
                 <div class="card-header f5">
                     <h2>F5 Brief</h2>
@@ -321,11 +346,32 @@
                         <span class="stat-pill a10">Stock +84%</span>
                     </div>
                     <ul class="highlights">
-                        <li><strong>Thunder TPS 14045:</strong> 300 Gbps / 440 Mpps &mdash; fastest on market</li>
+                        <li><strong>Thunder TPS 14045:</strong> 300 Gbps / 440 Mpps &mdash; highest packets-per-second in market</li>
                         <li><strong>Microsoft AI win:</strong> Selected for AI infrastructure protection</li>
                         <li><strong>ThreatX acquisition:</strong> Expanding into WAAP/API security</li>
                     </ul>
                     <span class="read-btn a10">Read Full Brief &rarr;</span>
+                </div>
+            </a>
+
+            <a href="corero-april-2026.html" class="report-card">
+                <div class="card-header" style="background: linear-gradient(135deg, #1a4d2e, #2D6A4F, #52B788);">
+                    <h2>Corero Brief</h2>
+                    <div class="period">April 2026</div>
+                </div>
+                <div class="card-body">
+                    <div class="stat-row">
+                        <span class="stat-pill" style="color:#2D6A4F;">$23.9M ARR (+23%)</span>
+                        <span class="stat-pill" style="color:#2D6A4F;">98% Retention</span>
+                        <span class="stat-pill" style="color:#2D6A4F;">80&ndash;800 Gbps</span>
+                        <span class="stat-pill" style="color:#2D6A4F;">£61.5M Mkt Cap</span>
+                    </div>
+                    <ul class="highlights">
+                        <li><strong>Encrypted DDoS without decryption</strong> (Oct 2025) &mdash; aligned with Radware approach</li>
+                        <li><strong>HPE-Juniper channel:</strong> 50G&ndash;40 Tbps router-integrated DDoS</li>
+                        <li><strong>Subscription pivot:</strong> ARR +23%, Order Intake +20%</li>
+                    </ul>
+                    <span class="read-btn" style="background:#2D6A4F;">Read Full Brief &rarr;</span>
                 </div>
             </a>
         </div>
@@ -333,20 +379,21 @@
 
     <div class="meta-section">
         <h3>Vendors Covered</h3>
-        <p style="font-size:0.82rem; color:#777; margin-bottom:0.5rem;">Track 1 &mdash; Application Security / WAAP</p>
+        <p style="font-size:0.82rem; color:#777; margin-bottom:0.5rem;">Track 1 &mdash; Cloud Services</p>
         <div class="track-vendors">
             <span class="vendor-chip" style="background:#F48120;">Cloudflare</span>
             <span class="vendor-chip" style="background:#0096D6;">Akamai</span>
             <span class="vendor-chip" style="background:#FF282D;">Fastly</span>
-            <span class="vendor-chip" style="background:#6AB023;">Radware</span>
             <span class="vendor-chip" style="background:#6C3483;">Imperva/Thales</span>
+            <span class="vendor-chip" style="background:#6AB023;">Radware (benchmark)</span>
         </div>
-        <p style="font-size:0.82rem; color:#777; margin-bottom:0.5rem; margin-top:1rem;">Track 2 &mdash; Cloud DDoS Services</p>
+        <p style="font-size:0.82rem; color:#777; margin-bottom:0.5rem; margin-top:1rem;">Track 2 &mdash; DDoS Appliance Vendors</p>
         <div class="track-vendors">
             <span class="vendor-chip" style="background:#E4002B;">F5</span>
             <span class="vendor-chip" style="background:#005F73;">NETSCOUT Arbor</span>
             <span class="vendor-chip" style="background:#0071CE;">A10 Networks</span>
-            <span class="vendor-chip" style="background:#6AB023;">Radware</span>
+            <span class="vendor-chip" style="background:#2D6A4F;">Corero</span>
+            <span class="vendor-chip" style="background:#6AB023;">Radware (benchmark)</span>
         </div>
         <p style="margin-top:1rem;">Each brief covers product innovation, competitive comparison tables, visual strategy charts, 6 strategic signals, and 6 executive takeaways. Reports are validated through multi-round fact-checking.</p>
     </div>

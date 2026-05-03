@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corero Strategic Intelligence Brief — April 2026 | Radware</title>
+    <meta name="description" content="Monthly competitive intelligence brief on Corero Network Security covering DDoS protection, SmartWall ONE, Juniper partnership, and competitive positioning.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --mid-gray: #BDC3C7;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
+            --fastly-red: #FF282D;
+            --radware-green: #6AB023;
+            --imperva-purple: #6C3483;
+            --arbor-teal: #005F73;
+            --corero-green: #2D6A4F;
+            --f5-red: #E4002B;
+            --a10-blue: #0071CE;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .site-header .nav-links a:hover { color: white; }
+        .site-header .edition { font-size: 0.9rem; opacity: 0.85; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Hero - Corero branded */
+        .hero {
+            background: linear-gradient(135deg, #1a4d2e 0%, #2D6A4F 50%, #52B788 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+        /* Navigation */
+        .toc {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .toc-inner {
+            display: flex;
+            gap: 0.3rem;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .toc a:hover, .toc a.active { background: var(--corero-green); color: white; }
+
+        main { padding: 2rem 0 4rem; }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--corero-green);
+        }
+        .section-number {
+            background: var(--corero-green);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .section-header h2 { font-size: 1.5rem; color: var(--navy); font-weight: 700; }
+
+        /* Tables */
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        thead th {
+            background: #1a4d2e;
+            color: white;
+            padding: 0.7rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        tbody td { padding: 0.7rem 0.8rem; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+        tbody tr:nth-child(even) { background: #f9fafb; }
+        tbody tr:hover { background: #eef3fb; }
+
+        .vendor-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            color: white;
+            white-space: nowrap;
+        }
+        .vendor-arbor { background: var(--corero-green); }
+        .vendor-f5 { background: var(--f5-red); }
+        .vendor-a10 { background: var(--a10-blue); }
+        .vendor-radware { background: var(--radware-green); }
+
+        .delta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .delta-card {
+            border-radius: 6px;
+            padding: 1.2rem;
+            border-left: 4px solid;
+        }
+        .delta-card.accelerated { background: #e8f5e9; border-left-color: var(--accent-green); }
+        .delta-card.new { background: #e3f2fd; border-left-color: var(--light-blue); }
+        .delta-card.slowed { background: #fff3e0; border-left-color: var(--accent-amber); }
+        .delta-card.pattern { background: #f3e5f5; border-left-color: #8e24aa; }
+        .delta-card.risk { background: #ffebee; border-left-color: var(--accent-red); }
+        .delta-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
+        .delta-card p { font-size: 0.85rem; line-height: 1.5; }
+
+        .signal-box {
+            background: linear-gradient(135deg, #f0f5ee 0%, #e3eee5 100%);
+            border: 1px solid #b3cdb6;
+            border-left: 5px solid var(--corero-green);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .signal-box h4 { color: var(--navy); font-size: 1rem; margin-bottom: 0.5rem; }
+        .signal-box p { font-size: 0.9rem; line-height: 1.6; }
+        .signal-box strong { color: var(--navy); }
+
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.2rem;
+        }
+        .takeaway-card {
+            border: 1px solid #b3cdb6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+            position: relative;
+            border-top: 4px solid var(--corero-green);
+        }
+        .takeaway-num {
+            position: absolute;
+            top: -14px;
+            left: 1rem;
+            background: var(--corero-green);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .takeaway-card h4 { color: var(--navy); font-size: 0.95rem; margin-bottom: 0.5rem; padding-top: 0.3rem; }
+        .takeaway-card p { font-size: 0.85rem; line-height: 1.5; }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .chart-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.2rem;
+        }
+        .chart-box h4 { text-align: center; color: var(--navy); font-size: 0.95rem; margin-bottom: 1rem; }
+
+        .bar-chart { display: flex; flex-direction: column; gap: 0.6rem; }
+        .bar-row { display: flex; align-items: center; gap: 0.6rem; }
+        .bar-label { width: 100px; font-size: 0.78rem; font-weight: 600; text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: #eee; border-radius: 4px; height: 24px; position: relative; overflow: hidden; }
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 6px;
+            font-size: 0.72rem;
+            color: white;
+            font-weight: 600;
+            transition: width 0.8s ease;
+        }
+
+        /* Segment donut approximation with stacked bars */
+        .segment-bar { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 0.5rem 0; }
+        .segment-bar .seg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .scorecard-table td.score { text-align: center; font-weight: 700; color: white; min-width: 60px; }
+        .score-5 { background: #1a6b3c; }
+        .score-4 { background: #27ae60; }
+        .score-3 { background: #f5a623; }
+        .score-2 { background: #e67e22; }
+        .score-1 { background: #e74c3c; }
+
+        /* KPI cards */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, #f0f5ee, #e5ede7);
+            border: 1px solid #b8d6bd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--corero-green); }
+        .kpi-card .kpi-label { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
+        .kpi-card .kpi-delta { font-size: 0.72rem; margin-top: 0.3rem; }
+        .kpi-card .kpi-delta.up { color: var(--accent-green); }
+        .kpi-card .kpi-delta.down { color: var(--accent-red); }
+        .kpi-card .kpi-delta.flat { color: var(--accent-amber); }
+
+        .matrix-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border-left: 2px solid var(--navy);
+            border-bottom: 2px solid var(--navy);
+        }
+        .matrix-dot {
+            position: absolute;
+            width: 80px;
+            height: 36px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .matrix-label-y {
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+        .matrix-label-x {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        a.source-link { color: var(--corero-green); text-decoration: none; font-size: 0.8rem; }
+        a.source-link:hover { text-decoration: underline; }
+
+        h3 {
+            color: var(--dark-blue);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--corero-green);
+        }
+        h3:first-child { margin-top: 0; }
+        p { margin-bottom: 0.8rem; }
+        ul { margin: 0.5rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+
+        .site-footer {
+            background: var(--navy);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .site-footer a { color: var(--accent-orange); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.5rem; }
+            .chart-row { grid-template-columns: 1fr; }
+            .takeaway-grid { grid-template-columns: 1fr; }
+            .kpi-row { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 1.2rem; }
+            .site-header h1 { font-size: 1rem; }
+            .toc a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+            .bar-label { width: 70px; font-size: 0.7rem; }
+            .site-header .nav-links { display: none; }
+        }
+        @media print {
+            .site-header, .toc, .site-footer { display: none; }
+            .section { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence</h1>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cloudflare-april-2026.html">Cloudflare</a>
+            <a href="akamai-april-2026.html">Akamai</a>
+            <a href="f5-april-2026.html">F5</a>
+            <a href="arbor-april-2026.html">Arbor</a>
+            <a href="a10-april-2026.html">A10</a>
+            <a href="corero-april-2026.html" style="color:white; font-weight:600;">Corero</a>
+            <a href="archives.html">Archives</a>
+        </div>
+        <span class="edition">April 2026 Edition</span>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h2>Corero Strategic Intelligence Brief</h2>
+        <p class="subtitle">DDoS Appliance Vendors Track: F5, NETSCOUT Arbor, A10 Networks, Corero (benchmark: Radware)</p>
+        <div class="hero-meta">
+            <span>Period: October 2025&ndash;May 2026</span>
+            <span>Published: May 2, 2026</span>
+            <span>Prepared for: Radware Security Strategy Leadership</span>
+        </div>
+    </div>
+</section>
+
+<!-- AI Disclaimer Banner -->
+<div class="container" style="margin-top:1.5rem;">
+    <div style="background:#fff8e1; border-left:4px solid #F39C12; padding:0.9rem 1.2rem; border-radius:4px; font-size:0.85rem; color:#555; line-height:1.5;">
+        <strong style="color:#B7651A;">AI-generated analysis.</strong> This brief is generated with the assistance of AI based on publicly available information. While carefully validated, it may contain errors or omissions and should not be the sole basis for strategic decisions. No material non-public information is used.
+    </div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+    <div class="container">
+        <div class="toc-inner">
+            <a href="#snapshot">Snapshot</a>
+            <a href="#news">1. News Table</a>
+            <a href="#delta">2. Delta Analysis</a>
+            <a href="#competitive">3. Competitive Comparison</a>
+            <a href="#visual">4. Visual Strategy</a>
+            <a href="#signals">5. Strategic Signals</a>
+            <a href="#takeaways">6. Executive Takeaways</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+<div class="container">
+
+<!-- Corero at a Glance -->
+<article class="section" id="snapshot">
+    <div class="section-header">
+        <div class="section-number" style="background:var(--corero-green);">C</div>
+        <h2>Corero at a Glance &mdash; FY2025 Results (Reported Jan 2026)</h2>
+    </div>
+
+    <div class="kpi-row">
+        <div class="kpi-card">
+            <div class="kpi-value">$23.9M</div>
+            <div class="kpi-label">FY2025 ARR</div>
+            <div class="kpi-delta up">+23% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">$33.8M</div>
+            <div class="kpi-label">FY2025 Order Intake</div>
+            <div class="kpi-delta up">+20% YoY</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">98%</div>
+            <div class="kpi-label">Customer Retention</div>
+            <div class="kpi-delta up">Up from 97% (FY2024)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">£61.5M</div>
+            <div class="kpi-label">Market Cap (LON:CNS)</div>
+            <div class="kpi-delta flat">~$77M USD equiv.</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">80&ndash;800 Gbps</div>
+            <div class="kpi-label">SmartWall ONE Scaling</div>
+            <div class="kpi-delta up">Modular per-appliance</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">50G&ndash;40 Tbps</div>
+            <div class="kpi-label">Juniper-Integrated Scale</div>
+            <div class="kpi-delta up">MX/PTX router enforcement</div>
+        </div>
+    </div>
+
+    <h3>Business Model: Subscription Shift</h3>
+    <div class="segment-bar">
+        <div class="seg" style="width:71%; background:var(--corero-green);">ARR Subscription Model 71%</div>
+        <div class="seg" style="width:29%; background:#9CC2A2;">One-Time Hardware/Service 29%</div>
+    </div>
+    <p style="font-size:0.8rem; color:#666;">Corero&rsquo;s fiscal year matches calendar year. ARR growth of 23% to $23.9M reflects accelerating shift to subscription-based DDoS Protection-as-a-Service. FY2024 baseline: $24.6M revenue, $2.5M EBITDA, 97% retention. Customer wins driven primarily by competitive displacements of incumbent DDoS vendors. Strategic alliances: HPE+Juniper Networks, Akamai, GTT. CEO: Carl Herberger. Headquartered London, UK; listed LON:CNS (AIM) and OTCQX:DDOSF. Indicative segment split estimated from ARR commentary; full audited revenue mix pending FY2025 final results.</p>
+</article>
+
+<!-- Section 1: News Table -->
+<article class="section" id="news">
+    <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>News Table: Key Developments (Dec 2025&ndash;April 2026)</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th>#</th><th>Date</th><th>Summary</th><th>Source</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Jan 12</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>Strong FY2025 Performance: ARR +23%, Order Intake +20%, 98% Retention</strong> &mdash; Annual Recurring Revenue rose 23% YoY to $23.9M; order intake grew 20% to $33.8M; 98% customer retention sustained. Wins driven primarily by competitive displacements of incumbent DDoS vendors across telecom, data center, and enterprise segments. Geographic momentum across NA, EMEA, APAC, LatAm. Strategic alliances cited: HPE+Juniper Networks, Akamai, GTT.</td>
+                    <td><a class="source-link" href="https://www.prnewswire.com/news-releases/corero-network-security-delivers-strong-full-year-2025-performance-driven-by-global-customer-wins-and-expanding-enterprise-adoption-302657806.html" target="_blank">PR Newswire</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Oct 28 2025</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>SmartWall ONE Encrypted DDoS Protection</strong> &mdash; New capability that stops encrypted application-layer DDoS attacks in real time without added latency or infrastructure. Uses AI-assisted detection and real-time intelligence feeds without explicit decryption requirement (per Corero claim). CEO Carl Herberger: &ldquo;businesses get the visibility and broad-spectrum protection they need without slowing down and without piling on more hardware.&rdquo; Layer 3&ndash;7 coverage.</td>
+                    <td><a class="source-link" href="https://www.helpnetsecurity.com/2025/10/28/corero-smartwall-one/" target="_blank">Help Net Security</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Apr 1 2025</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>Juniper Networks Expanded Partnership</strong> &mdash; Juniper now sells Corero&rsquo;s full DDoS portfolio across customer base, regardless of existing network infrastructure. SmartWall Threat Defense Director on Juniper MX/PTX routers delivers line-rate inline mitigation. Scales 50 Gbps to 40 Tbps with no performance degradation. SmartWall ONE&trade; and cloud-native CORE platform now part of HPE-Juniper enterprise security offerings.</td>
+                    <td><a class="source-link" href="https://www.prnewswire.com/news-releases/juniper-networks-expands-partnership-with-corero-network-security-to-deliver-industry-leading-ddos-protection-across-any-network-302416265.html" target="_blank">PR Newswire</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nov 2025</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>SmartWall ONE 14.1 Enterprise Datasheet Released</strong> &mdash; Latest software release deepens Adaptive Defense Platform features. Modular architecture scales 80&ndash;800 Gbps per appliance with no forklift upgrade. Sub-second inline mitigation across L3&ndash;7. Combines DDoS protection with CORE network intelligence for automated mitigation and traffic visibility.</td>
+                    <td><a class="source-link" href="https://www.corero.com/wp-content/uploads/2025/11/SmartWall-ONE-14.1-Enterprise-Datasheet.pdf" target="_blank">Corero Datasheet</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Sep 2025</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>H1 2025 Interim Results</strong> &mdash; Interim report through June 2025 published. ARR momentum building (precursor to 23% FY growth). Service provider segment momentum. CFO Chris Goulden cites improving order intake and operational efficiency. Subscription model shift continues.</td>
+                    <td><a class="source-link" href="https://www.corero.com/wp-content/uploads/2025/09/50198-Corero-HY25-WEB.pdf" target="_blank">Corero Interim Report</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>FY2025</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>Subscription / DDoS-as-a-Service Model Shift</strong> &mdash; Reported growing adoption of subscription-based and DDoS Protection-as-a-Service offerings. Stated to support a more predictable revenue profile. ARR growth (+23%) outpacing total revenue growth indicates the model transition is accelerating. Validates ongoing pivot from one-time appliance sales to recurring service revenue.</td>
+                    <td><a class="source-link" href="https://www.corero.com/corero-network-security-accelerates-arr-growth/" target="_blank">Corero IR</a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Mar 2026</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>FY 2025 Results Webcast Posted</strong> &mdash; Investor webcast covering full-year 2025 results posted on Investor Relations site. Detailed FY2025 audited revenue, EBITDA, segment commentary; review of strategic alliance progress (HPE+Juniper, Akamai, GTT) and 2026 priorities (subscription growth, hyperscaler/service-provider channel).</td>
+                    <td><a class="source-link" href="https://www.corero.com/about/investor-relations/" target="_blank">Corero IR</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>2025&ndash;26</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>Competitive Displacements Across Telecom, Data Center, Enterprise</strong> &mdash; FY2025 win commentary highlights displacements of incumbent DDoS / network security vendors as the primary growth driver. Geographic spread spans North America, EMEA, APAC, LatAm. Indicates Corero is converting from challenger to active replacement candidate in vendor consolidation cycles.</td>
+                    <td><a class="source-link" href="https://www.corero.com/corero-delivers-strong-full-year-2025-performance/" target="_blank">Corero IR</a></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Apr 2025&ndash;26</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>HPE-Juniper Channel Activation</strong> &mdash; HPE&rsquo;s acquisition of Juniper Networks (closed July 2 2025) extends Corero&rsquo;s Juniper-router-integrated DDoS reach into HPE&rsquo;s broader enterprise channel. Solution datasheets published on Juniper documentation site. CO-RE platform supports MX/PTX routers as detection + enforcement points across multi-vendor environments.</td>
+                    <td><a class="source-link" href="https://www.juniper.net/us/en/products/routers/mx-series/juniper-and-corero-joint-ddos-protection-solution.html" target="_blank">Juniper Documentation</a></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Ongoing</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>Akamai Prolexic On-Prem &amp; Hybrid Powered by Corero</strong> &mdash; Existing OEM-style partnership: Akamai&rsquo;s Prolexic On-Prem and Hybrid options are powered by Corero appliances. This is an additional channel for SmartWall hardware in carrier and enterprise accounts where Akamai Prolexic is already the cloud DDoS provider. Demonstrates Corero&rsquo;s appliance technology is trusted by a Tier-1 cloud DDoS provider.</td>
+                    <td><a class="source-link" href="https://www.akamai.com/newsroom/press-release/akamai-extends-ddos-defense-with-prolexic-on-prem-and-hybrid-options" target="_blank">Akamai Newsroom</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>2026</td>
+                    <td><span class="vendor-badge vendor-corero">Corero</span> <strong>SmartWall ONE Continues to Lead in G2 Winter 2026 (DDoS Specialists)</strong> &mdash; Reviews on G2 Marketplace highlight SmartWall ONE&rsquo;s ease of deployment and operational efficiency for service providers. Real-time DDoS protection focus, low operational overhead reported as differentiators. Cited by Cybersecurity Excellence Awards entries. Brand visibility growing among MSP and ISP buyers.</td>
+                    <td><a class="source-link" href="https://www.g2.com/products/corero-smartwall-one/reviews" target="_blank">G2</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 2: Delta Analysis -->
+<article class="section" id="delta">
+    <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Delta Analysis (vs. Prior Period)</h2>
+    </div>
+
+    <h3>What Accelerated</h3>
+    <div class="delta-grid">
+        <div class="delta-card accelerated">
+            <h4>ARR Growth Re-Accelerates to +23%</h4>
+            <p>Annual Recurring Revenue grew 23% in FY2025 to $23.9M, up from a 16% growth rate in the prior year. Order intake +20% to $33.8M. This is the second consecutive year of double-digit ARR growth, reinforcing the subscription-model thesis. Customer retention increased to 98% (from 97% in FY2024). Indicates Corero is converting trial deployments into multi-year recurring contracts more effectively.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Encrypted DDoS Capability (No Decryption)</h4>
+            <p>October 2025 launch of SmartWall ONE encrypted application-layer protection. AI-assisted detection without traffic decryption (per Corero claim) addresses the same enterprise pain point Radware targets with its no-decrypt L7 DDoS protection. CEO claim of zero added latency and no infrastructure expansion. Two specialist vendors now positioning against Cloudflare/Akamai requirement to decrypt for L7 protection.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Channel Reach via HPE-Juniper Acquisition</h4>
+            <p>HPE&rsquo;s July 2025 close of Juniper acquisition extended Corero&rsquo;s Juniper-router-integrated DDoS solution into HPE&rsquo;s broader enterprise security channel. The April 2025 expanded partnership now flows through HPE-Juniper sales motion. Significantly larger addressable channel than Corero could build organically &mdash; effectively a force-multiplier for the SmartWall TDD line.</p>
+        </div>
+    </div>
+
+    <h3>What Is New</h3>
+    <div class="delta-grid">
+        <div class="delta-card new">
+            <h4>SmartWall ONE 14.1 Adaptive Defense Platform</h4>
+            <p>November 2025 enterprise datasheet release. Modular architecture scales 80&ndash;800 Gbps per appliance with no forklift upgrades. Sub-second inline mitigation across L3&ndash;7. CORE network intelligence integration provides traffic visibility alongside automated mitigation. Positioned for enterprise + service-provider as &ldquo;Adaptive Defense Platform for Enterprise Resilience.&rdquo;</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Subscription / DDoSPaaS Pivot Becomes Visible</h4>
+            <p>Reported &ldquo;growing adoption of subscription-based and DDoS Protection-as-a-Service offerings&rdquo; as a stated FY2025 trend. ARR growth (+23%) outpacing total revenue indicates the model transition is real, not aspirational. This shifts Corero&rsquo;s revenue profile from one-time hardware sales to recurring services &mdash; the same business-model evolution Radware completed several years ago.</p>
+        </div>
+    </div>
+
+    <h3>What Slowed or Faces Risk</h3>
+    <div class="delta-grid">
+        <div class="delta-card slowed">
+            <h4>Absolute Revenue Scale Remains Small</h4>
+            <p>$24.6M FY2024 revenue and $23.9M FY2025 ARR keep Corero an order of magnitude below F5 ($3.1B), NETSCOUT cybersecurity (~$305M annualized), A10 ($291M), and Radware ($302M). Sub-$100M scale limits R&amp;D investment, channel coverage, and analyst-relations spend. Re-rating thesis depends on sustained 20%+ ARR growth converting to credible scale within 3&ndash;5 years.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>No WAAP / API Security / Bot Management</h4>
+            <p>Corero is the most pure-play DDoS specialist in the comparison set. No WAF, no bot management, no API security, no ADC. Like NETSCOUT, this limits relevance in enterprise security consolidation cycles where buyers prefer platform vendors. Differentiation versus NETSCOUT: Corero is appliance-and-software-focused at smaller scale, NETSCOUT is appliance + carrier-scale + ATLAS telemetry.</p>
+        </div>
+        <div class="delta-card risk">
+            <h4>Hyperscaler/Cloud-Native DDoS Pressure</h4>
+            <p>Cloudflare 500 Tbps unmetered, Akamai Prolexic, AWS Shield Advanced, and Radware Cloud DDoS all bundle DDoS protection in larger platforms. Corero&rsquo;s service-provider/MSP focus is partially insulated, but enterprise-direct deals face the same platform-bundling pressure as NETSCOUT. Mitigation: lean harder on the &ldquo;DDoS specialist&rdquo; identity and channel partnerships (HPE-Juniper, Akamai integration, GTT).</p>
+        </div>
+    </div>
+
+    <h3>Meaningful Pattern Shifts</h3>
+    <div class="delta-grid">
+        <div class="delta-card pattern">
+            <h4>Two DDoS Specialists Converging on No-Decrypt L7</h4>
+            <p>Both Corero (Oct 2025) and Radware (Mar 2026) launched encrypted L7 DDoS protection without traffic decryption within a 5-month window. This is a market signal: certificate-sensitive enterprises are demanding L7 DDoS that doesn&rsquo;t require SSL key sharing. Cloudflare and Akamai do not currently match. The two specialists are independently arriving at the same architectural answer.</p>
+        </div>
+        <div class="delta-card pattern">
+            <h4>Channel-First DDoS Distribution Becomes Viable</h4>
+            <p>Corero&rsquo;s strategy &mdash; sell through HPE-Juniper, Akamai, GTT, and large MSPs rather than direct enterprise &mdash; demonstrates a viable smaller-vendor playbook in a market increasingly dominated by platform giants. ARR growth of 23% on $61M market cap indicates the channel-first model can work at sub-scale. Implication for Radware: channel partnerships in carrier/MSP segments may be more durable than direct-enterprise DDoS sales.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 3: Competitive Comparison -->
+<article class="section" id="competitive">
+    <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Competitive Comparison &mdash; DDoS Appliance Vendors</h2>
+    </div>
+
+    <h3>3.1 Product Innovation</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td><strong>Most pure-play DDoS specialist in the comparison set.</strong> SmartWall ONE 14.1 Adaptive Defense Platform: 80&ndash;800 Gbps modular scaling, sub-second inline L3&ndash;7 mitigation, CORE network intelligence. October 2025 encrypted DDoS protection without decryption (per Corero claim). Juniper-integrated SmartWall TDD scales 50G&ndash;40Tbps via MX/PTX routers. Innovation focused entirely on DDoS depth at smaller revenue scale ($24.6M FY2024, ~10x smaller than peers).</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Deepest DDoS-specific innovation at scale: AI/ML Adaptive DDoS Protection, automated tracking of 65+ threat actors, 1-second carpet bombing detection, enhanced ATLAS Intelligence Feed with Geo-IP. G2 Winter 2026 Leader (6 badges). Like Corero, no WAAP or application-layer security &mdash; but at 30x revenue with broader telemetry.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>Broadest application delivery portfolio with DDoS as integrated component. ADSP Partner Program with MazeBolt (proactive DDoS testing). Distributed Cloud DDoS 12+ Tbps / 24 Regional Edges. BIG-IP Hybrid Defender for on-prem. AI bookings $50M (+200%). CISA ED 26-01 raises trust concerns.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>A10 Defend suite: Thunder TPS (300 Gbps/440 Mpps per appliance, 2.4 Tbps cluster), Defend Threat Control SaaS, AI-enhanced zero-day detection. ThreatX acquisition (Feb 2025) adds API/web app protection. Won Microsoft AI infrastructure contract. (Radware DefensePro at 800 Gbps is comparison-set high for per-appliance throughput.)</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS mitigation without decryption (per Radware claim) &mdash; aligned with Corero&rsquo;s Oct 2025 launch. DefensePro 6 models (6&ndash;800 Gbps; high-end of comparison set). Pynt acquisition (Jan 26, 2026) for pre-production API testing. <strong>LLM Firewall (Nov 18, 2025) + Agentic AI Protection (Feb 3, 2026)</strong> = full GenAI runtime security stack. Cloud DDoS doubled to 30 Tbps Jan 6, 2026. DDoS attacks up 168% per Radware Global Threat Report.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.2 Cloud DDoS Scrubbing / Hybrid Service Models</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Service Capacity</th><th>Service Model</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td><strong>SmartWall TDD via Juniper MX/PTX scales 50 Gbps to 40 Tbps. CORE cloud-native intelligence. Capacity per deployment, not centralized scrubbing pool</strong></td><td>DDoS-as-a-Service (subscription-based) growing rapidly. Channel-delivered via HPE-Juniper, Akamai, GTT. Deployment models: on-prem appliance, virtualized, or service-provider-hosted</td><td><strong>Channel-led distribution, not centralized scrubbing.</strong> Customer-deployed at edge or service-provider PoPs. Lower up-front cost than dedicated scrubbing networks. Subscription / DDoSPaaS pivot accelerating ARR (+23% FY2025).</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>15+ Tbps dedicated; 16 global scrubbing centers; ATLAS monitors 400+ Tbps</td><td>Managed or self-service. Cloud Signaling for hybrid failover from AED to Arbor Cloud</td><td>Largest dedicated DDoS scrubbing network. ISP-grade heritage. ATLAS telemetry (800+ Tbps, 125+ countries). 16-year Arelion partnership.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>12+ Tbps combined scrubbing; 24 Regional Edges</td><td>Always-On or Always-Available subscriptions. Managed service with SOC. L3/L4/L7</td><td>Integrated into ADSP platform &mdash; DDoS + WAF + bot + API in single cloud. MazeBolt proactive testing. CISA ED 26-01 trust concerns.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>Cloud scrubbing via A10 Defend; capacity not publicly disclosed</td><td>On-demand or always-on with BGP-based redirection. A10 DSIRT 24/7 incident response</td><td>ML-driven automation. Zero-atrophy threat intelligence. Strongest in carrier/telco (9 of top 10).</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>30 Tbps total cloud mitigation</strong> (doubled from 15 Tbps in Jan 2026); 12+ global scrubbing centers; all on DefensePro X backbone</td><td>Always-on or on-demand. Hybrid DefensePro on-prem + cloud scrubbing. 24/7 ERT</td><td>Encrypted attack mitigation without decryption (per Radware claim). Behavioral ML. 2025 expansion: Bogotá, Lima, Mumbai, Singapore, 2nd Tel Aviv.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.3 On-Premises / Hybrid DDoS</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>On-Prem Product</th><th>Hybrid Integration</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td><strong>SmartWall ONE 14.1 (modular 80&ndash;800 Gbps appliance + virtual edition). SmartWall Threat Defense Director on Juniper MX/PTX routers (50G&ndash;40Tbps line-rate)</strong></td><td>SmartWall ONE on-prem + CORE cloud-native intelligence platform. Subscription / DDoSPaaS overlay for service providers</td><td><strong>Deepest router-integrated DDoS solution.</strong> Native MX/PTX edge enforcement is unique among comparison vendors. Sub-second inline mitigation L3&ndash;7. October 2025 encrypted DDoS without decryption.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Arbor Edge Defense (AED) inline up to 200 Gbps (AED-HD1000); AED 8200 to 100 Gbps; AED 8100 to 40 Gbps; Arbor TMS ISP-grade mitigation; Arbor Sightline flow detection</td><td>Cloud Signaling auto-failover to Arbor Cloud. Sightline for detection + TMS for ISP-level mitigation</td><td>Only vendor with ISP-grade + enterprise-grade + cloud scrubbing stack at scale. 1-second carpet bombing detection.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>BIG-IP DDoS Hybrid Defender: multi-layer L3/L4/L7, SSL decryption, anti-bot</td><td>BIG-IP on-prem + Distributed Cloud for overflow. ADSP unifies management</td><td>Only vendor with full ADC + DDoS in single appliance. SSL decryption at line rate. CISA ED 26-01 / CVE-2025-53521 trust concerns.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>Thunder TPS (A10 Defend Mitigator): 300 Gbps / 440 Mpps per appliance. Scales to 2.4 Tbps in cluster</td><td>On-prem Thunder TPS + cloud scrubbing via BGP redirection</td><td>Strong per-appliance throughput (300 Gbps). Highest packets-per-second (440 Mpps). 11x performance over legacy. NimbusDDOS certified. (Radware DefensePro 800 Gbps is comparison-set high.)</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>DefensePro: 6 models, 6 Gbps to 800 Gbps</strong> max programmable mitigation per appliance; behavioral ML</td><td>DefensePro on-prem + 30 Tbps Cloud DDoS for hybrid. Automated failover</td><td>Highest single-appliance throughput in comparison set (800 Gbps). Encrypted L7 DDoS without decryption (per Radware claim). Behavioral detection.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.4 AI/ML &amp; Threat Intelligence</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>AI/ML in DDoS</th><th>Threat Intelligence</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td><strong>AI-assisted detection in SmartWall ONE encrypted DDoS protection (Oct 2025). CORE network intelligence platform. Real-time intelligence feeds.</strong></td><td>Customer-deployed visibility; no centralized telemetry pool comparable to ATLAS. Reliance on community intelligence + customer telemetry</td><td><strong>Encrypted L7 DDoS detection without decryption</strong> (per Corero claim) is the standout AI use case. Telemetry footprint smaller than NETSCOUT &mdash; partners with HPE-Juniper for router-edge intelligence.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>Adaptive DDoS Protection (AI/ML). Automated campaign detection for 65+ threat actors. 1-sec carpet bombing detection</td><td>ATLAS: 800+ Tbps visibility, 125+ countries, 500+ ISPs and 3,000+ enterprise sites. Semi-annual DDoS Threat Intelligence Report (8M+ attacks, 30 Tbps peak)</td><td><strong>Unmatched DDoS telemetry.</strong> ATLAS is the industry&rsquo;s most comprehensive DDoS intelligence platform.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>ML-based anomaly detection in Distributed Cloud. BIG-IP behavioral analysis. AI bookings $50M</td><td>F5 Labs threat research. MazeBolt proactive DDoS testing via ADSP partnership</td><td>Proactive DDoS testing (MazeBolt) is unique in market. AI investment is broad.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>AI-enhanced zero-day filter generation. ML-driven automation for traffic redirection and policy escalation</td><td>Defend Threat Control SaaS: real-time DDoS attack map, reflector/botnet intelligence</td><td>SaaS-based DDoS intelligence without dedicated equipment.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Behavioral ML in DefensePro. Agentic AI Protection for prompt injection/tool abuse</td><td>Global Threat Report (annual). DDoS attacks up 168%. ERT intelligence</td><td>Behavioral ML focus. Agentic AI Protection addresses AI agent threats.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.5 Market Momentum</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td><strong>$24.6M (FY2024); ARR $23.9M (FY2025, +23%); Order intake $33.8M (+20%); 98% retention; ~£61.5M mkt cap (LON:CNS)</strong></td><td><strong>Smallest by absolute scale, highest by ARR growth rate.</strong> Subscription / DDoSPaaS pivot accelerating. Customer wins driven by competitive displacements of incumbents. Channel-led via HPE-Juniper, Akamai, GTT. Re-rating thesis depends on sustained 20%+ ARR growth converting to scale.</td></tr>
+                <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td>$823M (FY2025, -0.8%); FY2026 guide $835&ndash;870M; Cybersecurity +18.3%; ~$2.46B mkt cap</td><td>Cybersecurity growth is the rerate thesis. 3 consecutive earnings beats + raised guidance. Total revenue flat due to Service Assurance drag.</td></tr>
+                <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>$3.1B (FY2025, +10%); Q2 FY2026 $812M (+11%); product +22%; ~$17.2B mkt cap</td><td>Strongest financial position. 7 consecutive quarters double-digit product growth. CISA ED 26-01 trust liability.</td></tr>
+                <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>$290.6M (FY2025, +11%); Q1 2026 $75M (+13.4%); ~$1.99B mkt cap; $369.8M cash</td><td>Record revenue year. Stock +84%. Microsoft AI win. ThreatX acquisition expands TAM. 90%+ renewal rates.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>$301.9M (FY2025, +10% YoY); Cloud ARR $95.2M (+23%); Total ARR $251.0M (+11%); Non-GAAP EPS $1.15</strong></td><td>Cloud security push via Investor Day. Pynt acquired Jan 26 2026 (~tens of millions); Agentic AI Protection. Cloud DDoS doubled to 30 Tbps Jan 6 2026. Hybrid deployment + DefensePro 800 Gbps high-end. ~3,500 enterprise/carrier customers; 9 of top 10 carriers; 4 of top 10 SaaS providers.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 4: Visual Strategic Section -->
+<article class="section" id="visual">
+    <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Visual Strategic Section</h2>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>Revenue Comparison &mdash; Track 2 Vendors ($M FY2025)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--f5-red);">$3,100M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:26.5%; background:var(--arbor-teal);">$823M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.7%; background:var(--radware-green);">$302M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:9.4%; background:var(--a10-blue);">$291M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--corero-green); font-weight:800;">Corero</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:0.8%; background:var(--corero-green); min-width:48px;">$24.6M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Corero is ~10x smaller than nearest peer (A10) and ~125x smaller than F5. ARR ($23.9M) is the more relevant growth metric. Sub-scale at present, but ARR growth (+23%) leads the comparison set.</p>
+        </div>
+
+        <div class="chart-box">
+            <h4>Per-Appliance / Per-Deployment DDoS Throughput</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--corero-green); font-weight:800;">Corero</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--corero-green);">Up to 800 Gbps (modular) + 40 Tbps via Juniper</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">A10</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:75%; background:var(--a10-blue);">300 Gbps / 440 Mpps per box</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">F5</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:50%; background:var(--f5-red);">BIG-IP Hybrid Defender</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">NETSCOUT</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:50%; background:var(--arbor-teal);">AED up to 200 Gbps + TMS ISP-grade</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:35%; background:var(--radware-green);">DefensePro on-prem + Cloud DDoS</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Corero&rsquo;s 50G&ndash;40 Tbps line-rate scaling via Juniper MX/PTX router integration is unique. A10 leads single-appliance throughput (300 Gbps). NETSCOUT focuses on TMS for ISP-scale rather than single-appliance metrics. Bar widths are illustrative comparisons across heterogeneous deployment models.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>Corero ARR Trajectory ($M)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">FY2025 ARR</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--corero-green);">$23.9M (+23%)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">FY2024 ARR</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:81%; background:#52B788;">~$19.4M (+16%)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">FY2025 OI</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:141%; background:#1a4d2e; max-width:100%;">$33.8M Order Intake (+20%)</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Two consecutive years of double-digit ARR growth. Order intake outpaces ARR &mdash; pipeline of contracted future revenue. Subscription/DDoSPaaS pivot is the engine. FY2024 ARR back-calculated from stated +16% growth.</p>
+        </div>
+
+        <div class="chart-box">
+            <h4>Momentum Scorecard (1&ndash;5 Scale)</h4>
+            <div class="table-wrapper">
+                <table class="scorecard-table" style="font-size:0.82rem;">
+                    <thead><tr><th>Vendor</th><th>Innovation</th><th>Traction</th><th>Clarity</th><th>Composite</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td class="score score-4">4</td><td class="score score-5">5</td><td class="score score-4">4</td><td class="score score-4">4.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-4">4</td><td class="score score-3">3.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td class="score score-4">4</td><td class="score score-1">1</td><td class="score score-4">4</td><td class="score score-3">3.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-arbor">NETSCOUT</span></td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-3">3.0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.5rem;">Corero scores high on innovation (encrypted DDoS, modular SmartWall, Juniper integration) and clarity (clear pure-play DDoS specialist + channel-led identity), but very low on traction due to absolute revenue scale ($24.6M). Same composite as NETSCOUT (3.0) reflects different strengths: Corero = innovation-rich + sub-scale; NETSCOUT = scale + telemetry + flat growth.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box" style="grid-column: 1 / -1;">
+            <h4>Competitive Positioning: Revenue Scale vs. DDoS Specialization</h4>
+            <div style="position:relative; padding: 30px 20px 40px 90px;">
+                <div class="matrix-container">
+                    <span class="matrix-label-y">DDoS Specialization (vs. Platform breadth) &rarr;</span>
+                    <span class="matrix-label-x">Revenue Scale &rarr;</span>
+                    <div class="matrix-dot" style="left:5%; bottom:90%; background:var(--corero-green); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--corero-green);">Corero</div>
+                    <div class="matrix-dot" style="left:55%; bottom:80%; background:var(--arbor-teal);">NETSCOUT</div>
+                    <div class="matrix-dot" style="left:35%; bottom:70%; background:var(--a10-blue);">A10</div>
+                    <div class="matrix-dot" style="left:30%; bottom:65%; background:var(--radware-green);">Radware</div>
+                    <div class="matrix-dot" style="left:90%; bottom:30%; background:var(--f5-red);">F5</div>
+                </div>
+            </div>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>Corero is the most specialized DDoS player at the smallest revenue scale.</strong> NETSCOUT is the next-most-specialized at mid-scale with massive ATLAS telemetry advantage. F5 is largest by far but DDoS is one component of a multi-product platform. A10 spans DDoS + ADC + (newly) WAAP via ThreatX. Radware sits between specialist and platform with hybrid DDoS + WAAP + API security.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 5: Strategic Signals -->
+<article class="section" id="signals">
+    <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Strategic Signals</h2>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 1: Two Specialists Independently Arrive at &ldquo;No-Decrypt L7 DDoS&rdquo;</h4>
+        <p>Corero (Oct 2025) and Radware (Mar 2026) both launched encrypted L7 DDoS protection that does not require SSL key sharing or traffic decryption, within a 5-month window. <strong>This is convergent evolution &mdash; two independent specialists answering the same enterprise demand for certificate-sensitive DDoS protection.</strong> Cloudflare and Akamai do not currently match. The market signal: certificate control is a real buyer criterion in regulated industries, and specialists are out-innovating platforms on this dimension. For Radware, this is corroborating signal that the encrypted-DDoS angle has legs &mdash; and that Corero is the second voice in the same conversation.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 2: ARR Growth Outpacing Revenue Validates the Subscription Pivot</h4>
+        <p>Corero&rsquo;s ARR grew 23% to $23.9M in FY2025 while order intake grew 20% to $33.8M. ARR growth ahead of order intake means existing customers are renewing at higher value (98% retention) and contracted future revenue is building. <strong>This is the same recurring-revenue transition Radware completed several years ago.</strong> Corero is replicating the playbook at smaller scale: from one-time appliance sales to subscription / DDoSPaaS. The pivot signal is real, not aspirational &mdash; the ARR/revenue ratio is rising.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 3: HPE-Juniper Channel Activation Is Corero&rsquo;s Force Multiplier</h4>
+        <p>HPE&rsquo;s July 2025 close of the Juniper acquisition extended Corero&rsquo;s router-integrated DDoS solution into HPE&rsquo;s entire enterprise security channel. <strong>For a $61M-market-cap specialist, suddenly being a security-component inside HPE&rsquo;s sales motion is a force multiplier no organic GTM investment could match.</strong> The Juniper MX/PTX router-edge DDoS approach is also architecturally distinctive &mdash; no other Track 2 vendor places DDoS detection and line-rate mitigation directly in the router OS. For Radware, this means Corero will increasingly appear in HPE-led enterprise opportunities; competitive positioning needs to anticipate the joint solution rather than treat Corero as a standalone.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 4: Channel-Led Distribution Is a Viable Sub-Scale DDoS Strategy</h4>
+        <p>Corero&rsquo;s strategic alliances list &mdash; HPE+Juniper, Akamai, GTT &mdash; demonstrates that a $24.6M-revenue DDoS specialist can establish global presence by riding larger partners&rsquo; channels. ARR growth of 23% on $61.5M market cap proves the channel-first model can produce double-digit growth without platform-vendor scale. <strong>For Radware, this is competitive intelligence about how smaller competitors will operate: not by out-spending, but by embedding into channel partners.</strong> The defensive implication: ensure Radware is the preferred DDoS specialist within HPE-Juniper, Akamai, and major MSP relationships before Corero entrenches further.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 5: Two Specialists Differentiated by Telemetry Depth, Not Capability</h4>
+        <p>Corero and NETSCOUT are both pure-play DDoS specialists, but their moats differ. NETSCOUT&rsquo;s ATLAS monitors 400+ Tbps across 214 countries &mdash; a telemetry footprint Corero cannot match at $24.6M revenue. <strong>Corero&rsquo;s differentiation has to come from product (modular SmartWall, no-decrypt encrypted DDoS, Juniper integration) and channel (HPE-Juniper, Akamai), not from telemetry.</strong> This makes Corero structurally more comparable to Radware (product-and-deployment-led) than to NETSCOUT (telemetry-and-research-led). Radware&rsquo;s ERT and Global Threat Report sit between the two on the intelligence axis.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 6: Corero&rsquo;s Pure-Play Identity Mirrors NETSCOUT&rsquo;s Limitations &mdash; and Radware&rsquo;s Opportunity</h4>
+        <p>Like NETSCOUT, Corero has no WAF, no bot management, no API security, no ADC. It competes exclusively on DDoS. <strong>Radware&rsquo;s unified WAAP + DDoS + API security positioning is structurally stronger than Corero&rsquo;s in enterprise security consolidation cycles, where buyers prefer fewer vendors.</strong> But in DDoS-specific evaluations &mdash; especially encrypted-DDoS / certificate-sensitive deals &mdash; Corero is a credible alternative. The competitive implication: Radware should target consolidation deals where DDoS is bundled with WAAP/API; concede pure-DDoS deals to specialists where Radware&rsquo;s platform value isn&rsquo;t the deciding factor.</p>
+    </div>
+</article>
+
+<!-- Section 6: Executive Takeaways -->
+<article class="section" id="takeaways">
+    <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Executive Takeaways</h2>
+    </div>
+
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <h4>Corero is the second specialist independently endorsing the &ldquo;encrypted DDoS without decryption&rdquo; thesis</h4>
+            <p>Corero&rsquo;s October 2025 SmartWall ONE encrypted DDoS launch arrived 5 months before Radware&rsquo;s March 2026 announcement. Two independent DDoS specialists landing on the same architectural answer is corroborating evidence that no-decrypt L7 protection is a real enterprise demand. Radware should expect Corero to be a co-claimant in pitches focused on certificate-sensitive verticals (finance, healthcare, government).</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <h4>Corero is sub-scale today but growing ARR faster than any peer in the comparison set</h4>
+            <p>$24.6M revenue vs. F5 ($3.1B) or NETSCOUT ($823M) makes Corero a marginal financial threat in absolute terms. But ARR growth of +23% YoY exceeds the growth rate of every peer. If sustained for 3&ndash;5 years &mdash; a non-trivial &ldquo;if&rdquo; given absolute scale &mdash; Corero would approach A10/Radware revenue territory. Radware should monitor as a competitor on capability today and on scale in 2028&ndash;2029.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <h4>HPE-Juniper integration changes how Radware will encounter Corero in deals</h4>
+            <p>Corero&rsquo;s SmartWall TDD is integrated into Juniper MX/PTX routers and now part of HPE&rsquo;s enterprise security channel. Going forward, Corero will increasingly appear inside HPE-led opportunities rather than as a standalone. Competitive positioning needs to anticipate the joint HPE-Juniper-Corero offering &mdash; not just Corero in isolation. Radware should prioritize being the preferred DDoS specialist in HPE-Juniper, Akamai, and major MSP partner relationships.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">4</div>
+            <h4>Radware&rsquo;s WAAP + DDoS + API security platform is structurally stronger than Corero&rsquo;s pure-play offering in consolidation deals</h4>
+            <p>Like NETSCOUT, Corero has no WAF, no bot management, no API security. In enterprise security consolidation cycles, Radware&rsquo;s unified platform competes on more than DDoS depth alone. The competitive playbook: target opportunities where DDoS is bundled with WAAP/API decisions; concede pure-DDoS bake-offs in regulated industries where capability depth and certificate handling are the only criteria.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">5</div>
+            <h4>Channel-led DDoS distribution is the smaller-vendor playbook Radware should learn from</h4>
+            <p>Corero&rsquo;s GTM strategy &mdash; sell through HPE-Juniper, Akamai, GTT, MSPs &mdash; produced 23% ARR growth at $61M market cap with limited direct sales motion. For Radware, this validates investing in carrier/MSP partnership depth as a more durable channel than direct enterprise DDoS sales, which face Cloudflare/Akamai platform-bundling pressure. Implication: prioritize being indispensable to a small number of large channels.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">6</div>
+            <h4>The Track 2 specialist field is now four vendors &mdash; with Corero as the smallest, most innovation-rich, and channel-dependent</h4>
+            <p>Track 2 (DDoS Appliance Vendors) now includes F5, NETSCOUT Arbor, A10, and Corero. The four vendors differentiate by scale, telemetry, integration, and channel rather than by feature set &mdash; all offer similar DDoS capability fundamentals. Corero&rsquo;s unique fit: smallest revenue, highest ARR growth, deepest router integration (Juniper), and most channel-dependent GTM. Radware should treat Corero as a credible specialist competitor in DDoS-specific deals and as a partner-channel competitor in HPE-Juniper opportunities.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Disclaimer -->
+<div class="section" style="background: #fff8e1; border-left: 4px solid var(--accent-amber); font-size: 0.85rem;">
+    <p style="margin:0;"><strong>Disclaimer:</strong> This brief is based on publicly available information gathered through May 2, 2026, including Corero&rsquo;s LSE/RNS announcements, AIM filings, FY2025 results materials (Jan 2026), interim H1 2025 report, press releases, third-party coverage (PR Newswire, Help Net Security, SecurityWeek), and partner documentation (Juniper, HPE). Corero&rsquo;s fiscal year matches calendar year. It does not contain material non-public information about any company referenced. Some scaling and segment-mix figures are estimated where Corero does not separately disclose.</p>
+</div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly Corero Strategic Brief</p>
+        <p style="opacity:0.7; margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="f5-april-2026.html">F5 Brief</a> &bull; <a href="arbor-april-2026.html">Arbor Brief</a> &bull; <a href="a10-april-2026.html">A10 Brief</a> &bull; <a href="archives.html">Archives</a> &bull; <a href="https://github.com/galdarom/competitive-intelligence">GitHub</a></p>
+        <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.toc a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+document.querySelectorAll('article.section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

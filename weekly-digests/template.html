@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Digest — {{WEEK_DATE}} | Radware Competitive Intelligence</title>
+    <meta name="description" content="Weekly competitive intelligence digest for {{DATE_RANGE}}. Material events from 9 tracked vendors.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --mid-gray: #BDC3C7;
+            --dark-gray: #333333;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
+            --fastly-red: #FF282D;
+            --radware-green: #6AB023;
+            --imperva-purple: #6C3483;
+            --arbor-teal: #005F73;
+            --f5-red: #E4002B;
+            --a10-blue: #0071CE;
+            --corero-green: #2D6A4F;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 { font-size: 1.2rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .site-header .nav-links a:hover { color: white; }
+
+        .hero {
+            background: linear-gradient(135deg, #2c5282 0%, var(--accent-orange) 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+        .hero h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .hero .subtitle { font-size: 1rem; opacity: 0.95; margin-bottom: 1rem; }
+        .hero .stat-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .hero .stat-row span { background: rgba(255,255,255,0.18); padding: 0.3rem 0.9rem; border-radius: 18px; font-weight: 600; }
+
+        .ai-disclaimer {
+            background: #fff8e1;
+            border-left: 4px solid #F39C12;
+            padding: 0.85rem 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .ai-disclaimer strong { color: #B7651A; }
+
+        main { padding: 1.5rem 0 3rem; }
+
+        .highlight-callout {
+            background: linear-gradient(135deg, #fff3e0, #ffe5cc);
+            border-left: 5px solid var(--accent-orange);
+            padding: 1.4rem 1.6rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .highlight-callout h3 { color: var(--navy); font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .highlight-callout p { font-size: 0.95rem; line-height: 1.55; }
+
+        .track-section { margin: 2rem 0 1rem; }
+        .track-header {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--navy);
+        }
+        .track-header h2 { font-size: 1.3rem; color: var(--navy); }
+        .track-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            color: white;
+        }
+        .track-label.t1 { background: var(--dark-blue); }
+        .track-label.t2 { background: var(--arbor-teal); }
+        .track-label.benchmark { background: var(--radware-green); }
+
+        .vendor-block {
+            background: white;
+            border-radius: 8px;
+            padding: 1.4rem 1.6rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--mid-gray);
+        }
+        .vendor-block.cf { border-left-color: var(--cf-orange); }
+        .vendor-block.akamai { border-left-color: var(--akamai-blue); }
+        .vendor-block.fastly { border-left-color: var(--fastly-red); }
+        .vendor-block.imperva { border-left-color: var(--imperva-purple); }
+        .vendor-block.f5 { border-left-color: var(--f5-red); }
+        .vendor-block.arbor { border-left-color: var(--arbor-teal); }
+        .vendor-block.a10 { border-left-color: var(--a10-blue); }
+        .vendor-block.corero { border-left-color: var(--corero-green); }
+        .vendor-block.radware { border-left-color: var(--radware-green); }
+
+        .vendor-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+        }
+        .vendor-name .count {
+            font-size: 0.78rem;
+            font-weight: 600;
+            background: var(--light-gray);
+            padding: 0.15rem 0.55rem;
+            border-radius: 12px;
+            color: #666;
+            margin-left: 0.5rem;
+        }
+        .no-events {
+            font-size: 0.88rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .event {
+            margin-top: 0.9rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid #eef0f4;
+        }
+        .event:first-of-type { border-top: none; padding-top: 0; }
+        .event-meta {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #777;
+            margin-bottom: 0.3rem;
+        }
+        .event-date { font-weight: 600; color: var(--dark-blue); }
+        .category-badge {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.12rem 0.55rem;
+            border-radius: 3px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cat-financial { background: #16a085; }
+        .cat-product { background: #2980b9; }
+        .cat-ma { background: #8e44ad; }
+        .cat-exec { background: #d35400; }
+        .cat-security { background: #c0392b; }
+        .cat-threat { background: #2c3e50; }
+        .cat-analyst { background: #f39c12; }
+        .cat-customer { background: #27ae60; }
+
+        .event-headline {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+        .event-detail {
+            font-size: 0.88rem;
+            color: #444;
+            margin-bottom: 0.4rem;
+        }
+        .event-implication {
+            font-size: 0.82rem;
+            color: #555;
+            font-style: italic;
+            background: #f8f9fa;
+            padding: 0.45rem 0.7rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-orange);
+        }
+        .event-implication strong { color: var(--navy); font-style: normal; }
+        .event-source {
+            font-size: 0.78rem;
+            margin-top: 0.4rem;
+        }
+        .event-source a { color: var(--light-blue); text-decoration: none; }
+        .event-source a:hover { text-decoration: underline; }
+
+        .watchlist {
+            background: #f0f7fa;
+            border-left: 4px solid var(--light-blue);
+            padding: 1.2rem 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0 1rem;
+        }
+        .watchlist h3 { color: var(--navy); margin-bottom: 0.6rem; font-size: 1.05rem; }
+        .watchlist ul { margin-left: 1.3rem; }
+        .watchlist li { font-size: 0.9rem; margin-bottom: 0.3rem; }
+
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 0.82rem;
+            margin-top: 2rem;
+        }
+        .footer a { color: var(--accent-orange); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.4rem; }
+            .hero .stat-row { gap: 0.8rem; font-size: 0.85rem; }
+            .site-header .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence — Weekly Digest</h1>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../archives.html">Archives</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>Weekly Digest — {{WEEK_DATE}}</h2>
+        <p class="subtitle">Period: {{DATE_RANGE}}</p>
+        <div class="stat-row">
+            <span>{{TOTAL_EVENTS}} material events</span>
+            <span>{{VENDORS_WITH_EVENTS}} of 9 vendors active</span>
+            <span>Generated {{GENERATED_AT}}</span>
+        </div>
+    </div>
+</section>
+
+<main>
+<div class="container">
+
+<div class="ai-disclaimer">
+    <strong>AI-generated analysis.</strong> This weekly digest is generated with the assistance of AI based on publicly available information. While carefully validated, it may contain errors or omissions and should not be the sole basis for strategic decisions. No material non-public information is used.
+</div>
+
+<!-- Highlight of the week -->
+<div class="highlight-callout">
+    <h3>🔥 Highlight of the Week</h3>
+    <p>{{HIGHLIGHT}}</p>
+</div>
+
+<!-- Track 1: Cloud Services -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label t1">Track 1</span>
+        <h2>Cloud Services</h2>
+    </div>
+
+    <!-- Cloudflare -->
+    <div class="vendor-block cf">
+        <div class="vendor-name">Cloudflare <span class="count">{{CF_COUNT}} events</span></div>
+        {{CF_EVENTS}}
+    </div>
+
+    <!-- Akamai -->
+    <div class="vendor-block akamai">
+        <div class="vendor-name">Akamai <span class="count">{{AKAMAI_COUNT}} events</span></div>
+        {{AKAMAI_EVENTS}}
+    </div>
+
+    <!-- Fastly -->
+    <div class="vendor-block fastly">
+        <div class="vendor-name">Fastly <span class="count">{{FASTLY_COUNT}} events</span></div>
+        {{FASTLY_EVENTS}}
+    </div>
+
+    <!-- Imperva/Thales -->
+    <div class="vendor-block imperva">
+        <div class="vendor-name">Imperva / Thales <span class="count">{{IMPERVA_COUNT}} events</span></div>
+        {{IMPERVA_EVENTS}}
+    </div>
+</div>
+
+<!-- Track 2: DDoS Appliance Vendors -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label t2">Track 2</span>
+        <h2>DDoS Appliance Vendors</h2>
+    </div>
+
+    <!-- F5 -->
+    <div class="vendor-block f5">
+        <div class="vendor-name">F5 <span class="count">{{F5_COUNT}} events</span></div>
+        {{F5_EVENTS}}
+    </div>
+
+    <!-- NETSCOUT Arbor -->
+    <div class="vendor-block arbor">
+        <div class="vendor-name">NETSCOUT Arbor <span class="count">{{ARBOR_COUNT}} events</span></div>
+        {{ARBOR_EVENTS}}
+    </div>
+
+    <!-- A10 Networks -->
+    <div class="vendor-block a10">
+        <div class="vendor-name">A10 Networks <span class="count">{{A10_COUNT}} events</span></div>
+        {{A10_EVENTS}}
+    </div>
+
+    <!-- Corero -->
+    <div class="vendor-block corero">
+        <div class="vendor-name">Corero Network Security <span class="count">{{CORERO_COUNT}} events</span></div>
+        {{CORERO_EVENTS}}
+    </div>
+</div>
+
+<!-- Radware (benchmark) -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label benchmark">Benchmark</span>
+        <h2>Radware</h2>
+    </div>
+
+    <div class="vendor-block radware">
+        <div class="vendor-name">Radware <span class="count">{{RADWARE_COUNT}} events</span></div>
+        {{RADWARE_EVENTS}}
+    </div>
+</div>
+
+<!-- Watchlist -->
+<div class="watchlist">
+    <h3>📅 Watchlist for next week</h3>
+    {{WATCHLIST}}
+</div>
+
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence Hub</strong> — Weekly Digest {{WEEK_DATE}}</p>
+        <p style="opacity:0.7; margin-top:0.4rem;">Pairs with the monthly edition. Next monthly edition: {{NEXT_MONTHLY}}.</p>
+        <p style="opacity:0.5; margin-top:0.4rem; font-size:0.72rem;">&copy; 2026 Radware Ltd. For authorized recipients only. Sourced exclusively from publicly available information.</p>
+    </div>
+</footer>
+
+</body>
+</html>
+
+<!--
+TEMPLATE NOTES (delete this comment block when emitting actual digest):
+
+Each {{XYZ_EVENTS}} placeholder gets replaced with one or more event blocks like this:
+
+<div class="event">
+    <div class="event-meta">
+        <span class="event-date">2026-05-02</span>
+        <span class="category-badge cat-financial">Financial</span>
+    </div>
+    <div class="event-headline">F5 announced Analyst Day for May 28, 2026</div>
+    <div class="event-detail">F5 will host its Analyst & Investor Meeting on Thursday, May 28, 2026, in NYC, expected to detail growth drivers and longer-term outlook.</div>
+    <div class="event-implication"><strong>Radware impact:</strong> Watch for any changes to F5's WAF/DDoS messaging vs. the platformization narrative.</div>
+    <div class="event-source">Source: <a href="https://www.businesswire.com/...">BusinessWire, Apr 28 2026</a></div>
+</div>
+
+OR if no events for a vendor:
+
+<div class="no-events">No material events this week.</div>
+
+Category badge classes:
+- cat-financial (financial disclosure)
+- cat-product (product launch)
+- cat-ma (M&A / partnership)
+- cat-exec (executive change)
+- cat-security (security incident)
+- cat-threat (threat intelligence)
+- cat-analyst (analyst recognition)
+- cat-customer (customer / channel win)
+
+For {{HIGHLIGHT}}: pick the ONE most important event of the week from a Radware-competitive perspective. 1-2 sentences max.
+
+For {{WATCHLIST}}: a <ul> with 1-3 things to watch next week (upcoming earnings, expected announcements, ongoing situations).
+-->
