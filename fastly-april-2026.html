@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akamai Strategic Intelligence Brief — April 2026 | Radware</title>
-    <meta name="description" content="Monthly competitive intelligence brief on Akamai Technologies covering security, cloud compute, AI inference, and competitive positioning.">
+    <title>Fastly Strategic Intelligence Brief — April 2026 | Radware</title>
+    <meta name="description" content="Monthly competitive intelligence brief on Fastly covering edge compute, security, threat research, and competitive positioning.">
     <style>
         :root {
             --navy: #1A3C6E;
@@ -62,7 +62,7 @@
 
         /* Hero - Akamai branded */
         .hero {
-            background: linear-gradient(135deg, #003366 0%, #0077b6 50%, #0096D6 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #C41E3A 50%, #FF282D 100%);
             color: white;
             padding: 3rem 0;
             text-align: center;
@@ -105,7 +105,7 @@
             white-space: nowrap;
             transition: background 0.2s;
         }
-        .toc a:hover, .toc a.active { background: var(--akamai-blue); color: white; }
+        .toc a:hover, .toc a.active { background: var(--fastly-red); color: white; }
 
         main { padding: 2rem 0 4rem; }
         .section {
@@ -121,10 +121,10 @@
             gap: 0.8rem;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
-            border-bottom: 3px solid var(--akamai-blue);
+            border-bottom: 3px solid var(--fastly-red);
         }
         .section-number {
-            background: var(--akamai-blue);
+            background: var(--fastly-red);
             color: white;
             width: 36px;
             height: 36px;
@@ -164,7 +164,7 @@
             white-space: nowrap;
         }
         .vendor-cf { background: var(--cf-orange); }
-        .vendor-akamai { background: var(--akamai-blue); }
+        .vendor-akamai { background: var(--fastly-red); }
         .vendor-fastly { background: var(--fastly-red); }
         .vendor-aws { background: var(--aws-orange); }
         .vendor-palo { background: var(--palo-cyan); color: #1a1a1a; }
@@ -194,7 +194,7 @@
         .signal-box {
             background: linear-gradient(135deg, #f0f7ff 0%, #e3eff9 100%);
             border: 1px solid #b3d4f0;
-            border-left: 5px solid var(--akamai-blue);
+            border-left: 5px solid var(--fastly-red);
             border-radius: 6px;
             padding: 1.5rem;
             margin-bottom: 1.2rem;
@@ -214,13 +214,13 @@
             padding: 1.5rem;
             background: white;
             position: relative;
-            border-top: 4px solid var(--akamai-blue);
+            border-top: 4px solid var(--fastly-red);
         }
         .takeaway-num {
             position: absolute;
             top: -14px;
             left: 1rem;
-            background: var(--akamai-blue);
+            background: var(--fastly-red);
             color: white;
             width: 28px;
             height: 28px;
@@ -296,7 +296,7 @@
             padding: 1rem;
             text-align: center;
         }
-        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--akamai-blue); }
+        .kpi-card .kpi-value { font-size: 1.6rem; font-weight: 800; color: var(--fastly-red); }
         .kpi-card .kpi-label { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
         .kpi-card .kpi-delta { font-size: 0.72rem; margin-top: 0.3rem; }
         .kpi-card .kpi-delta.up { color: var(--accent-green); }
@@ -354,7 +354,7 @@
             font-size: 1.15rem;
             margin: 1.5rem 0 0.8rem;
             padding-bottom: 0.4rem;
-            border-bottom: 2px solid var(--akamai-blue);
+            border-bottom: 2px solid var(--fastly-red);
         }
         h3:first-child { margin-top: 0; }
         p { margin-bottom: 0.8rem; }
@@ -395,8 +395,8 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="cloudflare-april-2026.html">Cloudflare</a>
-            <a href="akamai-april-2026.html" style="color:white; font-weight:600;">Akamai</a>
-            <a href="fastly-april-2026.html">Fastly</a>
+            <a href="akamai-april-2026.html">Akamai</a>
+            <a href="fastly-april-2026.html" style="color:white; font-weight:600;">Fastly</a>
             <a href="imperva-april-2026.html">Imperva</a>
             <a href="arbor-april-2026.html">Arbor</a>
             <a href="f5-april-2026.html">F5</a>
@@ -411,11 +411,11 @@
 <!-- Hero -->
 <section class="hero">
     <div class="container">
-        <h2>Akamai Strategic Intelligence Brief</h2>
-        <p class="subtitle">Cloud Services Track: Akamai, Cloudflare, Fastly, Imperva/Thales (benchmark: Radware)</p>
+        <h2>Fastly Strategic Intelligence Brief</h2>
+        <p class="subtitle">Cloud Services Track: Cloudflare, Akamai, Fastly, Imperva/Thales (benchmark: Radware)</p>
         <div class="hero-meta">
-            <span>Period: March&ndash;April 2026</span>
-            <span>Published: April 29, 2026</span>
+            <span>Period: December 2025&ndash;May 2026</span>
+            <span>Published: May 3, 2026</span>
             <span>Prepared for: Radware Security Strategy Leadership</span>
         </div>
     </div>
@@ -446,55 +446,485 @@
 <main>
 <div class="container">
 
-<!-- Akamai at a Glance -->
+<!-- Fastly at a Glance -->
 <article class="section" id="snapshot">
     <div class="section-header">
-        <div class="section-number" style="background:var(--akamai-blue);">A</div>
-        <h2>Akamai at a Glance &mdash; FY2025</h2>
+        <div class="section-number" style="background:var(--fastly-red);">F</div>
+        <h2>Fastly at a Glance &mdash; FY2025 + Q1 2026 Preview</h2>
     </div>
 
     <div class="kpi-row">
         <div class="kpi-card">
-            <div class="kpi-value">$4.21B</div>
+            <div class="kpi-value">$624M</div>
             <div class="kpi-label">FY2025 Revenue</div>
-            <div class="kpi-delta up">+5% YoY</div>
+            <div class="kpi-delta up">+15% YoY</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-value">$2.24B</div>
-            <div class="kpi-label">Security Revenue (53%)</div>
-            <div class="kpi-delta up">+10% YoY</div>
+            <div class="kpi-value">$172.6M</div>
+            <div class="kpi-label">Q4 2025 Revenue</div>
+            <div class="kpi-delta up">+23% YoY (record)</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-value">$94M</div>
-            <div class="kpi-label">Cloud Infra Q4 Rev</div>
-            <div class="kpi-delta up">+45% YoY</div>
+            <div class="kpi-value">628</div>
+            <div class="kpi-label">Enterprise Customers</div>
+            <div class="kpi-delta up">+32 from Q4 2024</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-value">$14.1B</div>
-            <div class="kpi-label">Market Cap</div>
-            <div class="kpi-delta flat">Moderate Buy consensus</div>
+            <div class="kpi-value">110%</div>
+            <div class="kpi-label">LTM NRR (Q4)</div>
+            <div class="kpi-delta up">Up from 106% in Q3</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-value">4,400+</div>
-            <div class="kpi-label">Edge Locations</div>
-            <div class="kpi-delta up">Now GPU-enabled</div>
+            <div class="kpi-value">$353.8M</div>
+            <div class="kpi-label">RPO</div>
+            <div class="kpi-delta up">+55% YoY</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-value">$7.12</div>
-            <div class="kpi-label">Non-GAAP EPS (FY)</div>
-            <div class="kpi-delta up">+11% Q4 YoY</div>
+            <div class="kpi-value">+354%</div>
+            <div class="kpi-label">Stock 12-mo Return</div>
+            <div class="kpi-delta up">First profitable year</div>
         </div>
     </div>
 
-    <h3>Revenue Segment Mix (Q4 2025)</h3>
+    <h3>Profitability Inflection &mdash; FY2025</h3>
     <div class="segment-bar">
-        <div class="seg" style="width:54.1%; background:#0077b6;">Security $592M (54%)</div>
-        <div class="seg" style="width:28.4%; background:#f5a623;">Delivery $311M (28%)</div>
-        <div class="seg" style="width:8.6%; background:#27ae60;">Cloud $94M (9%)</div>
-        <div class="seg" style="width:8.9%; background:#888;">Other $98M (9%)</div>
+        <div class="seg" style="width:60%; background:var(--fastly-red);">Network Services (CDN, edge security)</div>
+        <div class="seg" style="width:25%; background:#A52A2A;">Compute (Edge / Compute@Edge / Wasm)</div>
+        <div class="seg" style="width:15%; background:#888;">Other Edge</div>
     </div>
-    <p style="font-size:0.8rem; color:#666;">Security is the cash engine. Cloud Infrastructure Services (CIS) is the fastest-growing segment at +45% YoY. Delivery continues its structural decline (-2% YoY). 2026 guidance: 5&ndash;8% total revenue growth; 45&ndash;50% CIS growth.</p>
+    <p style="font-size:0.8rem; color:#666;">Fastly delivered its first non-GAAP profitable fiscal year in 2025 (GAAP net loss -$121.7M, improved from -$158.1M FY2024; non-GAAP NI $19.7M). Q4 was the strongest in 3+ years (+23%). Q1 2026 guide: $168&ndash;174M (+18% YoY at midpoint), gross margin ~64%, non-GAAP EPS $0.07&ndash;0.10. Q1 earnings May 6, 2026. Stock surged 11.15% on May 1 ahead of earnings on $0.24B turnover. Annual meeting June 3, 2026 (virtual). New CMO Joan Jenkins joined April 2026. Indicative segment split estimated; Fastly does not break out segment revenue publicly.</p>
 </article>
+
+<!-- Section 1: News Table -->
+<article class="section" id="news">
+    <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>News Table: Key Developments (Dec 2025&ndash;May 2026)</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th>#</th><th>Date</th><th>Summary</th><th>Source</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>May 2 update</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>Forward Look: Q1 2026 Earnings May 6 + stock surge ahead of print</strong> &mdash; Fastly stock closed at $28.07 on May 1, up 11.15% on $0.24B turnover (day's most actively traded stock) on anticipation of Q1 results. Q1 guide: $168&ndash;174M revenue (~18% YoY at midpoint); gross margin ~64% &plusmn;50 bps; non-GAAP operating profit $14&ndash;18M; non-GAAP EPS $0.07&ndash;0.10. Annual meeting June 3, 2026. Recently issued 7.75% Convertible Senior Notes due 2028 to refinance existing 0.00% notes due 2026.</td>
+                    <td><a class="source-link" href="https://www.quiverquant.com/news/Fastly+jumps+5.6%25+as+investors+position+ahead+of+upcoming+earnings,+extending+2026+momentum" target="_blank">QuiverQuant</a></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Mar 23, 2026</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>Named Leader in Forrester Wave Edge Development Platforms Q1 2026</strong> &mdash; Independent research firm recognized Fastly as a Leader in The Forrester Wave&trade;: Edge Development Platforms, Q1 2026 report. Recognition validates Compute@Edge platform's developer experience, performance, and ecosystem. WebAssembly with 35.4&micro;s cold start time positioned as differentiator vs. container/JavaScript serverless.</td>
+                    <td><a class="source-link" href="https://www.businesswire.com/news/home/20260323234279/en/Fastly-Named-a-Leader-in-Edge-Development-Platforms-2026-by-Independent-Research-Firm" target="_blank">BusinessWire</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Apr 9&ndash;16, 2026</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>LALIGA AI anti-piracy partnership + new CMO</strong> &mdash; Multi-year partnership with LALIGA to deploy AI-driven real-time detection of illegal sports streams. Sports piracy costs LALIGA $700&ndash;800M/year; Fastly's edge platform provides scale + low latency to take down infringing streams in real time. Joan Jenkins appointed CMO (formerly CMO at Salsify, with prior roles at Adobe and IBM).</td>
+                    <td><a class="source-link" href="https://investors.fastly.com/news/news-details/2026/Fastly-and-LALIGA-Team-Up-on-Joint-Innovation-to-Combat-Piracy/default.aspx" target="_blank">Fastly IR</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Dec 18, 2025</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>Threat Insights Report: 49% of web traffic is bots, 99% unwanted</strong> &mdash; Fastly Threat Research found bots accounted for 49% of all requests in January 2026, nearly matching human traffic at 51%, with 99% of bot traffic unwanted/unverifiable. AI bot subset: Meta = 60% of all AI crawler traffic; ChatGPT = 68% of all AI fetcher traffic. Industry exposure: Commerce 88%, Public Sector 96%, Education 77% (highest fetcher volume). Only 1% of users click through to source sites with AI summaries &mdash; existential threat to publishers.</td>
+                    <td><a class="source-link" href="https://www.fastly.com/blog/nearly-half-the-web-isnt-human-inside-fastlys-threat-insight-report" target="_blank">Fastly Threat Research</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Feb 12, 2026</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>Q4 + FY2025 earnings: record revenue + first profitable year</strong> &mdash; FY2025 revenue $624M (+15% YoY). Q4 $172.6M (+23% YoY, highest in 3+ years, above top end of guide). RPO $353.8M (+55%). LTM NRR 110% (vs. 106% Q3). Enterprise customer count 628 (+32 from Q4 2024). First non-GAAP profitable fiscal year (non-GAAP NI $19.7M; GAAP net loss -$121.7M, improved from -$158.1M).</td>
+                    <td><a class="source-link" href="https://investors.fastly.com/news/news-details/2026/Fastly-Announces-Both-Record-Fourth-Quarter-and-Full-Year-2025-Financial-Results/default.aspx" target="_blank">Fastly IR</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Aug 19, 2025</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>AI Crawler / Fetcher research: 80% of AI bot traffic is crawlers</strong> &mdash; Earlier Fastly threat research found AI crawlers make up almost 80% of AI bot traffic. Meta leads AI crawling. ChatGPT dominates real-time web traffic (fetcher requests). 57% of AI &ldquo;fetcher&rdquo; requests target non-cached content, indicating real-time / specific queries vs. bulk training data scraping.</td>
+                    <td><a class="source-link" href="https://www.businesswire.com/news/home/20250819795455/en/" target="_blank">BusinessWire</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>2026</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>Compute@Edge rebrand to &ldquo;Compute&rdquo; + 35.4&micro;s cold start</strong> &mdash; Fastly's serverless platform formerly known as Compute@Edge is now branded &ldquo;Compute&rdquo;. Built on the Lucet WebAssembly runtime with 35.4 microsecond cold start &mdash; significantly faster than container-based or JavaScript-based serverless. Programs can be written in any WASI-supporting language. Cloudflare Workers, AWS Lambda@Edge, and Fastly Compute together serve >24 trillion requests/month using WebAssembly.</td>
+                    <td><a class="source-link" href="https://www.fastly.com/products/edge-compute" target="_blank">Fastly Edge Compute</a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>2026</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>Next-Gen WAF system lists for corp/site-level rules</strong> &mdash; Signal Sciences-based Next-Gen WAF added system lists capability. Allows organization-wide rule and policy management at corp- and site-levels. Targets enterprise WAF buyers who need policy hierarchies. Network Learning Exchange (Fastly's threat-intel-sharing program) continues to drive collective defense.</td>
+                    <td><a class="source-link" href="https://www.fastly.com/products/web-application-api-protection" target="_blank">Fastly Next-Gen WAF</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Apr 22, 2026</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>2026 proxy + auditor change + executive comp plan</strong> &mdash; Annual meeting set for Wednesday, June 3, 2026, 9 a.m. Pacific (virtual). Auditor shift and updated executive compensation plans disclosed in proxy. Routine governance updates after profitability milestone year.</td>
+                    <td><a class="source-link" href="https://www.stocktitan.net/sec-filings/FSLY/def-14a-fastly-inc-definitive-proxy-statement-e5a2f377a75d.html" target="_blank">SEC DEF 14A</a></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Q4 2025</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>RPO grew 55% YoY to $353.8M &mdash; multi-year visibility expanding</strong> &mdash; Remaining Performance Obligations of $353.8M up 55% from Q4 2024. RPO growth outpacing revenue growth means contracted future revenue is building faster than recognized revenue &mdash; positive leading indicator. Combined with 110% LTM NRR, signals existing customer expansion is the engine, not new logo acquisition alone.</td>
+                    <td><a class="source-link" href="https://investors.fastly.com/files/doc_earnings/2025/q4/supplemental-info/Fastly-Fourth-Quarter-2025-Investor-Supplement.pdf" target="_blank">Fastly Q4 Investor Supplement</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>2026</td>
+                    <td><span class="vendor-badge vendor-fastly">Fastly</span> <strong>AI bot traffic management positioning</strong> &mdash; Following the December threat report, Fastly positions itself for &ldquo;intent-based&rdquo; bot management strategies (vs. traditional block/allow). Targets the agentic web era where AI bots may be desired (verified crawlers) or unwanted (scraping). Direct competitive positioning vs. Cloudflare AI Crawl Control and Akamai Bot Manager.</td>
+                    <td><a class="source-link" href="https://www.fastly.com/products/web-application-api-protection" target="_blank">Fastly Bot Defense</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 2: Delta Analysis -->
+<article class="section" id="delta">
+    <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Delta Analysis (vs. Prior Period)</h2>
+    </div>
+
+    <h3>What Accelerated</h3>
+    <div class="delta-grid">
+        <div class="delta-card accelerated">
+            <h4>Profitability Inflection &mdash; The Defining FY2025 Story</h4>
+            <p>Fastly delivered its <strong>first non-GAAP profitable fiscal year</strong> in 2025 ($19.7M non-GAAP NI vs. -$158.1M GAAP loss in FY2024 narrowing to -$121.7M). Combined with stock +354% over 12 months, Fastly has shifted from &ldquo;perpetually unprofitable challenger&rdquo; narrative to &ldquo;disciplined edge platform with operating leverage.&rdquo; Q4 +23% YoY revenue growth was the highest quarterly rate in 3+ years.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>LTM Net Retention Improvement</h4>
+            <p>LTM Net Retention Rate climbed to 110% in Q4 from 106% in Q3 &mdash; a 4-point sequential improvement. Combined with $353.8M RPO (+55% YoY), this indicates existing customers are expanding faster, more predictably, and signing longer contracts. The retention recovery counters years of customer-bleed concerns following the high-profile 2021 outage.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>Forrester Edge Development Platforms Q1 2026 Leader</h4>
+            <p>Forrester named Fastly a Leader in the Wave for Edge Development Platforms (Q1 2026) &mdash; meaningful third-party validation of Compute@Edge / Compute platform. The 35.4&micro;s WebAssembly cold start outperforms container- and JavaScript-based serverless alternatives. Forrester recognition strengthens enterprise sales motion in developer-led deals.</p>
+        </div>
+        <div class="delta-card accelerated">
+            <h4>AI Bot Research Thought Leadership</h4>
+            <p>December Threat Insights Report (49% bot traffic, 99% unwanted; Meta and ChatGPT dominance in AI crawler / fetcher traffic) plus August research established Fastly as a credible voice on AI bot management. The thesis &mdash; &ldquo;simple block/allow tactics are obsolete in the agentic age&rdquo; &mdash; is differentiated and product-aligned.</p>
+        </div>
+    </div>
+
+    <h3>What Is New</h3>
+    <div class="delta-grid">
+        <div class="delta-card new">
+            <h4>LALIGA AI Anti-Piracy Partnership</h4>
+            <p>Multi-year partnership announced April 9&ndash;16, 2026. AI-driven real-time detection of illegal sports streams at the edge. LALIGA piracy losses estimated at $700&ndash;800M/year. First major sports rights-holder partnership of its kind for Fastly &mdash; opens vertical opportunity in sports media, broadcasting, and streaming.</p>
+        </div>
+        <div class="delta-card new">
+            <h4>New CMO Joan Jenkins (April 2026)</h4>
+            <p>Jenkins joined as CMO with prior roles at Salsify (CMO), Adobe, and IBM. Hire signals investment in enterprise GTM motion to match the platform technical strengths (which Forrester just recognized).</p>
+        </div>
+        <div class="delta-card new">
+            <h4>Convertible Notes Refinancing</h4>
+            <p>Issued 7.75% Convertible Senior Notes due 2028; repurchased portion of 0.00% notes due 2026. Refinances 2026 maturity wall and locks in long-term capital structure as profitability inflects. Routine balance-sheet management but signals operational maturity.</p>
+        </div>
+    </div>
+
+    <h3>What Slowed or Faces Risk</h3>
+    <div class="delta-grid">
+        <div class="delta-card slowed">
+            <h4>Annual Revenue Retention Slight Dip</h4>
+            <p>Annual Revenue Retention Rate fell from 99.0% (FY2024) to 98.7% (FY2025). Fastly is deprecating this metric in favor of LTM NRR (which rose to 110%). The dip is small, but the metric switch should be watched &mdash; vendors typically retire metrics when they're no longer favorable.</p>
+        </div>
+        <div class="delta-card slowed">
+            <h4>Platform Breadth Remains Narrow</h4>
+            <p>Fastly's product portfolio is still: CDN + Next-Gen WAF + DDoS + Compute&Edge. No equivalent to Cloudflare's developer platform (Workers/R2/D1/KV/Durable Objects), Akamai's Inference Cloud, or Imperva's data security stack. The narrow scope simplifies messaging but limits TAM and consolidates the sales motion to a smaller buyer set.</p>
+        </div>
+        <div class="delta-card risk">
+            <h4>Cloudflare Platform Bundling Pressure</h4>
+            <p>Cloudflare's Agents Week and 500 Tbps milestone position security and edge compute as &ldquo;included&rdquo; with platform purchases. Fastly's standalone CDN+security+compute proposition faces structural pricing pressure when buyers consolidate vendors. Differentiation must come from Forrester-recognized developer experience and AI bot research.</p>
+        </div>
+    </div>
+
+    <h3>Meaningful Pattern Shifts</h3>
+    <div class="delta-grid">
+        <div class="delta-card pattern">
+            <h4>From &ldquo;Survival Story&rdquo; to &ldquo;Disciplined Operator&rdquo;</h4>
+            <p>For three years, Fastly was viewed as a structurally unprofitable, declining-customer-base CDN. FY2025 results inverted that narrative: first profitable year, accelerating revenue growth, retention improvement, RPO surge. The investor narrative transition is more material than the absolute numbers &mdash; valuation expansion (stock +354%) reflects a re-rating, not just earnings.</p>
+        </div>
+        <div class="delta-card pattern">
+            <h4>From &ldquo;CDN with Edge Compute&rdquo; to &ldquo;Edge Compute Platform with CDN heritage&rdquo;</h4>
+            <p>Forrester's Edge Development Platforms Wave Leader designation, Compute@Edge rebrand to &ldquo;Compute,&rdquo; and 35.4&micro;s WebAssembly cold start positioning Fastly as a developer-first edge compute platform &mdash; a pivot in identity that competes with Cloudflare Workers more directly than the legacy CDN comparison would suggest.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 3: Competitive Comparison -->
+<article class="section" id="competitive">
+    <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Competitive Comparison &mdash; Cloud Services Track</h2>
+    </div>
+
+    <h3>3.1 Product Innovation</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td><strong>Profitability + Forrester Edge Leader recognition the standout 2025-26 story.</strong> Compute platform with 35.4&micro;s WebAssembly cold start is a credible differentiator. AI bot research (Threat Insights Reports) establishes thought leadership in agentic web era. LaLiga partnership opens sports/media vertical. Innovation is concentrated rather than broad &mdash; no AI security stack, no developer platform breadth comparable to Cloudflare.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Highest innovation velocity. Agents Week 2026 delivered 10+ products. TAM expanded to $196B. Mesh, Agent Cloud, AI Search (was AutoRAG), Browser Run. Replicate + Human Native acquisitions. Gen 13 hardware co-design.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>AI Inference Cloud + AI Grid (NVIDIA Blackwell GPUs across 4,400+ edge locations). Fermyon WebAssembly acquisition (Dec 2025). API Security >$100M run rate, +100% YoY. Guardicore Zero Trust. Visa partnership for agentic commerce.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>8 consecutive years Gartner WAAP MQ Leader. Imperva for Google Cloud (Apr 30, 2026 CA). AI Application Security (GA mid-2026). AI Security Fabric expansion: data leakage prevention, MCP security gateway. KuppingerCole 2025 Market Leader API Security.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS without decryption (per Radware claim). DefensePro 6 models (6&ndash;800 Gbps; high-end of comparison set). LLM Firewall (Nov 2025) + Agentic AI Protection (Feb 2026) full GenAI runtime stack. Pynt acquisition (Jan 26, 2026) for pre-production API testing. Cloud DDoS doubled to 30 Tbps Jan 6, 2026.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.2 DDoS Capability</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Network Capacity</th><th>Mitigation</th><th>Differentiation</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td><strong>~100 PoPs globally</strong></td><td>Edge-based via CDN infrastructure; integrated into Next-Gen WAF</td><td><strong>Adequate for CDN-anchored customers; not a DDoS specialist.</strong> Fastly does not publish a specific Tbps figure. DDoS is bundled with CDN/WAF, not a standalone product line.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>500 Tbps Anycast, 330+ cities, 125+ countries</td><td>Autonomous sub-3s edge mitigation; Adaptive DDoS</td><td>Largest Anycast network globally; unmetered; mitigated 31.4 Tbps Aisuru-Kimwolf attack (Nov 2025).</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>200+ Tbps total; 20+ Tbps dedicated Prolexic; 36 scrubbing centers; 4,400+ edge locations</td><td>Prolexic scrubbing (cloud, on-prem powered by Corero, hybrid); 225+ SOCC defenders 24/7</td><td>Deepest enterprise DDoS pedigree. 99.99% uptime SLA. L7 DDoS surged 104% per SOTI.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>6 Tbps; 44+ PoPs</td><td>Cloud scrubbing; infrastructure + application layer</td><td>Enterprise adequate; not at Akamai/Cloudflare scale.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>DefensePro: up to 800 Gbps per appliance (6 models); Cloud DDoS: 30 Tbps</strong> total (doubled Jan 2026); 12+ scrubbing centers on DefensePro X backbone</td><td>Behavioral ML; hybrid; encrypted L7 DDoS without decryption (per Radware claim)</td><td>Highest single-appliance throughput. 30 Tbps cloud now in same tier as F5/NETSCOUT.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.3 WAAP / API Security</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>WAF</th><th>API Security</th><th>Bot Management</th><th>AI Security</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td><strong>Next-Gen WAF (Signal Sciences); Gartner Challenger; system lists for corp/site-level rules</strong></td><td>Basic API protection via WAF rules</td><td><strong>Network Learning Exchange (collective defense); AI bot research-led intent-based strategy</strong></td><td>No dedicated AI security offering. Differentiation is research-led: AI crawler/fetcher data, intent-based bot strategies.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Managed rulesets; Gartner Cloud WAAP Leader</td><td>API Shield: schema validation, discovery, abuse detection</td><td>Comprehensive; AI Crawl Control</td><td>AI Security for Apps: LLM discovery, prompt injection, PII leakage; Wiz integration.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>App &amp; API Protector; Gartner WAAP Leader (6+ years); Forrester WAF Leader Q1 2025</td><td>API Security &gt;$100M run rate; +100% YoY; 87% incident rate from SOTI</td><td>Advanced bot management; Visa agentic commerce partnership</td><td>Indirect: Guardicore for AI workload segmentation; Inference Cloud positioning.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Cloud WAF + on-prem; <strong>8 consecutive years Gartner WAAP MQ Leader</strong></td><td>API Security with discovery, risk assessment, runtime; KuppingerCole 2025 Market Leader</td><td>Advanced Bot Protection with client-side detection; Bad Bot Report leadership</td><td>Imperva AI Application Security (GA mid-2026); AI Security Fabric (data leakage prevention, MCP security gateway, runtime access control).</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Cloud WAF + on-prem; Gartner WAAP Peer Insights Strong Performer (99% would recommend)</td><td>Pynt acquisition (Jan 26, 2026); full-lifecycle including pre-production testing</td><td>Bot Manager with behavioral detection</td><td><strong>LLM Firewall (Nov 18, 2025) + Agentic AI Protection (Feb 3, 2026)</strong>. Real-time prompt-level protection, OWASP LLM Top 10 coverage, model-agnostic.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.4 Platform Breadth &amp; Cloud Compute</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Scope</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td><strong>CDN, Next-Gen WAF, DDoS, edge compute (Compute / Compute@Edge with WebAssembly), TLS management.</strong> Forrester Edge Development Platforms Q1 2026 Leader. Narrowest platform among Track 1 peers, but most-recognized for developer experience and Wasm performance (35.4&micro;s cold start).</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Broadest overall. CDN, DNS, DDoS, WAF, API security, AI security, Zero Trust, developer platform (Workers, R2, D1, KV, Durable Objects), AI inference, networking (Mesh, Tunnel, WARP), email security, registrar.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>CDN, DDoS (Prolexic), WAF, bot management, API security, Zero Trust (Guardicore, EAA), cloud compute (Linode, 41 core DCs), AI inference (4,400+ edge), edge DNS, serverless (Fermyon Wasm).</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>WAF, DDoS, API security, bot management, data security, database security, RASP. Part of Thales (~$22.22B group revenue 2025; cybersecurity portfolio &gt;€2.4B). No CDN/developer platform.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>DDoS (DefensePro 6&ndash;800 Gbps + 30 Tbps Cloud DDoS), Cloud WAF, Bot Manager, API security (Pynt + runtime), Kubernetes WAAP, AI LLM Firewall, Agentic AI Protection, ADC (Alteon 200 Mbps&ndash;80 Gbps).</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>3.5 Market Momentum</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:130px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
+            <tbody>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td><strong>$624M (FY2025, +15%); Q4 $172.6M (+23%, record); RPO $353.8M (+55% YoY); LTM NRR 110%; 628 enterprise customers (+32 YoY); first non-GAAP profitable year; stock +354% (12-mo); Q1 2026 guide $168&ndash;174M (+18%)</strong></td><td><strong>Profitability inflection + Forrester Edge Leader = re-rating story.</strong> First profitable year transforms investor narrative. AI bot research thought leadership. LALIGA partnership opens vertical. Q1 earnings May 6 catalyst.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>$2.17B (FY2025); 29.8% YoY (33.6% Q4); ~$74B mkt cap; 332K paying customers (+40%); 269 customers &gt;$1M (+55%)</td><td>TAM $196B; platform strategy gaining. Largest deal $42.5M ACV. New ACV +50% YoY (fastest since 2021). Q1 2026 earnings May 7.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>$4.21B (FY2025, +5%); Security $2.24B (+10%); CIS Q4 +45%; ~$14.1B mkt cap</td><td>AI inference is the rerate narrative. $200M Inference Cloud anchor deal. Q1 2026 earnings May 7.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td>Part of Thales (~$22.22B group; cybersecurity &gt;€2.4B); security revenue not separately disclosed</td><td>8 consecutive years Gartner WAAP MQ Leader. Stops 26B+ attacks/day. AI security pipeline accelerating in 2026. KuppingerCole 2025 Market Leader API Security.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>$301.9M (FY2025, +10% YoY); Cloud ARR $95.2M (+23%); Total ARR $251.0M (+11%); Non-GAAP EPS $1.15</strong></td><td>Cloud DDoS doubled to 30 Tbps (Jan 6 2026); DefensePro 800 Gbps high-end. Pynt acquired Jan 26 2026; Agentic AI Protection. ~3,500 enterprise/carrier customers; 9 of top 10 carriers; 4 of top 10 SaaS providers.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<!-- Section 4: Visual Strategic Section -->
+<article class="section" id="visual">
+    <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Visual Strategic Section</h2>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>FY2025 Revenue (Cloud Services Track)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--akamai-blue);">$4,210M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Cloudflare</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:51.5%; background:var(--cf-orange);">$2,170M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--fastly-red); font-weight:800;">Fastly</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:14.8%; background:var(--fastly-red);">$624M</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:7.2%; background:var(--radware-green);">$302M</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Fastly is sub-scale vs. Akamai (7×) and Cloudflare (3.5×) but growing faster Q4 (+23%). Imperva not separately disclosed.</p>
+        </div>
+
+        <div class="chart-box">
+            <h4>Q4 2025 Revenue Growth (YoY)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Cloudflare</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--cf-orange);">33.6%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--fastly-red); font-weight:800;">Fastly</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:69%; background:var(--fastly-red);">23%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:21%; background:var(--akamai-blue);">7%</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:30%; background:var(--radware-green);">~10%</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Fastly's Q4 +23% is its strongest quarter in 3+ years &mdash; second-fastest in Track 1 after Cloudflare.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box">
+            <h4>Fastly Quarterly Trajectory</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Q4 2025</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--fastly-red);">$172.6M (+23%)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Q3 2025</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:90%; background:#A52A2A;">~$155M (+13%)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Q2 2025</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:84%; background:#8B0000;">~$145M (+11%)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Q1 2026 (guide)</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:99%; background:#A52A2A;">$168&ndash;174M (+18%)</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Sequential acceleration through 2025; Q1 2026 guide implies sustained mid-teens growth. Q1 earnings May 6, 2026.</p>
+        </div>
+
+        <div class="chart-box">
+            <h4>Track 1 Momentum Scorecard (1&ndash;5)</h4>
+            <div class="table-wrapper">
+                <table class="scorecard-table" style="font-size:0.82rem;">
+                    <thead><tr><th>Vendor</th><th>Innovation</th><th>Traction</th><th>Clarity</th><th>Composite</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td class="score score-5">5</td><td class="score score-5">5</td><td class="score score-5">5</td><td class="score score-5">5.0</td></tr>
+                        <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td class="score score-4">4</td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-3">3.7</td></tr>
+                        <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td class="score score-3">3</td><td class="score score-4">4</td><td class="score score-3">3</td><td class="score score-3">3.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td class="score score-4">4</td><td class="score score-2">2</td><td class="score score-4">4</td><td class="score score-3">3.3</td></tr>
+                        <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td class="score score-2">2</td><td class="score score-3">3</td><td class="score score-3">3</td><td class="score score-2">2.7</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.5rem;">Fastly upgraded from 2.3 (prior cycle) to 3.3 reflecting profitability inflection, Forrester Edge Leader, and accelerating traction. Innovation score is medium &mdash; concentrated rather than broad.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-box" style="grid-column: 1 / -1;">
+            <h4>Track 1 Positioning: Platform Breadth vs. Operational Maturity</h4>
+            <div style="position:relative; padding: 30px 20px 40px 90px;">
+                <div class="matrix-container">
+                    <span class="matrix-label-y">Platform Breadth &rarr;</span>
+                    <span class="matrix-label-x">Operational Maturity / Profitability &rarr;</span>
+                    <div class="matrix-dot" style="left:80%; bottom:90%; background:var(--cf-orange);">Cloudflare</div>
+                    <div class="matrix-dot" style="left:75%; bottom:75%; background:var(--akamai-blue);">Akamai</div>
+                    <div class="matrix-dot" style="left:25%; bottom:60%; background:var(--imperva-purple);">Imperva</div>
+                    <div class="matrix-dot" style="left:20%; bottom:50%; background:var(--radware-green);">Radware</div>
+                    <div class="matrix-dot" style="left:75%; bottom:25%; background:var(--fastly-red); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--fastly-red);">Fastly</div>
+                </div>
+            </div>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>Fastly is the most operationally mature small-platform Track 1 vendor.</strong> Recently profitable, Forrester Edge Leader, growing customer base &mdash; but narrow product scope vs. Cloudflare/Akamai. The strategic question for Fastly is whether to expand platform breadth (challenge: capital efficiency just achieved) or double-down on edge compute differentiation.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Section 5: Strategic Signals -->
+<article class="section" id="signals">
+    <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Strategic Signals</h2>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 1: Fastly's Profitability Inflection Changes the Competitive Narrative</h4>
+        <p>For three years, Fastly was the &ldquo;structurally unprofitable, declining customer base&rdquo; CDN. FY2025 results inverted that: first non-GAAP profitable year, +15% revenue growth, Q4 +23%, RPO +55%, LTM NRR 110%, customer count +32. <strong>The change in market perception is more important than the absolute numbers.</strong> Stock +354% reflects a narrative re-rating. Radware and other competitors should no longer dismiss Fastly as &ldquo;perpetually weak&rdquo; &mdash; it is now a credible enterprise platform with operating leverage.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 2: AI Bot Research Establishes Fastly as a Thought Leader</h4>
+        <p>The December 2025 Threat Insights Report (49% bot traffic, 99% unwanted; Meta 60% of AI crawler traffic; ChatGPT 68% of fetcher traffic) and August research on AI crawlers position Fastly uniquely on the agentic-web question. <strong>The thesis &mdash; &ldquo;simple block/allow tactics are obsolete in the agentic age&rdquo; &mdash; is differentiated and product-aligned.</strong> Compared to Cloudflare's AI Crawl Control and Akamai's Visa partnership, Fastly's research-led approach is a different (potentially more credible) GTM motion. For Radware, this means competing in bot management increasingly requires research-driven thought leadership, not just product features.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 3: Forrester Edge Development Platforms Wave Leader Is Meaningful Validation</h4>
+        <p>Forrester named Fastly a Leader in Edge Development Platforms Q1 2026 &mdash; the first major analyst recognition that values Fastly's developer experience and Wasm performance. <strong>The 35.4&micro;s WebAssembly cold start outperforms container- and JavaScript-based serverless alternatives.</strong> This validates Compute@Edge / Compute as a credible platform vs. Cloudflare Workers and AWS Lambda@Edge. Forrester recognition strengthens enterprise sales, especially in developer-led deals where technical evaluation matters.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 4: LALIGA Partnership Opens Vertical Strategy</h4>
+        <p>Multi-year LALIGA AI anti-piracy partnership announced April 2026. Sports piracy losses ~$700&ndash;800M/year. <strong>This is Fastly's first major sports rights-holder partnership of this kind &mdash; an entry into media/broadcasting/streaming verticals where Fastly's edge compute + low latency are differentiators.</strong> Pattern to watch: does Fastly extend this playbook to other media-heavy verticals (entertainment, gaming, news)? For Radware, the implication is that Fastly is finding niche verticals where its edge platform value is acute, rather than competing horizontally for general enterprise WAAP customers.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 5: Customer Count Growth (628) Is Accelerating From a Small Base</h4>
+        <p>628 enterprise customers at Q4 2025, +32 from Q4 2024 (5% YoY growth). For comparison, Cloudflare ended Q4 with 332K paying customers and 269 paying &gt;$1M/year. <strong>Fastly's enterprise customer base is small but qualified &mdash; large enterprises ($150K+ ACV) on multi-year contracts.</strong> The 110% LTM NRR + $353.8M RPO indicate existing customers are expanding, not just new logos. This is high-quality growth but limited TAM exposure compared to Cloudflare's volume strategy. The competitive risk for Radware: Fastly's small but enterprise-anchored customer base is highly defensible &mdash; difficult to displace via price competition alone.</p>
+    </div>
+
+    <div class="signal-box">
+        <h4>Signal 6: Convertible Notes Refinancing Signals Long-Term Capital Discipline</h4>
+        <p>April 2026 issuance of 7.75% Convertible Senior Notes due 2028 + repurchase of existing 0.00% notes due 2026. <strong>Refinances Fastly's 2026 maturity wall and locks in capital structure as profitability inflects.</strong> Combined with new CMO Joan Jenkins (April 2026) and the upcoming June 3 annual meeting (auditor change disclosed), Fastly is exhibiting the operational maturity of a profitable mid-cap platform &mdash; not a struggling growth company. For Radware, this signals Fastly will be a more financially disciplined competitor going forward, less likely to make desperate moves but also less likely to give margins away.</p>
+    </div>
+</article>
+
+<!-- Section 6: Executive Takeaways -->
+<article class="section" id="takeaways">
+    <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Executive Takeaways</h2>
+    </div>
+
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-num">1</div>
+            <h4>Fastly is now profitable &mdash; the long-standing competitive narrative needs an update</h4>
+            <p>FY2025 first non-GAAP profitable year. Q4 +23% revenue. LTM NRR 110%. Customer count +32. Stock +354%. The &ldquo;Fastly is structurally weak&rdquo; framing is no longer accurate. Competitive sales conversations should reflect Fastly as a financially disciplined, recognized edge platform &mdash; not a struggling challenger.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">2</div>
+            <h4>Fastly's narrow platform remains a structural risk vs. Cloudflare/Akamai</h4>
+            <p>No developer platform breadth (no Workers/R2/D1/KV equivalent), no AI inference offering (vs. Akamai AI Grid), no AI security stack (vs. Cloudflare AI Security for Apps, Imperva AI Application Security, Radware LLM Firewall). The narrow product scope simplifies the sales motion but caps TAM exposure. Radware's WAAP + DDoS + API + AI security platform is meaningfully broader than Fastly's CDN+WAF+Compute scope.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">3</div>
+            <h4>AI bot research is Fastly's most differentiated GTM asset &mdash; competitors should respond with research, not features</h4>
+            <p>Two Threat Insights Reports in 9 months (Aug 2025, Dec 2025) plus &ldquo;intent-based bot strategy&rdquo; positioning give Fastly a research-led narrative. Cloudflare and Akamai counter with product (AI Crawl Control, Visa partnership). Radware's response should be its own AI bot research program leveraging Bot Manager and Agentic AI Protection telemetry &mdash; product features alone won't counter the credibility built by sustained primary research.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">4</div>
+            <h4>Forrester Edge Leader is meaningful but vertical-specific</h4>
+            <p>Forrester Wave Edge Development Platforms Q1 2026 Leader recognition validates Compute@Edge platform for developer-led deals. This is most relevant in technology, financial services, and media customers who care about edge compute performance (35.4&micro;s WebAssembly cold start). For most enterprise security buyers, Forrester WAAP / Gartner WAAP MQ matters more &mdash; where Imperva (Leader) and Akamai (Leader) hold the strongest positions.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">5</div>
+            <h4>LALIGA partnership signals vertical strategy &mdash; watch for similar deals in media/sports/entertainment</h4>
+            <p>The LALIGA AI anti-piracy deal is Fastly's first major sports rights-holder partnership of its kind. Pattern to watch: similar partnerships with Premier League, NBA, NHL, or major broadcasters. This vertical strategy targets segments where edge compute + low latency are acute differentiators. Radware does not currently address sports/media piracy use cases and would face high entry barriers if this becomes a contested vertical.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-num">6</div>
+            <h4>Q1 2026 earnings May 6 is the next inflection point</h4>
+            <p>Fastly Q1 2026 earnings drop May 6 (3 days from this brief publication). Guide: $168&ndash;174M revenue (+18% YoY at midpoint), gross margin ~64%, non-GAAP EPS $0.07&ndash;0.10. <strong>If Fastly delivers ≥18% growth and confirms profitability, the platform re-rating thesis strengthens.</strong> If Q1 misses, the &ldquo;narrative recovery&rdquo; theme weakens and prior &ldquo;narrowly differentiated&rdquo; framing returns. Watch for: NRR sustained ≥108%, RPO continuing to grow faster than revenue, and any new AI/security product disclosures.</p>
+        </div>
+    </div>
+</article>
+
+<!-- Disclaimer -->
+<div class="section" style="background: #fff8e1; border-left: 4px solid var(--accent-amber); font-size: 0.85rem;">
+    <p style="margin:0;"><strong>Disclaimer:</strong> This brief is based on publicly available information gathered through May 3, 2026, including Fastly's SEC filings, earnings calls, IR releases, Threat Insights Reports, third-party analyst coverage (Forrester, Gartner), and trade press. It does not contain material non-public information about any company referenced. Fastly fiscal year matches calendar year. Some segment/customer figures are estimated where Fastly does not separately disclose.</p>
+</div>
 
 <!-- Section 1: News Table -->
 <article class="section" id="news">
@@ -740,8 +1170,8 @@
             <h4>FY2025 Revenue Comparison ($M)</h4>
             <div class="bar-chart" style="padding-top:0.5rem;">
                 <div class="bar-row">
-                    <span class="bar-label" style="color:var(--akamai-blue); font-weight:800;">Akamai</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--akamai-blue);">$4,210M</div></div>
+                    <span class="bar-label" style="color:var(--fastly-red); font-weight:800;">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--fastly-red);">$4,210M</div></div>
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">Cloudflare</span>
@@ -772,8 +1202,8 @@
                     <div class="bar-track"><div class="bar-fill" style="width:45%; background:var(--fastly-red);">~15%</div></div>
                 </div>
                 <div class="bar-row">
-                    <span class="bar-label" style="color:var(--akamai-blue); font-weight:800;">Akamai</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:15%; background:var(--akamai-blue);">5%</div></div>
+                    <span class="bar-label" style="color:var(--fastly-red); font-weight:800;">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:15%; background:var(--fastly-red);">5%</div></div>
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">Radware</span>
@@ -803,7 +1233,7 @@
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">Security</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:11%; background:var(--akamai-blue);">+11%</div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:11%; background:var(--fastly-red);">+11%</div></div>
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">Total</span>
@@ -844,7 +1274,7 @@
                     <span class="matrix-label-y">Security Portfolio Depth &rarr;</span>
                     <span class="matrix-label-x">Cloud &amp; AI Compute Ambition &rarr;</span>
                     <!-- Akamai: high security, high compute ambition -->
-                    <div class="matrix-dot" style="left:75%; bottom:78%; background:var(--akamai-blue); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--akamai-blue);">Akamai</div>
+                    <div class="matrix-dot" style="left:75%; bottom:78%; background:var(--fastly-red); box-shadow: 0 0 0 3px white, 0 0 0 5px var(--fastly-red);">Akamai</div>
                     <!-- Cloudflare: moderate-high security, very high compute -->
                     <div class="matrix-dot" style="left:90%; bottom:70%; background:var(--cf-orange);">Cloudflare</div>
                     <!-- Radware: moderate security, no compute -->
@@ -949,7 +1379,7 @@
 
 <footer class="site-footer">
     <div class="container">
-        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly Akamai Strategic Brief</p>
+        <p><strong>Radware Competitive Intelligence</strong> &mdash; Monthly Fastly Strategic Brief</p>
         <p style="opacity:0.7; margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="cloudflare-april-2026.html">Cloudflare</a> &bull; <a href="arbor-april-2026.html">Arbor</a> &bull; <a href="f5-april-2026.html">F5</a> &bull; <a href="a10-april-2026.html">A10</a> &bull; <a href="archives.html">Archives</a> &bull; <a href="https://github.com/galdarom/competitive-intelligence">GitHub</a></p>
         <p style="opacity:0.5; margin-top:0.5rem; font-size:0.75rem;">&copy; 2026 Radware Ltd. For authorized recipients only.</p>
     </div>

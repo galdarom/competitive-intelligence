@@ -123,6 +123,8 @@
         }
         .report-card .card-header.cf { background: linear-gradient(135deg, #e06a10, var(--cf-orange), #f5a040); }
         .report-card .card-header.akamai { background: linear-gradient(135deg, #005a8c, var(--akamai-blue), #40b8e8); }
+        .report-card .card-header.fastly { background: linear-gradient(135deg, #8B0000, #C41E3A, #FF282D); }
+        .report-card .card-header.imperva { background: linear-gradient(135deg, #2C0735, #4A1A5C, #6C3483); }
         .report-card .card-header.arbor { background: linear-gradient(135deg, #002E3D, var(--arbor-teal), #008C9E); }
         .report-card .card-header.f5 { background: linear-gradient(135deg, #8B0000, #C1001F, var(--f5-red)); }
         .report-card .card-header.a10 { background: linear-gradient(135deg, #003366, #005299, var(--a10-blue)); }
@@ -218,7 +220,7 @@
     <div class="container">
         <h1>Radware Competitive Intelligence</h1>
         <p>Monthly strategic intelligence covering Cloud Services and DDoS Appliance Vendors &mdash; built for the Radware executive team</p>
-        <div class="badge">April 2026 Edition &bull; 6 Vendor Briefs &bull; 2 Market Tracks</div>
+        <div class="badge">April 2026 Edition &bull; 8 Vendor Briefs &bull; 2 Market Tracks</div>
         <p style="color:white; opacity:0.85; font-size:0.85rem; margin-top:0.8rem;">
             Last refreshed: <a href="weekly-digests/2026-05-03-digest.html" style="color:#F5A623; text-decoration:none;">Weekly Digest — May 3, 2026</a>
         </p>
@@ -237,8 +239,8 @@
             <span class="track-label waap">Track 1</span>
             <h2>Cloud Services</h2>
         </div>
-        <p class="track-desc">Cloud-delivered WAAP, CDN, security platforms. Primary briefs: Cloudflare, Akamai. Comparison vendors: Fastly, Imperva/Thales. Benchmark: Radware.</p>
-        <div class="reports-grid two-col">
+        <p class="track-desc">Cloud-delivered WAAP, CDN, security platforms. Primary briefs: Cloudflare, Akamai, Fastly, Imperva/Thales. Benchmark: Radware.</p>
+        <div class="reports-grid four-col">
             <a href="cloudflare-april-2026.html" class="report-card">
                 <div class="card-header cf">
                     <h2>Cloudflare Brief</h2>
@@ -249,12 +251,11 @@
                         <span class="stat-pill cf">$2.17B FY Rev</span>
                         <span class="stat-pill cf">29.8% Growth</span>
                         <span class="stat-pill cf">500 Tbps</span>
-                        <span class="stat-pill cf">TAM $196B</span>
                     </div>
                     <ul class="highlights">
-                        <li><strong>Agents Week 2026:</strong> Mesh, Agent Cloud, Flagship, 10+ launches</li>
-                        <li><strong>Wiz partnership</strong> for AI attack surface visibility</li>
-                        <li><strong>Platform shift:</strong> expanding beyond security into developer platform</li>
+                        <li><strong>Agents Week 2026:</strong> Mesh, Agent Cloud, 10+ launches</li>
+                        <li><strong>332K paying customers</strong> (+40% YoY)</li>
+                        <li><strong>Platform shift:</strong> beyond security into developer platform</li>
                     </ul>
                     <span class="read-btn cf">Read Full Brief &rarr;</span>
                 </div>
@@ -268,16 +269,55 @@
                 <div class="card-body">
                     <div class="stat-row">
                         <span class="stat-pill akamai">$4.21B FY Rev</span>
-                        <span class="stat-pill akamai">Security +10%</span>
                         <span class="stat-pill akamai">CIS +45%</span>
                         <span class="stat-pill akamai">4,400+ Edge</span>
                     </div>
                     <ul class="highlights">
-                        <li><strong>AI Grid + NVIDIA:</strong> Inference across 4,400+ GPU-enabled locations</li>
-                        <li><strong>API Security &gt;$100M</strong> run rate, &gt;100% YoY growth</li>
+                        <li><strong>AI Grid + NVIDIA:</strong> Inference across 4,400+ locations</li>
+                        <li><strong>API Security &gt;$100M</strong> run rate, &gt;100% YoY</li>
                         <li><strong>Third pivot:</strong> CDN &rarr; security &rarr; AI infrastructure</li>
                     </ul>
                     <span class="read-btn akamai">Read Full Brief &rarr;</span>
+                </div>
+            </a>
+
+            <a href="fastly-april-2026.html" class="report-card">
+                <div class="card-header fastly">
+                    <h2>Fastly Brief</h2>
+                    <div class="period">April 2026</div>
+                </div>
+                <div class="card-body">
+                    <div class="stat-row">
+                        <span class="stat-pill" style="color:#FF282D;">$624M FY (+15%)</span>
+                        <span class="stat-pill" style="color:#FF282D;">Q4 +23%</span>
+                        <span class="stat-pill" style="color:#FF282D;">110% NRR</span>
+                    </div>
+                    <ul class="highlights">
+                        <li><strong>First profitable year</strong> (non-GAAP); stock +354%</li>
+                        <li><strong>Forrester Edge Leader</strong> Q1 2026</li>
+                        <li><strong>AI bot research:</strong> 49% of web traffic = bots</li>
+                    </ul>
+                    <span class="read-btn" style="background:#FF282D;">Read Full Brief &rarr;</span>
+                </div>
+            </a>
+
+            <a href="imperva-april-2026.html" class="report-card">
+                <div class="card-header imperva">
+                    <h2>Imperva / Thales Brief</h2>
+                    <div class="period">April 2026</div>
+                </div>
+                <div class="card-body">
+                    <div class="stat-row">
+                        <span class="stat-pill" style="color:#6C3483;">8-yr Gartner Leader</span>
+                        <span class="stat-pill" style="color:#6C3483;">26B+ attacks/day</span>
+                        <span class="stat-pill" style="color:#6C3483;">Thales €22.22B</span>
+                    </div>
+                    <ul class="highlights">
+                        <li><strong>Imperva for Google Cloud</strong> (CA Apr 30, 2026)</li>
+                        <li><strong>AI Application Security</strong> (GA mid-2026) + AI Security Fabric</li>
+                        <li><strong>KuppingerCole 2025</strong> Market Leader API Security</li>
+                    </ul>
+                    <span class="read-btn" style="background:#6C3483;">Read Full Brief &rarr;</span>
                 </div>
             </a>
         </div>
