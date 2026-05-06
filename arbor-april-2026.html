@@ -26,6 +26,7 @@
             --arbor-teal: #005F73;
             --f5-red: #E4002B;
             --a10-blue: #0071CE;
+            --corero-green: #2D6A4F;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -167,6 +168,7 @@
         .vendor-f5 { background: var(--f5-red); }
         .vendor-a10 { background: var(--a10-blue); }
         .vendor-radware { background: var(--radware-green); }
+        .vendor-corero { background: var(--corero-green); }
 
         .delta-grid {
             display: grid;
@@ -651,6 +653,7 @@
                 <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>Broadest application delivery portfolio with DDoS as integrated component. ADSP Partner Program with MazeBolt (proactive DDoS testing). Distributed Cloud DDoS at 12+ Tbps / 24 Regional Edges. BIG-IP Hybrid Defender for on-prem. AI bookings $50M (+200%). Innovation is broad (multicloud, AI, WAAP) rather than DDoS-deep. CISA ED 26-01 raises trust concerns.</td></tr>
                 <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>A10 Defend suite: Thunder TPS (300 Gbps/440 Mpps per appliance &mdash; market-leading), Defend Threat Control SaaS, AI-enhanced zero-day detection. ThreatX acquisition (Feb 2025) adds API/web app protection. Won Microsoft AI infrastructure contract. Innovation spans DDoS + ADC.</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS mitigation without decryption (per Radware claim). DefensePro 6 models (6&ndash;800 Gbps; high-end of comparison set). Pynt acquisition (Jan 26, 2026) for pre-production API testing. <strong>LLM Firewall (Nov 18, 2025) + Agentic AI Protection (Feb 3, 2026)</strong> = full GenAI runtime security stack. Cloud DDoS doubled to 30 Tbps Jan 6, 2026. DDoS attacks up 168% per Radware Global Threat Report.</td></tr>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td>Pure-play DDoS specialist with subscription momentum. <strong>SmartWall ONE 14.1</strong> (modular 80&ndash;800 Gbps per appliance, sub-second L3&ndash;7 inline). <strong>SmartWall TDD on Juniper MX/PTX routers: 50 Gbps to 40 Tbps line-rate</strong> via router enforcement. SmartWall ONE Encrypted DDoS Protection (Oct 2025) &mdash; AI-assisted, no-decryption (per Corero claim) &mdash; mirrors Radware&rsquo;s encrypted-L7 positioning. ARR +23% to $23.9M (FY2025); 98% retention. Channel via HPE+Juniper, Akamai (Prolexic OEM), GTT.</td></tr>
             </tbody>
         </table>
     </div>
@@ -664,6 +667,7 @@
                 <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>12+ Tbps combined scrubbing; 24 Regional Edges</td><td>Always-On or Always-Available subscriptions. Managed service with SOC. L3/L4/L7 protection</td><td>Integrated into ADSP platform &mdash; DDoS + WAF + bot + API in single cloud. MazeBolt proactive testing. But: CISA ED 26-01 trust concerns.</td></tr>
                 <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>Cloud scrubbing via A10 Defend; capacity not publicly disclosed</td><td>On-demand or always-on with BGP-based redirection. A10 DSIRT 24/7 incident response</td><td>ML-driven automation for traffic redirection and policy escalation. Zero-atrophy threat intelligence. Strongest in carrier/telco (9 of top 10).</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>30 Tbps total cloud mitigation</strong> (doubled from 15 Tbps in Jan 2026); 12+ global scrubbing centers; all on DefensePro X backbone</td><td>Always-on or on-demand. Hybrid with DefensePro on-prem + cloud scrubbing. 24/7 ERT</td><td>Encrypted attack mitigation without decryption (per Radware claim). Behavioral ML. 2025 expansion: Bogotá, Lima, Mumbai, Singapore, 2nd Tel Aviv.</td></tr>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td>No dedicated cloud-scrubbing network; cloud reach via <strong>Akamai Prolexic on-prem &amp; hybrid &ldquo;powered by Corero&rdquo;</strong> (OEM partnership)</td><td>DDoSPaaS subscription model (ARR 71% of revenue). On-prem SmartWall + Akamai cloud overflow. CORE platform for traffic visibility</td><td>Smallest cloud footprint in comparison set. Compensates via Akamai integration: Corero appliance technology embedded inside Akamai Prolexic Hybrid. SmartWall ONE Encrypted (no-decrypt) launched Oct 2025.</td></tr>
             </tbody>
         </table>
     </div>
@@ -677,6 +681,7 @@
                 <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>BIG-IP DDoS Hybrid Defender: multi-layer L3/L4/L7, SSL decryption, anti-bot</td><td>BIG-IP on-prem + Distributed Cloud for volumetric overflow. ADSP unifies management</td><td>Only vendor with full ADC + DDoS in single appliance. SSL decryption at line rate. But: CISA ED 26-01 and CVE-2025-53521 raise trust concerns for on-prem BIG-IP.</td></tr>
                 <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>Thunder TPS (A10 Defend Mitigator): 300 Gbps / 440 Mpps per appliance. Scales to 2.4 Tbps in cluster</td><td>On-prem Thunder TPS + cloud scrubbing via BGP redirection</td><td>Strong per-appliance throughput (300 Gbps). 11x performance over legacy. NimbusDDOS certified. Strong in carrier environments. (Radware DefensePro at 800 Gbps is the comparison-set high.)</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>DefensePro: 6 models, 6 Gbps to 800 Gbps</strong> max programmable mitigation per appliance; behavioral ML</td><td>DefensePro on-prem + 30 Tbps Cloud DDoS for hybrid. Automated failover</td><td>Highest single-appliance throughput in comparison set (800 Gbps). Encrypted L7 DDoS without decryption (per Radware claim). Behavioral detection. Flexible deployment.</td></tr>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td><strong>SmartWall ONE 14.1: modular 80&ndash;800 Gbps per appliance</strong>, sub-second L3&ndash;7 inline mitigation, no forklift upgrade. <strong>SmartWall TDD on Juniper MX/PTX: 50 Gbps&ndash;40 Tbps</strong> line-rate via router enforcement</td><td>On-prem SmartWall + Akamai Prolexic for hybrid cloud overflow. CORE platform unifies visibility</td><td>Most flexible per-appliance scaling (modular 80&rarr;800 Gbps). Juniper-router-integrated TDD enforces at line rate without dedicated appliance. Smaller absolute scale than NETSCOUT but appliance technology trusted by Akamai (Prolexic powered by Corero).</td></tr>
             </tbody>
         </table>
     </div>
@@ -690,6 +695,7 @@
                 <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>ML-based anomaly detection in Distributed Cloud. BIG-IP behavioral analysis. AI bookings $50M</td><td>F5 Labs threat research. MazeBolt proactive DDoS testing via ADSP partnership</td><td>Proactive DDoS testing (MazeBolt) is unique in market. AI investment is broad (multicloud, not DDoS-specific).</td></tr>
                 <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>AI-enhanced zero-day filter generation. ML-driven automation for traffic redirection and policy escalation</td><td>Defend Threat Control SaaS: real-time DDoS attack map, reflector/botnet intelligence, zero-atrophy data</td><td>SaaS-based DDoS intelligence without dedicated equipment. Strong for organizations wanting visibility without full deployment.</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Behavioral ML in DefensePro. Agentic AI Protection for prompt injection/tool abuse</td><td>Global Threat Report (annual). DDoS attacks up 168% finding. Emergency Response Team (ERT) intelligence</td><td>Behavioral ML focus. Agentic AI Protection addresses emerging AI agent threats. ERT provides human-in-the-loop intelligence.</td></tr>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td>AI-assisted detection in SmartWall ONE; AI-driven encrypted-DDoS analysis (no-decryption per Corero claim). CORE platform combines mitigation with network intelligence</td><td>No public ATLAS-equivalent telemetry program. Relies on customer + partner data (Akamai, Juniper, GTT)</td><td>Lacks ATLAS-class scale (NETSCOUT&rsquo;s structural moat). Differentiates on AI-assisted no-decrypt L7 (parity with Radware) and operational simplicity for service-provider/MSP segments.</td></tr>
             </tbody>
         </table>
     </div>
@@ -703,6 +709,7 @@
                 <tr><td><span class="vendor-badge vendor-f5">F5</span></td><td>$3.1B (FY2025, +10%); Q2 FY2026 $812M (+11%); product +22%; ~$17.2B mkt cap</td><td>Strongest financial position in comparison set. 7 consecutive quarters double-digit product growth. Guidance raised. But: CISA ED 26-01 is a trust liability.</td></tr>
                 <tr><td><span class="vendor-badge vendor-a10">A10</span></td><td>$290.6M (FY2025, +11%); Q1 2026 $75M (+13.4%); ~$1.99B mkt cap; $369.8M cash</td><td>Record revenue year. Stock +84% in 12 months. Microsoft AI infrastructure win. ThreatX acquisition expands TAM. 90%+ renewal rates.</td></tr>
                 <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>$301.9M (FY2025, +10% YoY); Cloud ARR $95.2M (+23%); Total ARR $251.0M (+11%); Non-GAAP EPS $1.15</strong></td><td>Cloud security push via Investor Day. Pynt acquired Jan 26 2026 (~tens of millions); Agentic AI Protection. Cloud DDoS doubled to 30 Tbps Jan 6 2026. Hybrid deployment + DefensePro 800 Gbps high-end. ~3,500 enterprise/carrier customers; 9 of top 10 carriers; 4 of top 10 SaaS providers.</td></tr>
+                <tr><td><span class="vendor-badge vendor-corero">Corero</span></td><td>$24.6M (FY2024 audited); <strong>FY2025 ARR $23.9M (+23%); Order Intake $33.8M (+20%); 98% retention</strong>; ~£61.5M (~$77M USD) mkt cap (LON:CNS / OTCQX:DDOSF)</td><td>Subscription pivot accelerating (ARR 71% of revenue). FY2025 wins driven by competitive displacements across telecom / data-center / enterprise. HPE-Juniper channel activation (post-July 2025 close) materially expands enterprise reach. Smallest absolute revenue in comparison set &mdash; ~13x smaller than NETSCOUT cybersecurity (~$305M annualized).</td></tr>
             </tbody>
         </table>
     </div>
@@ -735,8 +742,12 @@
                     <span class="bar-label">A10</span>
                     <div class="bar-track"><div class="bar-fill" style="width:9.4%; background:var(--a10-blue);">$291M</div></div>
                 </div>
+                <div class="bar-row">
+                    <span class="bar-label">Corero</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:1%; background:var(--corero-green);">$25M</div></div>
+                </div>
             </div>
-            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">F5&rsquo;s $3.1B is total company revenue (ADC, WAF, DDoS, bot, API). NETSCOUT&rsquo;s $823M includes service assurance (~63%); cybersecurity is ~37% ($305M annualized). DDoS-specific revenue is not separately disclosed for any vendor.</p>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">F5&rsquo;s $3.1B is total company revenue (ADC, WAF, DDoS, bot, API). NETSCOUT&rsquo;s $823M includes service assurance (~63%); cybersecurity is ~37% ($305M annualized). DDoS-specific revenue is not separately disclosed for any vendor. Corero $24.6M FY2024 audited; FY2025 ARR $23.9M (+23%).</p>
         </div>
 
         <div class="chart-box">
@@ -758,8 +769,12 @@
                     <span class="bar-label">Radware</span>
                     <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--radware-green);">Not disclosed</div></div>
                 </div>
+                <div class="bar-row">
+                    <span class="bar-label">Corero</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:15%; background:var(--corero-green);">Via Akamai OEM</div></div>
+                </div>
             </div>
-            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">NETSCOUT leads in disclosed dedicated scrubbing capacity (15+ Tbps across 16 centers). F5 at 12+ Tbps across 24 Regional Edges. A10 and Radware do not publicly disclose cloud scrubbing Tbps.</p>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">NETSCOUT leads in disclosed dedicated scrubbing capacity (15+ Tbps across 16 centers). F5 at 12+ Tbps across 24 Regional Edges. A10 and Radware do not publicly disclose cloud scrubbing Tbps. Corero has no dedicated cloud network &mdash; cloud reach via Akamai Prolexic on-prem &amp; hybrid &ldquo;powered by Corero&rdquo; OEM.</p>
         </div>
     </div>
 
@@ -812,9 +827,10 @@
                     <div class="matrix-dot" style="left:65%; bottom:70%; background:var(--f5-red);">F5</div>
                     <div class="matrix-dot" style="left:35%; bottom:75%; background:var(--a10-blue);">A10</div>
                     <div class="matrix-dot" style="left:45%; bottom:60%; background:var(--radware-green);">Radware</div>
+                    <div class="matrix-dot" style="left:18%; bottom:65%; background:var(--corero-green);">Corero</div>
                 </div>
             </div>
-            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>NETSCOUT leads in both cloud scale (15+ Tbps dedicated) and on-prem depth (AED + TMS + Sightline).</strong> F5 has strong cloud scale (12+ Tbps) with BIG-IP hybrid depth but faces CISA trust concerns. A10 excels in on-prem per-appliance performance (300 Gbps) with undisclosed cloud capacity. Radware balances both with hybrid flexibility and encrypted DDoS differentiation.</p>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>NETSCOUT leads in both cloud scale (15+ Tbps dedicated) and on-prem depth (AED + TMS + Sightline).</strong> F5 has strong cloud scale (12+ Tbps) with BIG-IP hybrid depth but faces CISA trust concerns. A10 excels in on-prem per-appliance performance (300 Gbps) with undisclosed cloud capacity. Radware balances both with hybrid flexibility and encrypted DDoS differentiation. Corero is the smallest in cloud scale (no dedicated network; via Akamai OEM) but has solid on-prem depth (modular 80&ndash;800 Gbps SmartWall ONE + 50 Gbps&ndash;40 Tbps Juniper-router TDD).</p>
         </div>
     </div>
 </article>
@@ -838,7 +854,7 @@
 
     <div class="signal-box">
         <h4>Signal 3: The &ldquo;Pure DDoS&rdquo; Market Is Shrinking as Platforms Bundle Protection</h4>
-        <p>Cloudflare offers unmetered DDoS included with every plan. Akamai bundles Prolexic with CDN and security contracts. Even Radware and Imperva offer DDoS within WAAP platforms. <strong>NETSCOUT&rsquo;s pure-play DDoS positioning faces structural headwinds as enterprise security consolidation favors platform vendors over point solutions.</strong> NETSCOUT&rsquo;s ISP/carrier channel (Arelion, Tier-1 ISPs) is more defensible than enterprise direct sales where platform consolidation hits hardest.</p>
+        <p>Cloudflare offers unmetered DDoS included with every plan. Akamai bundles Prolexic with CDN and security contracts. Even Radware and Imperva offer DDoS within WAAP platforms. <strong>NETSCOUT&rsquo;s pure-play DDoS positioning faces structural headwinds as enterprise security consolidation favors platform vendors over point solutions.</strong> NETSCOUT&rsquo;s ISP/carrier channel (Arelion, Tier-1 ISPs) is more defensible than enterprise direct sales where platform consolidation hits hardest. Corero faces the same pure-play structural pressure at much smaller scale ($24M FY2024 revenue), and is responding via channel partnerships (HPE-Juniper, Akamai Prolexic OEM, GTT) rather than platform expansion.</p>
     </div>
 
     <div class="signal-box">
@@ -853,7 +869,7 @@
 
     <div class="signal-box">
         <h4>Signal 6: NETSCOUT&rsquo;s Lack of WAAP Limits Deal Size but Simplifies Competitive Positioning</h4>
-        <p>NETSCOUT doesn&rsquo;t compete with Radware on WAF, bot management, or API security. It competes exclusively on DDoS. <strong>In enterprise deals where DDoS is purchased separately from WAAP, NETSCOUT is a direct Radware competitor. In consolidated WAAP + DDoS deals, NETSCOUT is not a factor.</strong> The competitive implication: Radware&rsquo;s unified DDoS + WAAP + API security positioning is stronger than NETSCOUT&rsquo;s in consolidation cycles, but NETSCOUT&rsquo;s DDoS depth is stronger in DDoS-specific evaluations.</p>
+        <p>NETSCOUT doesn&rsquo;t compete with Radware on WAF, bot management, or API security. It competes exclusively on DDoS. <strong>In enterprise deals where DDoS is purchased separately from WAAP, NETSCOUT is a direct Radware competitor. In consolidated WAAP + DDoS deals, NETSCOUT is not a factor.</strong> The competitive implication: Radware&rsquo;s unified DDoS + WAAP + API security positioning is stronger than NETSCOUT&rsquo;s in consolidation cycles, but NETSCOUT&rsquo;s DDoS depth is stronger in DDoS-specific evaluations. Corero shares NETSCOUT&rsquo;s pure-play DDoS constraint (no WAAP/API/bot) but at a fraction of the scale &mdash; in DDoS-only evaluations Corero is a credible third pure-play option alongside NETSCOUT, especially in service-provider/MSP segments.</p>
     </div>
 </article>
 
@@ -883,7 +899,7 @@
         <div class="takeaway-card">
             <div class="takeaway-num">4</div>
             <h4>In DDoS-specific evaluations, NETSCOUT is Radware&rsquo;s most technically capable competitor</h4>
-            <p>When DDoS is evaluated independently (carrier/ISP, critical infrastructure, government), NETSCOUT&rsquo;s ISP-grade heritage, ATLAS telemetry, and multi-layer stack (AED + Cloud + Sightline + TMS) represent the deepest pure-play alternative. Radware&rsquo;s differentiation in these evaluations relies on encrypted DDoS mitigation (per Radware claim) and hybrid deployment flexibility.</p>
+            <p>When DDoS is evaluated independently (carrier/ISP, critical infrastructure, government), NETSCOUT&rsquo;s ISP-grade heritage, ATLAS telemetry, and multi-layer stack (AED + Cloud + Sightline + TMS) represent the deepest pure-play alternative. Radware&rsquo;s differentiation in these evaluations relies on encrypted DDoS mitigation (per Radware claim) and hybrid deployment flexibility &mdash; though Corero&rsquo;s October 2025 SmartWall ONE Encrypted launch (no-decryption per Corero claim) means encrypted-L7 is no longer unique to Radware. Cloud scale (Radware 30 Tbps vs NETSCOUT 15+ Tbps), per-appliance throughput (DefensePro 800 Gbps), and ERT remain stronger Radware differentiators.</p>
         </div>
         <div class="takeaway-card">
             <div class="takeaway-num">5</div>
