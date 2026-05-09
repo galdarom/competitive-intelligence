@@ -164,7 +164,7 @@
             white-space: nowrap;
         }
         .vendor-cf { background: var(--cf-orange); }
-        .vendor-akamai { background: var(--imperva-purple); }
+        .vendor-akamai { background: var(--akamai-blue); }
         .vendor-fastly { background: var(--fastly-red); }
         .vendor-aws { background: var(--aws-orange); }
         .vendor-palo { background: var(--palo-cyan); color: #1a1a1a; }
@@ -656,11 +656,11 @@
         <table>
             <thead><tr><th style="width:130px">Vendor</th><th>Assessment</th></tr></thead>
             <tbody>
-                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td><strong>2026 product cycle is the most significant since the Thales acquisition.</strong> Imperva for Google Cloud (Apr 30, 2026 CA); AI Application Security (GA mid-2026); AI Security Fabric expansion (data leakage prevention, MCP security gateway, runtime access control). 8 consecutive years Gartner WAAP MQ Leader (most recent: highest Completeness of Vision). KuppingerCole 2025 Market Leader API Security. 26B+ attacks/day stopped. Innovation pivots from feature parity to AI security architecture.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td><strong>2026 product cycle is the most significant since the Thales acquisition [per Imperva claim].</strong> Imperva for Google Cloud (Apr 30, 2026 CA); AI Application Security (GA mid-2026); AI Security Fabric expansion (data leakage prevention, MCP security gateway, runtime access control). 8 consecutive years Gartner WAAP MQ Leader (most recent: highest Completeness of Vision). KuppingerCole 2025 Market Leader API Security. 26B+ attacks/day stopped <a class="source-link" href="https://www.imperva.com/why-imperva/global-network/" target="_blank">[source]</a>. Innovation pivots from feature parity to AI security architecture.</td></tr>
                 <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>Highest innovation velocity. Agents Week 2026 delivered 10+ products. AI Security for Apps already shipping with Wiz integration. TAM $196B.</td></tr>
                 <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>AI Inference Cloud + AI Grid (NVIDIA Blackwell). Fermyon WebAssembly. API Security &gt;$100M run rate +100% YoY. Visa partnership. Forrester WAF Leader Q1 2025.</td></tr>
                 <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>First profitable year. Forrester Edge Development Platforms Q1 2026 Leader. AI bot research thought leadership. LaLiga AI partnership. Compute@Edge with 35.4&micro;s WebAssembly cold start.</td></tr>
-                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS without decryption (per Radware claim). DefensePro 6 models (6&ndash;800 Gbps; high-end of comparison set). LLM Firewall (Nov 2025) + Agentic AI Protection (Feb 2026) full GenAI runtime stack. Pynt acquisition (Jan 26, 2026). Cloud DDoS doubled to 30 Tbps Jan 6, 2026.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td>Encrypted DDoS without decryption (per Radware claim). Corero's October 2025 SmartWall ONE Encrypted launch matches this claim &mdash; Radware's defensible advantages vs Corero are scale (cloud 30 Tbps, DefensePro 800 Gbps), behavioral-ML maturity, and platform breadth. DefensePro 6 models (6&ndash;800 Gbps; high-end of comparison set). LLM Firewall (Nov 2025) + Agentic AI Protection (Feb 2026) full GenAI runtime stack. Pynt acquisition (Jan 26, 2026) <a class="source-link" href="https://www.radware.com/newsevents/pressreleases/" target="_blank">[source]</a>. Cloud DDoS doubled to 30 Tbps Jan 6, 2026.</td></tr>
             </tbody>
         </table>
     </div>
@@ -670,11 +670,11 @@
         <table>
             <thead><tr><th style="width:130px">Vendor</th><th>Network Capacity</th><th>Mitigation</th><th>Differentiation</th></tr></thead>
             <tbody>
-                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td><strong>6 Tbps; 44+ PoPs</strong></td><td>Cloud scrubbing; infrastructure + application layer; integrated into broader WAAP stack</td><td><strong>Enterprise-adequate DDoS capacity bundled with WAAP.</strong> Not a Tier-1 DDoS specialist; Cloudflare/Akamai/Radware all exceed Imperva on capacity. Sweet spot is enterprises buying integrated WAAP + DDoS + bot + data security in one platform.</td></tr>
-                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>500 Tbps Anycast, 330+ cities</td><td>Autonomous sub-3s edge mitigation</td><td>Largest Anycast network globally; unmetered.</td></tr>
-                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>200+ Tbps total; 20+ Tbps Prolexic; 36 scrubbing centers</td><td>Prolexic scrubbing; 225+ SOCC defenders 24/7</td><td>Deepest enterprise DDoS pedigree.</td></tr>
-                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>~100 PoPs</td><td>Edge-based via CDN infrastructure</td><td>Adequate for CDN customers; not DDoS specialist.</td></tr>
-                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>DefensePro: up to 800 Gbps per appliance; Cloud DDoS: 30 Tbps</strong> total (doubled Jan 2026)</td><td>Behavioral ML; hybrid; encrypted L7 DDoS without decryption (per Radware claim)</td><td>Highest single-appliance throughput.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td><strong>6 Tbps; 44+ PoPs</strong> <a class="source-link" href="https://www.imperva.com/products/ddos-protection/" target="_blank">[source]</a></td><td>Cloud scrubbing; infrastructure + application layer; integrated into broader WAAP stack</td><td><strong>Enterprise-adequate DDoS capacity bundled with WAAP.</strong> Not a Tier-1 DDoS specialist; Cloudflare/Akamai/Radware all exceed Imperva on capacity. Sweet spot is enterprises buying integrated WAAP + DDoS + bot + data security in one platform.</td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>500 Tbps Anycast, 330+ cities <a class="source-link" href="https://www.cloudflare.com/network/" target="_blank">[source]</a></td><td>Autonomous sub-3s edge mitigation</td><td>Largest Anycast network globally [per Cloudflare claim]; unmetered.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>200+ Tbps total; 20+ Tbps Prolexic; 36 scrubbing centers <a class="source-link" href="https://www.akamai.com/products/prolexic-solutions" target="_blank">[source]</a></td><td>Prolexic scrubbing; 225+ SOCC defenders 24/7</td><td>Deepest enterprise DDoS pedigree [per Akamai claim].</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>~100 PoPs <a class="source-link" href="https://www.fastly.com/network-map" target="_blank">[source]</a></td><td>Edge-based via CDN infrastructure</td><td>Adequate for CDN customers; not DDoS specialist.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>DefensePro: up to 800 Gbps per appliance; Cloud DDoS: 30 Tbps</strong> total (doubled Jan 2026) <a class="source-link" href="https://www.globenewswire.com/news-release/2026/01/06/3213392/8980/en/Radware-Doubles-Global-Cloud-Security-Capacity.html" target="_blank">[source]</a></td><td>Behavioral ML; hybrid; encrypted L7 DDoS without decryption (per Radware claim). Corero's October 2025 SmartWall ONE Encrypted launch matches this claim &mdash; Radware's defensible advantages vs Corero are scale (cloud 30 Tbps, DefensePro 800 Gbps), behavioral-ML maturity, and platform breadth.</td><td>Highest single-appliance throughput [per Radware claim].</td></tr>
             </tbody>
         </table>
     </div>
@@ -712,11 +712,11 @@
         <table>
             <thead><tr><th style="width:130px">Vendor</th><th>Revenue / Growth</th><th>Market Signal</th></tr></thead>
             <tbody>
-                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td><strong>Part of Thales (~€22.22B group, ~$24B); Thales cybersecurity portfolio &gt;€2.4B post-Imperva integration; Imperva-specific revenue not separately disclosed; Cyber &amp; Digital division -3.8% sales in FY2025 due to integration challenges</strong></td><td><strong>8 consecutive years Gartner WAAP MQ Leader (highest Completeness of Vision); KuppingerCole 2025 Market Leader API Security; stops 26B+ attacks/day. AI security pipeline accelerating: Imperva for Google Cloud (Apr 2026 CA); AI Application Security (GA mid-2026); AI Security Fabric expansion. 2026 Google Cloud Partner of the Year (Sovereign Cloud).</strong></td></tr>
-                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>$2.17B (FY2025); 29.8% YoY (33.6% Q4); ~$74B mkt cap; 332K paying customers (+40%)</td><td>TAM $196B; platform strategy gaining. Q1 2026 earnings May 7.</td></tr>
-                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>$4.21B (FY2025, +5%); Security $2.24B (+10%); CIS Q4 +45%; ~$14.1B mkt cap</td><td>AI inference is the rerate narrative. $200M Inference Cloud anchor deal. Q1 2026 earnings May 7.</td></tr>
-                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>$624M (FY2025, +15%); Q4 +23%; first non-GAAP profitable; stock +354%; Q1 earnings May 6</td><td>Profitability inflection + Forrester Edge Leader = re-rating story.</td></tr>
-                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>$301.9M (FY2025, +10% YoY); Cloud ARR $95.2M (+23%); Total ARR $251.0M (+11%); Non-GAAP EPS $1.15</strong></td><td>Cloud DDoS doubled to 30 Tbps (Jan 6 2026); DefensePro 800 Gbps. ~3,500 enterprise/carrier customers; 9 of top 10 carriers; 4 of top 10 SaaS providers.</td></tr>
+                <tr><td><span class="vendor-badge vendor-imperva">Imperva/Thales</span></td><td><strong>Part of Thales (~€22.22B group, ~$24B); Thales cybersecurity portfolio &gt;€2.4B post-Imperva integration; Imperva-specific revenue not separately disclosed; Cyber &amp; Digital division -3.8% sales in FY2025 due to integration challenges</strong> <a class="source-link" href="https://www.thalesgroup.com/en/investors" target="_blank">[source]</a></td><td><strong>8 consecutive years Gartner WAAP MQ Leader (highest Completeness of Vision); KuppingerCole 2025 Market Leader API Security; stops 26B+ attacks/day. AI security pipeline accelerating: Imperva for Google Cloud (Apr 2026 CA); AI Application Security (GA mid-2026); AI Security Fabric expansion. 2026 Google Cloud Partner of the Year (Sovereign Cloud).</strong></td></tr>
+                <tr><td><span class="vendor-badge vendor-cf">Cloudflare</span></td><td>$2.17B (FY2025); 29.8% YoY (33.6% Q4); ~$74B mkt cap; 332K paying customers (+40%) <a class="source-link" href="https://cloudflare.net/financials/" target="_blank">[source]</a></td><td>TAM $196B; platform strategy gaining. Q1 2026 earnings May 7.</td></tr>
+                <tr><td><span class="vendor-badge vendor-akamai">Akamai</span></td><td>$4.21B (FY2025, +5%); Security $2.24B (+10%); CIS Q4 +45%; ~$14.1B mkt cap <a class="source-link" href="https://www.ir.akamai.com" target="_blank">[source]</a></td><td>AI inference is the rerate narrative. $200M Inference Cloud anchor deal. Q1 2026 earnings May 7.</td></tr>
+                <tr><td><span class="vendor-badge vendor-fastly">Fastly</span></td><td>$624M (FY2025, +15%); Q4 +23%; first non-GAAP profitable; stock +354%; Q1 earnings May 6 <a class="source-link" href="https://investors.fastly.com" target="_blank">[source]</a></td><td>Profitability inflection + Forrester Edge Leader = re-rating story.</td></tr>
+                <tr><td><span class="vendor-badge vendor-radware">Radware</span></td><td><strong>$301.9M (FY2025, +10% YoY); Cloud ARR $95.2M (+23%); Total ARR $251.0M (+11%); Non-GAAP EPS $1.15</strong> <a class="source-link" href="https://www.radware.com/about/investor-relations/" target="_blank">[source]</a></td><td>Cloud DDoS doubled to 30 Tbps (Jan 6 2026); DefensePro 800 Gbps. ~3,500 enterprise/carrier customers; 9 of top 10 carriers; 4 of top 10 SaaS providers. <a class="source-link" href="https://www.radware.com/about/customer-success-stories/" target="_blank">[source]</a></td></tr>
             </tbody>
         </table>
     </div>
@@ -754,7 +754,7 @@
                     <div class="bar-track"><div class="bar-fill" style="width:40%; background:var(--radware-green);">Gartner WAAP Peer Insights Strong Performer</div></div>
                 </div>
             </div>
-            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Imperva holds the deepest Track 1 analyst credibility (8 consecutive years Gartner WAAP MQ Leader + KuppingerCole). Visual comparison illustrative only.</p>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Imperva holds the deepest Track 1 analyst credibility (8 consecutive years Gartner WAAP MQ Leader + KuppingerCole) <a class="source-link" href="https://www.gartner.com/" target="_blank">[source]</a>. Visual comparison illustrative only.</p>
         </div>
 
         <div class="chart-box">
@@ -777,7 +777,7 @@
                     <div class="bar-track"><div class="bar-fill" style="width:70%; background:#B86BB8;">2026 Bad Bot Report (53% bots)</div></div>
                 </div>
             </div>
-            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Three AI-security launches in 60 days = most significant Imperva product expansion since Thales acquisition closed Dec 2023.</p>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Three AI-security launches in 60 days = most significant Imperva product expansion since Thales acquisition closed Dec 2023 [per Imperva claim] <a class="source-link" href="https://www.imperva.com/blog/" target="_blank">[source]</a>.</p>
         </div>
     </div>
 
@@ -815,7 +815,7 @@
                     <div class="bar-track"><div class="bar-fill" style="width:5%; background:#7B3F8F;">170 enterprise customers</div></div>
                 </div>
             </div>
-            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Named anchor accounts: Australian Government, French State, McKesson, Toyota / Toyota Motor North America. Strong in Finance, Banking, Insurance, Healthcare, Government.</p>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Named anchor accounts: Australian Government, French State, McKesson, Toyota / Toyota Motor North America. Strong in Finance, Banking, Insurance, Healthcare, Government. <a class="source-link" href="https://www.imperva.com/customers/" target="_blank">[source]</a></p>
         </div>
     </div>
 
@@ -833,7 +833,7 @@
                     <div class="matrix-dot" style="left:55%; bottom:50%; background:var(--radware-green);">Radware</div>
                 </div>
             </div>
-            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>Imperva sits at the intersection of deepest analyst credibility AND accelerating AI security pipeline.</strong> The 2026 product cycle is closing the velocity gap with Cloudflare and Akamai while Imperva retains the 8-year Gartner WAAP Leader credibility no peer can match.</p>
+            <p style="font-size:0.8rem; color:#555; text-align:center; margin-top:1rem;"><strong>Imperva sits at the intersection of deepest analyst credibility AND accelerating AI security pipeline [per Imperva claim].</strong> The 2026 product cycle is closing the velocity gap with Cloudflare and Akamai while Imperva retains the 8-year Gartner WAAP Leader credibility no peer can match.</p>
         </div>
     </div>
 </article>
