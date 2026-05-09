@@ -836,6 +836,36 @@
     </div>
 
     <div class="chart-row">
+        <!-- Cloud DDoS / Network Capacity -->
+        <div class="chart-box" style="grid-column: 1 / -1;">
+            <h4>Cloud DDoS / Network Capacity (Tbps)</h4>
+            <div class="bar-chart" style="padding-top:0.5rem;">
+                <div class="bar-row">
+                    <span class="bar-label">Cloudflare</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--cf-orange);">500 Tbps (total network)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Fastly</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:87%; background:var(--fastly-red);">437+ Tbps</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Radware</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:6%; background:var(--radware-green);">30 Tbps cloud DDoS</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label" style="color:var(--akamai-blue); font-weight:800;">Akamai</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:4%; background:var(--akamai-blue);">20+ Tbps Prolexic (dedicated)</div></div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Imperva</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:2%; background:var(--imperva-purple);">9+ Tbps DDoS</div></div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:#888; margin-top:0.8rem; text-align:center;">Metrics are not directly comparable. Cloudflare&rsquo;s 500 Tbps is total network capacity <a class="source-link" href="https://www.cloudflare.com/network/" target="_blank">[source]</a>; Akamai&rsquo;s 20+ Tbps is dedicated Prolexic DDoS scrubbing capacity <a class="source-link" href="https://www.akamai.com/products/prolexic" target="_blank">[source]</a>; Fastly figure is total network <a class="source-link" href="https://www.fastly.com/network-map" target="_blank">[source]</a>; Radware 30 Tbps cloud DDoS network <a class="source-link" href="https://www.radware.com/products/cloud-ddos-services/" target="_blank">[source]</a>; Imperva 9+ Tbps DDoS Protection <a class="source-link" href="https://www.imperva.com/products/ddos-protection-services/" target="_blank">[source]</a>.</p>
+        </div>
+    </div>
+
+    <div class="chart-row">
         <!-- Positioning Matrix -->
         <div class="chart-box" style="grid-column: 1 / -1;">
             <h4>Competitive Positioning Matrix: Security Depth vs. Cloud/AI Compute Ambition</h4>
