@@ -562,12 +562,14 @@
     <div class="container">
         <div class="toc-inner">
             <a href="#snapshot">Snapshot</a>
+            <a href="#analyst-recognition">1.5 Analyst Recognition</a>
             <a href="#news">1. News Table</a>
             <a href="#delta">2. Delta Analysis</a>
             <a href="#competitive">3. Competitive Comparison</a>
             <a href="#visual">4. Visual Strategy</a>
             <a href="#signals">5. Strategic Signals</a>
             <a href="#takeaways">6. Executive Takeaways</a>
+            <a href="#battlecards">6.5 Sales Battlecards</a>
         </div>
     </div>
 </nav>
@@ -665,6 +667,26 @@
             <div class="kpi-label">DDoS Attacks Blocked (2025)</div>
             <div class="kpi-delta up">Doubled YoY</div>
         </div>
+    </div>
+</article>
+
+<!-- Section 1.5: Analyst Recognition -->
+<article class="section" id="analyst-recognition">
+    <div class="section-header">
+        <div class="section-number">1.5</div>
+        <h2>Analyst Recognition</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Firm</th><th>Category</th><th style="width:140px">Position</th><th style="width:60px">Year</th><th style="width:100px">Source</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Gartner</strong></td><td>Magic Quadrant for Cloud Web Application and API Protection</td><td>Leader</td><td>2024 <em style="color:#888; font-size:0.75rem;">[verify currency]</em></td><td><a class="source-link" href="https://www.sdxcentral.com/analysis/gartner-names-akamai-cloudflare-imperva-cloud-waap-leaders/" target="_blank">[source]</a></td></tr>
+                <tr><td><strong>Gartner</strong></td><td>Magic Quadrant for SASE Platforms</td><td>Visionary</td><td>2025</td><td><a class="source-link" href="https://blog.cloudflare.com/cloudflare-sase-gartner-magic-quadrant-2025/" target="_blank">[source]</a></td></tr>
+                <tr><td><strong>Forrester</strong></td><td>Wave: Web Application Firewall Solutions, Q1 2025</td><td>Leader</td><td>2025</td><td><a class="source-link" href="https://blog.cloudflare.com/cloudflare-named-leader-waf-forrester-2025/" target="_blank">[source]</a></td></tr>
+                <tr><td><strong>KuppingerCole</strong></td><td>No current placement</td><td>No current placement</td><td>&mdash;</td><td></td></tr>
+                <tr><td><strong>IDC</strong></td><td>No current placement</td><td>No current placement</td><td>&mdash;</td><td></td></tr>
+            </tbody>
+        </table>
     </div>
 </article>
 
@@ -1089,6 +1111,27 @@
             <h4>Watch Akamai&rsquo;s Inference Cloud carefully</h4>
             <p>If Akamai repositions as a distributed AI compute provider (4,400+ locations with NVIDIA GPUs), it changes competitive dynamics and could render pure-play security vendors less relevant. 12&ndash;18 month risk to monitor.</p>
         </div>
+    </div>
+</article>
+
+<!-- Section 6.5: Sales Battlecards -->
+<article class="section" id="battlecards">
+    <div class="section-header">
+        <div class="section-number">6.5</div>
+        <h2>Sales Battlecards</h2>
+    </div>
+    <p style="font-size:0.85rem; color:#666; font-style:italic; margin-bottom:1.2rem;">Sales-team battlecard &mdash; exec readers may skip. Deal-scenario positioning of Radware vs <strong>Cloudflare</strong>.</p>
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th style="width:120px">Deal Scenario</th><th>Competitor pitch</th><th>Common objection</th><th>Radware counter</th><th>Proof point</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Mid-Market Enterprise consolidation</strong></td><td>One pane of glass &mdash; CDN, DNS, WAF, DDoS, Zero Trust, and AI security all bundled with unmetered DDoS at every plan tier.</td><td>&ldquo;Cloudflare bundles DDoS for free with our CDN. Why pay Radware extra?&rdquo;</td><td>Free/bundled DDoS is detection-grade, not specialist-grade. Radware offers a hybrid on-prem (DefensePro) + Cloud DDoS (30 Tbps) deployment &mdash; Cloudflare is cloud-only and forces all traffic through its edge. For mid-market customers with regulated data flows or hybrid datacenters, that single-vendor edge is also a single point of failure (Cloudflare had 3 customer-impacting incidents in March-April 2026).</td><td>Cloudflare April 2026 outages <a class="source-link" href="https://www.cloudflarestatus.com/history" target="_blank">[source]</a>; Radware Cloud DDoS 30 Tbps <a class="source-link" href="https://www.radware.com/products/cloud-ddos-services/" target="_blank">[source]</a> [per Radware claim on capacity figure].</td></tr>
+                <tr><td><strong>AI Infrastructure / Hyperscaler</strong></td><td>Mesh + Agent Cloud + Agents SDK &mdash; Cloudflare is the default runtime for AI agents, with 20M AI Gateway requests and 241B tokens internal scale.</td><td>&ldquo;Cloudflare already protects AI agent traffic at the edge.&rdquo;</td><td>Cloudflare protects AI traffic at the network/edge layer; Radware Agentic AI Protection (Feb 3 2026 launch) and LLM Firewall add agent-runtime security &mdash; prompt injection, tool abuse, MCP gateway control, OWASP LLM Top 10 &mdash; that Cloudflare's edge does not address. Pynt API discovery (acquired Jan 2026) also fills the agent-specific API attack surface gap.</td><td>Radware Agentic AI Protection <a class="source-link" href="https://www.radware.com/products/agentic-ai-protection/" target="_blank">[source]</a> launched Feb 3 2026; Pynt acquisition (Jan 2026, radware.com).</td></tr>
+                <tr><td><strong>SMB Platform-Bundling</strong></td><td>&ldquo;Start free, scale to enterprise&rdquo; &mdash; SMB gets enterprise-grade DDoS, CDN, and WAF for $20/month, no upsell needed.</td><td>&ldquo;We're a small team &mdash; Cloudflare gives us 90% of what Radware does for $20/month.&rdquo;</td><td>Cloudflare's Pro/Business tiers are self-service generic protection; Radware Cloud DDoS includes 24/7 ERT (Emergency Response Team) for live attack response &mdash; a service tier Cloudflare does not match below Enterprise. For SMBs that experience a real DDoS, the cost of an outage exceeds 5+ years of Radware Cloud DDoS subscription.</td><td>Radware ERT 24/7 <a class="source-link" href="https://www.radware.com/services/ert/" target="_blank">[source]</a>; Cloudflare Pro tier excludes 24/7 human-mediated DDoS response per published support tiers.</td></tr>
+                <tr><td><strong>DDoS-only-from-CDN-vendor refusal</strong></td><td>&ldquo;DDoS comes free with the CDN &mdash; no need for a specialist.&rdquo;</td><td>&ldquo;We already have Cloudflare CDN. Adding Radware just for DDoS doubles the contract.&rdquo;</td><td>Cloudflare DDoS protects what's behind Cloudflare's edge. Origin-server attacks (direct-to-IP, BGP, DNS reflection) and encrypted-L7 patterns require specialist mitigation. Radware DefensePro 800 Gbps appliance + 30 Tbps cloud handles encrypted L7 without decryption [per Radware claim] and operates in front of and beside the CDN, not only behind it. Corero's October 2025 SmartWall ONE Encrypted launch makes the same no-decryption claim &mdash; Radware retains the advantage on cloud scale (30 Tbps), DefensePro 800 Gbps appliance, behavioral-ML maturity.</td><td>Radware DefensePro 800 Gbps <a class="source-link" href="https://www.radware.com/products/defensepro-models/" target="_blank">[source]</a>; Cloudflare 31.4 Tbps biggest-attack figure (Cloudflare 2026 Threat Report).</td></tr>
+                <tr><td><strong>Bring-your-own-platform refusal</strong></td><td>&ldquo;Standardize on Cloudflare &mdash; replace your existing CDN, WAF, and DDoS in one cutover.&rdquo;</td><td>&ldquo;Cloudflare wants us to rip out our existing stack. Radware doesn't fit either.&rdquo;</td><td>Radware deploys alongside any CDN (Akamai, Fastly, AWS CloudFront) and any cloud (AWS, Azure, GCP, on-prem) &mdash; no platform lock-in, no forklift cutover. DefensePro on-prem + Cloud DDoS hybrid integrates with existing infrastructure rather than replacing it. Customers who refuse Cloudflare's platform-replacement model are exactly Radware's specialist-overlay buyers.</td><td>Radware DefensePro 6 models 6&ndash;800 Gbps <a class="source-link" href="https://www.radware.com/products/defensepro-models/" target="_blank">[source]</a> &mdash; same hybrid deploy model regardless of CDN or cloud chosen.</td></tr>
+            </tbody>
+        </table>
     </div>
 </article>
 
