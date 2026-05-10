@@ -433,14 +433,13 @@
     <div class="container">
         <div class="toc-inner">
             <a href="#snapshot">Snapshot</a>
-            <a href="#analyst-recognition">1.5 Analyst Recognition</a>
+            <a href="#analyst-recognition">Analyst Recognition</a>
             <a href="#news">1. News Table</a>
             <a href="#delta">2. Delta Analysis</a>
             <a href="#competitive">3. Competitive Comparison</a>
             <a href="#visual">4. Visual Strategy</a>
             <a href="#signals">5. Strategic Signals</a>
             <a href="#takeaways">6. Executive Takeaways</a>
-            <a href="#battlecards">6.5 Sales Battlecards</a>
         </div>
     </div>
 </nav>
@@ -500,7 +499,7 @@
 <!-- Section 1.5: Analyst Recognition -->
 <article class="section" id="analyst-recognition">
     <div class="section-header">
-        <div class="section-number">1.5</div>
+        <div class="section-number">A</div>
         <h2>Analyst Recognition</h2>
     </div>
     <div class="table-wrapper">
@@ -1021,27 +1020,6 @@
             <h4>Revenue opacity makes Imperva harder to track but doesn't reduce competitive intensity</h4>
             <p>Thales does not disclose Imperva-specific revenue. Closest indicator is Cyber Security Products business segment within Cyber &amp; Digital division. Buyers and analysts have to read between the lines. This opacity makes financial benchmarking imprecise but does not change competitive intensity in deals where Imperva and Radware co-compete &mdash; product capabilities and analyst recognition matter more than disclosed revenue at the deal level.</p>
         </div>
-    </div>
-</article>
-
-<!-- Section 6.5: Sales Battlecards -->
-<article class="section" id="battlecards">
-    <div class="section-header">
-        <div class="section-number">6.5</div>
-        <h2>Sales Battlecards</h2>
-    </div>
-    <p style="font-size:0.85rem; color:#666; font-style:italic; margin-bottom:1.2rem;">Sales-team battlecard &mdash; exec readers may skip. Deal-scenario positioning of Radware vs <strong>Imperva (Thales)</strong>.</p>
-    <div class="table-wrapper">
-        <table>
-            <thead><tr><th style="width:120px">Deal Scenario</th><th>Competitor pitch</th><th>Common objection</th><th>Radware counter</th><th>Proof point</th></tr></thead>
-            <tbody>
-                <tr><td><strong>Mid-Market Enterprise consolidation</strong></td><td>Cloud WAAP &mdash; Gartner Magic Quadrant Leader 9 consecutive times; KuppingerCole API Security Leader 2025; Cloud WAF + Advanced Bot Protection + API Security + Data Security Fabric + Database Security + RASP &mdash; backed by Thales (~$20B parent).</td><td>&ldquo;Imperva is the Gartner WAAP Leader. Procurement won't approve a Challenger over a Leader.&rdquo;</td><td>Imperva's WAAP credentials are real (see &sect;1.5 Analyst Recognition &mdash; Gartner Cloud WAAP Leader 2024, Forrester WAF Leader 2025). Radware's wedge is DDoS depth &mdash; Imperva is &ldquo;enterprise adequate for DDoS but not a DDoS specialist&rdquo; (~6 Tbps cloud capacity vs Radware 30 Tbps). On a consolidated WAF+DDoS deal, Imperva wins WAF, Radware wins DDoS &mdash; propose split-vendor where the customer values DDoS specialist depth, single-vendor where the customer prioritizes WAAP-Leader status.</td><td>Imperva DDoS ~6 Tbps capacity, 44+ PoPs <a class="source-link" href="https://www.imperva.com/why-imperva/global-network/" target="_blank">[source]</a>; Radware Cloud DDoS 30 Tbps <a class="source-link" href="https://www.radware.com/products/cloud-ddos-services/" target="_blank">[source]</a>.</td></tr>
-                <tr><td><strong>AI Infrastructure / Hyperscaler</strong></td><td>Imperva AI Application Security &mdash; runtime AI workload protection backed by Thales cybersecurity portfolio integration.</td><td>&ldquo;Imperva already does AI app security. Why Radware?&rdquo;</td><td>Imperva's AI security has slowed visibly since Thales integration (per memory/vendor_imperva.md &mdash; &ldquo;Quieter innovation since Thales integration&rdquo;). Radware Agentic AI Protection (Feb 3 2026 launch) is AI-agent-specific runtime defense &mdash; prompt injection, tool abuse, MCP gateway control. Pynt API discovery (Jan 2026) covers agent-API attack surface specifically. Smaller-vendor agility is the wedge: Radware shipped two AI-runtime products in 30 days; Imperva-Thales integration timelines are slower.</td><td>Radware Agentic AI Protection <a class="source-link" href="https://www.radware.com/products/agentic-ai-protection/" target="_blank">[source]</a> launched Feb 3 2026; Pynt acquisition Jan 2026.</td></tr>
-                <tr><td><strong>WAAP-Bundling</strong></td><td>&ldquo;Cloud WAF + API Security + Bot Protection + RASP, all from a Gartner Leader at one renewal.&rdquo;</td><td>&ldquo;Imperva bundles all of WAAP. Splitting DDoS to Radware adds a vendor.&rdquo;</td><td>WAAP bundling at a Leader is a strong story &mdash; but Imperva's Cloud DDoS at ~6 Tbps is a 5x scale gap vs Radware's 30 Tbps Cloud DDoS, and a critical limitation when an attack exceeds 6 Tbps. Recent attacks have exceeded 31.4 Tbps (Cloudflare-mitigated, 2026 Threat Report). Radware DefensePro 800 Gbps appliance also handles encrypted L7 without decryption [per Radware claim] &mdash; Corero's October 2025 SmartWall ONE Encrypted launch makes the same claim &mdash; Radware retains the advantage on cloud scale (30 Tbps), DefensePro 800 Gbps appliance, behavioral-ML maturity. Imperva requires SSL decryption for L7 inspection.</td><td>Imperva ~6 Tbps cloud DDoS capacity <a class="source-link" href="https://www.imperva.com/products/ddos-protection/" target="_blank">[source]</a>; Radware Cloud DDoS 30 Tbps <a class="source-link" href="https://www.radware.com/products/cloud-ddos-services/" target="_blank">[source]</a>; 2025 record DDoS attacks 31.4 Tbps (Cloudflare 2026 Threat Report).</td></tr>
-                <tr><td><strong>Database-Security-Adjacent</strong></td><td>Imperva Data Security Fabric + Database Activity Monitoring (DAM) + Sonar &mdash; uniquely combines WAAP with database/data-security layers.</td><td>&ldquo;Imperva covers data security, which Radware doesn't. Why split the relationship?&rdquo;</td><td>Imperva's database security is genuine and Radware does not compete in DAM. Position the deal correctly: Radware is the DDoS+WAAP layer, not the database security layer. Where Radware wins on the application-perimeter scope: DefensePro DDoS, Cloud WAF, Bot Manager, Pynt API discovery, Agentic AI Protection. Imperva's database moat is irrelevant to the DDoS/edge-protection scope.</td><td>Imperva &ldquo;Database Security + RASP&rdquo; segment differentiator <a class="source-link" href="https://www.imperva.com/products/data-security/" target="_blank">[source]</a>; Radware Cloud WAF + Pynt API security <a class="source-link" href="https://www.radware.com/" target="_blank">[source]</a>.</td></tr>
-                <tr><td><strong>AI Application Security overlap</strong></td><td>Imperva integrating AI threat detection across WAF + API + Bot &mdash; leveraging Thales AI/ML capability for runtime application AI security.</td><td>&ldquo;Imperva is doing AI security too. Radware doesn't differentiate.&rdquo;</td><td>Imperva's AI security extends WAF/API/Bot detection with AI/ML &mdash; Radware's Agentic AI Protection (Feb 3 2026) is AI-agent-specific runtime defense (prompt injection, tool abuse, MCP gateway control), not an extension of WAF detection. Different layer, different threat model. Pair with LLM Firewall (OWASP LLM Top 10). On runtime AI-agent threats, Imperva does not have an equivalent product as of May 2026.</td><td>Radware Agentic AI Protection <a class="source-link" href="https://www.radware.com/products/agentic-ai-protection/" target="_blank">[source]</a> launched Feb 3 2026; LLM Firewall covers OWASP LLM Top 10.</td></tr>
-            </tbody>
-        </table>
     </div>
 </article>
 
