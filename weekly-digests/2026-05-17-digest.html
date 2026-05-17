@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Digest — May 17, 2026 | Radware Competitive Intelligence</title>
+    <meta name="description" content="Weekly competitive intelligence digest for May 11 – May 17, 2026. Material events from 9 tracked vendors.">
+    <style>
+        :root {
+            --navy: #1A3C6E;
+            --dark-blue: #2B5797;
+            --light-blue: #4A90D9;
+            --accent-orange: #F5A623;
+            --accent-green: #27AE60;
+            --accent-red: #E74C3C;
+            --accent-amber: #F39C12;
+            --light-gray: #F5F6FA;
+            --mid-gray: #BDC3C7;
+            --dark-gray: #333333;
+            --cf-orange: #F48120;
+            --akamai-blue: #0096D6;
+            --fastly-red: #FF282D;
+            --radware-green: #6AB023;
+            --imperva-purple: #6C3483;
+            --arbor-teal: #005F73;
+            --f5-red: #E4002B;
+            --a10-blue: #0071CE;
+            --corero-green: #2D6A4F;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            line-height: 1.6;
+        }
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 { font-size: 1.2rem; font-weight: 600; letter-spacing: 0.5px; }
+        .site-header .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .site-header .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .site-header .nav-links a:hover { color: white; }
+
+        .hero {
+            background: linear-gradient(135deg, #2c5282 0%, var(--accent-orange) 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+        .hero h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .hero .subtitle { font-size: 1rem; opacity: 0.95; margin-bottom: 1rem; }
+        .hero .stat-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .hero .stat-row span { background: rgba(255,255,255,0.18); padding: 0.3rem 0.9rem; border-radius: 18px; font-weight: 600; }
+
+        .ai-disclaimer {
+            background: #fff8e1;
+            border-left: 4px solid #F39C12;
+            padding: 0.85rem 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .ai-disclaimer strong { color: #B7651A; }
+
+        main { padding: 1.5rem 0 3rem; }
+
+        .highlight-callout {
+            background: linear-gradient(135deg, #fff3e0, #ffe5cc);
+            border-left: 5px solid var(--accent-orange);
+            padding: 1.4rem 1.6rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .highlight-callout h3 { color: var(--navy); font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .highlight-callout p { font-size: 0.95rem; line-height: 1.55; }
+
+        .track-section { margin: 2rem 0 1rem; }
+        .track-header {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--navy);
+        }
+        .track-header h2 { font-size: 1.3rem; color: var(--navy); }
+        .track-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            color: white;
+        }
+        .track-label.t1 { background: var(--dark-blue); }
+        .track-label.t2 { background: var(--arbor-teal); }
+        .track-label.benchmark { background: var(--radware-green); }
+
+        .vendor-block {
+            background: white;
+            border-radius: 8px;
+            padding: 1.4rem 1.6rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--mid-gray);
+        }
+        .vendor-block.cf { border-left-color: var(--cf-orange); }
+        .vendor-block.akamai { border-left-color: var(--akamai-blue); }
+        .vendor-block.fastly { border-left-color: var(--fastly-red); }
+        .vendor-block.imperva { border-left-color: var(--imperva-purple); }
+        .vendor-block.f5 { border-left-color: var(--f5-red); }
+        .vendor-block.arbor { border-left-color: var(--arbor-teal); }
+        .vendor-block.a10 { border-left-color: var(--a10-blue); }
+        .vendor-block.corero { border-left-color: var(--corero-green); }
+        .vendor-block.radware { border-left-color: var(--radware-green); }
+
+        .vendor-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+        }
+        .vendor-name .count {
+            font-size: 0.78rem;
+            font-weight: 600;
+            background: var(--light-gray);
+            padding: 0.15rem 0.55rem;
+            border-radius: 12px;
+            color: #666;
+            margin-left: 0.5rem;
+        }
+        .no-events {
+            font-size: 0.88rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .event {
+            margin-top: 0.9rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid #eef0f4;
+        }
+        .event:first-of-type { border-top: none; padding-top: 0; }
+        .event-meta {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #777;
+            margin-bottom: 0.3rem;
+        }
+        .event-date { font-weight: 600; color: var(--dark-blue); }
+        .category-badge {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.12rem 0.55rem;
+            border-radius: 3px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cat-financial { background: #16a085; }
+        .cat-product { background: #2980b9; }
+        .cat-ma { background: #8e44ad; }
+        .cat-exec { background: #d35400; }
+        .cat-security { background: #c0392b; }
+        .cat-threat { background: #2c3e50; }
+        .cat-analyst { background: #f39c12; }
+        .cat-customer { background: #27ae60; }
+
+        .event-headline {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+        .event-detail {
+            font-size: 0.88rem;
+            color: #444;
+            margin-bottom: 0.4rem;
+        }
+        .event-implication {
+            font-size: 0.82rem;
+            color: #555;
+            font-style: italic;
+            background: #f8f9fa;
+            padding: 0.45rem 0.7rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-orange);
+        }
+        .event-implication strong { color: var(--navy); font-style: normal; }
+        .event-source {
+            font-size: 0.78rem;
+            margin-top: 0.4rem;
+        }
+        .event-source a { color: var(--light-blue); text-decoration: none; }
+        .event-source a:hover { text-decoration: underline; }
+
+        .watchlist {
+            background: #f0f7fa;
+            border-left: 4px solid var(--light-blue);
+            padding: 1.2rem 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0 1rem;
+        }
+        .watchlist h3 { color: var(--navy); margin-bottom: 0.6rem; font-size: 1.05rem; }
+        .watchlist ul { margin-left: 1.3rem; }
+        .watchlist li { font-size: 0.9rem; margin-bottom: 0.3rem; }
+
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 0.82rem;
+            margin-top: 2rem;
+        }
+        .footer a { color: var(--accent-orange); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.4rem; }
+            .hero .stat-row { gap: 0.8rem; font-size: 0.85rem; }
+            .site-header .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1>Radware Competitive Intelligence — Weekly Digest</h1>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../archives.html">Archives</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>Weekly Digest — May 17, 2026</h2>
+        <p class="subtitle">Period: May 11 – May 17, 2026</p>
+        <div class="stat-row">
+            <span>2 material events</span>
+            <span>1 of 9 vendors active</span>
+            <span>Generated 2026-05-17T09:00:00Z</span>
+        </div>
+    </div>
+</section>
+
+<main>
+<div class="container">
+
+<div class="ai-disclaimer">
+    <strong>AI-generated analysis.</strong> This weekly digest is generated with the assistance of AI based on publicly available information. While carefully validated, it may contain errors or omissions and should not be the sole basis for strategic decisions. No material non-public information is used.
+</div>
+
+<!-- Highlight of the week -->
+<div class="highlight-callout">
+    <h3>🔥 Highlight of the Week</h3>
+    <p>Akamai's $205M acquisition of LayerX (announced May 14) adds AI-usage-control browser security and secure enterprise browser (SEB) technology to its Zero Trust portfolio — just three days after Anthropic was publicly confirmed as the $1.8B / 7-year cloud-infrastructure customer disclosed in Q1 earnings. Together these moves mark Akamai's most strategically active week of 2026, broadening its competitive surface directly into application-layer security territory adjacent to Radware's WAAP and Zero Trust positioning.</p>
+</div>
+
+<!-- Track 1: Cloud Services -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label t1">Track 1</span>
+        <h2>Cloud Services</h2>
+    </div>
+
+    <!-- Cloudflare -->
+    <div class="vendor-block cf">
+        <div class="vendor-name">Cloudflare <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. Cloudflare's major activity (Q1 earnings beat, Forrester Wave Leader recognition, ~1,100-person restructuring) occurred May 5–7 and is reflected in the May 10 digest. Next material event: Investor Day, June 9, 2026.</div>
+    </div>
+
+    <!-- Akamai -->
+    <div class="vendor-block akamai">
+        <div class="vendor-name">Akamai <span class="count">2 events — HIGHLIGHT</span></div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-11</span>
+                <span class="category-badge cat-customer">Customer Win</span>
+            </div>
+            <div class="event-headline">Anthropic confirmed as the $1.8B / 7-year Akamai AI infrastructure customer</div>
+            <div class="event-detail">Bloomberg reported May 8 that Anthropic is the unnamed "leading frontier model provider" Akamai disclosed in its Q1 2026 results; the identification was not captured in the May 10 digest (which noted the customer as "still undisclosed") and became widely confirmed by multiple independent sources by May 11. Anthropic cited "80x growth" in Q1 2026 annualized revenue as the driver of compute demand, and is sourcing capacity from Akamai, AWS, Google Cloud, CoreWeave, and others simultaneously. Akamai and Anthropic declined official comment beyond the Q1 disclosure.</div>
+            <div class="event-implication"><strong>Radware impact:</strong> Named-anchor hyperscaler-class customer validates Akamai's AI-infrastructure credibility, strengthening its enterprise sales narrative against all WAAP/DDoS pure-plays including Radware.</div>
+            <div class="event-source">Source: <a href="https://www.bloomberg.com/news/articles/2026-05-08/anthropic-inks-1-8-billion-computing-deal-with-akamai" target="_blank">Bloomberg, May 8 2026</a> · <a href="https://www.datacenterdynamics.com/en/news/anthropic-signs-18bn-cloud-contract-with-akamai-report/" target="_blank">Data Center Dynamics, May 11 2026</a></div>
+        </div>
+        <div class="event">
+            <div class="event-meta">
+                <span class="event-date">2026-05-14</span>
+                <span class="category-badge cat-ma">M&amp;A</span>
+            </div>
+            <div class="event-headline">Akamai announces intent to acquire LayerX for ~$205M, adding AI browser security to Zero Trust portfolio</div>
+            <div class="event-detail">Akamai entered a definitive agreement to acquire all outstanding equity of LayerX Security for approximately $205M (subject to purchase price adjustments), expected to close in Q3 2026. LayerX provides browser-based AI usage control and secure enterprise browser (SEB) technology, giving enterprises granular governance over employee AI tool access — preventing sensitive data from leaking to ChatGPT, Microsoft Copilot, or similar tools via browser-side inspection. The acquisition extends Akamai's Zero Trust portfolio beyond network and identity layers into the endpoint/browser layer, directly addressing what Akamai describes as "one of the most urgent security priorities for CISOs in 2026."</div>
+            <div class="event-implication"><strong>Radware impact:</strong> Akamai now competes across network DDoS, WAAP, API security, and AI browser governance — broadening the platform moat and raising the minimum viable scope expected in large enterprise security RFPs.</div>
+            <div class="event-source">Source: <a href="https://www.globenewswire.com/news-release/2026/05/14/3294725/0/en/akamai-technologies-announces-intent-to-acquire-layerx-advancing-its-workforce-security-strategy-with-ai-usage-control.html" target="_blank">GlobeNewswire / Akamai IR, May 14 2026</a> · <a href="https://www.helpnetsecurity.com/2026/05/15/akamai-layerx-acquisition/" target="_blank">Help Net Security, May 15 2026</a></div>
+        </div>
+    </div>
+
+    <!-- Fastly -->
+    <div class="vendor-block fastly">
+        <div class="vendor-name">Fastly <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. Fastly's Q1 2026 record results (+20% revenue, +47% security revenue), ContentGuard AI-bot protection launch, Joan Jenkins CMO appointment, and 38% stock plunge on May 7 are all reflected in the May 10 digest. Next material event: Q2 earnings (expected early August 2026).</div>
+    </div>
+
+    <!-- Imperva/Thales -->
+    <div class="vendor-block imperva">
+        <div class="vendor-name">Imperva / Thales <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. The Imperva for Google Cloud product (Controlled Availability, announced April 22) remains in controlled rollout with no GA date announced; the CVE-2026-23870 React/Next.js DoS advisory is reflected in the May 10 digest. Watch for GA announcement and potential Forrester WAAP Wave update.</div>
+    </div>
+</div>
+
+<!-- Track 2: DDoS Appliance Vendors -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label t2">Track 2</span>
+        <h2>DDoS Appliance Vendors</h2>
+    </div>
+
+    <!-- F5 -->
+    <div class="vendor-block f5">
+        <div class="vendor-name">F5 <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. F5's Q2 FY2026 earnings (Apr 28, revenue +11%, product +22%) and Analyst &amp; Investor Day announcement (May 28, NYC) are already reflected in prior digests. Pre-event briefings and updated analyst notes expected the week of May 18.</div>
+    </div>
+
+    <!-- NETSCOUT Arbor -->
+    <div class="vendor-block arbor">
+        <div class="vendor-name">NETSCOUT Arbor <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. NETSCOUT's Q4 + FY2026 earnings (May 6–7: revenue $859.5M, cybersecurity +8% FY, FY2027 guidance $885–$915M) and DigiCert DDoS asset acquisition close are reflected in the May 10 digest. NETSCOUT participates in Network X Americas (Dallas, May 18–20) — watch for any Arbor product announcements from the show floor.</div>
+    </div>
+
+    <!-- A10 Networks -->
+    <div class="vendor-block a10">
+        <div class="vendor-name">A10 Networks <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. A10's Q1 2026 earnings (Apr 28: revenue $75M, +13.4% YoY), 2026 guidance reaffirmation (10–12% growth), and $0.06/share dividend (record date May 15, pay date June 1) are reflected in prior digests. Next earnings late July 2026.</div>
+    </div>
+
+    <!-- Corero -->
+    <div class="vendor-block corero">
+        <div class="vendor-name">Corero Network Security <span class="count">0 events</span></div>
+        <div class="no-events">No material events this week. Corero's most recent material disclosures (FY2025 audited results with 23% ARR growth to $23.9M on Mar 24; 2026 Threat Intelligence Report on Apr 2; MarketsandMarkets "Star" recognition on Mar 5) are outside this week's window and are reflected in the April monthly brief.</div>
+    </div>
+</div>
+
+<!-- Radware (benchmark) -->
+<div class="track-section">
+    <div class="track-header">
+        <span class="track-label benchmark">Benchmark</span>
+        <h2>Radware</h2>
+    </div>
+
+    <div class="vendor-block radware">
+        <div class="vendor-name">Radware <span class="count">0 events</span></div>
+        <div class="no-events">No material press-release-level events this week. Radware participated in the 21st Annual Needham Technology, Media &amp; Consumer Virtual Conference (fireside chat, May 14) with no new material disclosures identified beyond Q1 earnings commentary. Q1 2026 results (+11% YoY, $80M revenue, $0.30 EPS) and the Chief Telecom / Godshield Pro Taiwan DDoS partnership are reflected in the May 10 digest. Watch for the Solutions Spotlight webinar on Web DDoS behavioral protection (May 19) and upcoming Jefferies and Stifel conference appearances.</div>
+    </div>
+</div>
+
+<!-- Watchlist -->
+<div class="watchlist">
+    <h3>📅 Watchlist for next week (May 18 – May 24, 2026)</h3>
+    <ul>
+        <li><strong>F5 Analyst &amp; Investor Day (May 28):</strong> Pre-event analyst notes and briefing materials typically circulate 7–10 days prior — expect updated WAF/DDoS/AI-inference strategic messaging from F5 this week; watch for any changes to competitive framing vs. Radware DefensePro and AppWall.</li>
+        <li><strong>Radware Solutions Spotlight (May 19):</strong> "The Encryption Paradox: How Security Teams Defend What They Cannot Decrypt" — watch for updated Agentic AI Protection positioning and how Radware articulates behavioral Web DDoS defense vs. volumetric/application-layer hybrid threats.</li>
+        <li><strong>NETSCOUT at Network X Americas (May 18–20, Dallas):</strong> Arbor Edge Defense and Arbor Cloud product messaging on the show floor; potential partnership or customer announcements from NETSCOUT's service-provider channel.</li>
+    </ul>
+</div>
+
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p><strong>Radware Competitive Intelligence Hub</strong> — Weekly Digest May 17, 2026</p>
+        <p style="opacity:0.7; margin-top:0.4rem;">Pairs with the monthly edition. Next monthly edition: May 2026 Edition (in progress).</p>
+        <p style="opacity:0.5; margin-top:0.4rem; font-size:0.72rem;">&copy; 2026 Radware Ltd. For authorized recipients only. Sourced exclusively from publicly available information.</p>
+    </div>
+</footer>
+
+</body>
+</html>
