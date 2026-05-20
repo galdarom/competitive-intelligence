@@ -137,6 +137,22 @@ body {
 .cmp-table td[title], .ph-block[title] { cursor:help; }
 .src-note { font-size:0.75rem; color:#888; margin-top:0.4rem; }
 
+/* Point-based cell layout — long descriptions become bulleted lists
+   for SE-team scannability. Renderer falls back to plain text for
+   single-clause cells, so the bullet styling only fires when there's
+   actually a list. */
+.cmp-table .cell-bullets {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.cmp-table .cell-bullets li {
+  margin-bottom: 0.2em;
+}
+.cmp-table .cell-bullets li:last-child { margin-bottom: 0; }
+.cmp-table td { vertical-align: top; }
+
 /* Heatmap (overview page) — colors keyed off --score (0..5) */
 .heatmap { border-collapse:collapse; margin:1.5rem 0; font-size:0.95rem; }
 .heatmap th, .heatmap td {
