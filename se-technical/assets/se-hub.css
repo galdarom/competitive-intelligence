@@ -58,6 +58,8 @@ body {
 .route-grid.two { grid-template-columns:1fr 1fr; }
 .route-grid.three { grid-template-columns:repeat(3,1fr); }
 .route-grid.five { grid-template-columns:repeat(5,1fr); }
+/* Pillar tile grid: auto-fits any 4–8 pillar count without overflowing */
+.route-grid.pillars { grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); }
 .route-card {
   background:#fff; border-radius:12px; overflow:hidden;
   box-shadow:0 4px 16px rgba(0,0,0,0.1); text-decoration:none;
@@ -130,7 +132,7 @@ body {
 .footer a { color:#F5A623; text-decoration:none; }
 
 @media (max-width:768px) {
-  .route-grid.two,.route-grid.three,.route-grid.five { grid-template-columns:1fr; }
+  .route-grid.two,.route-grid.three,.route-grid.five,.route-grid.pillars { grid-template-columns:1fr; }
   .toc a { display:inline-block; margin-bottom:0.3rem; }
 }
 @media (max-width:1024px) and (min-width:769px) {
