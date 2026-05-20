@@ -101,13 +101,18 @@ body {
 .section h3 { color:var(--navy); font-size:1.05rem; margin:1rem 0 0.5rem; }
 
 /* comparison tables */
-.cmp-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.85rem; }
+.cmp-table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:0.85rem; table-layout:fixed; }
 .cmp-table th, .cmp-table td {
   border:1px solid #e0e0e0; padding:0.6rem 0.8rem; text-align:left; vertical-align:top;
 }
 .cmp-table thead th { background:var(--navy); color:#fff; }
 .cmp-table th.radware, .cmp-table thead th.radware { background:var(--radware-green); }
-.cmp-table tbody th { background:var(--light-gray); width:24%; font-weight:600; }
+/* Capability/aspect/area column (first column): narrow, leaving more room
+   for the 4 vendor answer columns. 14% × 1 + ~21.5% × 4 = 100%. */
+.cmp-table tbody th { background:var(--light-gray); font-weight:600; }
+.cmp-table th:first-child, .cmp-table td:first-child { width:14%; }
+.cmp-table thead th:not(:first-child), .cmp-table tbody td { width:21.5%; }
+.cmp-table th, .cmp-table td { word-wrap:break-word; overflow-wrap:break-word; }
 .cmp-table tr:nth-child(even) td { background:#fafbfc; }
 
 /* battlecard */
