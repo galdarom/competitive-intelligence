@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DDoS Comparison — SE Technical Hub</title>
+<link rel="stylesheet" href="../../assets/se-hub.css">
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <a href="../../index.html">&#8962; SE Hub</a>
+  <a href="../../../index.html">All Hubs</a>
+  <span class="spacer"></span>
+<a href="waf.html">WAF</a><a href="api-security.html">API</a><a href="bot-management.html">Bot</a><a href="llm-ai-firewall.html">LLM/AI</a></div></div>
+<section class="hero"><div class="container">
+  <h1>DDoS Protection</h1>
+  <p>Four-vendor capability comparison for the DDoS Protection pillar.</p>
+  <div class="badge">SE Technical Hub &bull; Edition 2026-Q2</div>
+</div></section>
+<div class="container">
+  <div class="disclaimer">
+    <strong>AI-generated analysis.</strong> Validate against current vendor
+    documentation before using in a customer conversation.
+  </div>
+  <article class="section">
+    <div class="section-header"><div class="section-number">D</div><h2>Who leads — DDoS</h2></div>
+    <p>Cloudflare leads on raw network scale (388+ Tbps across 330+ cities, every PoP an always-on anycast scrubbing center), while Akamai Prolexic leads on dedicated scrubbing and SLA strength (20+ Tbps, 32+ scrubbing centers, an industry-leading zero-second time-to-mitigate SLA). Radware&#39;s differentiator is detection accuracy and genuine hybrid defense: DefensePro on-prem appliances with patented behavioral algorithms hand off to a ~15 Tbps cloud scrubbing network for real-time, low-latency mitigation - the strongest fit for carriers and latency-sensitive enterprises. Imperva offers solid multi-terabit cloud scrubbing with a 3-second SLA but a smaller network and no on-prem appliance line.</p>
+  </article>
+  <article class="section">
+    <div class="section-header"><div class="section-number">1</div><h2>DDoS Capability Matrix</h2></div>
+    <table class="cmp-table">
+      <thead><tr><th>Capability</th>
+<th class="radware">Radware</th><th>Cloudflare</th><th>Akamai</th><th>Imperva</th>      </tr></thead>
+      <tbody>
+        <tr><th>Scrubbing capacity (Tbps)</th>
+<td class="radware" title="Source: https://www.globenewswire.com/news-release/2026/01/06/3213392/8980/en/Radware-Doubles-Global-Cloud-Security-Capacity.html">Global cloud security service network of 65 scrubbing centers with 30 Tbps of mitigation capacity (doubled from 15 Tbps in Jan 2026), all powered by DefensePro X; carrier in-network deployments scale higher.</td><td title="Source: https://www.cloudflare.com/network/">388+ Tbps of global network capacity across 330+ cities; the entire anycast network absorbs and scrubs attacks.</td><td title="Source: https://www.akamai.com/products/prolexic">Prolexic provides 20+ Tbps of dedicated DDoS defense capacity across 32+ globally distributed cloud scrubbing centers.</td><td title="Source: https://www.imperva.com/resources/datasheets/ddos-protection-for-networks.pdf">Multi-terabit global scrubbing - ~13 Tbps of capacity across a network of ~49 PoPs, processing tens of billions of packets per second.</td>        </tr>
+        <tr><th>Network-layer (L3/L4) protection</th>
+<td class="radware" title="Source: https://www.radware.com/products/defensepro/">Yes - DefensePro and Cloud DDoS mitigate volumetric and protocol L3/L4 floods using behavioral, signature-free detection.</td><td title="Source: https://developers.cloudflare.com/ddos-protection/">Yes - Magic Transit / Spectrum and the DDoS managed rules protect L3/L4 for IP ranges and non-HTTP services.</td><td title="Source: https://www.akamai.com/products/prolexic">Yes - Prolexic specializes in L3/L4 volumetric and protocol attack mitigation for entire network subnets.</td><td title="Source: https://www.imperva.com/resources/datasheets/ddos-protection-for-networks.pdf">Yes - DDoS Protection for Networks defends subnets/blocks against L3/L4 volumetric and protocol attacks via BGP routing.</td>        </tr>
+        <tr><th>Application-layer (L7) protection</th>
+<td class="radware" title="Source: https://www.radware.com/products/ddos-protection/">Yes - Cloud WAAP and DefensePro provide behavioral L7/HTTP(S) DDoS protection, including encrypted and short-burst attacks.</td><td title="Source: https://developers.cloudflare.com/ddos-protection/">Yes - HTTP DDoS managed ruleset mitigates L7 floods at the edge with always-on autonomous detection.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Yes - App &amp; API Protector handles L7/HTTP DDoS at the edge, complementing Prolexic&#39;s network-layer scrubbing.</td><td title="Source: https://www.imperva.com/products/ddos-protection-services/">Yes - DDoS Protection for Websites mitigates L7/HTTP(S) application floods through the Cloud WAF proxy.</td>        </tr>
+        <tr><th>Always-on vs. on-demand</th>
+<td class="radware" title="Source: https://www.radware.com/products/cloud-ddos-protection-service/">Both - supports always-on, on-demand and hybrid models; on-prem DefensePro is always-on with cloud activation on volumetric overflow.</td><td title="Source: https://developers.cloudflare.com/ddos-protection/">Always-on by design - the autonomous anycast edge evaluates traffic continuously with no detection delay or activation step.</td><td title="Source: https://www.akamai.com/products/prolexic">Both - Prolexic offers always-on and on-demand routing; always-on is recommended to achieve the zero-second mitigation SLA.</td><td title="Source: https://www.imperva.com/resources/datasheets/ddos-protection-for-networks.pdf">Both - DDoS Protection for Networks runs in always-on or on-demand (BGP route switchover) modes per customer requirement.</td>        </tr>
+        <tr><th>Time-to-mitigate SLA</th>
+<td class="radware" title="Source: https://support.radware.com/app/answers/answer_view/a_id/1031698/~/defensepro-%E2%80%93-a-stateless-anti-ddos-mitigation-device">Behavioral DefensePro engine detects and starts mitigating attacks within seconds (auto-generates a signature for zero-day attacks within ~18s); contractual mitigation SLAs set per agreement.</td><td title="Source: https://developers.cloudflare.com/ddos-protection/">Always-on edge typically mitigates within ~3 seconds; world-record attacks (3.8-7.3 Tbps) were auto-mitigated with no SLA-style delay.</td><td title="Source: https://www.akamai.com/products/prolexic">Industry-leading zero-second time-to-mitigate SLA for always-on Prolexic customers, via proactive controls set during onboarding.</td><td title="Source: https://www.imperva.com/products/ddos-protection-services/">Guaranteed 3-second mitigation SLA for L3/L4 attacks; network-layer protection typically mitigates within ~1 second.</td>        </tr>
+        <tr><th>BGP rerouting / anycast</th>
+<td class="radware" title="Source: https://support.radware.com/app/answers/answer_view/a_id/1018551/~/bgp-configuration-for-routing-based-diversion">Cloud DDoS uses BGP diversion and GRE tunnels to reroute traffic to scrubbing centers; integrates with on-prem appliances for hybrid signaling.</td><td title="Source: https://developers.cloudflare.com/ddos-protection/frequently-asked-questions/">Anycast-native - every IP is announced from all PoPs, so traffic enters at the nearest edge with no BGP reroute needed for HTTP services. [verify currency]</td><td title="Source: https://www.akamai.com/products/prolexic">BGP-based diversion to Prolexic scrubbing centers via route announcement and GRE tunnels; anycast-distributed scrubbing infrastructure.</td><td title="Source: https://www.imperva.com/resources/datasheets/ddos-protection-for-networks.pdf">BGP route announcement to divert subnets to scrubbing PoPs, with GRE tunnels, Cross Connect or virtual Cross Connect return paths; anycast PoPs.</td>        </tr>
+        <tr><th>Hybrid (on-prem + cloud)</th>
+<td class="radware" title="Source: https://www.radware.com/products/ddos-protection/">Core strength - DefensePro on-prem appliances integrate with Cloud DDoS for real-time on-prem mitigation that hands off to cloud on volumetric overflow.</td><td title="Source: https://developers.cloudflare.com/reference-architecture/architectures/magic-transit/">No on-prem appliance - cloud/edge-only; cannot protect non-internet-facing or appliance-anchored network segments.</td><td title="Source: https://www.akamai.com/blog/security/akamai-prolexic-introduces-prolexic-on-prem-and-prolexic-hybrid">Yes - Akamai now offers Prolexic On-Prem and Prolexic Hybrid (powered by Corero SmartWall ONE) since Sept 2023, combining inline on-prem appliances with the 20+ Tbps Prolexic cloud across 36+ scrubbing centers.</td><td title="Source: https://www.imperva.com/docs/SB_DDoS_Protection_Service.pdf">Cloud-scrubbing service with no dedicated on-prem DDoS appliance line; hybrid is limited compared with appliance-based vendors.</td>        </tr>
+        <tr><th>Attack visibility &amp; reporting</th>
+<td class="radware" title="Source: https://www.radware.com/products/ert/">Cloud DDoS portal and DefensePro provide real-time dashboards, attack analytics and post-attack reports; ERT delivers managed forensics.</td><td title="Source: https://developers.cloudflare.com/ddos-protection/">Real-time DDoS analytics, per-attack dashboards, alerts and Logpush to SIEMs; Network Analytics on Magic Transit/Enterprise.</td><td title="Source: https://www.akamai.com/products/prolexic">Prolexic provides a 24/7 SOCC, real-time attack dashboards, alerting and detailed post-incident reporting.</td><td title="Source: https://docs-cybersec.thalesgroup.com/bundle/cloud-application-security/page/network-ddos/dashboard.htm">Cloud Security console with real-time attack analytics, dashboards and near-real-time SIEM log delivery.</td>        </tr>
+        <tr><th>Protection for non-HTTP (DNS, UDP, QUIC)</th>
+<td class="radware" title="Source: https://www.radware.com/products/defensepro/">Yes - DefensePro and Cloud DDoS protect DNS, UDP and other non-HTTP protocols with behavioral detection; DNS-specific protections included.</td><td title="Source: https://developers.cloudflare.com/ddos-protection/">Yes - Magic Transit and Spectrum protect arbitrary UDP/TCP; Cloudflare natively handles QUIC/HTTP3 and offers authoritative DNS DDoS protection.</td><td title="Source: https://www.akamai.com/products/prolexic">Yes - Prolexic mitigates all IP-based protocols (DNS, UDP, ICMP, etc.); Edge DNS adds dedicated authoritative-DNS DDoS protection.</td><td title="Source: https://www.imperva.com/resources/datasheets/ddos-protection-for-networks.pdf">Yes - mitigates UDP/ICMP floods, DNS amplification and NTP reflection; DDoS Protection for DNS proxies and filters DNS queries.</td>        </tr>
+      </tbody>
+    </table>
+  </article>
+  <article class="section">
+    <div class="section-header"><div class="section-number">&rarr;</div><h2>Go deeper</h2></div>
+    <p style="font-size:0.9rem;">See the full Radware-vs-competitor deep dive:
+<a href="radware-vs-cloudflare.html">vs. Cloudflare</a> &bull; <a href="radware-vs-akamai.html">vs. Akamai</a> &bull; <a href="radware-vs-imperva.html">vs. Imperva</a></p>
+  </article>
+</div>
+<footer class="footer"><div class="container">
+  <p><strong>Radware SE Technical Comparison Hub</strong> &mdash; Edition 2026-Q2</p>
+  <p style="opacity:0.7; margin-top:0.5rem;">
+    <a href="../../index.html">SE Hub</a>
+ &bull; <a href="waf.html">WAF</a> &bull; <a href="api-security.html">API Security</a> &bull; <a href="bot-management.html">Bot Management</a> &bull; <a href="llm-ai-firewall.html">LLM / AI Firewall</a>  </p>
+</div></footer>
+</body>
+</html>

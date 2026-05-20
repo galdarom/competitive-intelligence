@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAF Comparison — SE Technical Hub</title>
+<link rel="stylesheet" href="../../assets/se-hub.css">
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <a href="../../index.html">&#8962; SE Hub</a>
+  <a href="../../../index.html">All Hubs</a>
+  <span class="spacer"></span>
+<a href="ddos.html">DDoS</a><a href="api-security.html">API</a><a href="bot-management.html">Bot</a><a href="llm-ai-firewall.html">LLM/AI</a></div></div>
+<section class="hero"><div class="container">
+  <h1>WAF — Web Application Firewall</h1>
+  <p>Four-vendor capability comparison for the WAF pillar.</p>
+  <div class="badge">SE Technical Hub &bull; Edition 2026-Q2</div>
+</div></section>
+<div class="container">
+  <div class="disclaimer">
+    <strong>AI-generated analysis.</strong> Validate against current vendor
+    documentation before using in a customer conversation.
+  </div>
+  <article class="section">
+    <div class="section-header"><div class="section-number">W</div><h2>Who leads — WAF</h2></div>
+    <p>Imperva and Radware lead on WAF depth, both pairing a positive-security (behavioral/ML auto-policy) model with negative signatures and offering true hybrid on-prem plus cloud deployment that the pure-cloud vendors cannot match; Imperva carries the strongest analyst pedigree (repeated Gartner MQ Leader, Forrester Wave Leader). Cloudflare and Akamai deliver excellent edge-native WAFs with massive managed-ruleset automation, but only protect traffic that traverses their networks. Radware&#39;s edge differentiator is auto-generated granular policies with low false positives plus DAST-driven virtual patching.</p>
+  </article>
+  <article class="section">
+    <div class="section-header"><div class="section-number">1</div><h2>WAF Capability Matrix</h2></div>
+    <table class="cmp-table">
+      <thead><tr><th>Capability</th>
+<th class="radware">Radware</th><th>Cloudflare</th><th>Akamai</th><th>Imperva</th>      </tr></thead>
+      <tbody>
+        <tr><th>Deployment modes</th>
+<td class="radware" title="Source: https://www.radware.com/products/appwall/">Widest range: AppWall on-prem appliance/VM, integrated on Alteon ADC, Kubernetes edition, plus fully managed Cloud WAF service - inline or out-of-band, with hybrid on-prem + cloud.</td><td title="Source: https://developers.cloudflare.com/waf/">Cloud/edge-only reverse proxy on Cloudflare&#39;s global anycast network; no on-prem or appliance option. Activated by DNS/CNAME onboarding.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Edge-delivered via App &amp; API Protector on Akamai&#39;s CDN; App &amp; API Protector Hybrid (2025) extends WAF coverage to multicloud, on-prem and CDN-agnostic environments. No customer-run appliance.</td><td title="Source: https://www.imperva.com/products/web-application-firewall-waf/">True hybrid: Cloud WAF (formerly Incapsula), on-prem/virtual gateways, and the Kubernetes-native Elastic WAF deployable in any cloud or on-prem.</td>        </tr>
+        <tr><th>Rule engine type (signature / behavioral / ML)</th>
+<td class="radware" title="Source: https://www.asia-net.com.hk/wp-content/uploads/2021/05/Radware_Appwall_Datasheet.pdf">Combined negative (signature) and positive security model; ML-based auto-policy generation maps the app into zones and derives granular rules.</td><td title="Source: https://developers.cloudflare.com/waf/managed-rules/">Signature/heuristic managed rulesets plus OWASP scoring model; ML-based WAF Attack Score classifies novel/evasive payloads.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Adaptive Security Engine combines ML, real-time threat intelligence and automation; replaced the legacy Kona Rule Set / Automated Attack Groups.</td><td title="Source: https://www.imperva.com/blog/elastic-waf-reshaping-application-security-for-devops-and-hybrid-environments/">Signatures plus positive-security model; Threat Research-curated rules with ML-assisted tuning - 97% of customers run default policies.</td>        </tr>
+        <tr><th>Virtual patching</th>
+<td class="radware" title="Source: https://www.asia-net.com.hk/wp-content/uploads/2021/05/Radware_Appwall_Datasheet.pdf">Yes - AppWall provides real-time security patching via tight DAST integration, auto-scanning changed app zones to generate patch rules.</td><td title="Source: https://developers.cloudflare.com/waf/managed-rules/">Yes - Cloudflare Managed Ruleset ships zero-day/CVE rules within hours, shielding apps before the customer can patch their own code.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Yes - Adaptive Security Engine pushes zero-touch rule updates for new vulnerabilities and CVEs as part of self-tuning managed protection.</td><td title="Source: https://www.imperva.com/blog/archive/deploy-instant-virtual-patching-on-securesphere-waf-with-highly-accurate-web-vulnerability-data/">Yes - virtual patching via Threat Research-maintained rules; can also import DAST/scanner findings to mitigate flaws before code is fixed.</td>        </tr>
+        <tr><th>OWASP Top 10 coverage</th>
+<td class="radware" title="Source: https://www.asia-net.com.hk/wp-content/uploads/2021/05/Radware_Appwall_Datasheet.pdf">Full OWASP Top 10 coverage enforced by combined negative &amp; positive security models across known and unknown attacks.</td><td title="Source: https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/">OWASP Core Ruleset (Cloudflare&#39;s ModSecurity CRS implementation) with PL1-PL4 paranoia levels and an anomaly-scoring threshold model.</td><td title="Source: https://www.akamai.com/site/en/documents/brief/akamai-app-and-api-protector-product-brief.pdf">Adaptive Security Engine covers the OWASP Top 10 (and OWASP API Top 10) with curated attack groups and automated tuning.</td><td title="Source: https://www.imperva.com/products/web-application-firewall-waf/">Full OWASP Top 10 coverage; Imperva&#39;s WAF is a long-standing Gartner MQ and Forrester Wave Leader for application security. [per Imperva claim]</td>        </tr>
+        <tr><th>Custom rule support</th>
+<td class="radware" title="Source: https://support.radware.com/app/answers/answer_view/a_id/1011179/">Custom rules and granular per-zone policies; auto-policy generation can be edited and supplemented with manually authored rules.</td><td title="Source: https://developers.cloudflare.com/waf/custom-rules/">Custom Rules with the wirefilter expression language plus per-rule overrides on managed rulesets; manageable via dashboard, API and Terraform.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Add, modify or delete custom rules with assigned policy actions; the engine can also proactively suggest new/updated rules.</td><td title="Source: https://docs-cybersec.thalesgroup.com/bundle/cloud-application-security/page/policies-api-landing.htm">Custom rules and security policies via the management console and API; rule exceptions and signature overrides supported.</td>        </tr>
+        <tr><th>False-positive management</th>
+<td class="radware" title="Source: https://www.asia-net.com.hk/wp-content/uploads/2021/05/Radware_Appwall_Datasheet.pdf">Combined negative+positive models with auto-policy generation specifically fine-tune and minimize false positives and false negatives.</td><td title="Source: https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/">OWASP score threshold and paranoia levels are tunable; per-rule overrides, Log mode and exception logic reduce false positives.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Adaptive Security Engine self-tuning claims ~5x reduction in false positives and ~2x better detections versus legacy rules.</td><td title="Source: https://www.imperva.com/blog/elastic-waf-reshaping-application-security-for-devops-and-hybrid-environments/">Default policies tuned by Threat Research keep false positives low - 97% use default policy and 95% run in blocking mode.</td>        </tr>
+        <tr><th>API-aware WAF</th>
+<td class="radware" title="Source: https://www.radware.com/products/cloud-waf-service/">Yes - Cloud WAF integrates API Protection (schema validation, API discovery) within the same WAAP policy and portal.</td><td title="Source: https://developers.cloudflare.com/api-shield/">Yes - API Shield integrates with the WAF for schema validation, JWT/mTLS auth and API-specific rate limiting on the same engine.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Yes - App &amp; API Protector is explicitly API-aware (API discovery, constraint enforcement, OWASP API Top 10) within the WAF product.</td><td title="Source: https://www.imperva.com/products/api-security/">Yes - Cloud WAF integrates with Imperva API Security for discovery, schema enforcement and API-specific protections.</td>        </tr>
+        <tr><th>Managed rules service</th>
+<td class="radware" title="Source: https://www.radware.com/products/cloud-waf-service/">Cloud WAF is a fully managed service with Radware-curated signatures, threat-intelligence feeds and ERT-backed managed/emergency response.</td><td title="Source: https://developers.cloudflare.com/waf/managed-rules/">Cloudflare Managed Ruleset and OWASP Core Ruleset are continuously updated by Cloudflare&#39;s security team from global network telemetry.</td><td title="Source: https://www.akamai.com/products/app-and-api-protector">Adaptive Security Engine delivers zero-touch managed rule updates informed by 400+ threat researchers and global edge telemetry.</td><td title="Source: https://www.imperva.com/blog/elastic-waf-reshaping-application-security-for-devops-and-hybrid-environments/">Managed rulesets maintained by the Imperva Threat Research Team with automatic policy updates via the SaaS control plane.</td>        </tr>
+        <tr><th>Inline vs. out-of-path</th>
+<td class="radware" title="Source: https://www.radware.com/products/appwall/">Both - AppWall supports inline gateway and out-of-band Monitor mode (traffic analysis with auto-policy, no client impact); Cloud WAF is inline reverse proxy.</td><td title="Source: https://developers.cloudflare.com/waf/">Inline only - operates as a reverse proxy in the request path; no out-of-path / monitoring-only deployment.</td><td title="Source: https://techdocs.akamai.com/cloud-security/docs/app-api-protector">Inline at the edge as a reverse proxy; supports an alert-only (non-blocking) policy mode but not a true off-path tap.</td><td title="Source: https://www.imperva.com/blog/securespheres-modes-of-operation-part-i/">Inline reverse proxy (Cloud WAF / Elastic WAF); on-prem gateways can run inline (bridge/proxy) with a monitor/simulation mode for tuning.</td>        </tr>
+        <tr><th>SLA / uptime guarantee</th>
+<td class="radware" title="Source: https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/services/596088032765746">Radware Cloud WAF / Cloud Application Protection backed by a published 99.999% availability SLA across 30+ global PoPs; specific contractual remedies set per agreement.</td><td title="Source: https://www.cloudflare.com/enterprise-support-sla/">100% uptime SLA for edge availability on Enterprise plans with financial credits; lower tiers carry no contractual uptime guarantee.</td><td title="Source: https://www.verizon.com/business/service_guide/reg/cp_application_acceleration_services_service_level_agreement.htm">App &amp; API Protector / edge plans include Akamai&#39;s 100% platform availability SLA with service credits.</td><td title="Source: https://www.imperva.com/blog/with-slas-for-ddos-mitigation-the-devil-is-in-the-details/">Imperva Cloud WAF carries a published 99.999% availability SLA and a 3-second DDoS time-to-mitigate SLA; tiered offerings add near-zero false-positive guarantees backed by managed rules.</td>        </tr>
+      </tbody>
+    </table>
+  </article>
+  <article class="section">
+    <div class="section-header"><div class="section-number">&rarr;</div><h2>Go deeper</h2></div>
+    <p style="font-size:0.9rem;">See the full Radware-vs-competitor deep dive:
+<a href="radware-vs-cloudflare.html">vs. Cloudflare</a> &bull; <a href="radware-vs-akamai.html">vs. Akamai</a> &bull; <a href="radware-vs-imperva.html">vs. Imperva</a></p>
+  </article>
+</div>
+<footer class="footer"><div class="container">
+  <p><strong>Radware SE Technical Comparison Hub</strong> &mdash; Edition 2026-Q2</p>
+  <p style="opacity:0.7; margin-top:0.5rem;">
+    <a href="../../index.html">SE Hub</a>
+ &bull; <a href="ddos.html">DDoS</a> &bull; <a href="api-security.html">API Security</a> &bull; <a href="bot-management.html">Bot Management</a> &bull; <a href="llm-ai-firewall.html">LLM / AI Firewall</a>  </p>
+</div></footer>
+</body>
+</html>
