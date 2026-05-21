@@ -20,7 +20,7 @@
 <div class="container">
   <nav class="toc">
     <a href="#positioning">Positioning</a>
-<a href="#waf">WAF</a><a href="#ddos">DDoS</a><a href="#api">API</a><a href="#bot">Bot</a><a href="#llm">LLM/AI</a><a href="#agent">Agent</a>    <a href="#pricing">Pricing</a>
+<a href="#waf">WAF</a><a href="#ddos">DDoS</a><a href="#api">API</a><a href="#bot">Bot</a><a href="#llm">LLM/AI</a><a href="#agent">Agentic AI</a>    <a href="#pricing">Pricing</a>
     <a href="#integration">Integration</a>
     <a href="#battlecard">Battlecard</a>
   </nav>
@@ -217,7 +217,7 @@ Score 5/5 — primary evidence: Cloudflare AI Security for Apps GA 11 March 2026
     </table>
   </article>
   <article class="section" id="agent">
-    <div class="section-header"><div class="section-number">7</div><h2>Agentic-AI Protection</h2></div>
+    <div class="section-header"><div class="section-number">7</div><h2>Agentic AI Protection</h2></div>
     <table class="cmp-table">
       <thead><tr><th>Capability</th><th class="radware">Radware</th><th>Cloudflare</th></tr></thead>
       <tbody>
@@ -293,5 +293,23 @@ Score 3/5 — primary evidence: Cloudflare Enterprise MCP blog (2026) explicitly
  &bull; <a href="radware-vs-akamai.html">vs. Akamai</a> &bull; <a href="radware-vs-imperva.html">vs. Imperva</a>     &bull; <a href="overview.html">Overview</a>
   </p>
 </div></footer>
+<script>
+(function () {
+  document.querySelectorAll('.radar-legend').forEach(function (legend) {
+    var section = legend.closest('.radar-section');
+    var svg = section ? section.querySelector('svg.radar') : null;
+    legend.querySelectorAll('button[data-vendor]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-vendor');
+        btn.classList.toggle('off');
+        if (svg) {
+          svg.querySelectorAll('.vendor.' + key + ', .vertex.' + key)
+             .forEach(function (el) { el.classList.toggle('hidden'); });
+        }
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

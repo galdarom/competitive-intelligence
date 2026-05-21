@@ -144,21 +144,21 @@ The decisive emerging front is AI security. The LLM/AI firewall market is immatu
       </td>
     </tr>
     <tr>
-      <th scope="row"><a href="agentic-ai.html">Agentic-AI Protection</a></th>
+      <th scope="row"><a href="agentic-ai.html">Agentic AI Protection</a></th>
       <td class="hm-cell" style="--score: 3"
-          title="Radware — Agentic-AI Protection: 3.3/5">
+          title="Radware — Agentic AI Protection: 3.3/5">
         3.3
       </td>
       <td class="hm-cell" style="--score: 3"
-          title="Cloudflare — Agentic-AI Protection: 3.0/5">
+          title="Cloudflare — Agentic AI Protection: 3.0/5">
         3.0
       </td>
       <td class="hm-cell" style="--score: 1"
-          title="Akamai — Agentic-AI Protection: 1.2/5">
+          title="Akamai — Agentic AI Protection: 1.2/5">
         1.2
       </td>
       <td class="hm-cell" style="--score: 1"
-          title="Imperva — Agentic-AI Protection: 1.2/5">
+          title="Imperva — Agentic AI Protection: 1.2/5">
         1.2
       </td>
     </tr>
@@ -209,12 +209,30 @@ The decisive emerging front is AI security. The LLM/AI firewall market is immatu
     <p style="font-size:0.9rem;">Vendor deep dives:
 <a href="radware-vs-cloudflare.html">vs. Cloudflare</a> &bull; <a href="radware-vs-akamai.html">vs. Akamai</a> &bull; <a href="radware-vs-imperva.html">vs. Imperva</a><br>
       Pillar tables:
-<a href="waf.html">WAF</a> &bull; <a href="ddos.html">DDoS</a> &bull; <a href="api-security.html">API Security</a> &bull; <a href="bot-management.html">Bot Management</a> &bull; <a href="llm-ai-firewall.html">LLM / AI Firewall</a> &bull; <a href="agentic-ai.html">Agentic-AI Protection</a></p>
+<a href="waf.html">WAF</a> &bull; <a href="ddos.html">DDoS</a> &bull; <a href="api-security.html">API Security</a> &bull; <a href="bot-management.html">Bot Management</a> &bull; <a href="llm-ai-firewall.html">LLM / AI Firewall</a> &bull; <a href="agentic-ai.html">Agentic AI Protection</a></p>
   </article>
 </div>
 <footer class="footer"><div class="container">
   <p><strong>Radware SE Technical Comparison Hub</strong> &mdash; Edition 2026-Q2</p>
   <p style="opacity:0.7; margin-top:0.5rem;"><a href="../../index.html">SE Hub</a> &bull; <a href="../../archives.html">Archive</a></p>
 </div></footer>
+<script>
+(function () {
+  document.querySelectorAll('.radar-legend').forEach(function (legend) {
+    var section = legend.closest('.radar-section');
+    var svg = section ? section.querySelector('svg.radar') : null;
+    legend.querySelectorAll('button[data-vendor]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-vendor');
+        btn.classList.toggle('off');
+        if (svg) {
+          svg.querySelectorAll('.vendor.' + key + ', .vertex.' + key)
+             .forEach(function (el) { el.classList.toggle('hidden'); });
+        }
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
